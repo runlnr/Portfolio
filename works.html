@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>if(sessionStorage.getItem('np_has_seen_intro')){document.documentElement.classList.add('skip-intro');}</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Works (15) — N/P</title>
+  <meta name="description" content="Explore selected graphic design, branding, art direction, and digital projects by N/P.">
+  
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/hero-3d.css">
+  <link rel="stylesheet" href="css/glassmorphism.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Fullscreen Cinematic Intro Loading Screen -->
+  <div class="site-loader-overlay" id="site-loader">
+    <div class="loader-brand-lockup">
+      <span class="loader-char loader-n" id="loader-n">N</span>
+      <span class="loader-char loader-slash" id="loader-slash">/</span>
+      <span class="loader-char loader-p" id="loader-p">P</span>
+    </div>
+  </div>
+
+  <!-- Top Navigation with Centered Middle 3 Columns -->
+  <header class="site-nav-top">
+    <div class="nav-left">
+      <a href="index.html" class="hero-nav-brand">N/P</a>
+    </div>
+
+    <div class="nav-center-group">
+      <div class="hero-nav-stack">
+        <a href="works.html" class="hero-nav-link active">WORKS (15)</a>
+        <a href="about.html" class="hero-nav-link">ABOUT</a>
+      </div>
+
+      <div class="hero-nav-stack">
+        <a href="mailto:phnm@outlook.com" class="hero-nav-link">PHNM@OUTLOOK.COM</a>
+        <a href="contact.html" class="hero-nav-link">CONTACT</a>
+      </div>
+
+      <div class="hero-nav-stack">
+        <span>GRAPHIC DESIGNER</span>
+        <span>HO CHI MINH CITY, VIETNAM</span>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <span class="live-clock">--:--:-- (GMT+7)</span>
+    </div>
+  </header>
+
+  <!-- Floating Cursor Image Follower for List View -->
+  <div id="hover-preview" class="hover-preview-container">
+    <img id="hover-preview-img" src="" alt="Project Visual Preview" />
+  </div>
+
+  <main class="site-container works-page-main">
+    <!-- Header with Title & View Toggles -->
+    <header class="works-header">
+      <div class="works-title-wrap">
+        <h1 class="works-main-title">WORK</h1>
+        <span class="works-counter">(15)</span>
+      </div>
+
+      <!-- View Switcher (Grid vs List) -->
+      <div class="view-toggle">
+        <button id="toggle-grid" class="view-toggle-btn active" aria-label="Grid View">
+          <span class="toggle-icon">■</span> GRID
+        </button>
+        <button id="toggle-list" class="view-toggle-btn" aria-label="List View">
+          <span class="toggle-icon">≡</span> LIST
+        </button>
+      </div>
+    </header>
+
+    <!-- Grid View Container -->
+    <div id="works-grid" class="works-grid-container"></div>
+
+    <!-- List View Container -->
+    <div id="works-list" class="works-list-container" style="display: none;">
+      <!-- Table Column Headers -->
+      <div class="works-list-header-row">
+        <span class="col-num">NO.</span>
+        <span class="col-title">PROJECT / TITLE</span>
+        <span class="col-field">DISCIPLINE</span>
+        <span class="col-client">CLIENT</span>
+        <span class="col-year">YEAR</span>
+        <span class="col-arrow">VIEW</span>
+      </div>
+      <!-- Injected Project Rows -->
+      <div id="works-list-items" class="works-list-items-wrap"></div>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="site-container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <div class="footer-links-list">
+            <a href="index.html">Home</a>
+            <a href="works.html">Works (15)</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Socials</div>
+          <div class="footer-links-list">
+            <a href="https://twitter.com" target="_blank" rel="noopener">Twitter / X ↗</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram ↗</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Legal</div>
+          <div class="footer-links-list">
+            <a href="policies.html">Privacy Policy</a>
+            <a href="policies.html#cookies">Cookies Policy</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Studio</div>
+          <div class="footer-links-list">
+            <span>Ho Chi Minh City, Vietnam</span>
+            <span class="live-clock">--:--:-- (GMT+7)</span>
+            <a href="mailto:phnm@outlook.com" style="margin-top: 8px;">phnm@outlook.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-edition">
+          <span>N/P</span>
+          <span>©2024 - all rights reserved®</span>
+        </div>
+        <div>
+          <span>All rights reserved ®</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/vendor/lucide.min.js"></script>
+  <script src="js/projects-data.js"></script>
+  <script type="module" src="js/utils.js"></script>
+  <script src="js/motion-stack.js"></script>
+  <script src="js/works.js"></script>
+  <script src="js/project.js"></script>
+  <script src="js/contact.js"></script>
+  <script type="module" src="js/hero-slash-3d.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

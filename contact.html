@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>if(sessionStorage.getItem('np_has_seen_intro')){document.documentElement.classList.add('skip-intro');}</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — N/P</title>
+  <meta name="description" content="Get in touch with N/P, Graphic Designer based in Ho Chi Minh City, Vietnam.">
+  
+    <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/hero-3d.css">
+  <link rel="stylesheet" href="css/glassmorphism.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  </head>
+<body>
+
+  <!-- Fullscreen Cinematic Intro Loading Screen -->
+  <div class="site-loader-overlay" id="site-loader">
+    <div class="loader-brand-lockup">
+      <span class="loader-char loader-n" id="loader-n">N</span>
+      <span class="loader-char loader-slash" id="loader-slash">/</span>
+      <span class="loader-char loader-p" id="loader-p">P</span>
+    </div>
+  </div>
+
+
+  <!-- Top Navigation with Centered Middle 3 Columns -->
+  <header class="site-nav-top">
+    <div class="nav-left">
+      <a href="index.html" class="hero-nav-brand">N/P</a>
+    </div>
+
+    <div class="nav-center-group">
+      <div class="hero-nav-stack">
+        <a href="works.html" class="hero-nav-link">WORKS (15)</a>
+        <a href="about.html" class="hero-nav-link">ABOUT</a>
+      </div>
+
+      <div class="hero-nav-stack">
+        <a href="mailto:phnm@outlook.com" class="hero-nav-link">phnm@outlook.com</a>
+        <a href="contact.html" class="hero-nav-link" style="text-decoration: underline;">CONTACT</a>
+      </div>
+
+      <div class="hero-nav-stack">
+        <span>GRAPHIC DESIGNER</span>
+        <span>HO CHI MINH CITY, VIETNAM</span>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <span class="live-clock">23:48:00 (GMT+7)</span>
+    </div>
+  </header>
+
+  <main class="site-container">
+    <section class="contact-hero" style="padding-top: 80px;">
+      <div style="margin-bottom: 20px;">
+        <span class="font-mono" style="color: var(--text-muted);">GOT A PROJECT IN MIND? / LET'S TALK</span>
+      </div>
+      <h1 style="font-size: clamp(3rem, 8vw, 6rem);">Say Hello</h1>
+      <p style="font-size: clamp(1.2rem, 2.5vw, 1.8rem); max-width: 800px; margin-top: 24px; color: #b0b0b0; line-height: 1.3;">
+        Available for freelance visual identity, branding, typography, art direction, and digital projects.
+      </p>
+    </section>
+
+    <!-- Success Message Notification -->
+    <div id="form-success" style="display: none; background: #141414; border: 1px solid var(--border-color); color: #fff; padding: 24px 32px; border-radius: var(--radius-md); margin-bottom: 40px;">
+      <div class="font-mono" style="font-size: 14px; font-weight: 600;">Thank you! Your message has been sent.</div>
+      <p style="font-size: 13px; color: #888; margin-top: 6px;">I will review your project details and get back to you within 24 hours.</p>
+    </div>
+
+    <!-- Contact Form & Info Layout -->
+    <div class="contact-layout">
+      <form id="contact-form" class="contact-form-section">
+        <div>
+          <div class="form-group-title">What we can do for you? (Select all that apply)</div>
+          <div class="pill-group">
+            <button type="button" class="pill-option service-pill" data-val="GRAPHIC DESIGN">Graphic Design</button>
+            <button type="button" class="pill-option service-pill" data-val="BRAND IDENTITY">Brand Identity</button>
+            <button type="button" class="pill-option service-pill" data-val="TYPOGRAPHY">Typography</button>
+            <button type="button" class="pill-option service-pill" data-val="ART DIRECTION">Art Direction</button>
+            <button type="button" class="pill-option service-pill" data-val="UI/UX">UI/UX</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="form-group-title">Budget in USD</div>
+          <div class="pill-group">
+            <button type="button" class="pill-option budget-pill" data-val="UNDER $2K">Under $2k</button>
+            <button type="button" class="pill-option budget-pill" data-val="$2K-$5K">$2k — $5k</button>
+            <button type="button" class="pill-option budget-pill" data-val="$5K-$10K">$5k — $10k</button>
+            <button type="button" class="pill-option budget-pill" data-val="$10K+">$10k+</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="form-group-title">Project Details</div>
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div>
+              <input type="text" id="client-name" class="input-field" placeholder="Your Name *" required>
+            </div>
+            <div>
+              <input type="email" id="client-email" class="input-field" placeholder="Your Email Address *" required>
+            </div>
+            <div>
+              <textarea id="client-message" class="input-field" rows="4" placeholder="Tell me about your project, timeline, and goals..." style="resize: vertical;"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Message ↗</button>
+      </form>
+
+      <div class="contact-info-panel">
+        <div>
+          <div class="info-block-title">Direct Email</div>
+          <div class="info-block-content">
+            <a href="mailto:phnm@outlook.com" style="text-decoration: underline; color: #ffffff;">phnm@outlook.com</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="info-block-title">Location &amp; Local Time</div>
+          <div class="info-block-content">
+            <div>Ho Chi Minh City, Vietnam</div>
+            <div class="live-clock" style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">--:--:-- (GMT+7)</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="info-block-title">Social Channels</div>
+          <div class="footer-links-list" style="margin-top: 10px;">
+            <a href="https://twitter.com" target="_blank" rel="noopener">Twitter / X ↗</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram ↗</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="info-block-title">Working Hours</div>
+          <div style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">
+            Monday — Friday<br>
+            09:00 — 18:00 (GMT+7)
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="site-container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <div class="footer-links-list">
+            <a href="index.html">Home</a>
+            <a href="works.html">Works (15)</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Socials</div>
+          <div class="footer-links-list">
+            <a href="https://twitter.com" target="_blank" rel="noopener">Twitter / X ↗</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram ↗</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Legal</div>
+          <div class="footer-links-list">
+            <a href="policies.html">Privacy Policy</a>
+            <a href="policies.html#cookies">Cookies Policy</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Studio</div>
+          <div class="footer-links-list">
+            <span>Ho Chi Minh City, Vietnam</span>
+            <span class="live-clock">--:--:-- (GMT+7)</span>
+            <a href="mailto:phnm@outlook.com" style="margin-top: 8px;">phnm@outlook.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-edition">
+          <span>N/P</span>
+          <span>©2024 - all rights reserved®</span>
+        </div>
+        <div>
+          <span>All rights reserved ®</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/vendor/lucide.min.js"></script>
+  <script src="js/projects-data.js"></script>
+  <script type="module" src="js/utils.js"></script>
+  <script src="js/motion-stack.js"></script>
+  <script src="js/works.js"></script>
+  <script src="js/project.js"></script>
+  <script src="js/contact.js"></script>
+  <script type="module" src="js/hero-slash-3d.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,621 @@
+/* ==========================================================================
+   Navigation Bar (Dark Theme)
+   ========================================================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px clamp(12px, 3vw, 40px);
+  color: #ffffff;
+  pointer-events: none;
+}
+
+.nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  pointer-events: auto;
+}
+
+.nav-col-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-brand {
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -0.03em;
+  font-size: 13px;
+  opacity: 1;
+}
+
+.nav-brand:hover {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.nav-brand::before {
+  display: none !important;
+  content: none !important;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.nav-link::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 6px;
+  background-color: #ffffff;
+  margin-right: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              margin-right 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  width: 6px;
+  height: 6px;
+  margin-right: 5px;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nav-link:hover {
+  opacity: 1;
+  color: #ffffff;
+}
+
+.nav-col-center {
+  text-align: center;
+}
+
+.nav-col-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  grid-column: span 2;
+}
+
+.nav-pill-contact {
+  background: #ffffff;
+  color: #000000;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  transition: transform var(--transition-fast);
+}
+
+.nav-pill-contact:hover {
+  transform: scale(1.04);
+  opacity: 1;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Fullscreen Mobile Overlay */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  color: #ffffff;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 80px 24px 40px;
+  transform: translateY(-100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-nav-overlay.open {
+  transform: translateY(0);
+}
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mobile-links a {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Footer Component (Dark Theme)
+   ========================================================================== */
+.site-footer {
+  background-color: #000000;
+  border-top: 1px solid var(--border-color);
+  padding: 60px clamp(16px, 3vw, 40px) 30px;
+  margin-top: auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.footer-col-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links-list a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-links-list a::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 6px;
+  background-color: #ffffff;
+  margin-right: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              margin-right 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.footer-links-list a:hover::before {
+  width: 6px;
+  height: 6px;
+  margin-right: 6px;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.footer-links-list a:hover {
+  opacity: 1;
+  color: #ffffff;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.footer-edition {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   Pills, Badges & Toggles (Dark Theme)
+   ========================================================================== */
+.view-toggle {
+  display: inline-flex;
+  background: var(--card-bg);
+  padding: 3px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  gap: 2px;
+}
+
+.view-toggle-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #ffffff;
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+}
+
+.view-toggle-btn::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 6px;
+  background-color: #ffffff;
+  margin-right: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              margin-right 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.view-toggle-btn:hover::before,
+.view-toggle-btn.active::before {
+  width: 6px;
+  height: 6px;
+  margin-right: 5px;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.view-toggle-btn.active {
+  background: #222222;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--card-bg);
+  color: #ffffff;
+  border: 1px solid var(--border-color);
+}
+
+.badge-red {
+  background: var(--accent-red);
+  color: #ffffff;
+  border-color: var(--accent-red);
+}
+
+/* Pill Selectors (Contact Form) */
+.pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill-option {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+}
+
+.pill-option::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 6px;
+  background-color: #ffffff;
+  margin-right: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              margin-right 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.pill-option:hover::before,
+.pill-option.selected::before {
+  width: 6px;
+  height: 6px;
+  margin-right: 6px;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.pill-option:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.pill-option.selected {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  font-weight: 600;
+}
+
+.pill-option.selected::before {
+  background-color: #000000;
+}
+
+/* ==========================================================================
+   Ticker / Marquee
+   ========================================================================== */
+.ticker-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 20px 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ticker-move {
+  display: inline-flex;
+  gap: 40px;
+  animation: tickerScroll 25s linear infinite;
+}
+
+.ticker-item {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ticker-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--text-muted);
+  border-radius: 50%;
+}
+
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   Cursor Hover Image Follow (List View)
+   ========================================================================== */
+.hover-reveal-image {
+  position: fixed;
+  width: 320px;
+  height: 220px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 500;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.85);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hover-reveal-image.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.hover-reveal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   Cinematic Intro Loader Screen (Covers ENTIRE screen including taskbar)
+   ========================================================================== */
+.site-loader-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  z-index: 9999999 !important; /* Highest z-index: hides taskbar and all elements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+  transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: transform;
+  overflow: hidden;
+}
+
+.site-loader-overlay.slide-up {
+  transform: translateY(-100%);
+}
+
+.loader-brand-lockup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-nav);
+  font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  user-select: none;
+  line-height: 1;
+}
+
+.loader-char {
+  display: inline-block;
+  line-height: 1;
+}
+
+.loader-slash {
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  z-index: 10;
+  transform: translateY(-2px);
+}
+
+.loader-n,
+.loader-p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: transform 0.58s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* 3rd Beat: Smooth sliding emergence from directly behind "/" */
+.loader-brand-lockup.popped .loader-n {
+  opacity: 1;
+  transform: translate(-135%, -50%);
+}
+
+.loader-brand-lockup.popped .loader-p {
+  opacity: 1;
+  transform: translate(35%, -50%);
+}
+
+/* Hide cursor completely during loader */
+body.is-loading .custom-cursor,
+body.is-loading {
+  cursor: none !important;
+}
+
+body.is-loading .custom-cursor {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ==========================================================================
+   Page Transition Curtain & Taskbar Fixed Visibility (Drag UP)
+   ========================================================================== */
+html.skip-intro .site-loader-overlay {
+  display: none !important;
+}
+
+/* Top Taskbar: Standard fixed layer (Covered by page transition curtain) */
+.hero-top-nav,
+.site-nav-top {
+  z-index: 1000 !important;
+}
+
+/* Transition Curtain: Sweeps UP from bottom beneath the top taskbar */
+.page-transition-curtain {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  z-index: 999990;
+  transform: translateY(100%);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* ==========================================================================
+   Page Transition Curtain (Subtle, Silk-Smooth, Zero-Glitch Easing)
+   ========================================================================== */
+html.skip-intro .site-loader-overlay {
+  display: none !important;
+}
+
+/* Zero flash: when arriving from a page click, start curtain fully covering */
+html.is-navigating-in .page-transition-curtain {
+  transform: translateY(0) !important;
+  transition: none !important;
+}
+
+/* Top Taskbar */
+.hero-top-nav,
+.site-nav-top {
+  z-index: 1000 !important;
+}
+
+/* Transition Curtain: 0.68s / 0.75s luxurious cubic-bezier */
+.page-transition-curtain {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  z-index: 999990;
+  transform: translateY(100%);
+  pointer-events: none;
+  transition: transform 0.68s cubic-bezier(0.65, 0, 0.15, 1);
+  will-change: transform;
+}
+
+.page-transition-curtain.is-covering {
+  transform: translateY(0) !important;
+  pointer-events: all;
+}
+
+.page-transition-curtain.is-revealing {
+  transform: translateY(-100%) !important;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.hero-top-nav,
+.site-nav-top {
+  mix-blend-mode: difference;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.hero-top-nav.nav-hidden,
+.site-nav-top.nav-hidden {
+  transform: translateY(-120%) !important;
+}

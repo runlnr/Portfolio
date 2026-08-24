@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Exact Inter Display Webfonts */
+@font-face {
+  font-family: "Inter Display";
+  src: url("https://framerusercontent.com/assets/gazZKZuUEtvr9ULhdA4SprP0AZ0.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter Display";
+  src: url("https://framerusercontent.com/assets/ePuN3mCjzajIHnyCdvKBFiZkyY0.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter Display";
+  src: url("https://framerusercontent.com/assets/I11LrmuBDQZweplJ62KkVsklU5Y.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ==========================================================================
+     User Transition Speed Controls (Adjust anytime)
+     ========================================================================== */
+  --transition-cover-speed: 0.48s;   /* Time curtain takes to drag UP and cover */
+  --transition-reveal-speed: 0.52s;  /* Time curtain takes to drag UP and reveal */
+  --transition-cover-ease: cubic-bezier(0.65, 0, 0.15, 1);
+  --transition-reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --font-nav: 'Inter Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Martian Mono', monospace;
+
+  /* User-Defined Exact Settings */
+  --nav-font-size: 13px;
+  --nav-line-height: 14.5px;
+  --nav-letter-spacing: -0.3px;
+  --nav-font-weight: 700;
+  --nav-padding-y: 10px;
+  --nav-padding-x: 12px;
+  --nav-center-max-width: 900px;
+  --nav-center-gap: 120px;
+  --nav-stack-gap: 0px;
+  --nav-center-align: left;
+
+  /* Custom Circle Cursor Settings */
+  --cursor-size: 16px;
+
+  /* Center Disc Overall Dimensions (Bigger) */
+  --disc-size: min(78vw, 660px);
+  --ascii-opacity: 0.92;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+/* Nav Typography - Exact Inter Display */
+.hero-top-nav,
+.site-nav-top,
+.hero-nav-brand,
+.hero-nav-link,
+.hero-nav-stack,
+.nav-text {
+  font-family: var(--font-nav);
+  font-size: var(--nav-font-size);
+  font-weight: var(--nav-font-weight);
+  line-height: var(--nav-line-height);
+  letter-spacing: var(--nav-letter-spacing);
+  text-transform: uppercase;
+  color: #ffffff;
+}

@@ -1,0 +1,128 @@
+/* ==========================================================================
+   Responsive Breakpoints & Media Queries
+   ========================================================================== */
+
+/* Tablet (810px - 1199px) */
+@media (max-width: 1199px) {
+  .nav-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .nav-col-center,
+  .nav-col-right .nav-meta-hide {
+    display: none;
+  }
+
+  .featured-grid,
+  .works-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .project-narrative-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .project-meta-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Mobile (< 810px) */
+@media (max-width: 809.98px) {
+  .site-header {
+    padding: 16px 20px;
+  }
+
+  .nav-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-col-left .nav-link,
+  .nav-col-center,
+  .nav-col-right {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .hero-bottom-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero-meta-col {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .featured-grid,
+  .works-grid-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .works-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .works-list-row {
+    grid-template-columns: 40px 1fr auto;
+  }
+
+  .works-list-field,
+  .works-list-client,
+  .works-list-year {
+    display: none;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .project-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .gallery-item.full-width {
+    grid-column: span 1;
+  }
+
+  .clients-row {
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .client-year {
+    display: none;
+  }
+}
