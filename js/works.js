@@ -1,6 +1,6 @@
 /**
  * Works Page Logic
- * Renders Grid & List views, handles View Toggle Switcher, and Floating Cursor Image Preview Follower
+ * Renders Grid & List views, handles View Toggle Switcher, Floating Cursor /view/ Tag, and List Image Preview Follower
  */
 
 window.initWorksPage = function() {
@@ -15,21 +15,81 @@ window.initWorksPage = function() {
   const projects = window.SWAG_PROJECTS || [];
   if (!gridContainer && !listContainer) return;
 
-  // 1. Render Grid View
+  // Clean up any prior animation frame loops (SPA resilience)
+  if (window._gridCursorTagRaf) {
+    cancelAnimationFrame(window._gridCursorTagRaf);
+    window._gridCursorTagRaf = null;
+  }
+  if (window._listViewPreviewRaf) {
+    cancelAnimationFrame(window._listViewPreviewRaf);
+    window._listViewPreviewRaf = null;
+  }
+
+  // Ensure Floating /view/ Cursor Tag element exists in DOM
+  let cursorTag = document.getElementById('grid-cursor-tag');
+  if (!cursorTag) {
+    cursorTag = document.createElement('div');
+    cursorTag.id = 'grid-cursor-tag';
+    cursorTag.className = 'grid-cursor-tag';
+    cursorTag.textContent = '/view/';
+    document.body.appendChild(cursorTag);
+  }
+
+  // 1. Render Grid View (Image only with Top-Left Name & Top-Right Date on Hover)
   if (gridContainer && projects.length) {
     gridContainer.innerHTML = projects.map(p => `
-      <a href="project.html?id=${p.id}" class="work-grid-card">
+      <a href="project.html?id=${p.id}" class="work-grid-card" aria-label="${p.title} (${p.year})">
+        <div class="work-card-header">
+          <span class="work-card-title">${p.title}</span>
+          <span class="work-card-date">${p.year}</span>
+        </div>
         <div class="work-card-media">
           <img src="${p.image}" alt="${p.title}" loading="lazy" />
         </div>
-        <div class="work-card-info">
-          <span class="work-card-number">${p.number}</span>
-          <span class="work-card-title">${p.title}</span>
-          <span class="work-card-category">${p.field || (p.disciplines ? p.disciplines[0] : 'Design')}</span>
-          <span class="work-card-year">${p.year}</span>
-        </div>
       </a>
     `).join('');
+
+    // Floating /view/ Cursor Tag Follower for Grid Cards
+    const gridCards = gridContainer.querySelectorAll('.work-grid-card');
+    let mouseX = -9999, mouseY = -9999;
+    let currentX = -9999, currentY = -9999;
+    let isHoveringGrid = false;
+
+    gridCards.forEach(card => {
+      card.addEventListener('mouseenter', (e) => {
+        cursorTag.classList.add('visible');
+        isHoveringGrid = true;
+        if (currentX === -9999) {
+          currentX = e.clientX;
+          currentY = e.clientY;
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        cursorTag.classList.remove('visible');
+        isHoveringGrid = false;
+      });
+
+      card.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+    });
+
+    function animateCursorTag() {
+      if (isHoveringGrid) {
+        if (currentX === -9999) {
+          currentX = mouseX;
+          currentY = mouseY;
+        }
+        currentX += (mouseX - currentX) * 0.2;
+        currentY += (mouseY - currentY) * 0.2;
+        cursorTag.style.left = `${currentX}px`;
+        cursorTag.style.top = `${currentY}px`;
+      }
+      window._gridCursorTagRaf = requestAnimationFrame(animateCursorTag);
+    }
+    animateCursorTag();
   }
 
   // 2. Render List View
@@ -49,10 +109,9 @@ window.initWorksPage = function() {
     // Floating Cursor Image Preview Follower
     if (hoverPreview && hoverImage) {
       const rows = targetListElement.querySelectorAll('.work-list-item-row');
-      let mouseX = -9999, mouseY = -9999;
-      let currentX = -9999, currentY = -9999;
-      let isHovering = false;
-      let rafId = null;
+      let listMouseX = -9999, listMouseY = -9999;
+      let listCurrentX = -9999, listCurrentY = -9999;
+      let isHoveringList = false;
 
       rows.forEach(row => {
         row.addEventListener('mouseenter', (e) => {
@@ -60,33 +119,33 @@ window.initWorksPage = function() {
           if (imgSrc) {
             hoverImage.src = imgSrc;
             hoverPreview.classList.add('visible');
-            isHovering = true;
+            isHoveringList = true;
           }
         });
 
         row.addEventListener('mouseleave', () => {
           hoverPreview.classList.remove('visible');
-          isHovering = false;
+          isHoveringList = false;
         });
 
         row.addEventListener('mousemove', (e) => {
-          mouseX = e.clientX + 30;
-          mouseY = e.clientY - 20;
+          listMouseX = e.clientX + 30;
+          listMouseY = e.clientY - 20;
         });
       });
 
       function animatePreview() {
-        if (isHovering) {
-          if (currentX === -9999) {
-            currentX = mouseX;
-            currentY = mouseY;
+        if (isHoveringList) {
+          if (listCurrentX === -9999) {
+            listCurrentX = listMouseX;
+            listCurrentY = listMouseY;
           }
-          currentX += (mouseX - currentX) * 0.14;
-          currentY += (mouseY - currentY) * 0.14;
-          hoverPreview.style.left = `${currentX}px`;
-          hoverPreview.style.top = `${currentY}px`;
+          listCurrentX += (listMouseX - listCurrentX) * 0.14;
+          listCurrentY += (listMouseY - listCurrentY) * 0.14;
+          hoverPreview.style.left = `${listCurrentX}px`;
+          hoverPreview.style.top = `${listCurrentY}px`;
         }
-        rafId = requestAnimationFrame(animatePreview);
+        window._listViewPreviewRaf = requestAnimationFrame(animatePreview);
       }
       animatePreview();
     }
@@ -100,6 +159,7 @@ window.initWorksPage = function() {
       toggleListBtn.classList.remove('active');
       gridContainer.style.display = 'grid';
       listContainer.style.display = 'none';
+      if (cursorTag) cursorTag.classList.remove('visible');
       if (window.motionStack) window.motionStack.refresh();
     });
 
@@ -109,6 +169,7 @@ window.initWorksPage = function() {
       toggleGridBtn.classList.remove('active');
       gridContainer.style.display = 'none';
       listContainer.style.display = 'flex';
+      if (cursorTag) cursorTag.classList.remove('visible');
       if (window.motionStack) window.motionStack.refresh();
     });
   }

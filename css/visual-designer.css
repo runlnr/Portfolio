@@ -1,0 +1,292 @@
+/* ==========================================================================
+   Visual Designer HUD Panel (Real-Time Live Customizer)
+   ========================================================================== */
+
+.vd-toggle-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999999;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 8px 14px;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease, background 0.2s ease;
+  user-select: none;
+}
+
+.vd-toggle-btn:hover {
+  transform: scale(1.05);
+  background: #f0f0f0;
+}
+
+.vd-panel {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  bottom: 16px;
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  background: rgba(12, 12, 12, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  z-index: 9999998;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+  font-family: var(--font-sans), sans-serif;
+  color: #ffffff;
+  transform: translateX(420px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.vd-panel.active {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.vd-header {
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.vd-title {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vd-title::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #00ff66;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ff66;
+}
+
+.vd-close-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.vd-close-btn:hover {
+  color: #ffffff;
+}
+
+.vd-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.vd-section {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 6px;
+  padding: 14px;
+}
+
+.vd-section-title {
+  font-family: var(--font-mono), monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.vd-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vd-control {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vd-control-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.vd-val-badge {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #00ff66;
+}
+
+.vd-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vd-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
+}
+
+.vd-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s ease;
+}
+
+.vd-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  background: #00ff66;
+}
+
+.vd-footer {
+  padding: 14px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.vd-btn-row {
+  display: flex;
+  gap: 8px;
+}
+
+.vd-action-btn {
+  flex: 1;
+  padding: 9px 12px;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.vd-btn-primary {
+  background: #00ff66;
+  color: #000000;
+  border-color: #00ff66;
+}
+
+.vd-btn-primary:hover {
+  background: #22ff77;
+}
+
+.vd-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.vd-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.vd-toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: #00ff66;
+  color: #000000;
+  padding: 8px 16px;
+  font-family: var(--font-mono), monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 99999999;
+}
+
+.vd-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Show Default System Cursor inside Visual Designer HUD
+   ========================================================================== */
+.vd-panel,
+.vd-panel *,
+.vd-toggle-btn,
+.vd-toggle-btn * {
+  cursor: auto !important;
+}
+
+.vd-action-btn,
+.vd-close-btn,
+.vd-slider,
+.vd-toggle-btn,
+.vd-slider::-webkit-slider-thumb {
+  cursor: pointer !important;
+}
+
+body.vd-hovered .custom-cursor,
+.vd-panel:hover ~ .custom-cursor {
+  opacity: 0 !important;
+}

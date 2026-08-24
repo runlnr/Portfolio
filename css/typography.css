@@ -29,26 +29,68 @@
   /* ==========================================================================
      User Transition Speed Controls (Adjust anytime)
      ========================================================================== */
-  --transition-cover-speed: 0.48s;   /* Time curtain takes to drag UP and cover */
-  --transition-reveal-speed: 0.52s;  /* Time curtain takes to drag UP and reveal */
+  --transition-cover-speed: 0.48s;
+  /* Time curtain takes to drag UP and cover */
+  --transition-reveal-speed: 0.52s;
+  /* Time curtain takes to drag UP and reveal */
   --transition-cover-ease: cubic-bezier(0.65, 0, 0.15, 1);
   --transition-reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   --font-nav: 'Inter Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'Martian Mono', monospace;
+  --font-mono: monospace;
 
-  /* User-Defined Exact Settings */
-  --nav-font-size: 13px;
-  --nav-line-height: 14.5px;
-  --nav-letter-spacing: -0.3px;
+  /* Navigation Typography, Boldness & Gaps */
+  --nav-font-size: 13.5px;
   --nav-font-weight: 700;
-  --nav-padding-y: 10px;
-  --nav-padding-x: 12px;
-  --nav-center-max-width: 900px;
-  --nav-center-gap: 120px;
-  --nav-stack-gap: 0px;
-  --nav-center-align: left;
+  --nav-line-height: 15px;
+  --nav-letter-spacing: -0.2px;
+  /* Master letter gap */
+  --group-a-letter-spacing: -0.55px;
+  /* Group A letter gap */
+  --group-b-letter-spacing: -0.55px;
+  /* Group B letter gap */
+  --nav-item-gap: 56px;
+  /* Item gap */
+  --nav-groups-gap: 252px;
+  /* Gap between Group A and Group B */
+  --nav-padding-y: 13px;
+  --nav-padding-x: 20px;
+
+  /* Live Clock Typography & Green Dot */
+  --clock-font-size: 12.5px;
+  --clock-font-weight: 400;
+  --clock-letter-spacing: -0.035em;
+  --clock-dot-size: 5.5px;
+  --clock-dot-color: #00ff66;
+
+  /* Center Main Visual: Interactive ASCII Disc (User Locked) */
+  --center-disc-size: 658px;
+  --center-disc-top: 48%;
+  --center-disc-left: 50%;
+  --disc-repulsion-radius: 320px;
+  --disc-repulsion-force: 26;
+
+  /* Editorial Mid Metadata: 01/ and /INTRO Vertical Position */
+  --hero-meta-top: 47.5%;
+
+  /* Studio Description Layout (Matched to Group A & B Nav Bar) */
+  --vd-bottom-desc-max-width: 420px;
+  --vd-desc-left: 55%;
+  --vd-bottom-desc-size: 13.5px;
+  --vd-bottom-desc-weight: 700;
+  --vd-bottom-desc-letter-spacing: -0.35px;
+  --vd-bottom-desc-line-height: 1.35;
+
+  /* ==========================================================================
+     Hero Statement Size & Layout Controls (Single-Line Enforced)
+     ========================================================================== */
+  --hero-statement-font-size: 64px;
+  --hero-statement-line-height: 0.8;
+  --hero-statement-letter-spacing: -0.04em;
+  --hero-statement-font-weight: 700;
+  --hero-statement-bottom: 28px;
+  --hero-statement-left: 20px;
 
   /* Custom Circle Cursor Settings */
   --cursor-size: 16px;

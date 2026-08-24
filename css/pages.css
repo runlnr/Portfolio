@@ -396,8 +396,8 @@
    -------------------------------------------------------------------------- */
 .works-grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 48px 32px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 56px 36px;
 }
 
 .work-grid-card {
@@ -405,8 +405,42 @@
   color: #ffffff;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  group: pointer;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Outside & Above Image: Name Top-Left, Date Top-Right */
+.work-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+  min-height: 18px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1), transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.work-card-title {
+  font-family: var(--font-nav);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.work-card-date {
+  font-family: var(--font-mono), 'Martian Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.work-grid-card:hover .work-card-header {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .work-card-media {
@@ -417,7 +451,7 @@
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.35s ease;
 }
 
 .work-card-media img {
@@ -430,38 +464,56 @@
 
 .work-grid-card:hover .work-card-media {
   border-color: rgba(255, 255, 255, 0.25);
-  transform: translateY(-4px);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
 }
 
 .work-grid-card:hover .work-card-media img {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
-.work-card-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-nav);
-  font-size: 13px;
+/* Floating Monospace /view/ Cursor Follower Tag */
+.grid-cursor-tag {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999999;
+  font-family: var(--font-mono), 'Martian Mono', monospace;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.work-card-number {
-  color: rgba(255, 255, 255, 0.4);
-  font-variant-numeric: tabular-nums;
-}
-
-.work-card-title {
   color: #ffffff;
-  font-weight: 700;
+  background: rgba(12, 12, 14, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 4px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -100%) translateY(-14px) scale(0.88);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+  will-change: left, top, transform, opacity;
+  white-space: nowrap;
 }
 
-.work-card-category,
-.work-card-year {
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 12px;
+.grid-cursor-tag.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -100%) translateY(-14px) scale(1);
+}
+
+@media (hover: none) {
+  .grid-cursor-tag {
+    display: none !important;
+  }
+  .work-card-header {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --------------------------------------------------------------------------

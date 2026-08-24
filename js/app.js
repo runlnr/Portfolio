@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.remove('is-loading');
       loaderFinished = true;
       sessionStorage.setItem('np_has_seen_intro', 'true');
+      if (window.heroAsciiScrambleInstance) {
+        window.heroAsciiScrambleInstance.play();
+      }
     }, 1680);
 
     setTimeout(() => {
@@ -52,6 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
       loader.style.pointerEvents = 'none';
     }
     document.body.classList.remove('is-loading');
+    if (window.heroAsciiScrambleInstance) {
+      setTimeout(() => {
+        window.heroAsciiScrambleInstance.play();
+      }, 150);
+    }
   }
 
   // 2. Pure Upward SPA Page Transition Engine
@@ -156,6 +164,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         window.heroSlash3D = new window.HeroSlash3D('hero-slash-canvas', 'hero-viewport');
       }
+      if (window.initHeroAsciiScramble) {
+        const scramble = window.initHeroAsciiScramble();
+        if (scramble) {
+          setTimeout(() => scramble.play(), 100);
+        }
+      }
+      if (window.initHeroRibbon) {
+        window.initHeroRibbon();
+      }
     }
 
     // Refresh GSAP ScrollTrigger & Motion Stack
@@ -226,32 +243,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, 100);
 
-  // 4. Live Ho Chi Minh City / GMT+7 Clock
+  // 4. Live Ho Chi Minh City / GMT+7 Clock & Date
   function updateLiveClock() {
     const clockElements = document.querySelectorAll('.live-clock');
-    if (!clockElements.length) return;
-
+    const dateElements = document.querySelectorAll('.live-date');
     const now = new Date();
-    const options = {
-      timeZone: 'Asia/Ho_Chi_Minh',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false
-    };
 
     try {
-      const timeString = new Intl.DateTimeFormat('en-GB', options).format(now);
+      const clockOptions = {
+        timeZone: 'Asia/Ho_Chi_Minh',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      };
+      const timeStr = new Intl.DateTimeFormat('en-US', clockOptions).format(now).toUpperCase();
       clockElements.forEach(el => {
-        el.textContent = `${timeString} (GMT+7)`;
+        if (el.classList.contains('header-clock')) {
+          el.textContent = `${timeStr} (GMT+7)`;
+        } else {
+          el.textContent = timeStr;
+        }
       });
     } catch (e) {
       const hours = String((now.getUTCHours() + 7) % 24).padStart(2, '0');
       const minutes = String(now.getUTCMinutes()).padStart(2, '0');
-      const seconds = String(now.getUTCSeconds()).padStart(2, '0');
       clockElements.forEach(el => {
-        el.textContent = `${hours}:${minutes}:${seconds} (GMT+7)`;
+        el.textContent = `${hours}:${minutes}`;
       });
+    }
+
+    if (dateElements.length) {
+      try {
+        const dateOptions = {
+          timeZone: 'Asia/Ho_Chi_Minh',
+          weekday: 'short',
+          month: 'short',
+          day: 'numeric'
+        };
+        const dateStr = new Intl.DateTimeFormat('en-US', dateOptions).format(now).toUpperCase().replace(',', '');
+        dateElements.forEach(el => {
+          el.textContent = dateStr;
+        });
+      } catch (e) {
+        dateElements.forEach(el => {
+          el.textContent = 'SAT NOV 15';
+        });
+      }
     }
   }
 
@@ -337,4 +374,69 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 6. Highlight Active Navigation Item Initial
   updateActiveNavLinks(window.location.pathname);
+
+  // 7. Live GMT+7 Clock Engine
+  function updateLiveClockGMT7() {
+    const clockElements = document.querySelectorAll('.live-clock-gmt, .live-clock');
+    if (!clockElements.length) return;
+
+    try {
+      const now = new Date();
+      // Format 24-hour time with seconds in GMT+7 (Asia/Ho_Chi_Minh)
+      const options = {
+        timeZone: 'Asia/Ho_Chi_Minh',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      };
+      const timeStr = new Intl.DateTimeFormat('en-GB', options).format(now);
+      const formatted = `${timeStr} GMT+7`;
+
+      clockElements.forEach(el => {
+        el.textContent = formatted;
+      });
+    } catch (e) {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const gmt7 = new Date(utc + (3600000 * 7));
+      const hours = String(gmt7.getHours()).padStart(2, '0');
+      const minutes = String(gmt7.getMinutes()).padStart(2, '0');
+      const seconds = String(gmt7.getSeconds()).padStart(2, '0');
+      const formatted = `${hours}:${minutes}:${seconds} GMT+7`;
+      clockElements.forEach(el => {
+        el.textContent = formatted;
+      });
+    }
+  }
+
+  setInterval(updateLiveClockGMT7, 1000);
+  updateLiveClockGMT7();
+
+  // 8. Description Anchor Sync for Top Navigation (Group B left edge === Description left edge)
+  function syncNavAnchorToDescription() {
+    const desc = document.querySelector('.hero-bottom-desc');
+    const anchor = document.getElementById('nav-anchor-container');
+    if (!desc || !anchor) return;
+
+    const descRect = desc.getBoundingClientRect();
+    if (descRect && descRect.left > 0) {
+      document.documentElement.style.setProperty('--nav-desc-left', `${descRect.left}px`);
+    }
+  }
+
+  window.syncNavAnchorToDescription = syncNavAnchorToDescription;
+
+  // Run on load, resize, and layout changes
+  window.addEventListener('resize', syncNavAnchorToDescription);
+  if (window.ResizeObserver) {
+    const bottomBar = document.querySelector('.hero-bottom-bar');
+    if (bottomBar) {
+      const ro = new ResizeObserver(() => syncNavAnchorToDescription());
+      ro.observe(bottomBar);
+    }
+  }
+  setTimeout(syncNavAnchorToDescription, 60);
+  setTimeout(syncNavAnchorToDescription, 300);
+  setTimeout(syncNavAnchorToDescription, 1000);
 });

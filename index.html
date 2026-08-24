@@ -4,20 +4,25 @@
   <script>if(sessionStorage.getItem('np_has_seen_intro')){document.documentElement.classList.add('skip-intro');}</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>N/P — Graphic Designer Portfolio</title>
-  <meta name="description" content="Portfolio of N/P, Graphic Designer based in Ho Chi Minh City, Vietnam.">
+  <title>N/P® — Award-Winning Graphic Design Studio</title>
+  <meta name="description" content="Portfolio of N/P, Graphic Design Practice based in Ho Chi Minh City, Vietnam.">
   
-    <link rel="stylesheet" href="css/typography.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600;700;800&family=Martian+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/typography.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/pages.css">
   <link rel="stylesheet" href="css/hero-3d.css">
   <link rel="stylesheet" href="css/glassmorphism.css">
   <link rel="stylesheet" href="css/responsive.css">
-  </head>
+  <link rel="stylesheet" href="css/visual-designer.css">
+</head>
 <body>
 
-  <!-- Fullscreen Cinematic Intro Loading Screen -->
+  <!-- Fullscreen Cinematic Intro Loading Screen (Preserved) -->
   <div class="site-loader-overlay" id="site-loader">
     <div class="loader-brand-lockup">
       <span class="loader-char loader-n" id="loader-n">N</span>
@@ -26,55 +31,85 @@
     </div>
   </div>
 
-
-  <!-- Top Navigation with Centered Middle 3 Columns -->
+  <!-- Top Navigation (Blacklead Studio Hierarchy: Group B Anchored to Description) -->
   <header class="hero-top-nav">
-    <!-- Col 1: Brand (Left) -->
+    <!-- Left: Brand Mark -->
     <div class="nav-left">
-      <a href="index.html" class="hero-nav-brand">N/P</a>
+      <a href="index.html" class="hero-nav-brand" aria-label="N/P Home">
+        <span class="brand-roll roll-up" aria-hidden="true"><span class="brand-roll-inner"><span>N</span><span>N</span></span></span><span class="brand-slash" aria-hidden="true">/</span><span class="brand-roll roll-down" aria-hidden="true"><span class="brand-roll-inner"><span>P</span><span>P</span></span></span>
+      </a>
     </div>
 
-    <!-- Center Group (Centered Across Middle Space) -->
-    <div class="nav-center-group">
-      <!-- Col 2: Works & About Stack -->
-      <div class="hero-nav-stack">
-        <a href="works.html" class="hero-nav-link">WORKS (15)</a>
-        <a href="about.html" class="hero-nav-link">ABOUT</a>
+    <!-- Center Anchor: Locked to Description Left Edge -->
+    <div class="nav-anchor-container" id="nav-anchor-container">
+      <!-- Group A: Socials (Floats left by exact gap) -->
+      <div class="nav-group-socials" id="nav-group-a">
+        <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" class="hero-nav-link">Dribbble</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hero-nav-link">Instagram</a>
+        <a href="https://awwwards.com" target="_blank" rel="noopener noreferrer" class="hero-nav-link">Awwwards</a>
       </div>
 
-      <!-- Col 3: Email & Contact Stack -->
-      <div class="hero-nav-stack">
-        <a href="mailto:phnm@outlook.com" class="hero-nav-link">phnm@outlook.com</a>
-        <a href="contact.html" class="hero-nav-link">CONTACT</a>
-      </div>
-
-      <!-- Col 4: Role & Location Stack -->
-      <div class="hero-nav-stack">
-        <span>GRAPHIC DESIGNER</span>
-        <span>HO CHI MINH CITY, VIETNAM</span>
+      <!-- Group B: Studio (Anchor Point aligned with Description) -->
+      <div class="nav-group-studio" id="nav-group-b">
+        <a href="works.html" class="hero-nav-link">Works</a>
+        <a href="about.html" class="hero-nav-link">Studio</a>
+        <a href="policies.html" class="hero-nav-link">Archive</a>
       </div>
     </div>
 
-    <!-- Col 5: Real-Time Live Clock (Right) -->
+    <!-- Right: Time (GMT+7) -->
     <div class="nav-right">
-      <span class="live-clock">--:--:-- (GMT+7)</span>
+      <span class="live-clock-gmt" id="nav-live-clock">--:-- -- GMT+7</span>
     </div>
   </header>
 
-  <!-- Hero Section: Bold Center Statement + Interactive 3D Refractive Glass Prism -->
+  <!-- Hero Section: Full-Bleed Cinematic Experience -->
   <main class="hero-center-viewport" id="hero-viewport">
-    <!-- Background Hero Statement Text (Refracted through 3D Glass) -->
-    <div class="hero-statement-container">
-      <h1 class="hero-statement-text">
-        N/P® is an independent graphic design practice based in Ho Chi Minh City, Vietnam.
-      </h1>
+    
+    <!-- Clean Minimal Obsidian Dark Backdrop with Duotone Warm Red Atmosphere -->
+    <div class="hero-backdrop-container">
+      <div class="hero-backdrop-duotone"></div>
+      <div class="hero-backdrop-vignette"></div>
     </div>
 
-    <!-- 3D Refractive Crystal Glass Canvas Overlay -->
-    <canvas id="hero-slash-canvas" class="hero-slash-canvas"></canvas>
+    <!-- Hero Mid Editorial Metadata: 01/ on left, /INTRO on right -->
+    <div class="hero-mid-meta-bar" aria-hidden="true">
+      <span class="hero-meta-index">01/</span>
+      <span class="hero-meta-tag">/INTRO</span>
+    </div>
+
+    <!-- Center Main Visual: Interactive ASCII Disc (Letters evade cursor on hover) -->
+    <div class="hero-center-visual" id="hero-center-visual" role="img" aria-label="Interactive ASCII Disc">
+      <div class="center-disc-wrapper" id="center-disc-wrapper">
+        <canvas id="disc-ascii-canvas" class="disc-ascii-canvas" width="1248" height="1248"></canvas>
+      </div>
+    </div>
+
+    <!-- Bottom Section: Statement + Description + Showreel -->
+    <div class="hero-bottom-bar">
+      <!-- Left: Big Bold Statement (Preserved Random 'e' Mirror Flip Engine) -->
+      <h1 class="hero-bottom-statement" data-original-text="Ideas Built to Matter">
+        Ideas Built to Matter
+      </h1>
+
+      <!-- Center: Studio Mission Statement -->
+      <p class="hero-bottom-desc">
+        <span class="desc-brand-lockup">N/P<sup>®</sup></span> is an independent graphic design practice in Ho Chi Minh City, making timeless brands for the brave and the brilliant.
+      </p>
+
+      <!-- Right: Interactive Showreel Preview Card -->
+      <a href="works.html" class="hero-showreel-card" aria-label="Play Studio Showreel">
+        <img src="https://framerusercontent.com/images/0Q1DaqJe0TIpdcOR4dUdPzKghNs.jpg" alt="Showreel Preview" class="hero-showreel-thumb">
+        <div class="hero-showreel-play">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        </div>
+      </a>
+    </div>
+
   </main>
 
-    <script src="js/vendor/gsap.min.js"></script>
+  <!-- Scripts -->
+  <script src="js/vendor/gsap.min.js"></script>
   <script src="js/vendor/ScrollTrigger.min.js"></script>
   <script src="js/vendor/lenis.min.js"></script>
   <script src="js/vendor/lucide.min.js"></script>
@@ -84,7 +119,7 @@
   <script src="js/works.js"></script>
   <script src="js/project.js"></script>
   <script src="js/contact.js"></script>
-  <script type="module" src="js/hero-slash-3d.js"></script>
+  <script src="js/hero-ascii-scramble.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
