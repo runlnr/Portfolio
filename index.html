@@ -1,109 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <script>if(sessionStorage.getItem('np_has_seen_intro')){document.documentElement.classList.add('skip-intro');}</script>
+  <script>if (sessionStorage.getItem('np_has_seen_intro')) { document.documentElement.classList.add('skip-intro'); }</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>N/P® — Award-Winning Graphic Design Studio</title>
-  <meta name="description" content="Portfolio of N/P, Graphic Design Practice based in Ho Chi Minh City, Vietnam.">
-  
+  <meta name="description"
+    content="N/P is an independent graphic design practice based in Ho Chi Minh City, creating timeless brands and digital experiences where flawless functionality meets editorial aesthetics.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600;700;800&family=Martian+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600;700;800;900&family=Martian+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,600;1,700&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="css/typography.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/pages.css">
   <link rel="stylesheet" href="css/hero-3d.css">
+  <link rel="stylesheet" href="css/futurethree-scroll.css">
   <link rel="stylesheet" href="css/glassmorphism.css">
   <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="css/visual-designer.css">
+  <!-- MANUAL HERO TV CONTROLS: Adjust size, scale, and position here -->
+  <!-- HERO MANUAL CONTROLS: Final calibrated tokens -->
+  <style id="hero-tv-manual-controls">
+    :root {
+      --hero-margin: 20px;
+      --grid-opacity: 0.06;
+      --nav-box-top: 26px;
+      --nav-box-gap: 32px;
+      --nav-box-padx: 28px;
+      --nav-box-pady: 16px;
+      --nav-box-radius: 6px;
+      --nav-box-link-size: 14.5px;
+      --nav-box-brand-size: 17px;
+      --nav-box-brand-weight: 700;
+      --nav-box-brand-letter-spacing: 0px;
+      /* Spacing between N, /, and P (try 1px, 2px, -0.5px) */
+      --nav-box-brand-slash-gap: 0.5px;
+      /* Extra space around slash (/) */
+      --nav-box-brand-r-gap: 2px;
+      /* Space before registered mark (®) */
+      --nav-box-bg: #131313;
+      --hero-tv-width: 910px;
+      --hero-tv-height: 156px;
+      --hero-tv-top: 53.5%;
+      --hero-tv-left: 49.5%;
+      --hero-tv-scale: 1.05;
+      --hero-tv-rect-margin-x: 20px;
+      --hero-tv-rect-margin-y: 20px;
+      --headline-font-size: 54px;
+      --headline-font-weight: 400;
+      --statement-gap: 21px;
+      --slashes-size: 59px;
+      --slashes-gap: 11px;
+      --slashes-font-weight: 700;
+    }
+  </style>
 </head>
+
 <body>
 
-  <!-- Fullscreen Cinematic Intro Loading Screen (Preserved) -->
+  <!-- Fullscreen Cinematic Intro Loading Screen -->
   <div class="site-loader-overlay" id="site-loader">
     <div class="loader-brand-lockup">
       <span class="loader-char loader-n" id="loader-n">N</span>
       <span class="loader-char loader-slash" id="loader-slash">/</span>
-      <span class="loader-char loader-p" id="loader-p">P</span>
+      <span class="loader-char loader-p" id="loader-p">P<sup class="loader-r" id="loader-r"
+          aria-hidden="true">®</sup></span>
     </div>
   </div>
 
-  <!-- Top Navigation (Blacklead Studio Hierarchy: Group B Anchored to Description) -->
-  <header class="hero-top-nav">
-    <!-- Left: Brand Mark -->
-    <div class="nav-left">
-      <a href="index.html" class="hero-nav-brand" aria-label="N/P Home">
-        <span class="brand-roll roll-up" aria-hidden="true"><span class="brand-roll-inner"><span>N</span><span>N</span></span></span><span class="brand-slash" aria-hidden="true">/</span><span class="brand-roll roll-down" aria-hidden="true"><span class="brand-roll-inner"><span>P</span><span>P</span></span></span>
+  <!-- Top Navigation: Centered Modular Navigation Box with Roll Animation -->
+  <header class="hero-top-nav" id="hero-top-nav">
+    <nav class="nav-modular-box" aria-label="Main Navigation">
+      <a href="#f3-portfolio" class="nav-box-link hero-nav-link" id="nav-works-link">
+        <span class="nav-roll roll-up" aria-hidden="true"><span
+            class="nav-roll-inner"><span>Works</span><span>Works</span></span></span>
       </a>
-    </div>
-
-    <!-- Center Anchor: Locked to Description Left Edge -->
-    <div class="nav-anchor-container" id="nav-anchor-container">
-      <!-- Group A: Socials (Floats left by exact gap) -->
-      <div class="nav-group-socials" id="nav-group-a">
-        <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" class="hero-nav-link">Dribbble</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hero-nav-link">Instagram</a>
-        <a href="https://awwwards.com" target="_blank" rel="noopener noreferrer" class="hero-nav-link">Awwwards</a>
-      </div>
-
-      <!-- Group B: Studio (Anchor Point aligned with Description) -->
-      <div class="nav-group-studio" id="nav-group-b">
-        <a href="works.html" class="hero-nav-link">Works</a>
-        <a href="about.html" class="hero-nav-link">Studio</a>
-        <a href="policies.html" class="hero-nav-link">Archive</a>
-      </div>
-    </div>
-
-    <!-- Right: Time (GMT+7) -->
-    <div class="nav-right">
-      <span class="live-clock-gmt" id="nav-live-clock">--:-- -- GMT+7</span>
-    </div>
+      <a href="contact.html" class="nav-box-link hero-nav-link">
+        <span class="nav-roll roll-up" aria-hidden="true"><span
+            class="nav-roll-inner"><span>Contact</span><span>Contact</span></span></span>
+      </a>
+      <a href="index.html" class="nav-box-brand hero-nav-brand" aria-label="N/P Home">
+        <span class="brand-roll roll-up" aria-hidden="true"><span
+            class="brand-roll-inner"><span>N</span><span>N</span></span></span><span class="brand-slash"
+          aria-hidden="true">/</span><span class="brand-roll roll-down" aria-hidden="true"><span
+            class="brand-roll-inner"><span>P</span><span>P</span></span></span><sup class="brand-r"
+          aria-hidden="true">®</sup>
+      </a>
+      <a href="policies.html" class="nav-box-link hero-nav-link">
+        <span class="nav-roll roll-up" aria-hidden="true"><span
+            class="nav-roll-inner"><span>Archive</span><span>Archive</span></span></span>
+      </a>
+      <a href="about.html" class="nav-box-link hero-nav-link">
+        <span class="nav-roll roll-up" aria-hidden="true"><span
+            class="nav-roll-inner"><span>About</span><span>About</span></span></span>
+      </a>
+    </nav>
   </header>
 
-  <!-- Hero Section: Full-Bleed Cinematic Experience -->
-  <main class="hero-center-viewport" id="hero-viewport">
-    
-    <!-- Clean Minimal Obsidian Dark Backdrop with Duotone Warm Red Atmosphere -->
-    <div class="hero-backdrop-container">
-      <div class="hero-backdrop-duotone"></div>
-      <div class="hero-backdrop-vignette"></div>
-    </div>
+  <!-- Scrollable Homepage Container -->
+  <main class="homepage-main" id="homepage-main">
 
-    <!-- Hero Mid Editorial Metadata: 01/ on left, /INTRO on right -->
-    <div class="hero-mid-meta-bar" aria-hidden="true">
-      <span class="hero-meta-index">01/</span>
-      <span class="hero-meta-tag">/INTRO</span>
-    </div>
+    <!-- 1. HERO PINNED SECTION -->
+    <section class="hero-center-viewport" id="hero-viewport">
 
-    <!-- Center Main Visual: Interactive ASCII Disc (Letters evade cursor on hover) -->
-    <div class="hero-center-visual" id="hero-center-visual" role="img" aria-label="Interactive ASCII Disc">
-      <div class="center-disc-wrapper" id="center-disc-wrapper">
-        <canvas id="disc-ascii-canvas" class="disc-ascii-canvas" width="1248" height="1248"></canvas>
+      <!-- Obsidian Dark Backdrop -->
+      <div class="hero-backdrop-container">
+        <div class="hero-backdrop-duotone"></div>
+        <div class="hero-backdrop-vignette"></div>
       </div>
-    </div>
+      <!-- Geometric Blueprint Grid Overlay -->
+      <div class="hero-blueprint-container" id="hero-blueprint" aria-hidden="true">
+        <svg class="hero-blueprint-svg" viewBox="0 0 1000 600" preserveAspectRatio="none">
+          <!-- Column 1 (Left edge at 0, Right line at 337) -->
+          <line x1="0" y1="0" x2="0" y2="600" vector-effect="non-scaling-stroke" stroke-width="1" />
+          <line x1="337" y1="0" x2="337" y2="600" vector-effect="non-scaling-stroke" stroke-width="1" />
 
-    <!-- Bottom Section: Statement + Description + Showreel -->
-    <div class="hero-bottom-bar">
-      <!-- Left: Big Bold Statement (Preserved Random 'e' Mirror Flip Engine) -->
-      <h1 class="hero-bottom-statement" data-original-text="Ideas Built to Matter">
-        Ideas Built to Matter
-      </h1>
+          <!-- Column 2 (Left line at 347, Right line at 495) - notice 10px open space between 337 and 347! -->
+          <line x1="347" y1="0" x2="347" y2="600" vector-effect="non-scaling-stroke" stroke-width="1" />
+          <line x1="495" y1="0" x2="495" y2="600" vector-effect="non-scaling-stroke" stroke-width="1" />
 
-      <!-- Center: Studio Mission Statement -->
-      <p class="hero-bottom-desc">
-        <span class="desc-brand-lockup">N/P<sup>®</sup></span> is an independent graphic design practice in Ho Chi Minh City, making timeless brands for the brave and the brilliant.
-      </p>
+          <!-- Column 3 (Left line at 505, Right line at 653) - notice 10px open space in center between 495 and 505! -->
+          <line x1="505" y1="0" x2="505" y2="600" vector-effect="non-scaling-stroke" stroke-width="1" />
+          <line x1="653" y1="0" x2="653" y2="600" vector-effect="non-scaling-stroke" stroke-width="1" />
 
-      <!-- Right: Interactive Showreel Preview Card -->
-      <a href="works.html" class="hero-showreel-card" aria-label="Play Studio Showreel">
-        <img src="https://framerusercontent.com/images/0Q1DaqJe0TIpdcOR4dUdPzKghNs.jpg" alt="Showreel Preview" class="hero-showreel-thumb">
-        <div class="hero-showreel-play">
-          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          <!-- Column 4 (Left line at 663, Right line at 1000) - notice 10px open space between 653 and 663! -->
+          <line x1="663" y1="0" x2="663" y2="600" vector-effect="non-scaling-stroke" stroke-width="1" />
+          <!-- Right edge line explicitly at 1000 -->
+          <line x1="1000" y1="0" x2="1000" y2="600" vector-effect="non-scaling-stroke" stroke-width="1" />
+
+          <!-- Diagonal 1: bottom-left of Col 1 to top-right of Col 1 -->
+          <line x1="0" y1="600" x2="337" y2="0" vector-effect="non-scaling-stroke" stroke-width="1" />
+
+          <!-- Diagonal 2 (Flipped horizontally): top-left of Col 4 to bottom-right of Col 4 -->
+          <line x1="663" y1="0" x2="1000" y2="600" vector-effect="non-scaling-stroke" stroke-width="1" />
+        </svg>
+
+        <!-- Bottom alignment mark sitting on bottom margin line (centered) -->
+        <div class="hero-grid-square hero-square-center" aria-hidden="true"></div>
+      </div>
+
+      <!-- Mid Metadata: 01/ on left, /INTRO on right -->
+      <div class="hero-mid-meta-bar" aria-hidden="true">
+        <span class="hero-meta-index">01/</span>
+        <span class="hero-meta-tag">/INTRO</span>
+      </div>
+
+      <!-- Central Lockup: Wide CRT TV Banner + Headline directly beneath -->
+      <div class="hero-center-visual" id="hero-center-visual">
+        <div class="hero-tv-wrapper" id="hero-tv-wrapper">
+          <canvas id="hero-tv-canvas" class="hero-tv-canvas" aria-label="ASCII Video Effect"></canvas>
         </div>
-      </a>
+
+        <div class="hero-statement-row" id="hero-statement-row">
+          <h1 class="hero-statement-headline">
+            <span class="hero-statement-line1">Nothing here</span>
+            <span class="hero-statement-line2">by <span class="hero-statement-serif">accident.</span></span>
+          </h1>
+
+          <div class="hero-statement-slashes" aria-hidden="true">
+            <span class="hero-slash">/</span>
+            <span class="hero-slash">/</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar: HCMC, VIETNAM (Left) + Live GMT+7 Clock (Right) -->
+      <div class="hero-bottom-bar">
+        <div class="hero-location-left">
+          <span class="hero-location-text">HCMC, VIETNAM</span>
+        </div>
+        <div class="hero-clock-row hero-clock-right">
+          <span class="hero-clock-dot"></span>
+          <span class="live-clock-gmt" id="nav-live-clock">--:--:-- (GMT+7)</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 2. N/P® EDITORIAL SCROLLABLE BODY -->
+    <div class="f3-editorial-wrapper" id="f3-content">
+
+      <!-- A. Section 1: Studio Intro & Coordinates Strip -->
+      <section class="f3-section-intro" id="f3-intro">
+        <div class="f3-container">
+          <!-- Split Layout: Anchored to Behance Left Edge -->
+          <div class="f3-intro-split-grid">
+            <div class="f3-intro-left-spacer" aria-hidden="true"></div>
+
+            <!-- Right Column: Statement & Button -->
+            <div class="f3-intro-right-col">
+              <h2 class="f3-intro-statement">
+                <span class="f3-accent-red">N/P®</span> is based in Ho Chi Minh City and supported by an international
+                network. It creates brands and digital experiences where flawless functionality meets editorial
+                aesthetics.
+              </h2>
+              <a href="about.html" class="f3-pill-btn">
+                <span>ABOUT US</span>
+                <span class="btn-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Coordinates Strip -->
+          <div class="f3-coordinates-strip">
+            <div class="f3-coord-label">Address</div>
+            <div class="f3-coord-value">
+              N/P Graphic Design Practice<br>
+              District 1, Ben Nghe Ward,<br>
+              Ho Chi Minh City, Vietnam
+            </div>
+
+            <div class="f3-coord-label">Email<br>Location</div>
+            <div class="f3-coord-value">
+              <a href="mailto:phnm@outlook.com">phnm@outlook.com</a><br>
+              <span>Available for Global Commissions</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- B. Section 2: "THE BEST OF N/P" Portfolio Showcase -->
+      <section class="f3-section-portfolio" id="f3-portfolio">
+        <div class="f3-container">
+          <!-- Portfolio Header Bar -->
+          <div class="f3-portfolio-header-bar">
+            <h2 class="f3-portfolio-main-title">
+              THE BEST<br>OF N/P
+            </h2>
+            <div class="f3-portfolio-tag-serif">/Portfolio</div>
+            <a href="#f3-portfolio" class="f3-portfolio-view-all">VIEW ALL (15)</a>
+          </div>
+
+          <!-- Disciplines Ticker -->
+          <div class="f3-disciplines-bar">
+            <span>BRANDING</span>
+            <span>DESIGN</span>
+            <span>DEVELOPMENT</span>
+          </div>
+
+          <!-- Asymmetric Grid -->
+          <div class="f3-portfolio-grid">
+            <!-- Card 01: Left Tall Portrait -->
+            <div class="f3-project-card-01">
+              <a href="project.html?id=wide-angle" class="f3-project-card-link">
+                <div class="f3-img-wrap-01">
+                  <img src="https://framerusercontent.com/images/McfLASz7qCgeArkEfMksXwLY.jpg" alt="WIDE ANGLE"
+                    loading="lazy">
+                </div>
+                <div class="f3-card-bottom-bar">
+                  <span class="f3-card-num">01</span>
+                  <h3 class="f3-card-title">WIDE ANGLE<sup>®</sup> <sup>↗</sup></h3>
+                </div>
+              </a>
+            </div>
+
+            <!-- Right Stack: Card 02 & Card 03 -->
+            <div class="f3-portfolio-right-stack">
+              <!-- Card 02: Landscape Monitor Showcase -->
+              <div class="f3-project-card-02">
+                <a href="project.html?id=titarvl-studio" class="f3-project-card-link">
+                  <div class="f3-img-wrap-02">
+                    <img src="https://framerusercontent.com/images/0Q1DaqJe0TIpdcOR4dUdPzKghNs.jpg" alt="TITARVL STUDIO"
+                      loading="lazy">
+                  </div>
+                  <div class="f3-card-bottom-bar">
+                    <span class="f3-card-num">02</span>
+                    <h3 class="f3-card-title">TITARVL<sup>®</sup> <sup>↗</sup></h3>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Card 03: Lower Offset with Giant Watermark Number _15 -->
+              <div class="f3-card-03-container">
+                <div class="f3-watermark-number" aria-hidden="true">_15</div>
+                <div class="f3-project-card-03">
+                  <a href="project.html?id=kade-agency" class="f3-project-card-link">
+                    <div class="f3-img-wrap-03">
+                      <img src="https://framerusercontent.com/images/GW4U3mptwe10pQQ7jc7zflAi5WY.jpg" alt="KADE AGENCY"
+                        loading="lazy">
+                    </div>
+                    <div class="f3-card-bottom-bar">
+                      <span class="f3-card-num">03</span>
+                      <h3 class="f3-card-title">KADE AGENCY<sup>®</sup> <sup>↗</sup></h3>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- C. Section 3: "Our Core SERVICES" Editorial Bento -->
+      <section class="f3-section-services" id="f3-services">
+        <div class="f3-container">
+          <!-- Header Lockup -->
+          <div class="f3-services-heading-lockup">
+            <span class="f3-services-subhead">Our Core</span>
+            <span class="f3-services-mainhead">SERVICES</span>
+          </div>
+
+          <!-- Services List -->
+          <div class="f3-services-list">
+            <!-- Row 1: Branding -->
+            <div class="f3-service-row">
+              <div class="f3-service-side-tag">THREE SERVICES DRIVE OUR WORK</div>
+              <h3 class="f3-service-title">Branding</h3>
+              <div class="f3-service-details">
+                <h4>Brand Identity Design</h4>
+                <p>Distinct brand identities resonate through strategic logos, cohesive style guidelines and thoughtful
+                  visual systems. Every element is precision designed to tell your story and forge an emotional
+                  connection. The goal: a memorable brand that stands out in any landscape.</p>
+              </div>
+              <div class="f3-service-media-card">
+                <img src="https://framerusercontent.com/images/aEYuYM1OVQKZX1mIzyaTRp6wXQ.jpg" alt="Branding Showcase"
+                  loading="lazy">
+                <a href="#f3-portfolio" class="f3-service-pill-btn">
+                  <span>VIEW BRANDING PROJECTS</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Row 2: Web Design -->
+            <div class="f3-service-row">
+              <div class="f3-service-side-tag">DIGITAL EXPERIENCES</div>
+              <h3 class="f3-service-title">Web Design</h3>
+              <div class="f3-service-details">
+                <h4>UX / UI & Creative Dev</h4>
+                <p>From pixel-perfect UI to immersive 3D interactions, we marry editorial-grade aesthetics with
+                  intuitive user experiences. We prototype, iterate, and refine every interface until it’s as seamless
+                  to use as it is striking to behold. The result is a digital presence that captivates and converts.</p>
+              </div>
+              <div class="f3-service-media-card">
+                <img src="https://framerusercontent.com/images/Z9WJp299xz8eg9DtFceQipWYudw.jpg"
+                  alt="Web Design Showcase" loading="lazy">
+                <a href="#f3-portfolio" class="f3-service-pill-btn">
+                  <span>VIEW DESIGN PROJECTS</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Row 3: Art Direction -->
+            <div class="f3-service-row">
+              <div class="f3-service-side-tag">EDITORIAL & PRINT</div>
+              <h3 class="f3-service-title">Art Direction</h3>
+              <div class="f3-service-details">
+                <h4>Editorial & Spatial Craft</h4>
+                <p>We bring campaigns and publications to life with meticulous typography, custom lettering, lookbooks,
+                  and spatial environmental design. Our craftsmanship ensures every detail feels intentional, tactile,
+                  and built to endure.</p>
+              </div>
+              <div class="f3-service-media-card">
+                <img src="https://framerusercontent.com/images/U3esvVaSiw2tStbsHN4RPPQMc.jpg"
+                  alt="Art Direction Showcase" loading="lazy">
+                <a href="#f3-portfolio" class="f3-service-pill-btn">
+                  <span>VIEW EDITORIAL PROJECTS</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- D. Section 4: Giant Brand Billboard -->
+      <section class="f3-section-billboard" id="f3-billboard">
+        <h2 class="f3-billboard-text">N / P D E S I G N</h2>
+      </section>
+
+      <!-- E. Section 5: Studio Outro & Contact Strip -->
+      <section class="f3-section-outro" id="f3-outro">
+        <div class="f3-container">
+          <div class="f3-outro-grid">
+            <!-- Left: Featured Product Card (Drift Labs) -->
+            <div class="f3-outro-featured-card">
+              <div class="f3-outro-featured-top">
+                <span class="f3-mono-tag">FEATURED CASE STUDY</span>
+              </div>
+              <div class="f3-outro-featured-img-wrap">
+                <img src="https://framerusercontent.com/images/aEYuYM1OVQKZX1mIzyaTRp6wXQ.jpg"
+                  alt="Drift Labs Packaging" loading="lazy">
+              </div>
+              <div class="f3-outro-featured-bottom">
+                <h4 class="f3-outro-featured-title">Drift Labs</h4>
+                <a href="project.html?id=drift-labs" class="f3-outro-view-btn">VIEW CASE ↗</a>
+              </div>
+            </div>
+
+            <!-- Right: Inquiries & Contact Lockup -->
+            <div class="f3-outro-content">
+              <div>
+                <h3 class="f3-outro-headline">
+                  <span class="f3-accent-red">Let’s create something timeless</span><br>
+                  If you’ve got a project in mind, get in touch and let’s get started!
+                </h3>
+              </div>
+
+              <div>
+                <a href="contact.html" class="f3-pill-btn">
+                  <span>GET IN TOUCH</span>
+                  <span class="btn-arrow">↗</span>
+                </a>
+              </div>
+
+              <!-- Directory Grid -->
+              <div class="f3-outro-directory-grid">
+                <div class="f3-outro-dir-label">Location</div>
+                <div class="f3-outro-dir-value">
+                  N/P Practice<br>
+                  District 1,<br>
+                  Ho Chi Minh City, VN
+                </div>
+
+                <div class="f3-outro-social-list">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+                  <a href="https://behance.net" target="_blank" rel="noopener noreferrer">Behance ↗</a>
+                </div>
+
+                <div class="f3-outro-social-list">
+                  <a href="https://awwwards.com" target="_blank" rel="noopener noreferrer">Awwwards ↗</a>
+                </div>
+              </div>
+
+              <!-- Email Link -->
+              <div class="f3-outro-contact-links">
+                <a href="mailto:phnm@outlook.com">phnm@outlook.com</a>
+
+                <div class="f3-calendly-block">
+                  <a href="contact.html" class="f3-calendly-link">Start an inquiry with N/P</a>
+                  <span class="f3-mono-tag">[100% NON-BINDING]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Legal Bar -->
+          <div class="f3-footer-legal-bar">
+            <span>N/P® PRACTICE</span>
+            <div style="display: flex; gap: 24px;">
+              <a href="policies.html">IMPRINT</a>
+              <a href="policies.html">PRIVACY POLICY</a>
+            </div>
+            <span>©2026</span>
+          </div>
+        </div>
+      </section>
+
     </div>
 
   </main>
@@ -116,10 +465,14 @@
   <script src="js/projects-data.js"></script>
   <script type="module" src="js/utils.js"></script>
   <script src="js/motion-stack.js"></script>
+  <script src="js/futurethree-scroll.js"></script>
   <script src="js/works.js"></script>
   <script src="js/project.js"></script>
   <script src="js/contact.js"></script>
   <script src="js/hero-ascii-scramble.js"></script>
+  <script src="js/hero-ascii-tv.js"></script>
+  <script src="js/hero-scroll-transition.js?v=5"></script>
   <script src="js/app.js"></script>
 </body>
+
 </html>

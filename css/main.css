@@ -44,6 +44,8 @@ html {
   scroll-behavior: smooth;
   background-color: #000000;
   cursor: none !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
 body {
@@ -54,6 +56,18 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   cursor: none !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* Hide default browser scrollbar globally */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
 }
 
 /* Custom Circle Cursor with Difference Blend Mode - Constant Size */

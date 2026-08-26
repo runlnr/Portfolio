@@ -1,6 +1,138 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* Exact Inter Display Webfonts */
+/* ==========================================================================
+   Neue Haas Grotesk Display Pro — Exact Local TTF Webfonts
+   ========================================================================== */
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/NeueHaasDisplayXXThin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/NeueHaasDisplayXThin.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/NeueHaasDisplayThin.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/NeueHaasDisplayLight.ttf") format("truetype");
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/NeueHaasDisplayRoman.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/NeueHaasDisplayRomanItalic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/NeueHaasDisplayMediu.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/NeueHaasDisplayMediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/NeueHaasDisplayBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/NeueHaasDisplayBoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/NeueHaasDisplayBlack.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/NeueHaasDisplayBlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Alias for "Neue Haas Grotesk Display" */
+@font-face {
+  font-family: "Neue Haas Grotesk Display";
+  src: url("../assets/fonts/NeueHaasDisplayRoman.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display";
+  src: url("../assets/fonts/NeueHaasDisplayMediu.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display";
+  src: url("../assets/fonts/NeueHaasDisplayBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display";
+  src: url("../assets/fonts/NeueHaasDisplayBlack.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter Display Webfonts Fallback */
 @font-face {
   font-family: "Inter Display";
   src: url("https://framerusercontent.com/assets/gazZKZuUEtvr9ULhdA4SprP0AZ0.woff2") format("woff2");
@@ -36,19 +168,24 @@
   --transition-cover-ease: cubic-bezier(0.65, 0, 0.15, 1);
   --transition-reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
 
-  --font-nav: 'Inter Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: monospace;
+  --font-display: 'Neue Haas Grotesk Display Pro', 'Neue Haas Grotesk Display', 'Neue Haas Grotesk', 'NeueHaasGroteskDisplayPro', 'Inter Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-nav: 'Neue Haas Grotesk Display Pro', 'Neue Haas Grotesk Display', 'Neue Haas Grotesk', 'NeueHaasGroteskDisplayPro', 'Inter Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-sans: 'Neue Haas Grotesk Display Pro', 'Neue Haas Grotesk Display', 'Neue Haas Grotesk', 'NeueHaasGroteskDisplayPro', 'Inter Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-serif-italic: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Martian Mono', 'Share Tech Mono', Menlo, Monaco, Consolas, monospace;
+
+  /* Global Hero Layout Margins */
+  --hero-margin: 30px;
 
   /* Navigation Typography, Boldness & Gaps */
-  --nav-font-size: 13.5px;
-  --nav-font-weight: 700;
-  --nav-line-height: 15px;
-  --nav-letter-spacing: -0.2px;
+  --nav-font-size: 14px;
+  --nav-font-weight: 500;
+  --nav-line-height: 16px;
+  --nav-letter-spacing: -0.1px;
   /* Master letter gap */
-  --group-a-letter-spacing: -0.55px;
+  --group-a-letter-spacing: -0.1px;
   /* Group A letter gap */
-  --group-b-letter-spacing: -0.55px;
+  --group-b-letter-spacing: -0.1px;
   /* Group B letter gap */
   --nav-item-gap: 56px;
   /* Item gap */
@@ -76,19 +213,20 @@
 
   /* Studio Description Layout (Matched to Group A & B Nav Bar) */
   --vd-bottom-desc-max-width: 420px;
+  --behance-left-anchor: 28%;
   --vd-desc-left: 55%;
-  --vd-bottom-desc-size: 13.5px;
-  --vd-bottom-desc-weight: 700;
-  --vd-bottom-desc-letter-spacing: -0.35px;
-  --vd-bottom-desc-line-height: 1.35;
+  --vd-bottom-desc-size: 14px;
+  --vd-bottom-desc-weight: 500;
+  --vd-bottom-desc-letter-spacing: -0.1px;
+  --vd-bottom-desc-line-height: 17.4px;
 
   /* ==========================================================================
      Hero Statement Size & Layout Controls (Single-Line Enforced)
      ========================================================================== */
-  --hero-statement-font-size: 64px;
-  --hero-statement-line-height: 0.8;
-  --hero-statement-letter-spacing: -0.04em;
-  --hero-statement-font-weight: 700;
+  --hero-statement-font-size: 67px;
+  --hero-statement-line-height: 0.82;
+  --hero-statement-letter-spacing: -1.2px;
+  --hero-statement-font-weight: 500;
   --hero-statement-bottom: 28px;
   --hero-statement-left: 20px;
 

@@ -19,46 +19,110 @@ document.addEventListener('DOMContentLoaded', () => {
   const lockup = document.querySelector('.loader-brand-lockup');
   const hasSeenIntro = sessionStorage.getItem('np_has_seen_intro');
 
+  // Defensive fallback: ensure loader-r exists in loader lockup
+  const loaderP = document.getElementById('loader-p');
+  let loaderR = document.getElementById('loader-r');
+  if (!loaderR && loaderP) {
+    loaderR = document.createElement('sup');
+    loaderR.className = 'loader-r';
+    loaderR.id = 'loader-r';
+    loaderR.setAttribute('aria-hidden', 'true');
+    loaderR.textContent = '®';
+    loaderP.appendChild(loaderR);
+  }
+
   let loaderFinished = !!hasSeenIntro;
 
   if (!hasSeenIntro && loader && slash && lockup) {
     document.body.classList.add('is-loading');
 
+    // Blink 1
     setTimeout(() => { slash.style.opacity = '1'; }, 100);
     setTimeout(() => { slash.style.opacity = '0'; }, 380);
 
+    // Blink 2
     setTimeout(() => { slash.style.opacity = '1'; }, 580);
     setTimeout(() => { slash.style.opacity = '0'; }, 860);
 
+    // Blink 3
+    setTimeout(() => { slash.style.opacity = '1'; }, 1060);
+    setTimeout(() => { slash.style.opacity = '0'; }, 1340);
+
+    // 4th Beat: Slash emerges solid & N/P slide out from behind /
     setTimeout(() => {
       slash.style.opacity = '1';
       lockup.classList.add('popped');
-    }, 1080);
+    }, 1540);
 
+    // 5th Beat: Copyright R (®) pops up right as letters settle
+    setTimeout(() => {
+      lockup.classList.add('r-popped');
+    }, 1980);
+
+    // 6th Beat: Fullscreen loader slides up, revealing the page
     setTimeout(() => {
       loader.classList.add('slide-up');
       document.body.classList.remove('is-loading');
+      document.body.classList.add('loader-revealed');
       loaderFinished = true;
       sessionStorage.setItem('np_has_seen_intro', 'true');
       if (window.heroAsciiScrambleInstance) {
         window.heroAsciiScrambleInstance.play();
       }
-    }, 1680);
+      initHeroTvInteraction();
+      if (window.location.hash === '#f3-portfolio') {
+        setTimeout(() => scrollToPortfolioSection(true), 400);
+      }
+    }, 2520);
 
+    // 7th Beat: Loader completely leaves viewport
     setTimeout(() => {
       loader.style.display = 'none';
       loader.style.pointerEvents = 'none';
-    }, 2580);
+    }, 3420);
   } else {
     if (loader) {
       loader.style.display = 'none';
       loader.style.pointerEvents = 'none';
     }
     document.body.classList.remove('is-loading');
+    document.body.classList.add('loader-revealed');
     if (window.heroAsciiScrambleInstance) {
       setTimeout(() => {
         window.heroAsciiScrambleInstance.play();
       }, 150);
+    }
+    initHeroTvInteraction();
+    if (window.location.hash === '#f3-portfolio') {
+      setTimeout(() => scrollToPortfolioSection(true), 250);
+    }
+  }
+
+  // Helper: Smooth scroll to the Portfolio / Works section on the hero site
+  function scrollToPortfolioSection(smooth = true) {
+    const portfolio = document.getElementById('f3-portfolio');
+    if (!portfolio) {
+      if (window.location.pathname !== '/' && !window.location.pathname.endsWith('index.html')) {
+        navigateTo('/#f3-portfolio');
+      }
+      return;
+    }
+    if (window.motionStack && window.motionStack.lenis) {
+      window.motionStack.lenis.resize();
+      window.motionStack.lenis.scrollTo(portfolio, { offset: -20, immediate: !smooth, duration: smooth ? 1.2 : 0 });
+    } else if (window.lenis) {
+      window.lenis.scrollTo(portfolio, { offset: -20, immediate: !smooth, duration: smooth ? 1.2 : 0 });
+    } else {
+      portfolio.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto' });
+    }
+  }
+  window.scrollToPortfolioSection = scrollToPortfolioSection;
+
+  // 1b. Hero TV Setup (Hover & Tilt disabled per user instruction)
+  function initHeroTvInteraction() {
+    const tvWrapper = document.getElementById('hero-tv-wrapper');
+    if (tvWrapper) {
+      tvWrapper.style.transform = 'none';
     }
   }
 
@@ -79,7 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const config = window.TRANSITION_CONFIG || { coverDuration: 480, revealDuration: 520, easeCover: 'cubic-bezier(0.65, 0, 0.15, 1)', easeReveal: 'cubic-bezier(0.16, 1, 0.3, 1)' };
 
     try {
-      const fetchPromise = fetch(url).then(res => res.text());
+      const fetchUrl = url.split('#')[0] || '/';
+      const fetchPromise = fetch(fetchUrl).then(res => res.text());
 
       // 1. Animate curtain smoothly UP to cover screen
       curtain.style.transition = `transform ${config.coverDuration}ms ${config.easeCover}`;
@@ -123,27 +188,71 @@ document.addEventListener('DOMContentLoaded', () => {
         curtain.style.transition = 'none';
         curtain.style.transform = 'translateY(100%)';
         isTransitioning = false;
+
+        if (url.includes('#f3-portfolio') || window.location.hash === '#f3-portfolio') {
+          setTimeout(() => scrollToPortfolioSection(true), 60);
+        }
       }, config.revealDuration + 40);
 
     } catch (err) {
-      console.warn('SPA Navigation fallback:', err);
+      console.error('SPA Navigation fallback:', err && err.stack ? err.stack : err);
       window.location.href = url;
     }
   }
 
   function updateActiveNavLinks(url) {
-    const cleanUrl = url.split('?')[0].split('#')[0];
+    const cleanUrl = (url || window.location.pathname).split('?')[0].split('#')[0];
+    const isHomePage = cleanUrl === '/' || cleanUrl.endsWith('index.html') || cleanUrl === '';
+
     document.querySelectorAll('.nav-link, .hero-nav-link').forEach(link => {
       const href = link.getAttribute('href');
-      if (href) {
-        const cleanHref = href.split('?')[0].split('#')[0];
-        if (cleanUrl.endsWith(cleanHref) || (cleanHref === 'index.html' && cleanUrl.endsWith('/'))) {
+      if (!href) return;
+
+      const cleanHref = href.split('?')[0].split('#')[0];
+
+      // Pure hash anchors (like #f3-portfolio) should not match full page URLs; handled by scroll-spy
+      if (!cleanHref) {
+        link.classList.remove('active');
+        return;
+      }
+
+      if (isHomePage) {
+        if (cleanHref === 'index.html' || cleanHref === '/') {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      } else {
+        if (cleanHref !== 'index.html' && cleanHref !== '/' && cleanUrl.endsWith(cleanHref)) {
           link.classList.add('active');
         } else {
           link.classList.remove('active');
         }
       }
     });
+  }
+
+  // Portfolio Section Scroll-Spy (activates "Works" square only when portfolio is in view)
+  function initPortfolioScrollSpy() {
+    const portfolio = document.getElementById('f3-portfolio');
+    const worksLink = document.getElementById('nav-works-link') || document.querySelector('a[href="#f3-portfolio"]');
+    if (!portfolio || !worksLink) return;
+
+    function checkPosition() {
+      const rect = portfolio.getBoundingClientRect();
+      const isInView = rect.top <= 200 && rect.bottom >= 150;
+      if (isInView) {
+        worksLink.classList.add('active');
+      } else {
+        worksLink.classList.remove('active');
+      }
+    }
+
+    window.addEventListener('scroll', checkPosition, { passive: true });
+    if (window.motionStack && window.motionStack.lenis) {
+      window.motionStack.lenis.on('scroll', checkPosition);
+    }
+    checkPosition();
   }
 
   function rehydratePage(url, mainElement) {
@@ -157,22 +266,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.initProjectPage) window.initProjectPage();
     } else if (url.includes('contact.html')) {
       if (window.initContactPage) window.initContactPage();
-    } else if (url.includes('index.html') || url.endsWith('/')) {
-      if (window.HeroSlash3D) {
-        if (window.heroSlash3D && typeof window.heroSlash3D.dispose === 'function') {
-          window.heroSlash3D.dispose();
-        }
-        window.heroSlash3D = new window.HeroSlash3D('hero-slash-canvas', 'hero-viewport');
+    } else if (url.includes('index.html') || url.split('#')[0].endsWith('/') || url.includes('#f3-portfolio')) {
+      if (window.initHeroTvAscii) {
+        window.initHeroTvAscii();
       }
-      if (window.initHeroAsciiScramble) {
-        const scramble = window.initHeroAsciiScramble();
-        if (scramble) {
-          setTimeout(() => scramble.play(), 100);
-        }
+      if (window.initHeroScrollTransition) {
+        setTimeout(() => window.initHeroScrollTransition(), 50);
       }
-      if (window.initHeroRibbon) {
-        window.initHeroRibbon();
+      if (window.initFutureThreeScroll) {
+        window.initFutureThreeScroll();
       }
+      initHeroTvInteraction();
+      initPortfolioScrollSpy();
     }
 
     // Refresh GSAP ScrollTrigger & Motion Stack
@@ -183,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Intercept internal page link clicks
+    // Intercept internal page link clicks
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a');
     if (!link) return;
@@ -191,7 +296,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const href = link.getAttribute('href');
     const target = link.getAttribute('target');
 
-    if (!href || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#') || href.startsWith('http://') || href.startsWith('https://') || target === '_blank' || e.metaKey || e.ctrlKey) {
+    if (!href || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http://') || href.startsWith('https://') || target === '_blank' || e.metaKey || e.ctrlKey) {
+      return;
+    }
+
+    // Direct click on N/P brand logo / Home link when already on home page
+    const isBrandHomeClick = link.classList.contains('hero-nav-brand') || link.classList.contains('nav-box-brand');
+    const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname.endsWith('/index.html');
+    const cleanHref = href.split('?')[0].split('#')[0];
+    const isHomeHref = cleanHref === '' || cleanHref === '/' || cleanHref === 'index.html' || cleanHref === '/index.html' || cleanHref === './' || cleanHref === './index.html';
+
+    if (isBrandHomeClick && isHomePage && isHomeHref) {
+      e.preventDefault();
+      if (window.motionStack && window.motionStack.lenis) {
+        window.motionStack.lenis.scrollTo(0, { immediate: false, duration: 1.0 });
+      } else if (window.lenis) {
+        window.lenis.scrollTo(0, { immediate: false, duration: 1.0 });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      if (window.location.hash) {
+        if (window.history.pushState) {
+          window.history.pushState(null, '', window.location.pathname);
+        }
+      }
+      return;
+    }
+
+    // Direct click on Works / #f3-portfolio
+    if (href === '#f3-portfolio' || href === 'index.html#f3-portfolio' || href === '/#f3-portfolio') {
+      if (isHomePage) {
+        e.preventDefault();
+        scrollToPortfolioSection(true);
+        if (window.history.pushState) {
+          window.history.pushState(null, '', '#f3-portfolio');
+        }
+        return;
+      } else {
+        e.preventDefault();
+        navigateTo('/#f3-portfolio');
+        return;
+      }
+    }
+
+    if (href.startsWith('#')) {
       return;
     }
 
@@ -201,6 +349,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Handle browser back/forward buttons seamlessly
   window.addEventListener('popstate', (e) => {
+    if (window.location.hash === '#f3-portfolio') {
+      scrollToPortfolioSection(true);
+      return;
+    }
     navigateTo(window.location.href, false);
   });
 
@@ -319,7 +471,9 @@ document.addEventListener('DOMContentLoaded', () => {
       userHasInteracted = true;
     }
 
-    if (loaderFinished && !document.body.classList.contains('is-loading')) {
+    const isLoaderActive = document.body.classList.contains('is-loading') || 
+      (typeof loaderFinished !== 'undefined' && !loaderFinished);
+    if (!isLoaderActive) {
       cursor.style.opacity = '1';
     }
   });
@@ -374,6 +528,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 6. Highlight Active Navigation Item Initial
   updateActiveNavLinks(window.location.pathname);
+  initPortfolioScrollSpy();
 
   // 7. Live GMT+7 Clock Engine
   function updateLiveClockGMT7() {
@@ -391,7 +546,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hour12: false
       };
       const timeStr = new Intl.DateTimeFormat('en-GB', options).format(now);
-      const formatted = `${timeStr} GMT+7`;
+      const formatted = `${timeStr} (GMT+7)`;
 
       clockElements.forEach(el => {
         el.textContent = formatted;
@@ -403,7 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const hours = String(gmt7.getHours()).padStart(2, '0');
       const minutes = String(gmt7.getMinutes()).padStart(2, '0');
       const seconds = String(gmt7.getSeconds()).padStart(2, '0');
-      const formatted = `${hours}:${minutes}:${seconds} GMT+7`;
+      const formatted = `${hours}:${minutes}:${seconds} (GMT+7)`;
       clockElements.forEach(el => {
         el.textContent = formatted;
       });

@@ -23,7 +23,10 @@ const MIME_TYPES = {
   '.ico': 'image/x-icon',
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
-  '.ttf': 'font/ttf'
+  '.ttf': 'font/ttf',
+  '.mp4': 'video/mp4',
+  '.webm': 'video/webm',
+  '.mov': 'video/quicktime'
 };
 
 const server = http.createServer((req, res) => {
@@ -34,6 +37,12 @@ const server = http.createServer((req, res) => {
     reqUrl = decodeURIComponent(rawUrl);
   } catch (e) {
     reqUrl = rawUrl;
+  }
+
+  if (reqUrl === '/works' || reqUrl === '/works.html') {
+    res.writeHead(302, { 'Location': '/#f3-portfolio' });
+    res.end();
+    return;
   }
 
   if (reqUrl === '/') {
@@ -48,7 +57,7 @@ const server = http.createServer((req, res) => {
   const ext = path.extname(filePath).toLowerCase();
   const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
-  fs.readFile(filePath, (err, content) => {
+  fs.stat(filePath, (err, stats) => {
     if (err) {
       if (err.code === 'ENOENT') {
         res.writeHead(404, { 'Content-Type': 'text/html; charset=UTF-8' });
@@ -57,12 +66,37 @@ const server = http.createServer((req, res) => {
         res.writeHead(500);
         res.end(`Server Error: ${err.code}`, 'utf-8');
       }
+      return;
+    }
+
+    if (stats.isDirectory()) {
+      res.writeHead(403);
+      res.end('Directory listing forbidden');
+      return;
+    }
+
+    const range = req.headers.range;
+    if (range && (ext === '.mp4' || ext === '.webm')) {
+      const parts = range.replace(/bytes=/, '').split('-');
+      const start = parseInt(parts[0], 10);
+      const end = parts[1] ? parseInt(parts[1], 10) : stats.size - 1;
+      const chunksize = (end - start) + 1;
+      const stream = fs.createReadStream(filePath, { start, end });
+      res.writeHead(206, {
+        'Content-Range': `bytes ${start}-${end}/${stats.size}`,
+        'Accept-Ranges': 'bytes',
+        'Content-Length': chunksize,
+        'Content-Type': contentType
+      });
+      stream.pipe(res);
     } else {
       res.writeHead(200, {
         'Content-Type': contentType,
+        'Content-Length': stats.size,
+        'Accept-Ranges': 'bytes',
         'Cache-Control': 'no-cache, no-store, must-revalidate'
       });
-      res.end(content);
+      fs.createReadStream(filePath).pipe(res);
     }
   });
 });

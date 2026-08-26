@@ -74,17 +74,17 @@
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   padding-bottom: 12px;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 13px;
-  letter-spacing: -0.01em;
+  letter-spacing: -1.2px;
 }
 
 .designer-section-title {
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   color: #999999;
-  letter-spacing: 0.06em;
+  letter-spacing: -1.2px;
   margin-top: 4px;
   border-left: 2px solid #ffffff;
   padding-left: 6px;
@@ -105,7 +105,7 @@
 
 .designer-control-label span:last-child {
   font-family: monospace;
-  font-weight: 700;
+  font-weight: 500;
   color: #ffffff;
   background: rgba(255, 255, 255, 0.1);
   padding: 1px 6px;
