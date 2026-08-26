@@ -24,8 +24,7 @@ const endpoints = [
   '/js/project.js',
   '/js/projects-data.js',
   '/assets/shape/SVG/TV.svg',
-  '/assets/videos/Sun%20Scene.html',
-  '/assets/videos/Yellow%20Waves.html',
+  '/works.html',
   '/assets/videos/Yellow%20Waves.mp4',
   '/assets/fonts/helvetiker_regular.typeface.json',
   '/js/hero-ascii-tv.js',
@@ -39,7 +38,7 @@ async function checkEndpoint(path) {
       res.on('data', chunk => data += chunk);
       res.on('end', () => {
         console.log(`[${res.statusCode}] ${path} (${data.length} bytes)`);
-        const isOk = (path === '/works' ? res.statusCode === 302 : res.statusCode === 200);
+        const isOk = (path === '/works' || path === '/works.html' ? res.statusCode === 302 : res.statusCode === 200);
         resolve(isOk);
       });
     }).on('error', (err) => {

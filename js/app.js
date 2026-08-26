@@ -102,8 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function scrollToPortfolioSection(smooth = true) {
     const portfolio = document.getElementById('f3-portfolio');
     if (!portfolio) {
-      if (window.location.pathname !== '/' && !window.location.pathname.endsWith('index.html')) {
-        navigateTo('/#f3-portfolio');
+      const curPath = window.location.pathname;
+      const isHome = curPath === '/' || curPath.endsWith('/') || curPath.endsWith('/index.html') || curPath.endsWith('index.html');
+      if (!isHome) {
+        navigateTo('index.html#f3-portfolio');
       }
       return;
     }
@@ -143,7 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const config = window.TRANSITION_CONFIG || { coverDuration: 480, revealDuration: 520, easeCover: 'cubic-bezier(0.65, 0, 0.15, 1)', easeReveal: 'cubic-bezier(0.16, 1, 0.3, 1)' };
 
     try {
-      const fetchUrl = url.split('#')[0] || '/';
+      let fetchUrl = url.split('#')[0] || 'index.html';
+      if (fetchUrl === '' || fetchUrl === '/' || fetchUrl === './') {
+        fetchUrl = 'index.html';
+      }
       const fetchPromise = fetch(fetchUrl).then(res => res.text());
 
       // 1. Animate curtain smoothly UP to cover screen
@@ -302,7 +307,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Direct click on N/P brand logo / Home link when already on home page
     const isBrandHomeClick = link.classList.contains('hero-nav-brand') || link.classList.contains('nav-box-brand');
-    const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname.endsWith('/index.html');
+    const curNavPath = window.location.pathname;
+    const isHomePage = curNavPath === '/' || curNavPath.endsWith('/') || curNavPath.endsWith('/index.html') || curNavPath.endsWith('index.html');
     const cleanHref = href.split('?')[0].split('#')[0];
     const isHomeHref = cleanHref === '' || cleanHref === '/' || cleanHref === 'index.html' || cleanHref === '/index.html' || cleanHref === './' || cleanHref === './index.html';
 
@@ -334,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       } else {
         e.preventDefault();
-        navigateTo('/#f3-portfolio');
+        navigateTo('index.html#f3-portfolio');
         return;
       }
     }
