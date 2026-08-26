@@ -3,6 +3,7 @@ const http = require('http');
 const endpoints = [
   '/',
   '/works',
+  '/works.html',
   '/about',
   '/contact',
   '/project?id=wide-angle',
@@ -10,25 +11,23 @@ const endpoints = [
   '/css/main.css',
   '/css/typography.css',
   '/css/components.css',
+  '/css/glassmorphism.css',
+  '/css/hero-3d.css',
+  '/css/futurethree-scroll.css',
   '/css/pages.css',
   '/css/responsive.css',
-  '/css/visual-designer.css',
-  '/css/futurethree-scroll.css',
+  '/js/motion-stack.js',
   '/js/futurethree-scroll.js',
-  '/js/app.js',
-  '/js/hero-ascii-scramble.js',
-  '/js/hero-ribbon.js',
-  '/js/visual-designer.js',
+  '/js/hero-ascii-tv.js',
+  '/js/hero-scroll-transition.js',
   '/js/works.js',
   '/js/contact.js',
   '/js/project.js',
   '/js/projects-data.js',
-  '/assets/shape/SVG/TV.svg',
-  '/works.html',
+  '/js/utils.js',
+  '/js/app.js',
   '/assets/videos/Yellow%20Waves.mp4',
-  '/assets/fonts/helvetiker_regular.typeface.json',
-  '/js/hero-ascii-tv.js',
-  '/js/hero-scroll-transition.js'
+  '/assets/fonts/NeueHaasDisplayRoman.ttf'
 ];
 
 async function checkEndpoint(path) {

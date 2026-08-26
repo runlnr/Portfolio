@@ -66,9 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.add('loader-revealed');
       loaderFinished = true;
       sessionStorage.setItem('np_has_seen_intro', 'true');
-      if (window.heroAsciiScrambleInstance) {
-        window.heroAsciiScrambleInstance.play();
-      }
       initHeroTvInteraction();
       if (window.location.hash === '#f3-portfolio') {
         setTimeout(() => scrollToPortfolioSection(true), 400);
@@ -87,11 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     document.body.classList.remove('is-loading');
     document.body.classList.add('loader-revealed');
-    if (window.heroAsciiScrambleInstance) {
-      setTimeout(() => {
-        window.heroAsciiScrambleInstance.play();
-      }, 150);
-    }
     initHeroTvInteraction();
     if (window.location.hash === '#f3-portfolio') {
       setTimeout(() => scrollToPortfolioSection(true), 250);
