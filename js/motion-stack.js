@@ -60,6 +60,8 @@ class MotionStack {
 
   initScrollReveals() {
     if (!window.gsap || !window.ScrollTrigger) return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
 
     // A. Fade Up Elements
     const fadeUps = document.querySelectorAll('[data-reveal="fade-up"], .reveal-fade-up');

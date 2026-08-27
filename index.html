@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600;700;800;900&family=Martian+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,600;1,700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600;700;800;900&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@1,400;1,600;1,700&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="css/typography.css">
@@ -43,19 +43,19 @@
       /* Extra space around slash (/) */
       --nav-box-brand-r-gap: 2px;
       /* Space before registered mark (®) */
-      --nav-box-bg: #131313;
-      --hero-tv-width: 910px;
-      --hero-tv-height: 156px;
-      --hero-tv-top: 53.5%;
+      --nav-box-bg: rgba(28, 28, 28, 0.60);
+      --hero-tv-width: 900px;
+      --hero-tv-height: 160px;
+      --hero-tv-top: 52%;
       --hero-tv-left: 49.5%;
-      --hero-tv-scale: 1.05;
+      --hero-tv-scale: 1;
       --hero-tv-rect-margin-x: 20px;
       --hero-tv-rect-margin-y: 20px;
-      --headline-font-size: 54px;
+      --headline-font-size: 55px;
       --headline-font-weight: 400;
-      --statement-gap: 21px;
-      --slashes-size: 59px;
-      --slashes-gap: 11px;
+      --statement-gap: 20px;
+      --slashes-size: 61px;
+      --slashes-gap: 13px;
       --slashes-font-weight: 700;
     }
   </style>
@@ -150,27 +150,30 @@
         <span class="hero-meta-tag">/INTRO</span>
       </div>
 
-      <!-- Central Lockup: Wide CRT TV Banner + Headline directly beneath -->
+      <!-- Central Lockup: Wide CRT TV Banner -->
       <div class="hero-center-visual" id="hero-center-visual">
         <div class="hero-tv-wrapper" id="hero-tv-wrapper">
           <canvas id="hero-tv-canvas" class="hero-tv-canvas" aria-label="ASCII Video Effect"></canvas>
         </div>
+        <!-- Lava Spark Particle Overlay -->
+        <canvas id="hero-spark-canvas" class="hero-spark-canvas" aria-hidden="true"></canvas>
+      </div>
 
-        <div class="hero-statement-row" id="hero-statement-row">
-          <h1 class="hero-statement-headline">
-            <span class="hero-statement-line1">Nothing here</span>
-            <span class="hero-statement-line2">by <span class="hero-statement-serif">accident.</span></span>
-          </h1>
+      <!-- Statement Row: Headline on left, Slashes on right -->
+      <div class="hero-statement-row" id="hero-statement-row">
+        <h1 class="hero-statement-headline">
+          <span class="hero-statement-line1">Nothing here</span>
+          <span class="hero-statement-line2"><span class="hero-statement-prefix">by </span><span class="hero-statement-serif">accident.</span></span>
+        </h1>
 
-          <div class="hero-statement-slashes" aria-hidden="true">
-            <span class="hero-slash">/</span>
-            <span class="hero-slash">/</span>
-          </div>
+        <div class="hero-statement-slashes" aria-hidden="true">
+          <span class="hero-slash">/</span>
+          <span class="hero-slash">/</span>
         </div>
       </div>
 
       <!-- Bottom Bar: HCMC, VIETNAM (Left) + Live GMT+7 Clock (Right) -->
-      <div class="hero-bottom-bar">
+      <div class="hero-bottom-bar" id="hero-bottom-bar">
         <div class="hero-location-left">
           <span class="hero-location-text">HCMC, VIETNAM</span>
         </div>
@@ -179,23 +182,20 @@
           <span class="live-clock-gmt" id="nav-live-clock">--:--:-- (GMT+7)</span>
         </div>
       </div>
-
     </section>
 
     <!-- 2. N/P® EDITORIAL SCROLLABLE BODY -->
     <div class="f3-editorial-wrapper" id="f3-content">
 
-      <!-- A. Section 1: Studio Intro & Coordinates Strip -->
+      <!-- A. Section 1: Studio Editorial & Portfolio Showcase -->
       <section class="f3-section-intro" id="f3-intro">
         <div class="f3-container">
-          <!-- Split Layout: Anchored to Behance Left Edge -->
+          <!-- Manifesto Statement & Action -->
           <div class="f3-intro-split-grid">
-            <div class="f3-intro-left-spacer" aria-hidden="true"></div>
-
-            <!-- Right Column: Statement & Button -->
+            <!-- Main Column: Statement & Button -->
             <div class="f3-intro-right-col">
               <h2 class="f3-intro-statement">
-                <span class="f3-accent-red">N/P®</span> is based in Ho Chi Minh City and supported by an international
+                N/P® is based in Ho Chi Minh City and supported by an international
                 network. It creates brands and digital experiences where flawless functionality meets editorial
                 aesthetics.
               </h2>
@@ -206,92 +206,100 @@
             </div>
           </div>
 
-          <!-- Coordinates Strip -->
-          <div class="f3-coordinates-strip">
-            <div class="f3-coord-label">Address</div>
-            <div class="f3-coord-value">
-              N/P Graphic Design Practice<br>
-              District 1, Ben Nghe Ward,<br>
-              Ho Chi Minh City, Vietnam
-            </div>
+          <!-- Editorial 2-Column Continuous Grid -->
+          <div class="f3-editorial-main-grid" id="f3-portfolio">
 
-            <div class="f3-coord-label">Email<br>Location</div>
-            <div class="f3-coord-value">
-              <a href="mailto:phnm@outlook.com">phnm@outlook.com</a><br>
-              <span>Available for Global Commissions</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- B. Section 2: "THE BEST OF N/P" Portfolio Showcase -->
-      <section class="f3-section-portfolio" id="f3-portfolio">
-        <div class="f3-container">
-          <!-- Portfolio Header Bar -->
-          <div class="f3-portfolio-header-bar">
-            <h2 class="f3-portfolio-main-title">
-              THE BEST<br>OF N/P
-            </h2>
-            <div class="f3-portfolio-tag-serif">/Portfolio</div>
-            <a href="#f3-portfolio" class="f3-portfolio-view-all">VIEW ALL (15)</a>
-          </div>
-
-          <!-- Disciplines Ticker -->
-          <div class="f3-disciplines-bar">
-            <span>BRANDING</span>
-            <span>DESIGN</span>
-            <span>DEVELOPMENT</span>
-          </div>
-
-          <!-- Asymmetric Grid -->
-          <div class="f3-portfolio-grid">
-            <!-- Card 01: Left Tall Portrait -->
-            <div class="f3-project-card-01">
-              <a href="project.html?id=wide-angle" class="f3-project-card-link">
-                <div class="f3-img-wrap-01">
-                  <img src="https://framerusercontent.com/images/McfLASz7qCgeArkEfMksXwLY.jpg" alt="WIDE ANGLE"
-                    loading="lazy">
-                </div>
-                <div class="f3-card-bottom-bar">
-                  <span class="f3-card-num">01</span>
-                  <h3 class="f3-card-title">WIDE ANGLE<sup>®</sup> <sup>↗</sup></h3>
-                </div>
-              </a>
-            </div>
-
-            <!-- Right Stack: Card 02 & Card 03 -->
-            <div class="f3-portfolio-right-stack">
-              <!-- Card 02: Landscape Monitor Showcase -->
-              <div class="f3-project-card-02">
-                <a href="project.html?id=titarvl-studio" class="f3-project-card-link">
-                  <div class="f3-img-wrap-02">
-                    <img src="https://framerusercontent.com/images/0Q1DaqJe0TIpdcOR4dUdPzKghNs.jpg" alt="TITARVL STUDIO"
-                      loading="lazy">
+            <!-- LEFT COLUMN: Card 01 + Card 03 Overlap with Watermark -->
+            <div class="f3-col-left">
+              <!-- Card 01: Tall Portrait -->
+              <div class="f3-project-card f3-project-card-01">
+                <a href="project.html?id=wide-angle" class="f3-project-card-link">
+                  <div class="f3-img-wrap f3-img-wrap-01">
+                    <img src="https://framerusercontent.com/images/McfLASz7qCgeArkEfMksXwLY.jpg" alt="DAY ONE® RUN"
+                      loading="eager">
                   </div>
                   <div class="f3-card-bottom-bar">
-                    <span class="f3-card-num">02</span>
-                    <h3 class="f3-card-title">TITARVL<sup>®</sup> <sup>↗</sup></h3>
+                    <span class="f3-card-num">01</span>
+                    <h3 class="f3-card-title">DAY ONE<sup>®</sup> RUN<sup>↗</sup></h3>
                   </div>
                 </a>
               </div>
 
-              <!-- Card 03: Lower Offset with Giant Watermark Number _15 -->
-              <div class="f3-card-03-container">
-                <div class="f3-watermark-number" aria-hidden="true">_15</div>
-                <div class="f3-project-card-03">
+              <!-- Card 03 Container with Giant Watermark Number 25 -->
+              <div class="f3-card-03-overlap-wrap">
+                <div class="f3-watermark-number" aria-hidden="true">25</div>
+                <div class="f3-project-card f3-project-card-03">
                   <a href="project.html?id=kade-agency" class="f3-project-card-link">
-                    <div class="f3-img-wrap-03">
-                      <img src="https://framerusercontent.com/images/GW4U3mptwe10pQQ7jc7zflAi5WY.jpg" alt="KADE AGENCY"
-                        loading="lazy">
+                    <div class="f3-img-wrap f3-img-wrap-03">
+                      <img src="https://framerusercontent.com/images/GW4U3mptwe10pQQ7jc7zflAi5WY.jpg" alt="RODEWALD"
+                        loading="eager">
                     </div>
                     <div class="f3-card-bottom-bar">
                       <span class="f3-card-num">03</span>
-                      <h3 class="f3-card-title">KADE AGENCY<sup>®</sup> <sup>↗</sup></h3>
+                      <h3 class="f3-card-title">RODEWALD<sup>↗</sup></h3>
                     </div>
                   </a>
                 </div>
               </div>
             </div>
+
+            <!-- RIGHT COLUMN: Contact Coordinates + Portfolio Header + Disciplines + Card 02 -->
+            <div class="f3-col-right">
+
+              <!-- Contact Info Coordinates -->
+              <div class="f3-contact-coord-block">
+                <div class="f3-coord-col-address">
+                  <div class="f3-coord-label">Address</div>
+                  <div class="f3-coord-value">
+                    Future Three<br>
+                    Äppelallee 27,<br>
+                    65203 Wiesbaden
+                  </div>
+                </div>
+                <div class="f3-coord-col-contact">
+                  <div class="f3-coord-subrow">
+                    <span class="f3-coord-label">Phone</span>
+                    <span class="f3-coord-value"><a href="tel:+4915758518742">+49 157 58518742</a></span>
+                  </div>
+                  <div class="f3-coord-subrow">
+                    <span class="f3-coord-label">Email</span>
+                    <span class="f3-coord-value"><a href="mailto:hello@futurethree.studio">hello@futurethree.studio</a></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Portfolio Header Row -->
+              <div class="f3-portfolio-header-bar">
+                <h2 class="f3-portfolio-main-title">
+                  THE BEST<br>OF N/P
+                </h2>
+                <div class="f3-portfolio-tag-serif">/Portfolio</div>
+                <a href="#f3-portfolio" class="f3-portfolio-view-all">VIEW ALL</a>
+              </div>
+
+              <!-- Disciplines Ticker Row -->
+              <div class="f3-disciplines-bar">
+                <span>BRANDING</span>
+                <span>DESIGN</span>
+                <span>DEVELOPMENT</span>
+              </div>
+
+              <!-- Card 02: Landscape Monitor Showcase -->
+              <div class="f3-project-card f3-project-card-02">
+                <a href="project.html?id=titarvl-studio" class="f3-project-card-link">
+                  <div class="f3-img-wrap f3-img-wrap-02">
+                    <img src="https://framerusercontent.com/images/0Q1DaqJe0TIpdcOR4dUdPzKghNs.jpg" alt="AARDVARK"
+                      loading="eager">
+                  </div>
+                  <div class="f3-card-bottom-bar">
+                    <span class="f3-card-num">02</span>
+                    <h3 class="f3-card-title">AARDVARK<sup>↗</sup></h3>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+
           </div>
         </div>
       </section>
@@ -470,7 +478,9 @@
   <script src="js/project.js"></script>
   <script src="js/contact.js"></script>
   <script src="js/hero-ascii-tv.js"></script>
+  <script src="js/hero-lava-sparks.js"></script>
   <script src="js/hero-scroll-transition.js"></script>
+  <script src="js/hero-statement-scramble.js"></script>
   <script src="js/app.js"></script>
 </body>
 

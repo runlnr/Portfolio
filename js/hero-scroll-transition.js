@@ -26,16 +26,19 @@
       currentTimeline = null;
     }
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
     const heroViewport = document.getElementById('hero-viewport');
     const tvWrapper = document.getElementById('hero-tv-wrapper');
-    const bottomBar = document.querySelector('.hero-bottom-bar');
     const statementRow = document.querySelector('.hero-statement-row');
     const blueprintContainer = document.querySelector('.hero-blueprint-container');
     const langSelector = document.getElementById('hero-lang-selector');
     const midMetaBar = document.querySelector('.hero-mid-meta-bar');
     const centerVisual = document.getElementById('hero-center-visual');
+    const bottomBar = document.getElementById('hero-bottom-bar') || document.querySelector('.hero-bottom-bar');
 
-    if (!heroViewport || !tvWrapper || !bottomBar) {
+    if (!heroViewport || !tvWrapper) {
       console.warn('HeroScrollTransition: Essential elements missing');
       return;
     }
@@ -109,11 +112,14 @@
         start: 'top top',
         end: `+=${scrollDistance}`,
         pin: true,
-        scrub: 0.8, // Responsive scrub
+        scrub: 1.0, // Smooth organic scrub with physical momentum
         anticipatePin: 1,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
           window.heroScrollProgress = self.progress;
+          if (typeof window.updateNavbarTheme === 'function') {
+            window.updateNavbarTheme();
+          }
         }
       }
     });
@@ -127,47 +133,33 @@
     const TV_FINISH_TIME = 0.60;
 
     // --------------------------------------------------------------------------
-    // 1. Text Movement: Slide UP and exit cleanly
+    // 1. Hero Text, Slashes & Adjacent Components: Fade & blur in-place (no sliding up)
     // --------------------------------------------------------------------------
     if (statementRow) {
+      window.gsap.set(statementRow, { xPercent: -50, y: 0 });
       tl.fromTo(
         statementRow,
-        { y: 0, opacity: 1 },
+        { opacity: 1, filter: 'blur(0px)' },
         {
-          y: () => -window.innerHeight * 1.35,
           opacity: 0,
-          ease: 'power2.in',
+          filter: 'blur(10px)',
+          ease: 'power1.out',
           duration: TEXT_EXIT_TIME
         },
         0
       );
     }
 
-    if (bottomBar) {
-      tl.fromTo(
-        bottomBar,
-        { y: 0, opacity: 1 },
-        {
-          y: () => -window.innerHeight * 1.1,
-          opacity: 1,
-          ease: 'power2.inOut',
-          duration: TEXT_EXIT_TIME
-        },
-        0
-      );
-    }
-
-    // Mid metadata (01/ /INTRO), language selector, and blueprint grid slide/fade smoothly
-    const auxElements = [langSelector, midMetaBar, blueprintContainer].filter(Boolean);
+    const auxElements = [langSelector, midMetaBar, blueprintContainer, bottomBar].filter(Boolean);
     if (auxElements.length > 0) {
       tl.fromTo(
         auxElements,
-        { y: 0, opacity: 1 },
+        { opacity: 1, filter: 'blur(0px)' },
         {
-          y: () => -window.innerHeight * 0.65,
           opacity: 0,
-          ease: 'power2.out',
-          duration: TEXT_EXIT_TIME * 0.85
+          filter: 'blur(8px)',
+          ease: 'power1.out',
+          duration: TEXT_EXIT_TIME
         },
         0
       );
@@ -284,6 +276,16 @@
     // Allow CSS variables and Visual Designer sliders to control styles when at scroll position 0
     function clearInlineOverridesAtTop() {
       if (window.scrollY === 0) {
+        if (statementRow) {
+          statementRow.style.removeProperty('filter');
+          statementRow.style.removeProperty('opacity');
+        }
+        if (auxElements && auxElements.length > 0) {
+          auxElements.forEach((el) => {
+            el.style.removeProperty('filter');
+            el.style.removeProperty('opacity');
+          });
+        }
         if (centerVisual) {
           centerVisual.style.removeProperty('width');
           centerVisual.style.removeProperty('height');

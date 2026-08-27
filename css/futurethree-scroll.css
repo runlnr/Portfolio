@@ -5,25 +5,97 @@
 
 /* Google Font: Playfair Display for editorial serif accents */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
   /* ==========================================================================
-     MANIFESTO STATEMENT ADJUSTMENT CONTROL
-     Change --manifesto-max-width below to adjust the width and line-wrapping:
-     (e.g., 720px, 800px, 860px, 920px, 1000px, 100%, etc.)
+     MANIFESTO STATEMENT & SECTION SPACING ADJUSTMENT CONTROLS
      ========================================================================== */
-  --manifesto-max-width: 860px;
+  --manifesto-line-height: 1.04;
+  --manifesto-letter-spacing: -1.2px;
+  --manifesto-top-margin: 80px;
+  --manifesto-right-margin: 20px;
+  --manifesto-max-width: 830px;
+  --manifesto-font-size: 49px;
+  --manifesto-gap: 200px;
+  --manifesto-padding-bottom: 95px;
+  --manifesto-min-height: 0px;
 
-  --f3-bg: #f1f1f1;
-  --f3-bg-card: #e5e5e5;
-  --f3-bg-card-white: #f1f1f1;
-  --f3-text: #111111;
-  --f3-text-muted: #555555;
-  --f3-text-dim: #777777;
-  --f3-accent-red: #f12a2d;
-  --f3-border: rgba(0, 0, 0, 0.12);
-  --f3-border-light: rgba(0, 0, 0, 0.07);
-  --f3-border-dark: #111111;
+  /* ==========================================================================
+     EDITORIAL GRID & PROJECT CARDS VISUAL DESIGNER TOKENS
+     ========================================================================== */
+  --editorial-grid-gap: 16px;
+  --editorial-left-col-ratio: 1;
+
+  /* Card 01 (Left Tall Portrait) */
+  --card-01-width: 89%;
+  --card-01-height: 670px;
+  --card-01-aspect: 1.18;
+  --card-01-offset-x: -2px;
+  --card-01-offset-y: 0px;
+  --card-01-margin-bottom: 235px;
+  --card-01-title-size: 50px;
+  --card-01-title-weight: 500;
+  --card-01-letter-spacing: -1.5px;
+
+  /* Card 02 (Right Landscape Monitor) */
+  --card-02-width: 108%;
+  --card-02-height: 630px;
+  --card-02-aspect: 10;
+  --card-02-offset-x: -60px;
+  --card-02-offset-y: 150px;
+  --card-02-title-size: 49px;
+  --card-02-title-weight: 500;
+  --card-02-letter-spacing: -1.6px;
+
+  /* Card 03 & Giant Watermark (Bottom Overlap) */
+  --card-03-width: 59%;
+  --card-03-height: 440px;
+  --card-03-aspect: 1.1;
+  --card-03-offset-x: 17%;
+  --card-03-offset-y: 74px;
+  --card-03-title-size: 49px;
+  --card-03-title-weight: 500;
+  --card-03-letter-spacing: -1.5px;
+  --watermark-size: 400px;
+  --watermark-top: -60px;
+  --watermark-left: 150px;
+  --watermark-opacity: 0.08;
+
+  /* Contact Coordinates (Address, Phone, Email) */
+  --contact-font-size: 17.5px;
+  --contact-label-weight: 500;
+  --contact-value-weight: 500;
+  --contact-letter-spacing: -0.6px;
+  --contact-line-height: 1.1;
+  --contact-padding-bottom: 200px;
+  --contact-col-gap: 8px;
+  --contact-offset-x: -78px;
+  --contact-offset-y: 0px;
+
+  /* THE BEST OF N/P & Portfolio Header */
+  --best-title-size: 33px;
+  --best-title-weight: 500;
+  --best-title-letter-spacing: -1.8px;
+  --best-title-line-height: 0.95;
+  --best-header-padding-bottom: 10px;
+  --best-tag-serif-size: 29px;
+  --best-view-all-size: 22px;
+  --best-disciplines-size: 11px;
+  --best-disciplines-padding-top: 10px;
+  --best-disciplines-padding-bottom: 70px;
+  --best-header-offset-y: 60px;
+
+  --f3-bg: #000000;
+  --f3-bg-card: #121212;
+  --f3-bg-card-white: #161616;
+  --f3-text: #ffffff;
+  --f3-text-muted: #8e8e8e;
+  --f3-text-dim: #666666;
+  --f3-accent-red: #ff3333;
+  --f3-border: rgba(255, 255, 255, 0.12);
+  --f3-border-light: rgba(255, 255, 255, 0.07);
+  --f3-border-dark: rgba(255, 255, 255, 0.25);
 
   --f3-gutter-x: 20px;
   --f3-max-width: 100%;
@@ -56,198 +128,131 @@
 }
 
 .f3-mono-tag {
-  font-family: var(--font-mono, 'Martian Mono', 'DM Mono', monospace);
+  font-family: var(--font-mono, 'Sometype Mono', monospace);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.2px;
   text-transform: uppercase;
   color: var(--f3-text-dim);
 }
 
 /* ==========================================================================
-   1. STUDIO INTRO & COORDINATES SECTION
+   1. STUDIO INTRO & CONTINUOUS EDITORIAL PORTFOLIO GRID
    ========================================================================== */
 .f3-section-intro {
-  padding-top: var(--manifesto-top-margin, 60px);
-  padding-bottom: clamp(64px, 8vh, 100px);
+  padding-top: var(--manifesto-top-margin, 40px);
+  padding-bottom: clamp(80px, 10vh, 140px);
   border-bottom: 1px solid var(--f3-border);
 }
 
+/* Top Split: Manifesto Statement on Left */
 .f3-intro-split-grid {
-  display: grid;
-  grid-template-columns: var(--behance-left-anchor, 28%) 1fr;
-  gap: 0;
-  margin-bottom: clamp(60px, 8vh, 110px);
-  align-items: start;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: var(--manifesto-gap, 100px);
 }
 
-.f3-intro-left-spacer {
-  display: block;
+.f3-intro-meta-left {
+  display: none;
+}
+
+.f3-meta-square {
+  font-size: 8px;
+  line-height: 1;
+  color: var(--f3-text);
 }
 
 .f3-intro-right-col {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: var(--manifesto-max-width, 860px);
+  max-width: var(--manifesto-max-width, 830px);
   width: 100%;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .f3-intro-statement {
   font-family: var(--font-sans);
-  font-size: clamp(32px, 3.8vw, 52px);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -1.2px;
+  font-size: var(--manifesto-font-size, 49px);
+  font-weight: 400;
+  line-height: var(--manifesto-line-height, 1.04);
+  letter-spacing: var(--manifesto-letter-spacing, -1.2px);
   color: var(--f3-text);
-  margin: 0 0 32px 0;
-  max-width: var(--manifesto-max-width, 860px);
+  margin: 0 0 28px 0;
+  max-width: 100%;
   width: 100%;
+  text-align: left;
 }
 
 .f3-pill-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: #111111;
+  background-color: #161616;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: #ffffff;
-  font-family: var(--font-mono, 'Martian Mono', monospace);
+  font-family: var(--font-mono, 'Sometype Mono', monospace);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.2px;
   text-transform: uppercase;
   padding: 6px 12px;
   border-radius: 2px;
   text-decoration: none;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .f3-pill-btn:hover {
-  background-color: #2a2a2a;
+  background-color: #242424;
+  border-color: rgba(255, 255, 255, 0.35);
   transform: translateY(-2px);
   color: #ffffff;
 }
 
 .f3-pill-btn .btn-arrow {
   font-size: 12px;
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-fast);
 }
 
 .f3-pill-btn:hover .btn-arrow {
   transform: translate(2px, -2px);
 }
 
-/* 4-Column Coordinates Strip */
-.f3-coordinates-strip {
-  display: grid;
-  grid-template-columns: 100px 1.5fr 100px 1.5fr;
-  gap: 24px;
-  padding-top: 28px;
-  border-top: 1px solid var(--f3-border);
-  font-size: 13.5px;
-  line-height: 1.45;
-}
-
-.f3-coord-label {
-  font-family: var(--font-sans);
-  font-size: 13.5px;
-  font-weight: 500;
-  letter-spacing: -1.2px;
-  color: var(--f3-text);
-}
-
-.f3-coord-value {
-  color: var(--f3-text);
-}
-
-.f3-coord-value a {
-  color: var(--f3-text);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.2s ease;
-}
-
-.f3-coord-value a:hover {
-  color: var(--f3-accent-red);
-}
-
 /* ==========================================================================
-   2. "THE BEST OF THREE" PORTFOLIO SHOWCASE
+   EDITORIAL 2-COLUMN CONTINUOUS GRID (DIRECTLY UNDER MANIFESTO)
    ========================================================================== */
-.f3-section-portfolio {
-  padding-top: clamp(64px, 8vh, 110px);
-  padding-bottom: clamp(80px, 10vh, 140px);
-  border-bottom: 1px solid var(--f3-border);
-}
-
-.f3-portfolio-header-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--f3-border-dark);
-  margin-bottom: 20px;
-}
-
-.f3-portfolio-main-title {
-  font-family: var(--font-sans);
-  font-size: clamp(22px, 2.5vw, 32px);
-  font-weight: 500;
-  letter-spacing: -1.2px;
-  line-height: 1.05;
-  text-transform: uppercase;
-  color: var(--f3-text);
-  margin: 0;
-}
-
-.f3-portfolio-tag-serif {
-  font-family: var(--font-serif);
-  font-size: clamp(22px, 2.6vw, 34px);
-  font-style: italic;
-  color: var(--f3-text);
-}
-
-.f3-portfolio-view-all {
-  font-family: var(--font-sans);
-  font-size: 13.5px;
-  font-weight: 500;
-  letter-spacing: -1.2px;
-  text-transform: uppercase;
-  color: var(--f3-text);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  transition: color 0.2s ease;
-}
-
-.f3-portfolio-view-all:hover {
-  color: var(--f3-accent-red);
-}
-
-/* Disciplines Ticker Bar */
-.f3-disciplines-bar {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0 36px 0;
-  font-family: var(--font-mono, 'Martian Mono', monospace);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--f3-text-muted);
-}
-
-/* Asymmetric Portfolio Grid */
-.f3-portfolio-grid {
+.f3-editorial-main-grid {
   display: grid;
-  grid-template-columns: 1.05fr 1.35fr;
-  gap: clamp(32px, 4.5vw, 64px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--editorial-grid-gap, clamp(32px, 4.5vw, 60px));
   align-items: start;
+  width: 100%;
 }
 
-/* Card 01: Tall Left Portrait */
-.f3-project-card-01 {
+/* LEFT COLUMN */
+.f3-col-left {
   display: flex;
   flex-direction: column;
+  gap: var(--card-01-margin-bottom, clamp(64px, 8vh, 120px));
+  width: 100%;
+}
+
+/* RIGHT COLUMN */
+.f3-col-right {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Shared Project Card Styles */
+.f3-project-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .f3-project-card-link {
@@ -256,27 +261,118 @@
   color: inherit;
 }
 
-.f3-img-wrap-01 {
+.f3-img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  background-color: #d6d4cf;
   overflow: hidden;
+  background-color: #141414;
 }
 
-.f3-img-wrap-01 img {
+.f3-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: contrast(1.08);
+  filter: contrast(1.05);
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
 
-.f3-project-card-link:hover .f3-img-wrap-01 img {
+.f3-project-card-link:hover .f3-img-wrap img {
   transform: scale(1.035);
-  filter: contrast(1.12);
+  filter: contrast(1.1);
 }
 
+/* Card 01: Tall Portrait */
+.f3-project-card-01 {
+  width: var(--card-01-width, 100%);
+  margin-left: var(--card-01-offset-x, 0px);
+  margin-top: var(--card-01-offset-y, 0px);
+}
+
+.f3-img-wrap-01 {
+  width: 100%;
+  height: var(--card-01-height, 620px);
+  aspect-ratio: 1 / var(--card-01-aspect, 1.18);
+  position: relative;
+  overflow: hidden;
+  background-color: #141414;
+}
+
+.f3-project-card-01 .f3-card-title {
+  font-size: var(--card-01-title-size, clamp(24px, 2.8vw, 38px));
+  font-weight: var(--card-01-title-weight, 500);
+  letter-spacing: var(--card-01-letter-spacing, -1.2px);
+}
+
+/* Card 02: Landscape Monitor Showcase */
+.f3-project-card-02 {
+  width: var(--card-02-width, 100%);
+  margin-left: var(--card-02-offset-x, 0px);
+  margin-top: var(--card-02-offset-y, 0px);
+}
+
+.f3-img-wrap-02 {
+  width: 100%;
+  height: var(--card-02-height, 480px);
+  aspect-ratio: 16 / var(--card-02-aspect, 10.5);
+  position: relative;
+  overflow: hidden;
+  background-color: #141414;
+}
+
+.f3-project-card-02 .f3-card-title {
+  font-size: var(--card-02-title-size, clamp(24px, 2.8vw, 38px));
+  font-weight: var(--card-02-title-weight, 500);
+  letter-spacing: var(--card-02-letter-spacing, -1.2px);
+}
+
+/* Card 03 Overlap Container with Giant Watermark Number */
+.f3-card-03-overlap-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: clamp(20px, 3vh, 40px);
+}
+
+.f3-watermark-number {
+  position: absolute;
+  top: var(--watermark-top, -60px);
+  left: var(--watermark-left, 0px);
+  right: 0;
+  font-family: var(--font-sans);
+  font-size: var(--watermark-size, clamp(160px, 20vw, 290px));
+  font-weight: 600;
+  line-height: 0.8;
+  letter-spacing: -10px;
+  color: #ffffff;
+  opacity: var(--watermark-opacity, 0.08);
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+}
+
+.f3-project-card-03 {
+  position: relative;
+  z-index: 2;
+  width: var(--card-03-width, 55%);
+  margin-left: var(--card-03-offset-x, 10%);
+  margin-top: var(--card-03-offset-y, 0px);
+}
+
+.f3-img-wrap-03 {
+  width: 100%;
+  height: var(--card-03-height, 380px);
+  aspect-ratio: 1 / var(--card-03-aspect, 1.08);
+  position: relative;
+  overflow: hidden;
+  background-color: #141414;
+}
+
+.f3-project-card-03 .f3-card-title {
+  font-size: var(--card-03-title-size, clamp(24px, 2.8vw, 38px));
+  font-weight: var(--card-03-title-weight, 500);
+  letter-spacing: var(--card-03-letter-spacing, -1.2px);
+}
+
+/* Card Bottom Bar */
 .f3-card-bottom-bar {
   display: flex;
   justify-content: space-between;
@@ -310,80 +406,127 @@
   color: var(--f3-accent-red);
 }
 
-/* Right Stack: Card 02 & Card 03 */
-.f3-portfolio-right-stack {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(48px, 6vh, 90px);
+/* Right Column Contact Info Block */
+.f3-contact-coord-block {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--contact-col-gap, 24px);
+  padding-bottom: var(--contact-padding-bottom, clamp(64px, 8vh, 110px));
+  font-size: var(--contact-font-size, 13px);
+  line-height: var(--contact-line-height, 1.4);
+  letter-spacing: var(--contact-letter-spacing, -0.6px);
+  margin-left: var(--contact-offset-x, 0px);
+  margin-top: var(--contact-offset-y, 0px);
 }
 
-/* Card 02: Landscape Monitor Mockup */
-.f3-project-card-02 .f3-img-wrap-02 {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10.5;
-  background-color: #dfdeda;
-  overflow: hidden;
-}
-
-.f3-img-wrap-02 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.f3-project-card-link:hover .f3-img-wrap-02 img {
-  transform: scale(1.035);
-}
-
-/* Card 03: Lower Offset with Giant Watermark Number */
-.f3-card-03-container {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  padding-top: 40px;
-}
-
-.f3-watermark-number {
-  position: absolute;
-  top: -20px;
-  left: -20px;
+.f3-coord-col-address .f3-coord-label {
   font-family: var(--font-sans);
-  font-size: clamp(140px, 16vw, 240px);
+  font-size: var(--contact-font-size, 13px);
+  font-weight: var(--contact-label-weight, 500);
+  letter-spacing: var(--contact-letter-spacing, -0.6px);
+  color: var(--f3-text);
+  margin-bottom: 2px;
+}
+
+.f3-coord-col-address .f3-coord-value {
+  font-family: var(--font-sans);
+  font-size: var(--contact-font-size, 13px);
+  font-weight: var(--contact-value-weight, 400);
+  line-height: var(--contact-line-height, 1.45);
+  letter-spacing: var(--contact-letter-spacing, -0.6px);
+  color: var(--f3-text);
+}
+
+.f3-coord-col-contact .f3-coord-subrow {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 12px;
+  margin-bottom: 6px;
+  font-family: var(--font-sans);
+  font-size: var(--contact-font-size, 13px);
+}
+
+.f3-coord-col-contact .f3-coord-label {
+  font-size: var(--contact-font-size, 13px);
+  font-weight: var(--contact-label-weight, 500);
+  letter-spacing: var(--contact-letter-spacing, -0.6px);
+  color: var(--f3-text);
+}
+
+.f3-coord-col-contact .f3-coord-value {
+  font-size: var(--contact-font-size, 13px);
+  font-weight: var(--contact-value-weight, 400);
+  letter-spacing: var(--contact-letter-spacing, -0.6px);
+}
+
+.f3-coord-col-contact .f3-coord-value a {
+  color: var(--f3-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.f3-coord-col-contact .f3-coord-value a:hover {
+  color: var(--f3-accent-red);
+}
+
+/* Portfolio Header Bar inside Right Column */
+.f3-portfolio-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: var(--best-header-padding-bottom, 20px);
+  border-bottom: 1px solid var(--f3-border-dark);
+  margin-bottom: 0;
+  margin-top: var(--best-header-offset-y, 0px);
+}
+
+.f3-portfolio-main-title {
+  font-family: var(--font-sans);
+  font-size: var(--best-title-size, clamp(22px, 2.5vw, 32px));
+  font-weight: var(--best-title-weight, 500);
+  letter-spacing: var(--best-title-letter-spacing, -1.2px);
+  line-height: var(--best-title-line-height, 1.05);
+  text-transform: uppercase;
+  color: var(--f3-text);
+  margin: 0;
+}
+
+.f3-portfolio-tag-serif {
+  font-family: var(--font-serif);
+  font-size: var(--best-tag-serif-size, clamp(22px, 2.6vw, 34px));
+  font-style: italic;
+  color: var(--f3-text);
+}
+
+.f3-portfolio-view-all {
+  font-family: var(--font-sans);
+  font-size: var(--best-view-all-size, 13.5px);
   font-weight: 500;
-  line-height: 0.8;
   letter-spacing: -1.2px;
-  color: rgba(255, 255, 255, 0.75);
-  pointer-events: none;
-  z-index: 1;
-  user-select: none;
+  text-transform: uppercase;
+  color: var(--f3-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
 }
 
-.f3-project-card-03 {
-  position: relative;
-  z-index: 2;
-  width: 65%;
-  margin-left: auto;
+.f3-portfolio-view-all:hover {
+  color: var(--f3-accent-red);
 }
 
-.f3-img-wrap-03 {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 4.2;
-  background-color: #d8d6d0;
-  overflow: hidden;
-}
-
-.f3-img-wrap-03 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.f3-project-card-link:hover .f3-img-wrap-03 img {
-  transform: scale(1.035);
+/* Disciplines Ticker Bar */
+.f3-disciplines-bar {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--best-disciplines-padding-top, 12px);
+  padding-bottom: var(--best-disciplines-padding-bottom, 32px);
+  font-family: var(--font-mono, 'Sometype Mono', monospace);
+  font-size: var(--best-disciplines-size, 11px);
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  text-transform: uppercase;
+  color: var(--f3-text-muted);
 }
 
 /* ==========================================================================
@@ -446,9 +589,10 @@
 }
 
 .f3-service-side-tag {
-  font-family: var(--font-mono, 'Martian Mono', monospace);
-  font-size: 10.5px;
-  letter-spacing: 0.04em;
+  font-family: var(--font-mono, 'Sometype Mono', monospace);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
   text-transform: uppercase;
   color: var(--f3-text-dim);
   padding-top: 6px;
@@ -486,9 +630,10 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10.5;
-  background-color: #d6d4cf;
+  background-color: #141414;
   overflow: hidden;
   border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .f3-service-media-card img {
@@ -517,6 +662,7 @@
   border-radius: 9999px;
   text-decoration: none;
   backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -577,8 +723,9 @@
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 4.8;
-  background-color: #8c9780;
-  /* Elegant soft matcha olive background */
+  background-color: #161a15;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  /* Elegant deep matte dark olive background */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -592,7 +739,7 @@
 
 .f3-outro-featured-top .f3-mono-tag {
   color: rgba(255, 255, 255, 0.75);
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .f3-outro-featured-img-wrap {
@@ -633,24 +780,24 @@
 }
 
 .f3-outro-view-btn {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  font-family: var(--font-mono, 'Martian Mono', monospace);
-  font-size: 10.5px;
+  font-family: var(--font-mono, 'Sometype Mono', monospace);
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: -1.2px;
+  letter-spacing: -0.2px;
   text-transform: uppercase;
   padding: 4px 14px;
   border-radius: 9999px;
   text-decoration: none;
   backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .f3-outro-view-btn:hover {
-  background-color: #f1f1f1;
-  color: #111111;
+  background-color: #ffffff;
+  color: #000000;
   transform: scale(1.04);
 }
 
@@ -759,9 +906,10 @@
   align-items: center;
   padding-top: 32px;
   border-top: 1px solid var(--f3-border);
-  font-family: var(--font-mono, 'Martian Mono', monospace);
+  font-family: var(--font-mono, 'Sometype Mono', monospace);
   font-size: 11px;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  letter-spacing: -0.2px;
   text-transform: uppercase;
   color: var(--f3-text-dim);
 }
@@ -796,21 +944,27 @@
   }
 }
 
-/* Tablet (< 900px) */
-@media (max-width: 900px) {
+/* Mobile / Tablet (< 768px) */
+@media (max-width: 768px) {
   .f3-intro-split-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 24px;
   }
 
-  .f3-coordinates-strip {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  .f3-editorial-main-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
   }
 
-  .f3-portfolio-grid {
+  .f3-project-card-03 {
+    width: 80%;
+    margin-left: 0;
+  }
+
+  .f3-contact-coord-block {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 20px;
+    padding-bottom: 48px;
   }
 
   .f3-service-row {
@@ -830,9 +984,8 @@
 
 /* Mobile (< 640px) */
 @media (max-width: 640px) {
-  .f3-coordinates-strip {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .f3-intro-meta-left {
+    padding-top: 0;
   }
 
   .f3-portfolio-header-bar {
@@ -847,10 +1000,12 @@
 
   .f3-project-card-03 {
     width: 100%;
+    margin-left: 0;
   }
 
   .f3-watermark-number {
     font-size: 110px;
+    top: -20px;
   }
 
   .f3-footer-legal-bar {

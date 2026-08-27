@@ -4,3 +4,6 @@ Thumbs.db
 *.log
 .env
 .tmp/
+.playwright/
+.playwright-cli/
+.claude/

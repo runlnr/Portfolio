@@ -433,10 +433,10 @@
 }
 
 .work-card-date {
-  font-family: var(--font-mono), 'Martian Mono', monospace;
-  font-size: 12px;
+  font-family: var(--font-mono), 'Sometype Mono', monospace;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.2px;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -481,10 +481,10 @@
   left: 0;
   pointer-events: none;
   z-index: 9999999;
-  font-family: var(--font-mono), 'Martian Mono', monospace;
+  font-family: var(--font-mono), 'Sometype Mono', monospace;
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: -1.2px;
+  letter-spacing: -0.2px;
   text-transform: uppercase;
   color: #ffffff;
   background: rgba(12, 12, 14, 0.88);

@@ -104,7 +104,7 @@
       contrast: 1.05,
       brightness: 0.14,
       fisheyeStrength: 0.0,
-      bloomStrength: 0.85,
+      bloomStrength: 0.9,
       tvness: 1.0,
       sideBulge: 0.0,   // Straight crisp sides for letterbox banner
       vertBulge: 0.0,   // Straight top & bottom

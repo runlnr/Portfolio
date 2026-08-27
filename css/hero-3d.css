@@ -124,7 +124,7 @@
   --nav-box-link-size: 14.5px;
   --nav-box-brand-size: 17px;
   --nav-box-brand-weight: 700;
-  --nav-box-bg: #131313;
+  --nav-box-bg: rgba(28, 28, 28, 0.60);
 }
 
 .hero-top-nav {
@@ -133,15 +133,193 @@
   left: 0;
   right: 0;
   width: 100%;
+  height: 52px;
   z-index: 1000;
-  padding: 0;
+  padding: 0 var(--hero-margin, 20px);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   pointer-events: none;
-  mix-blend-mode: normal !important;
-  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  box-sizing: border-box;
+}
+
+.hero-top-nav .nav-modular-box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.hero-top-nav .nav-pinned-item {
+  transition: opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.nav-pinned-item {
+  display: inline-flex;
+  align-items: center;
+  pointer-events: auto;
+  user-select: none;
   will-change: transform;
+  z-index: 2;
+  line-height: 1;
+  mix-blend-mode: normal !important;
+}
+
+.nav-pinned-left {
+  margin-right: auto;
+}
+
+.nav-pinned-right {
+  margin-left: auto;
+}
+
+.nav-pinned-item .hero-location-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.nav-pinned-item .live-clock-gmt {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+  line-height: 1;
+}
+
+.nav-pinned-item .hero-clock-dot,
+.hero-clock-dot {
+  display: inline-block;
+  width: 5.5px;
+  height: 5.5px;
+  border-radius: 50%;
+  background-color: #00ff66 !important;
+  box-shadow: 0 0 8px #00ff66 !important;
+  margin-right: 7px;
+  animation: clockDotPulse 2s ease-in-out infinite;
+  mix-blend-mode: normal !important;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+@keyframes clockDotPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 8px #00ff66;
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(0.85);
+    box-shadow: 0 0 3px rgba(0, 255, 102, 0.3);
+  }
+}
+
+/* ==========================================================================
+   Dynamic Navigation Theme: Light (White Section) vs Dark (Black Section)
+   ========================================================================== */
+
+/* Smooth color, background, transform & opacity transitions for navigation */
+.hero-top-nav,
+.site-nav-top {
+  transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform, opacity;
+}
+
+.nav-pinned-item,
+.nav-modular-box,
+.hero-location-text,
+.live-clock-gmt,
+.live-clock,
+.nav-modular-box .nav-box-link,
+.nav-modular-box .nav-box-brand,
+.nav-modular-box .brand-slash,
+.nav-modular-box .brand-r,
+.nav-modular-box .nav-roll-inner span,
+.nav-modular-box .brand-roll-inner span,
+.site-nav-top a,
+.site-nav-top span {
+  transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- White Section Active: Text is Black --- */
+.hero-top-nav.nav-theme-light .hero-location-text,
+.hero-top-nav.nav-theme-light .live-clock-gmt {
+  color: #000000 !important;
+}
+
+.hero-top-nav.nav-theme-light .nav-modular-box {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+.hero-top-nav.nav-theme-light .nav-modular-box .nav-box-link {
+  color: rgba(0, 0, 0, 0.65) !important;
+}
+
+.hero-top-nav.nav-theme-light .nav-modular-box .nav-box-link:hover,
+.hero-top-nav.nav-theme-light .nav-modular-box .nav-box-link.active {
+  color: #000000 !important;
+}
+
+.hero-top-nav.nav-theme-light .nav-modular-box .nav-box-brand,
+.hero-top-nav.nav-theme-light .nav-modular-box .brand-slash,
+.hero-top-nav.nav-theme-light .nav-modular-box .brand-r {
+  color: #000000 !important;
+}
+
+/* Subpage nav support */
+.site-nav-top.nav-theme-light a,
+.site-nav-top.nav-theme-light .hero-nav-brand,
+.site-nav-top.nav-theme-light .hero-nav-link,
+.site-nav-top.nav-theme-light .live-clock,
+.site-nav-top.nav-theme-light .brand-slash,
+.site-nav-top.nav-theme-light .brand-r {
+  color: #000000 !important;
+}
+
+.site-nav-top.nav-theme-light .nav-center-group span:not(.brand-slash):not(.brand-r) {
+  color: rgba(0, 0, 0, 0.60) !important;
+}
+
+/* --- Green Circle Clock Dot Stays Green At All Times Without Blending Mode Difference --- */
+.hero-top-nav.nav-theme-light .hero-clock-dot,
+.hero-top-nav.nav-theme-dark .hero-clock-dot,
+.hero-top-nav .hero-clock-dot,
+.site-nav-top.nav-theme-light .hero-clock-dot,
+.site-nav-top.nav-theme-dark .hero-clock-dot,
+.site-nav-top .hero-clock-dot,
+.nav-pinned-item .hero-clock-dot {
+  background-color: #00ff66 !important;
+  box-shadow: 0 0 8px #00ff66 !important;
+  mix-blend-mode: normal !important;
 }
 
 .site-nav-top {
@@ -157,13 +335,24 @@
   align-items: center;
   pointer-events: none;
   mix-blend-mode: normal !important;
-  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
-  will-change: transform;
+  transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
 .hero-top-nav.nav-hidden,
 .site-nav-top.nav-hidden {
-  transform: translateY(-140%) !important;
+  transform: translateY(-110%) scale(0.98) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.hero-top-nav.nav-hidden .nav-modular-box {
+  transform: translate(-50%, -65%) scale(0.95) !important;
+  opacity: 0 !important;
+}
+
+.hero-top-nav.nav-hidden .nav-pinned-item {
+  opacity: 0 !important;
 }
 
 .site-nav-top a,
@@ -175,18 +364,23 @@
   pointer-events: auto !important;
 }
 
+.site-nav-top .nav-right {
+  display: inline-flex;
+  align-items: center;
+}
+
 .nav-modular-box {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--nav-box-gap, 32px);
   padding: var(--nav-box-pady, 16px) var(--nav-box-padx, 28px);
-  background: var(--nav-box-bg, #131313);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--nav-box-bg, rgba(28, 28, 28, 0.60));
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--nav-box-radius, 6px);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   user-select: none;
 }
 
@@ -447,19 +641,33 @@
   user-select: none;
 }
 
+/* Lava ASCII spark particle canvas: positioned ON TOP of the ASCII pool, erupting upward into the space above */
+.hero-spark-canvas {
+  position: absolute;
+  bottom: 0;
+  left: -50px;
+  width: calc(100% + 100px);
+  height: 460px;
+  pointer-events: none;
+  z-index: 15;
+  display: block;
+}
+
 /* Statement Row: Headline on left, Slashes on right */
 .hero-statement-row {
   position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  width: 100%;
+  top: calc(var(--hero-tv-top, 53.5%) + (var(--hero-tv-height, 156px) / 2));
+  left: var(--hero-tv-left, 49.5%);
+  transform: translateX(-50%);
+  width: var(--hero-tv-width, 910px);
+  max-width: calc(100vw - (var(--hero-margin, 20px) * 2));
   margin-top: var(--statement-gap, 21px);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
   pointer-events: auto;
+  z-index: 6;
 }
 
 .hero-statement-headline {
@@ -555,10 +763,10 @@
 .hero-meta-tag {
   font-family: var(--font-mono) !important;
   font-size: 11px !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   line-height: 1;
   color: rgba(255, 255, 255, 0.45);
-  letter-spacing: 0.05em;
+  letter-spacing: -0.2px !important;
   text-transform: uppercase;
 }
 
@@ -802,7 +1010,7 @@ html, body {
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.05em;
+  letter-spacing: -0.2px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.75);
   white-space: nowrap;
@@ -916,8 +1124,9 @@ html, body {
 
 .hero-ribbon-meta {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
+  letter-spacing: -0.2px;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -950,7 +1159,7 @@ html, body {
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.2px;
   color: #ffffff;
   text-transform: uppercase;
   line-height: 1;
@@ -961,9 +1170,10 @@ html, body {
   align-items: center;
   gap: 7px;
   font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 11px;
+  font-weight: 500;
   color: #ffffff;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.2px;
   line-height: 1;
 }
 

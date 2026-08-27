@@ -7,64 +7,110 @@
   'use strict';
 
   function initFutureThreeScroll() {
-    // 1. Sync Manifesto Left Edge to Behance Nav Link Anchor
-    function syncBehanceAnchor() {
-      const behanceLink = document.getElementById('nav-behance-link');
-      const introGrid = document.querySelector('.f3-intro-split-grid');
-      const container = document.querySelector('.f3-section-intro .f3-container');
-      if (behanceLink && introGrid && container && window.innerWidth > 900) {
-        const behanceRect = behanceLink.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        const leftOffset = Math.max(0, behanceRect.left - containerRect.left);
-        introGrid.style.gridTemplateColumns = `${leftOffset}px 1fr`;
-      } else if (introGrid && window.innerWidth <= 900) {
-        introGrid.style.gridTemplateColumns = '1fr';
-      }
-    }
-
-    syncBehanceAnchor();
-    window.removeEventListener('resize', syncBehanceAnchor);
-    window.addEventListener('resize', syncBehanceAnchor, { passive: true });
+    // 1. GSAP ScrollTrigger Motion
 
     // 2. GSAP ScrollTrigger Motion
     if (window.gsap && window.ScrollTrigger) {
       window.ScrollTrigger.refresh();
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) { return; }
 
       // Intro text reveal
       const introStatement = document.querySelector('.f3-intro-statement');
       if (introStatement) {
-        window.gsap.fromTo(
+        window.gsap.from(
           introStatement,
-          { opacity: 0, y: 35 },
           {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
+            opacity: 0,
+            y: 25,
+            duration: 0.85,
             ease: 'power3.out',
+            immediateRender: false,
             scrollTrigger: {
               trigger: '.f3-section-intro',
-              start: 'top 80%',
-              toggleActions: 'play none none none'
+              start: 'top 90%',
+              once: true
             }
           }
         );
       }
 
-      // Parallax on giant watermark number _35
+      // Parallax on giant watermark number 25
       const watermarkNum = document.querySelector('.f3-watermark-number');
-      if (watermarkNum) {
+      const watermarkWrap = document.querySelector('.f3-card-03-overlap-wrap');
+      if (watermarkNum && watermarkWrap) {
         window.gsap.fromTo(
           watermarkNum,
-          { y: 30, opacity: 0.3 },
+          { y: 40, opacity: 0.5 },
           {
-            y: -30,
-            opacity: 0.85,
+            y: -40,
+            opacity: 1,
             ease: 'none',
             scrollTrigger: {
-              trigger: '.f3-card-03-container',
+              trigger: watermarkWrap,
               start: 'top bottom',
               end: 'bottom top',
               scrub: 1.2
+            }
+          }
+        );
+      }
+
+      // Smooth organic reveal for project cards (immediateRender: false ensures elements are never blank)
+      const card01 = document.querySelector('.f3-project-card-01');
+      const card02 = document.querySelector('.f3-project-card-02');
+      const card03 = document.querySelector('.f3-project-card-03');
+
+      if (card01) {
+        window.gsap.from(
+          card01,
+          {
+            opacity: 0,
+            y: 25,
+            duration: 0.85,
+            ease: 'power3.out',
+            immediateRender: false,
+            scrollTrigger: {
+              trigger: card01,
+              start: 'top 90%',
+              once: true
+            }
+          }
+        );
+      }
+
+      if (card02) {
+        window.gsap.from(
+          card02,
+          {
+            opacity: 0,
+            y: 25,
+            duration: 0.85,
+            delay: 0.1,
+            ease: 'power3.out',
+            immediateRender: false,
+            scrollTrigger: {
+              trigger: card02,
+              start: 'top 90%',
+              once: true
+            }
+          }
+        );
+      }
+
+      if (card03) {
+        window.gsap.from(
+          card03,
+          {
+            opacity: 0,
+            y: 25,
+            duration: 0.85,
+            ease: 'power3.out',
+            immediateRender: false,
+            scrollTrigger: {
+              trigger: card03,
+              start: 'top 92%',
+              once: true
             }
           }
         );

@@ -25,6 +25,7 @@ const endpoints = [
   '/js/futurethree-scroll.js',
   '/js/hero-ascii-tv.js',
   '/js/hero-scroll-transition.js',
+  '/js/hero-statement-scramble.js',
   '/js/works.js',
   '/js/contact.js',
   '/js/project.js',

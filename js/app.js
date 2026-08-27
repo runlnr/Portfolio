@@ -36,30 +36,26 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!hasSeenIntro && loader && slash && lockup) {
     document.body.classList.add('is-loading');
 
-    // Blink 1
-    setTimeout(() => { slash.style.opacity = '1'; }, 100);
-    setTimeout(() => { slash.style.opacity = '0'; }, 380);
+    // Blink 1 (deliberate, steady pulse)
+    setTimeout(() => { slash.style.opacity = '1'; }, 250);
+    setTimeout(() => { slash.style.opacity = '0'; }, 750);
 
-    // Blink 2
-    setTimeout(() => { slash.style.opacity = '1'; }, 580);
-    setTimeout(() => { slash.style.opacity = '0'; }, 860);
+    // Blink 2 (second and final blink before emergence)
+    setTimeout(() => { slash.style.opacity = '1'; }, 1150);
+    setTimeout(() => { slash.style.opacity = '0'; }, 1650);
 
-    // Blink 3
-    setTimeout(() => { slash.style.opacity = '1'; }, 1060);
-    setTimeout(() => { slash.style.opacity = '0'; }, 1340);
-
-    // 4th Beat: Slash emerges solid & N/P slide out from behind /
+    // 3rd Beat: Slash emerges solid & N/P slide out smoothly from behind /
     setTimeout(() => {
       slash.style.opacity = '1';
       lockup.classList.add('popped');
-    }, 1540);
+    }, 2050);
 
-    // 5th Beat: Copyright R (®) pops up right as letters settle
+    // 4th Beat: Copyright R (®) pops up as letters settle into position
     setTimeout(() => {
       lockup.classList.add('r-popped');
-    }, 1980);
+    }, 2850);
 
-    // 6th Beat: Fullscreen loader slides up, revealing the page
+    // 5th Beat: Fullscreen loader slides up slowly, revealing the page
     setTimeout(() => {
       loader.classList.add('slide-up');
       document.body.classList.remove('is-loading');
@@ -67,16 +63,19 @@ document.addEventListener('DOMContentLoaded', () => {
       loaderFinished = true;
       sessionStorage.setItem('np_has_seen_intro', 'true');
       initHeroTvInteraction();
+      if (window.initHeroHeadlineScramble) {
+        window.initHeroHeadlineScramble(true);
+      }
       if (window.location.hash === '#f3-portfolio') {
         setTimeout(() => scrollToPortfolioSection(true), 400);
       }
-    }, 2520);
+    }, 3650);
 
-    // 7th Beat: Loader completely leaves viewport
+    // 6th Beat: Loader completely leaves viewport
     setTimeout(() => {
       loader.style.display = 'none';
       loader.style.pointerEvents = 'none';
-    }, 3420);
+    }, 4850);
   } else {
     if (loader) {
       loader.style.display = 'none';
@@ -85,6 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('is-loading');
     document.body.classList.add('loader-revealed');
     initHeroTvInteraction();
+    if (window.initHeroHeadlineScramble) {
+      window.initHeroHeadlineScramble(false);
+    }
     if (window.location.hash === '#f3-portfolio') {
       setTimeout(() => scrollToPortfolioSection(true), 250);
     }
@@ -275,6 +277,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       initHeroTvInteraction();
       initPortfolioScrollSpy();
+      if (window.initHeroHeadlineScramble) {
+        window.initHeroHeadlineScramble(true);
+      }
+      if (window.initLavaSparks) {
+        window.initLavaSparks();
+      }
     }
 
     // Refresh GSAP ScrollTrigger & Motion Stack
@@ -282,6 +290,10 @@ document.addEventListener('DOMContentLoaded', () => {
       window.motionStack.initScrollReveals();
       window.motionStack.initMagneticButtons();
       window.motionStack.refresh();
+    }
+
+    if (typeof updateNavbarTheme === 'function') {
+      updateNavbarTheme();
     }
   }
 
@@ -355,25 +367,110 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   
-  // 3. Smart Taskbar Hide on Scroll Down / Reveal on Scroll Up
+  // 3. Dynamic Navbar Theme (Consistent Dark Theme across all sections)
+  function updateNavbarTheme() {
+    const navs = document.querySelectorAll('.hero-top-nav, .site-nav-top');
+    if (!navs.length) return;
+
+    // Resting viewport position of navbar (~52px from top)
+    const probeY = 52;
+    const probeX = Math.max(30, Math.min(window.innerWidth - 30, window.innerWidth / 2));
+
+    let detectedTheme = 'dark'; // All-black background site
+
+    // Generic element scanner for specific sections with explicit overrides
+    if (document.elementsFromPoint) {
+      const elements = document.elementsFromPoint(probeX, probeY);
+      for (const el of elements) {
+        // Skip fixed overlays, nav, loaders, curtains, and particles
+        if (
+          el.closest('.hero-top-nav, .site-nav-top, .site-loader-overlay, .page-transition-curtain, #hero-spark-canvas, .hero-spark-canvas')
+        ) {
+          continue;
+        }
+
+        // Section data-theme attribute has highest priority
+        const themeAttr = el.closest('[data-theme]')?.getAttribute('data-theme');
+        if (themeAttr === 'light' || themeAttr === 'dark') {
+          detectedTheme = themeAttr;
+          break;
+        }
+
+        // Specific class checks
+        if (el.closest('.theme-light, .light-section')) {
+          detectedTheme = 'light';
+          break;
+        }
+        if (el.closest('.theme-dark, .dark-section')) {
+          detectedTheme = 'dark';
+          break;
+        }
+
+        // Check if inside hero section
+        if (el.closest('#hero-viewport, .hero-center-viewport')) {
+          detectedTheme = 'dark';
+          break;
+        }
+
+        // Check computed background color luminance
+        const computedBg = window.getComputedStyle(el).backgroundColor;
+        if (computedBg && computedBg !== 'transparent' && computedBg !== 'rgba(0, 0, 0, 0)') {
+          const match = computedBg.match(/\d+/g);
+          if (match && match.length >= 3) {
+            const r = parseInt(match[0], 10);
+            const g = parseInt(match[1], 10);
+            const b = parseInt(match[2], 10);
+            const a = match[3] !== undefined ? parseFloat(match[3]) : 1;
+            if (a > 0.4) {
+              const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+              detectedTheme = brightness > 140 ? 'light' : 'dark';
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    navs.forEach(nav => {
+      if (detectedTheme === 'light') {
+        nav.classList.add('nav-theme-light');
+        nav.classList.remove('nav-theme-dark');
+      } else {
+        nav.classList.add('nav-theme-dark');
+        nav.classList.remove('nav-theme-light');
+      }
+    });
+  }
+
+  window.updateNavbarTheme = updateNavbarTheme;
+
+  // 3b. Smart Taskbar Hide on Scroll Down / Reveal on Scroll Up
   let lastScrollY = window.scrollY || 0;
   const navElements = document.querySelectorAll('.hero-top-nav, .site-nav-top');
 
   function handleNavScroll(currentY) {
-    if (currentY <= 15) {
+    updateNavbarTheme();
+
+    // In the hero viewport or near the top of the page, keep nav visible and never hide it
+    const heroViewport = document.getElementById('hero-viewport');
+    const heroBottom = heroViewport ? heroViewport.getBoundingClientRect().bottom : 0;
+    const inHero = heroBottom > 80 || currentY <= 40;
+
+    if (inHero) {
       navElements.forEach(el => el.classList.remove('nav-hidden'));
       lastScrollY = currentY;
       return;
     }
 
     const delta = currentY - lastScrollY;
-    if (Math.abs(delta) < 6) return;
+    // Smoother hysteresis threshold to avoid micro-twitching
+    if (Math.abs(delta) < 8) return;
 
     if (delta > 0) {
-      // Scrolling down -> Hide taskbar
+      // Scrolling down -> Hide taskbar smoothly
       navElements.forEach(el => el.classList.add('nav-hidden'));
     } else {
-      // Scrolling up -> Reveal taskbar
+      // Scrolling up -> Reveal taskbar smoothly
       navElements.forEach(el => el.classList.remove('nav-hidden'));
     }
 
@@ -383,6 +480,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => {
     handleNavScroll(window.scrollY || window.pageYOffset || 0);
   }, { passive: true });
+
+  window.addEventListener('resize', updateNavbarTheme, { passive: true });
+
+  // Initial call on page boot
+  updateNavbarTheme();
 
   // Hook into Lenis smooth scroll updates
   setTimeout(() => {
