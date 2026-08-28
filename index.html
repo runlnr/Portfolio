@@ -23,58 +23,60 @@
   <link rel="stylesheet" href="css/futurethree-scroll.css">
   <link rel="stylesheet" href="css/glassmorphism.css">
   <link rel="stylesheet" href="css/responsive.css">
-  <!-- MANUAL HERO CONTROLS: Adjust navbar, slashes, headline, tagline, and layout tokens here -->
+  <!-- MANUAL HERO CONTROLS: Calibrated tokens -->
   <style id="hero-tv-manual-controls">
     :root {
-      /* ==========================================================================
-         1. TOP NAVIGATION BAR (Size, Width, Length/Padding, Margins, Positioning)
-         ========================================================================== */
-      --nav-box-top: 26px;                   /* Distance from top edge */
-      --nav-box-width: auto;                 /* Width (e.g. 340px, 380px, or auto) */
-      --nav-box-min-width: 310px;            /* Minimum width */
-      --nav-box-padx: 18px;                  /* Horizontal padding / length */
-      --nav-box-pady: 10px;                  /* Vertical padding / thickness */
-      --nav-box-margin-top: 0px;             /* Top margin offset */
-      --nav-box-margin-bottom: 0px;          /* Bottom margin offset */
-      --nav-box-margin-left: 0px;            /* Left margin offset */
-      --nav-box-margin-right: 0px;           /* Right margin offset */
-      --nav-box-offset-x: 0px;               /* Center horizontal shift */
-      --nav-box-offset-y: 0px;               /* Center vertical shift */
-      --nav-box-gap: 20px;                   /* Space between logo, status & hamburger */
-      --nav-box-radius: 6px;                 /* Corner radius */
-      --nav-box-border-width: 1px;           /* Glass border thickness */
-      --nav-box-bg: rgba(28, 28, 28, 0.60);  /* Background color */
+      /* Nav Bar */
+      --nav-box-top: 25px;
+      --nav-box-width: 470px;
+      --nav-box-min-width: 290px;
+      --nav-box-padx: 18px;
+      --nav-box-pady: 10px;
+      --nav-box-margin-top: 0px;
+      --nav-box-margin-bottom: 0px;
+      --nav-box-margin-left: 0px;
+      --nav-box-margin-right: 0px;
+      --nav-box-gap: 25px;
+      --nav-box-radius: 5px;
+      --nav-box-border-width: 1px;
+      --nav-box-bg: rgba(28, 28, 28, 0.60);
 
-      /* Nav Status Line ("LOOKING SHARP TODAY") */
-      --nav-status-font-size: 11px;          /* Status text size */
-      --nav-status-font-weight: 500;         /* Status text weight */
-      --nav-status-letter-spacing: 0.08em;   /* Status letter spacing */
+      /* Nav Inside */
+      --nav-box-brand-size: 17px;
+      --nav-box-brand-weight: 700;
+      --nav-box-brand-letter-spacing: 0px;
+      --nav-box-brand-slash-gap: 0px;
+      --nav-box-brand-p-offset-y: 0px;
+      --nav-box-brand-r-size: 10px;
+      --nav-box-brand-r-gap: 1px;
+      --nav-status-font-size: 11px;
+      --nav-status-font-weight: 500;
+      --nav-status-letter-spacing: -0.02em;
       --nav-status-color: rgba(255, 255, 255, 0.65);
-
-      /* Nav Brand Lockup (N/P®) & Baseline Level */
-      --nav-box-brand-size: 17px;            /* Brand font size */
-      --nav-box-brand-weight: 700;           /* Brand font weight */
-      --nav-box-brand-letter-spacing: 0px;   /* Brand letter spacing */
-      --nav-box-brand-slash-gap: 1px;        /* Space around slash (/) */
-      --nav-box-brand-p-offset-y: 0px;       /* Vertical nudge for "P" to level perfectly */
-      --nav-box-brand-r-size: 9px;           /* Size of trademark mark (®) */
-      --nav-box-brand-r-gap: 2px;            /* Space before trademark mark (®) */
-
       /* Nav Hamburger Button */
-      --nav-hamburger-size: 22px;            /* Hamburger button size */
-      --nav-hamburger-line-width: 16px;      /* Line width */
-      --nav-hamburger-line-height: 1.5px;    /* Line thickness */
+      --nav-hamburger-size: 30px;
+      --nav-hamburger-line-width: 19px;
+      --nav-hamburger-line-height: 1.5px;
+      --nav-hamburger-gap: 4.5px;
 
-      /* ==========================================================================
-         2. ASCII ART 4 CORNER SLASHES (Position, Size, Weight, Offsets)
-         ========================================================================== */
-      --corner-slashes-size: 34px;           /* Size of the 4 corner slashes */
-      --corner-slashes-weight: 700;          /* Boldness of corner slashes */
-      --corner-slashes-color: #ffffff;       /* Color of corner slashes */
-      --corner-slashes-offset-x: -12px;      /* Horizontal distance from art frame */
-      --corner-slashes-offset-y: -18px;      /* Vertical distance from art frame */
+      /* CTA Button */
+      --cta-btn-radius: 4px;
+      --cta-btn-padx: 20px;
+      --cta-btn-pady: 9px;
+      --cta-btn-font-size: 10.5px;
+      --cta-btn-font-weight: 600;
 
-      /* Individual corner fine-tuning (defaults to master offsets above) */
+      /* ASCII & Slashes */
+      --hero-tv-top: 51%;
+      --hero-tv-left: 50%;
+      --hero-tv-width: 910px;
+      --hero-tv-height: 156px;
+      --hero-tv-scale: 1;
+      --corner-slashes-size: 54px;
+      --corner-slashes-weight: 700;
+      --corner-slashes-color: #ffffff;
+      --corner-slashes-offset-x: 2px;
+      --corner-slashes-offset-y: -60px;
       --corner-tl-x: var(--corner-slashes-offset-x);
       --corner-tl-y: var(--corner-slashes-offset-y);
       --corner-tr-x: var(--corner-slashes-offset-x);
@@ -84,47 +86,39 @@
       --corner-br-x: var(--corner-slashes-offset-x);
       --corner-br-y: var(--corner-slashes-offset-y);
 
-      /* ==========================================================================
-         3. BOTTOM-LEFT HEADLINE ("NOTHING HERE BY ACCIDENT.")
-         ========================================================================== */
-      --headline-font-size: clamp(34px, 4vw, 56px); /* Font size */
-      --headline-font-weight: 600;           /* Font weight (Medium / Bold) */
-      --headline-line-height: 0.94;          /* Line height */
-      --headline-letter-spacing: -0.035em;   /* Character spacing */
-      --headline-bottom: var(--hero-margin, 25px); /* Distance from bottom */
-      --headline-left: var(--hero-margin, 25px);   /* Distance from left */
-      --headline-max-width: 520px;           /* Max width */
-
-      /* Headline Eyebrow ("/ We are N/P /") */
-      --eyebrow-font-size: 11px;             /* Eyebrow font size */
-      --eyebrow-font-weight: 500;            /* Eyebrow font weight */
-      --eyebrow-letter-spacing: 0.08em;      /* Eyebrow letter spacing */
-      --eyebrow-margin-bottom: 8px;          /* Space below eyebrow */
+      /* Headline */
+      --headline-font-size: 60px;
+      --headline-font-weight: 500;
+      --headline-line-height: 0.94;
+      --headline-letter-spacing: -0.03em;
+      --headline-bottom: 25px;
+      --headline-left: 25px;
+      --headline-max-width: 520px;
+      --eyebrow-font-size: 11px;
+      --eyebrow-font-weight: 500;
+      --eyebrow-letter-spacing: 0.08em;
+      --eyebrow-margin-bottom: 10px;
       --eyebrow-color: rgba(255, 255, 255, 0.45);
 
-      /* ==========================================================================
-         4. BOTTOM CENTER-RIGHT TAGLINE ("We help brands say who they are...")
-         ========================================================================== */
-      --tagline-font-size: 13px;             /* Tagline font size */
-      --tagline-font-weight: 400;            /* Tagline weight */
-      --tagline-line-height: 1.4;            /* Tagline line height */
-      --tagline-color: rgba(255, 255, 255, 0.7); /* Text color */
-      --tagline-bottom: var(--hero-margin, 25px); /* Distance from bottom */
-      --tagline-left: calc(50% + 24px);      /* Position right of middle bottom square */
-      --tagline-max-width: 290px;            /* Tagline max width */
+      /* Tagline & Square */
+      --tagline-font-size: 19.5px;
+      --tagline-font-weight: 400;
+      --tagline-line-height: 1.1;
+      --tagline-letter-spacing: -0.015em;
+      --tagline-color: #ffffff;
+      --tagline-bottom: 25px;
+      --tagline-left: calc(50% + 200px);
+      --tagline-max-width: 270px;
+      --hero-square-size: 7px;
+      --hero-square-bottom: 32px;
+      --hero-square-offset-x: 187px;
+      --hero-square-color: #ffffff;
 
-      /* ==========================================================================
-         5. HERO VIEWPORT & TV CANVAS
-         ========================================================================== */
-      --hero-margin: 25px;                   /* Global site edge margins */
-      --grid-opacity: 0.06;                  /* Blueprint grid line opacity */
-      --hero-tv-width: 910px;                /* Central ASCII ribbon width */
-      --hero-tv-height: 156px;               /* Central ASCII ribbon height */
-      --hero-tv-top: 52%;                    /* Central ASCII ribbon vertical pos */
-      --hero-tv-left: 50%;                   /* Central ASCII ribbon horizontal pos */
-      --hero-tv-scale: 1;                    /* Scale multiplier */
-      --hero-tv-rect-margin-x: 25px;         /* Scroll expand margin left/right */
-      --hero-tv-rect-margin-y: 25px;         /* Scroll expand margin top/bottom */
+      /* Hero Viewport & TV Canvas */
+      --hero-margin: 25px;
+      --grid-opacity: 0.06;
+      --hero-tv-rect-margin-x: 25px;
+      --hero-tv-rect-margin-y: 25px;
     }
   </style>
 </head>
@@ -156,9 +150,8 @@
       <!-- Center: Status Line -->
       <div class="nav-status-line" id="nav-status-line">LOOKING SHARP TODAY</div>
 
-      <!-- Right: Hamburger Menu Button -->
+      <!-- Right: Hamburger Menu Button (2 lines) -->
       <button class="nav-hamburger-btn" id="nav-hamburger-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
-        <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
@@ -249,7 +242,8 @@
       <div class="hero-bottom-headline-wrap" id="hero-bottom-headline-wrap">
         <span class="hero-eyebrow">/ We are N/P /</span>
         <h1 class="hero-bottom-headline">
-          NOTHING HERE<br>BY ACCIDENT.
+          <span class="headline-line line-1">NOTHING HERE</span><br>
+          <span class="headline-line line-2">BY ACCIDENT.</span>
         </h1>
       </div>
 

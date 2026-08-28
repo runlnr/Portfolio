@@ -1,27 +1,24 @@
 /**
- * Hero Statement Headline Scramble & Auto-Rotation
- * Alternates between:
- *   1) "Nothing here by accident."
- *   2) "Nothing out of place."
- * With dynamic ASCII / cryptographic decode effect on page load and during each text swap.
- * Automatic randomized interval: between 4 and 7 seconds.
+ * Hero Headline ASCII Scramble & Auto-Rotation
+ * Alternates between (ALL CAPS):
+ *   1) "NOTHING HERE" / "BY ACCIDENT."
+ *   2) "NOTHING OUT" / "OF PLACE."
+ * ASCII appearing mixing effect with random interval between 4 and 6 seconds.
  */
 
 (() => {
   const HEADLINES = [
     {
-      line1: 'Nothing here',
-      prefix: 'by ',
-      serif: 'accident.'
+      line1: 'NOTHING HERE',
+      line2: 'BY ACCIDENT.'
     },
     {
-      line1: 'Nothing out',
-      prefix: 'of ',
-      serif: 'place.'
+      line1: 'NOTHING OUT',
+      line2: 'OF PLACE.'
     }
   ];
 
-  const ASCII_GLYPHS = '!<>-_\\/[]{}—=+*^?#_0123456789ABCDEF~';
+  const ASCII_GLYPHS = '!@#$%^&*()_+-=[]{}|;:,.<>?/~\\X#0123456789ABCDEF!?:;';
 
   function getRandomGlyph() {
     return ASCII_GLYPHS[Math.floor(Math.random() * ASCII_GLYPHS.length)];
@@ -33,16 +30,16 @@
   let isInitialized = false;
 
   /**
-   * Random duration between 4,000ms (4s) and 7,000ms (7s)
+   * Random duration between 5,000ms (5s) and 9,000ms (9s)
    */
   function getRandomInterval() {
-    return Math.floor(4000 + Math.random() * 3000);
+    return Math.floor(5000 + Math.random() * 4000);
   }
 
   /**
-   * Scrambles an individual element's text to targetText with a cinematic, slower ASCII decode effect.
+   * Scrambles an individual element's text to targetText using an ASCII appearing mixing effect.
    */
-  function scrambleElement(el, targetText, duration = 1250, delay = 0) {
+  function scrambleElement(el, targetText, duration = 1000, delay = 0) {
     return new Promise(resolve => {
       setTimeout(() => {
         if (!el) {
@@ -50,17 +47,17 @@
           return;
         }
 
-        const originalText = el.textContent || '';
-        const maxLen = Math.max(originalText.length, targetText.length);
-        const fps = 25;
-        const totalFrames = Math.max(22, Math.floor((duration / 1000) * fps));
+        const startText = el.textContent || '';
+        const maxLen = Math.max(startText.length, targetText.length);
+        const fps = 30;
+        const totalFrames = Math.max(20, Math.floor((duration / 1000) * fps));
         let frame = 0;
 
-        // Progressive stagger: characters resolve left-to-right with deliberate wave
+        // Progressive stagger per character
         const resolveFrames = [];
         for (let i = 0; i < maxLen; i++) {
           const staggerRatio = i / Math.max(1, maxLen);
-          const startResolve = Math.floor(totalFrames * (0.34 + staggerRatio * 0.54));
+          const startResolve = Math.floor(totalFrames * (0.35 + staggerRatio * 0.55));
           resolveFrames.push(startResolve);
         }
 
@@ -70,8 +67,7 @@
 
           for (let i = 0; i < maxLen; i++) {
             if (i >= targetText.length) {
-              // Extra characters from old text: scramble briefly, then vanish
-              if (frame < totalFrames * 0.45) {
+              if (frame < totalFrames * 0.5) {
                 result += getRandomGlyph();
               }
             } else {
@@ -102,54 +98,28 @@
    * Performs the ASCII scramble transition to target headline index
    */
   async function performScramble(targetIdx) {
-    const l1 = document.querySelector('.hero-statement-line1');
-    const l2 = document.querySelector('.hero-statement-line2');
-    if (!l1 || !l2) return;
+    const l1 = document.querySelector('.hero-bottom-headline .line-1');
+    const l2 = document.querySelector('.hero-bottom-headline .line-2');
+    const headline = document.querySelector('.hero-bottom-headline');
 
-    let prefixSpan = l2.querySelector('.hero-statement-prefix');
-    let serifSpan = l2.querySelector('.hero-statement-serif');
-
-    // Ensure DOM structure has clean prefixSpan and serifSpan
-    if (!prefixSpan) {
-      prefixSpan = document.createElement('span');
-      prefixSpan.className = 'hero-statement-prefix';
-      prefixSpan.textContent = 'by ';
-      if (serifSpan) {
-        l2.insertBefore(prefixSpan, serifSpan);
-        let child = l2.firstChild;
-        while (child && child !== prefixSpan) {
-          const next = child.nextSibling;
-          if (child.nodeType === Node.TEXT_NODE) l2.removeChild(child);
-          child = next;
-        }
-      } else {
-        l2.appendChild(prefixSpan);
-      }
-    }
-
-    if (!serifSpan) {
-      serifSpan = document.createElement('span');
-      serifSpan.className = 'hero-statement-serif';
-      serifSpan.textContent = 'accident.';
-      l2.appendChild(serifSpan);
-    }
-
-    isScrambling = true;
     const target = HEADLINES[targetIdx];
+    isScrambling = true;
 
-    // Rhythmic, deliberate stagger across the parts: line1 -> prefix -> serif
-    await Promise.all([
-      scrambleElement(l1, target.line1, 1250, 0),
-      scrambleElement(prefixSpan, target.prefix, 1150, 80),
-      scrambleElement(serifSpan, target.serif, 1350, 160)
-    ]);
+    if (l1 && l2) {
+      await Promise.all([
+        scrambleElement(l1, target.line1, 1000, 0),
+        scrambleElement(l2, target.line2, 1100, 60)
+      ]);
+    } else if (headline) {
+      await scrambleElement(headline, `${target.line1}\n${target.line2}`, 1100, 0);
+    }
 
     currentIndex = targetIdx;
     isScrambling = false;
   }
 
   /**
-   * Schedules the next swap at a randomized interval between 4s and 7s
+   * Schedules the next swap at a randomized interval between 4s and 6s
    */
   function scheduleNextSwap() {
     if (swapTimeoutId) {
@@ -160,7 +130,6 @@
     const nextDelay = getRandomInterval();
 
     swapTimeoutId = setTimeout(async () => {
-      // Pause if tab is inactive/hidden, resume when user returns
       if (document.hidden) {
         const onVisible = () => {
           if (!document.hidden) {
@@ -183,7 +152,7 @@
    */
   function initHeroHeadlineScramble(force = false) {
     if (isInitialized && !force) return;
-    const headline = document.querySelector('.hero-statement-headline');
+    const headline = document.querySelector('.hero-bottom-headline');
     if (!headline) return;
 
     isInitialized = true;
@@ -194,7 +163,7 @@
     });
   }
 
-  // Expose API for external control and testing
+  // Expose API for external control
   window.initHeroHeadlineScramble = initHeroHeadlineScramble;
   window.heroStatementScramble = {
     performScramble,

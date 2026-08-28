@@ -424,7 +424,7 @@
   text-align: center;
 }
 
-/* Right: Hamburger Button (3 lines) */
+/* Right: Hamburger Button (2 lines) */
 .nav-hamburger-btn {
   background: transparent;
   border: none;
@@ -433,7 +433,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  gap: 4px;
+  gap: var(--nav-hamburger-gap, 5px);
   cursor: pointer !important;
   pointer-events: auto;
   width: var(--nav-hamburger-size, 22px);
@@ -463,18 +463,14 @@
   background-color: #00ff66;
 }
 
+/* 2-line Active Cross Animation */
 .nav-hamburger-btn.is-active .hamburger-line:nth-child(1) {
-  transform: translateY(5.5px) rotate(45deg);
+  transform: translateY(3.25px) rotate(45deg);
   width: var(--nav-hamburger-line-width, 16px);
 }
 
 .nav-hamburger-btn.is-active .hamburger-line:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-
-.nav-hamburger-btn.is-active .hamburger-line:nth-child(3) {
-  transform: translateY(-5.5px) rotate(-45deg);
+  transform: translateY(-3.25px) rotate(-45deg);
   width: var(--nav-hamburger-line-width, 16px);
 }
 
@@ -658,15 +654,15 @@
 
 .hero-grid-square {
   position: absolute;
-  width: 8px;
-  height: 8px;
-  background-color: #ffffff;
-  bottom: 0;
+  width: var(--hero-square-size, 8px);
+  height: var(--hero-square-size, 8px);
+  background-color: var(--hero-square-color, #ffffff);
+  bottom: var(--hero-square-bottom, 0px);
   z-index: 3;
 }
 
 .hero-square-center {
-  left: 50%;
+  left: calc(50% + var(--hero-square-offset-x, 0px));
   transform: translateX(-50%);
 }
 
@@ -796,14 +792,14 @@
 
 .hero-cta-btn {
   font-family: 'Sometype Mono', var(--font-mono), monospace;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: var(--cta-btn-font-size, 11px);
+  font-weight: var(--cta-btn-font-weight, 600);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #000000;
   background-color: #ffffff;
-  padding: 7px 18px;
-  border-radius: 999px;
+  padding: var(--cta-btn-pady, 7px) var(--cta-btn-padx, 18px);
+  border-radius: var(--cta-btn-radius, 999px);
   text-decoration: none;
   border: 1px solid #ffffff;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
@@ -901,7 +897,8 @@
   font-size: var(--tagline-font-size, 13px);
   font-weight: var(--tagline-font-weight, 400);
   line-height: var(--tagline-line-height, 1.4);
-  color: var(--tagline-color, rgba(255, 255, 255, 0.7));
+  letter-spacing: var(--tagline-letter-spacing, 0em);
+  color: var(--tagline-color, #ffffff);
   margin: 0;
 }
 
