@@ -29,9 +29,14 @@
       /* Nav Bar */
       --nav-box-top: 25px;
       --nav-box-width: 470px;
+      /* Width / Length of the Nav Bar */
+      --nav-box-height: 55px;
+      /* Height of the Nav Bar (e.g. 44px, 48px, or auto) */
+      --nav-box-min-height: auto;
       --nav-box-min-width: 290px;
-      --nav-box-padx: 18px;
+      --nav-box-padx: 20px;
       --nav-box-pady: 10px;
+      /* Vertical padding (controls height/thickness) */
       --nav-box-margin-top: 0px;
       --nav-box-margin-bottom: 0px;
       --nav-box-margin-left: 0px;
@@ -39,14 +44,14 @@
       --nav-box-gap: 25px;
       --nav-box-radius: 5px;
       --nav-box-border-width: 1px;
-      --nav-box-bg: rgba(28, 28, 28, 0.60);
+      --nav-box-bg: #101010;
 
       /* Nav Inside */
       --nav-box-brand-size: 17px;
       --nav-box-brand-weight: 700;
       --nav-box-brand-letter-spacing: 0px;
       --nav-box-brand-slash-gap: 0px;
-      --nav-box-brand-p-offset-y: 0px;
+      --nav-box-brand-p-offset-y: -0.1px;
       --nav-box-brand-r-size: 10px;
       --nav-box-brand-r-gap: 1px;
       --nav-status-font-size: 11px;
@@ -58,6 +63,21 @@
       --nav-hamburger-line-width: 19px;
       --nav-hamburger-line-height: 1.5px;
       --nav-hamburger-gap: 4.5px;
+      --nav-hamburger-active-rotate: -68deg; /* Rotation angle into '//' slashes (between 45deg and 90deg) */
+
+      /* Dropdown Menu Spacing & Padding Controls */
+      --nav-dropdown-padding-top: 6px;
+      --nav-dropdown-padding-bottom: 20px;
+      --nav-dropdown-padding-x: 20px;
+      --nav-dropdown-item-padding-y: 20px;
+      --nav-dropdown-item-padding-x: 4px;
+      --nav-dropdown-deck-margin-top: 18px;
+      --nav-dropdown-deck-padding-y: 18px;
+      --nav-dropdown-actions-gap: 12px;
+      --nav-dropdown-actions-margin-top: 12px;
+      --nav-dropdown-action-btn-padding-y: 18px;
+      --nav-dropdown-item-font-weight: 400;
+      --nav-dropdown-btn-font-weight: 500;
 
       /* CTA Button */
       --cta-btn-radius: 4px;
@@ -135,6 +155,9 @@
     </div>
   </div>
 
+  <!-- Fullscreen Backdrop Blur Overlay when navigation dropdown is active -->
+  <div class="nav-dropdown-backdrop" id="nav-dropdown-backdrop" aria-hidden="true"></div>
+
   <!-- Top Navigation: Centered Modular Navigation Box with Logo on Left, Status in Center, Hamburger on Right -->
   <header class="hero-top-nav" id="hero-top-nav">
     <nav class="nav-modular-box" aria-label="Main Navigation">
@@ -142,7 +165,7 @@
       <a href="index.html" class="nav-box-brand hero-nav-brand" aria-label="N/P Home">
         <span class="brand-roll roll-up" aria-hidden="true"><span
             class="brand-roll-inner"><span>N</span><span>N</span></span></span><span class="brand-slash"
-          aria-hidden="true">/</span><span class="brand-roll roll-up brand-roll-p" aria-hidden="true"><span
+          aria-hidden="true">/</span><span class="brand-roll roll-down brand-roll-p" aria-hidden="true"><span
             class="brand-roll-inner"><span>P</span><span>P</span></span></span><sup class="brand-r"
           aria-hidden="true">®</sup>
       </a>
@@ -151,19 +174,88 @@
       <div class="nav-status-line" id="nav-status-line">LOOKING SHARP TODAY</div>
 
       <!-- Right: Hamburger Menu Button (2 lines) -->
-      <button class="nav-hamburger-btn" id="nav-hamburger-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+      <button class="nav-hamburger-btn" id="nav-hamburger-btn" aria-label="Toggle Navigation Menu"
+        aria-expanded="false">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
 
-      <!-- Floating Dropdown Menu -->
+      <!-- Full-Width Dropdown Menu matching exact reference design -->
       <div class="nav-dropdown-menu" id="nav-dropdown-menu" aria-hidden="true">
-        <a href="#f3-portfolio" class="nav-dropdown-link" id="nav-works-link">Works</a>
-        <a href="contact.html" class="nav-dropdown-link">Contact</a>
-        <a href="policies.html" class="nav-dropdown-link">Archive</a>
-        <a href="about.html" class="nav-dropdown-link">About</a>
+        <div class="nav-dropdown-list">
+          <a href="#f3-portfolio" class="nav-dropdown-row-link" id="nav-works-link">
+            <span class="nav-row-slash nav-slash-left" aria-hidden="true">/</span>
+            <span class="nav-row-roll roll-up" aria-hidden="true">
+              <span class="nav-row-roll-inner">
+                <span class="nav-row-text">Work</span>
+                <span class="nav-row-text">Work</span>
+              </span>
+            </span>
+            <span class="nav-row-slash nav-slash-right" aria-hidden="true">/</span>
+          </a>
+          <a href="about.html" class="nav-dropdown-row-link">
+            <span class="nav-row-slash nav-slash-left" aria-hidden="true">/</span>
+            <span class="nav-row-roll roll-up" aria-hidden="true">
+              <span class="nav-row-roll-inner">
+                <span class="nav-row-text">About us</span>
+                <span class="nav-row-text">About us</span>
+              </span>
+            </span>
+            <span class="nav-row-slash nav-slash-right" aria-hidden="true">/</span>
+          </a>
+          <a href="policies.html" class="nav-dropdown-row-link">
+            <span class="nav-row-slash nav-slash-left" aria-hidden="true">/</span>
+            <span class="nav-row-roll roll-up" aria-hidden="true">
+              <span class="nav-row-roll-inner">
+                <span class="nav-row-text">Archive</span>
+                <span class="nav-row-text">Archive</span>
+              </span>
+            </span>
+            <span class="nav-row-slash nav-slash-right" aria-hidden="true">/</span>
+          </a>
+          <a href="contact.html" class="nav-dropdown-row-link">
+            <span class="nav-row-slash nav-slash-left" aria-hidden="true">/</span>
+            <span class="nav-row-roll roll-up" aria-hidden="true">
+              <span class="nav-row-roll-inner">
+                <span class="nav-row-text">Contact</span>
+                <span class="nav-row-text">Contact</span>
+              </span>
+            </span>
+            <span class="nav-row-slash nav-slash-right" aria-hidden="true">/</span>
+          </a>
+        </div>
+
+        <div class="nav-dropdown-footer">
+          <a href="assets/deck.pdf" target="_blank" class="nav-deck-btn" aria-label="Our Pitchdeck">
+            OUR PITCHDECK
+          </a>
+          <div class="nav-actions-grid">
+            <a href="contact.html" class="nav-action-btn">
+              SCHEDULE A CALL
+            </a>
+            <a href="contact.html" class="nav-action-btn">
+              START A PROJECT
+            </a>
+          </div>
+        </div>
       </div>
     </nav>
+
+    <!-- Top Right: CTA + Live Clock (Stacked) - Placed in header so it stays sharp above backdrop blur -->
+    <div class="hero-top-right-group" id="hero-top-right-group">
+      <a href="contact.html" class="hero-cta-btn" aria-label="Let's Talk">
+        <span class="cta-roll roll-up" aria-hidden="true">
+          <span class="cta-roll-inner">
+            <span>LET'S TALK</span>
+            <span>LET'S TALK</span>
+          </span>
+        </span>
+      </a>
+      <div class="hero-clock-row">
+        <span class="hero-clock-dot"></span>
+        <span class="live-clock-gmt" id="nav-live-clock">--:--:-- (GMT+7)</span>
+      </div>
+    </div>
   </header>
 
   <!-- Scrollable Homepage Container -->
@@ -206,15 +298,6 @@
 
         <!-- Bottom alignment mark sitting on bottom margin line (centered) -->
         <div class="hero-grid-square hero-square-center" aria-hidden="true"></div>
-      </div>
-
-      <!-- Top Right: CTA + Live Clock (Stacked) -->
-      <div class="hero-top-right-group" id="hero-top-right-group">
-        <a href="contact.html" class="hero-cta-btn">LET'S TALK</a>
-        <div class="hero-clock-row">
-          <span class="hero-clock-dot"></span>
-          <span class="live-clock-gmt" id="nav-live-clock">--:--:-- (GMT+7)</span>
-        </div>
       </div>
 
       <!-- Mid Metadata: 01/ on left, /INTRO on right -->
@@ -339,7 +422,8 @@
                   </div>
                   <div class="f3-coord-subrow">
                     <span class="f3-coord-label">Email</span>
-                    <span class="f3-coord-value"><a href="mailto:hello@futurethree.studio">hello@futurethree.studio</a></span>
+                    <span class="f3-coord-value"><a
+                        href="mailto:hello@futurethree.studio">hello@futurethree.studio</a></span>
                   </div>
                 </div>
               </div>
