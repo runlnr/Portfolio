@@ -5,63 +5,72 @@
 
 .vd-toggle-btn {
   position: fixed;
-  bottom: 32px;
+  bottom: 28px;
   right: 24px;
   z-index: 9999999;
-  background: #111111;
+  background: rgba(18, 18, 20, 0.95);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.22);
-  padding: 8px 14px;
+  padding: 9px 15px;
   font-family: var(--font-mono, monospace);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   user-select: none;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .vd-toggle-btn:hover {
   transform: translateY(-2px);
-  background: #222222;
+  background: #242428;
   border-color: #00ff66;
+  box-shadow: 0 12px 32px rgba(0, 255, 102, 0.25);
 }
 
 .vd-toggle-dot {
   display: inline-block;
-  width: 6.5px;
-  height: 6.5px;
+  width: 7px;
+  height: 7px;
   background: #00ff66;
   border-radius: 50%;
   box-shadow: 0 0 8px #00ff66;
   flex-shrink: 0;
+  animation: vdDotPulse 2s infinite ease-in-out;
+}
+
+@keyframes vdDotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
 }
 
 .vd-panel {
   position: fixed;
   top: 20px;
   right: 20px;
-  width: 410px;
-  max-width: calc(100vw - 40px);
+  width: 440px;
+  max-width: calc(100vw - 32px);
   max-height: calc(100vh - 40px);
-  background: rgba(14, 14, 16, 0.96);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 8px;
+  background: rgba(14, 14, 17, 0.96);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
   z-index: 9999998;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, sans-serif);
   color: #ffffff;
-  transform: translateX(450px);
+  transform: translateX(480px);
   opacity: 0;
   pointer-events: none;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
@@ -80,14 +89,16 @@
 }
 
 .vd-header {
-  padding: 13px 18px;
+  padding: 12px 18px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.03);
   user-select: none;
   cursor: grab !important;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
 }
 
 .vd-header:active,
@@ -126,6 +137,31 @@
   font-size: 10px;
 }
 
+.vd-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vd-collapse-all-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  font-weight: 500;
+  padding: 3px 7px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vd-collapse-all-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.05);
+}
+
 .vd-close-btn {
   background: transparent;
   border: none;
@@ -149,10 +185,10 @@
   overflow-y: auto !important;
   overscroll-behavior: contain !important;
   touch-action: pan-y !important;
-  padding: 18px 20px;
+  padding: 14px 18px;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 12px;
 }
 
 /* Custom Scrollbar */
@@ -163,31 +199,47 @@
   background: transparent;
 }
 .vd-body::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.18);
   border-radius: 3px;
 }
 .vd-body::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .vd-section {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  padding-bottom: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
 }
 
-.vd-section:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+.vd-section.open {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.vd-section-header {
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer !important;
+  user-select: none;
+  transition: background 0.18s ease;
+}
+
+.vd-section-header:hover {
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .vd-section-title {
   font-family: var(--font-mono, monospace);
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #00ff66;
   display: flex;
@@ -195,10 +247,33 @@
   gap: 6px;
 }
 
-.vd-section-title::before {
-  content: "■";
-  font-size: 7px;
+.vd-section-icon {
+  font-size: 8px;
   color: #00ff66;
+  transition: transform 0.2s ease;
+}
+
+.vd-section.open .vd-section-icon {
+  transform: rotate(90deg);
+}
+
+.vd-section-count {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.vd-section-controls {
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.vd-section.open .vd-section-controls {
+  display: flex;
 }
 
 .vd-control {
@@ -217,6 +292,7 @@
 
 .vd-control-label {
   font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .vd-control-value {
@@ -224,9 +300,10 @@
   font-size: 11px;
   color: #00ff66;
   background: rgba(0, 255, 102, 0.1);
+  border: 1px solid rgba(0, 255, 102, 0.25);
   padding: 2px 6px;
   border-radius: 3px;
-  min-width: 48px;
+  min-width: 52px;
   text-align: right;
 }
 
@@ -259,11 +336,13 @@
 }
 
 .vd-footer {
-  padding: 13px 20px;
+  padding: 12px 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   gap: 10px;
   background: rgba(255, 255, 255, 0.02);
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
 }
 
 .vd-btn {
@@ -347,7 +426,9 @@
 .vd-close-btn,
 .vd-close-btn *,
 .vd-btn,
-.vd-btn * {
+.vd-btn *,
+.vd-section-header,
+.vd-section-header * {
   cursor: pointer !important;
 }
 

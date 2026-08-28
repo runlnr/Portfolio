@@ -117,13 +117,27 @@
    ========================================================================== */
 :root {
   --nav-box-top: 26px;
+  --nav-box-offset-x: 0px;
+  --nav-box-offset-y: 0px;
+  --nav-box-margin-top: 0px;
+  --nav-box-margin-bottom: 0px;
+  --nav-box-margin-left: 0px;
+  --nav-box-margin-right: 0px;
   --nav-box-gap: 32px;
   --nav-box-padx: 28px;
   --nav-box-pady: 16px;
   --nav-box-radius: 6px;
+  --nav-box-border-width: 1px;
   --nav-box-link-size: 14.5px;
+  --nav-box-link-weight: 400;
+  --nav-box-link-letter-spacing: -0.01em;
   --nav-box-brand-size: 17px;
   --nav-box-brand-weight: 700;
+  --nav-box-brand-letter-spacing: 0px;
+  --nav-box-brand-slash-gap: 1px;
+  --nav-box-brand-r-size: 9px;
+  --nav-box-brand-r-gap: 2px;
+  --nav-pinned-font-size: 11px;
   --nav-box-bg: rgba(28, 28, 28, 0.60);
 }
 
@@ -147,9 +161,13 @@
 
 .hero-top-nav .nav-modular-box {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: calc(50% + var(--nav-box-offset-x, 0px));
+  top: calc(50% + var(--nav-box-offset-y, 0px));
   transform: translate(-50%, -50%);
+  margin-top: var(--nav-box-margin-top, 0px);
+  margin-bottom: var(--nav-box-margin-bottom, 0px);
+  margin-left: var(--nav-box-margin-left, 0px);
+  margin-right: var(--nav-box-margin-right, 0px);
   transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1),
               opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
               color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
@@ -186,7 +204,7 @@
 
 .nav-pinned-item .hero-location-text {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--nav-pinned-font-size, 11px);
   font-weight: 500;
   letter-spacing: -0.2px;
   color: #ffffff;
@@ -196,7 +214,7 @@
 
 .nav-pinned-item .live-clock-gmt {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--nav-pinned-font-size, 11px);
   font-weight: 500;
   color: #ffffff;
   letter-spacing: -0.2px;
@@ -378,7 +396,7 @@
   background: var(--nav-box-bg, rgba(28, 28, 28, 0.60));
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: var(--nav-box-border-width, 1px) solid rgba(255, 255, 255, 0.12);
   border-radius: var(--nav-box-radius, 6px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   user-select: none;
@@ -387,9 +405,9 @@
 .nav-modular-box .nav-box-link {
   font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, sans-serif) !important;
   font-size: var(--nav-box-link-size, 14.5px) !important;
-  font-weight: 400 !important;
+  font-weight: var(--nav-box-link-weight, 400) !important;
   line-height: 1 !important;
-  letter-spacing: -0.01em !important;
+  letter-spacing: var(--nav-box-link-letter-spacing, -0.01em) !important;
   color: rgba(255, 255, 255, 0.65) !important;
   text-decoration: none !important;
   transition: color 0.18s ease, opacity 0.18s ease;
@@ -423,6 +441,9 @@
   display: block;
   height: var(--nav-box-link-size, 14.5px);
   line-height: var(--nav-box-link-size, 14.5px);
+  font-size: var(--nav-box-link-size, 14.5px) !important;
+  font-weight: var(--nav-box-link-weight, 400) !important;
+  letter-spacing: var(--nav-box-link-letter-spacing, -0.01em) !important;
   text-align: center;
 }
 
@@ -489,7 +510,7 @@
 
 .nav-modular-box .brand-r {
   font-family: var(--font-sans) !important;
-  font-size: 9px !important;
+  font-size: var(--nav-box-brand-r-size, 9px) !important;
   font-weight: 500 !important;
   line-height: 1 !important;
   display: inline-flex;
