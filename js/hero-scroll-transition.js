@@ -31,12 +31,14 @@
 
     const heroViewport = document.getElementById('hero-viewport');
     const tvWrapper = document.getElementById('hero-tv-wrapper');
-    const statementRow = document.querySelector('.hero-statement-row');
+    const bottomHeadline = document.getElementById('hero-bottom-headline-wrap');
+    const topRightGroup = document.getElementById('hero-top-right-group');
+    const centerTagline = document.getElementById('hero-center-tagline');
+    const bottomSocials = document.getElementById('hero-bottom-socials');
+    const cornerSlashes = Array.from(document.querySelectorAll('.ascii-corner-slash'));
     const blueprintContainer = document.querySelector('.hero-blueprint-container');
-    const langSelector = document.getElementById('hero-lang-selector');
     const midMetaBar = document.querySelector('.hero-mid-meta-bar');
     const centerVisual = document.getElementById('hero-center-visual');
-    const bottomBar = document.getElementById('hero-bottom-bar') || document.querySelector('.hero-bottom-bar');
 
     if (!heroViewport || !tvWrapper) {
       console.warn('HeroScrollTransition: Essential elements missing');
@@ -133,24 +135,18 @@
     const TV_FINISH_TIME = 0.60;
 
     // --------------------------------------------------------------------------
-    // 1. Hero Text, Slashes & Adjacent Components: Fade & blur in-place (no sliding up)
+    // 1. Hero Text, Slashes & Adjacent Components: Fade & blur in-place
     // --------------------------------------------------------------------------
-    if (statementRow) {
-      window.gsap.set(statementRow, { xPercent: -50, y: 0 });
-      tl.fromTo(
-        statementRow,
-        { opacity: 1, filter: 'blur(0px)' },
-        {
-          opacity: 0,
-          filter: 'blur(10px)',
-          ease: 'power1.out',
-          duration: TEXT_EXIT_TIME
-        },
-        0
-      );
-    }
+    const auxElements = [
+      bottomHeadline,
+      topRightGroup,
+      centerTagline,
+      bottomSocials,
+      midMetaBar,
+      blueprintContainer,
+      ...cornerSlashes
+    ].filter(Boolean);
 
-    const auxElements = [langSelector, midMetaBar, blueprintContainer, bottomBar].filter(Boolean);
     if (auxElements.length > 0) {
       tl.fromTo(
         auxElements,
@@ -276,10 +272,6 @@
     // Allow CSS variables and Visual Designer sliders to control styles when at scroll position 0
     function clearInlineOverridesAtTop() {
       if (window.scrollY === 0) {
-        if (statementRow) {
-          statementRow.style.removeProperty('filter');
-          statementRow.style.removeProperty('opacity');
-        }
         if (auxElements && auxElements.length > 0) {
           auxElements.forEach((el) => {
             el.style.removeProperty('filter');
