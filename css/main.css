@@ -140,12 +140,12 @@ ul, ol {
   max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(16px, 3vw, 40px);
-  padding-right: clamp(16px, 3vw, 40px);
+  padding-left: clamp(25px, 3vw, 40px);
+  padding-right: clamp(25px, 3vw, 40px);
 }
 
 .full-bleed {
   width: 100%;
-  padding-left: clamp(16px, 3vw, 40px);
-  padding-right: clamp(16px, 3vw, 40px);
+  padding-left: clamp(25px, 3vw, 40px);
+  padding-right: clamp(25px, 3vw, 40px);
 }

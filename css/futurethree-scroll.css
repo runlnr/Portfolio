@@ -13,8 +13,9 @@
      ========================================================================== */
   --manifesto-line-height: 1.04;
   --manifesto-letter-spacing: -1.2px;
-  --manifesto-top-margin: 80px;
-  --manifesto-right-margin: 20px;
+  --manifesto-top-margin: 60px;
+  --manifesto-left-margin: 25px;
+  --manifesto-right-margin: 25px;
   --manifesto-max-width: 830px;
   --manifesto-font-size: 49px;
   --manifesto-gap: 200px;
@@ -97,7 +98,7 @@
   --f3-border-light: rgba(255, 255, 255, 0.07);
   --f3-border-dark: rgba(255, 255, 255, 0.25);
 
-  --f3-gutter-x: 20px;
+  --f3-gutter-x: 25px;
   --f3-max-width: 100%;
 
   --font-serif: 'Playfair Display', Georgia, serif;
@@ -140,7 +141,7 @@
    1. STUDIO INTRO & CONTINUOUS EDITORIAL PORTFOLIO GRID
    ========================================================================== */
 .f3-section-intro {
-  padding-top: var(--manifesto-top-margin, 40px);
+  padding-top: var(--manifesto-top-margin, 60px);
   padding-bottom: clamp(80px, 10vh, 140px);
   border-bottom: 1px solid var(--f3-border);
 }
@@ -169,7 +170,7 @@
   align-items: flex-start;
   max-width: var(--manifesto-max-width, 830px);
   width: 100%;
-  margin-left: 0;
+  margin-left: var(--manifesto-left-margin, 25px);
   margin-right: auto;
 }
 
@@ -180,7 +181,7 @@
   line-height: var(--manifesto-line-height, 1.04);
   letter-spacing: var(--manifesto-letter-spacing, -1.2px);
   color: var(--f3-text);
-  margin: 0 0 28px 0;
+  margin: 0 0 30px 0;
   max-width: 100%;
   width: 100%;
   text-align: left;

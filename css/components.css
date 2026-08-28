@@ -7,7 +7,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 10px clamp(12px, 3vw, 40px);
+  padding: 10px clamp(25px, 3vw, 40px);
   color: #ffffff;
   pointer-events: none;
 }
@@ -165,7 +165,7 @@
 .site-footer {
   background-color: #000000;
   border-top: 1px solid var(--border-color);
-  padding: 60px clamp(16px, 3vw, 40px) 30px;
+  padding: 60px clamp(25px, 3vw, 40px) 30px;
   margin-top: auto;
 }
 

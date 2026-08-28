@@ -8,7 +8,7 @@
   /* Top spacing below the fixed taskbar */
   --works-page-padding-bottom: 120px;
   /* Bottom spacing above the footer */
-  --works-page-padding-x: 24px;
+  --works-page-padding-x: 25px;
   /* Left & right page margin padding */
   --works-page-max-width: 1600px;
   /* Maximum content width */
@@ -257,7 +257,7 @@
   background: #141414;
   border: 1px solid var(--border-color);
   color: #ffffff;
-  padding: clamp(80px, 15vh, 160px) clamp(16px, 3vw, 40px);
+  padding: clamp(80px, 15vh, 160px) clamp(25px, 3vw, 40px);
   border-radius: var(--radius-lg);
   margin: 60px 0 100px;
   text-align: center;
@@ -313,8 +313,8 @@
   margin-right: auto;
   padding-top: var(--works-page-padding-top, 90px);
   padding-bottom: var(--works-page-padding-bottom, 120px);
-  padding-left: var(--works-page-padding-x, 24px);
-  padding-right: var(--works-page-padding-x, 24px);
+  padding-left: var(--works-page-padding-x, 25px);
+  padding-right: var(--works-page-padding-x, 25px);
 }
 
 .works-header {
@@ -960,7 +960,7 @@
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: clamp(60px, 12vh, 120px) clamp(20px, 4vw, 60px);
+  padding: clamp(60px, 12vh, 120px) clamp(25px, 4vw, 60px);
   text-align: center;
   margin: 60px 0 100px;
   text-decoration: none;

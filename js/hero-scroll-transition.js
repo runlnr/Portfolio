@@ -54,10 +54,10 @@
       return { w, h };
     }
 
-    // Target dimensions: exactly 20px margin on all sides (left, right, top, bottom)
+    // Target dimensions: exactly 25px margin on all sides (left, right, top, bottom)
     function getTargetTvDimensions() {
       const computed = window.getComputedStyle(document.documentElement);
-      const heroMargin = parseFloat(computed.getPropertyValue('--hero-margin')) || 20;
+      const heroMargin = parseFloat(computed.getPropertyValue('--hero-margin')) || 25;
       const marginX = parseFloat(computed.getPropertyValue('--hero-tv-rect-margin-x')) || heroMargin;
       const marginY = parseFloat(computed.getPropertyValue('--hero-tv-rect-margin-y')) || heroMargin;
       const targetW = window.innerWidth - (marginX * 2);

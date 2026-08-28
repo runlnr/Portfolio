@@ -48,13 +48,13 @@
      -------------------------------------------------------------------------- */
   --nav-padding-y: 13px;
   /* Header top/bottom padding */
-  --nav-padding-x: 20px;
+  --nav-padding-x: 25px;
   /* Header left/right padding */
   --hero-bottom-offset: 28px;
   /* Bottom bar offset from bottom edge */
-  --hero-left-offset: 20px;
+  --hero-left-offset: 25px;
   /* Left margin */
-  --hero-right-offset: 20px;
+  --hero-right-offset: 25px;
   /* Right margin */
   --desc-left-anchor: 55%;
   /* Horizontal position of Description & Group B Anchor */
@@ -135,7 +135,7 @@
   width: 100%;
   height: 52px;
   z-index: 1000;
-  padding: 0 var(--hero-margin, 20px);
+  padding: 0 var(--hero-margin, 25px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -540,10 +540,10 @@
    ========================================================================== */
 .hero-blueprint-container {
   position: absolute;
-  top: var(--hero-margin, 20px);
-  left: var(--hero-margin, 20px);
-  right: var(--hero-margin, 20px);
-  bottom: var(--hero-margin, 20px);
+  top: var(--hero-margin, 25px);
+  left: var(--hero-margin, 25px);
+  right: var(--hero-margin, 25px);
+  bottom: var(--hero-margin, 25px);
   pointer-events: none;
   z-index: 2;
 }
@@ -577,17 +577,17 @@
    Center Main Visual: Wide ASCII Ribbon Banner + Statement Lockup
    ========================================================================== */
 :root {
-  --hero-margin: 20px;
+  --hero-margin: 25px;
   --grid-opacity: 0.06;
   --hero-tv-width: 910px;          /* Width on desktop */
   --hero-tv-height: 156px;         /* Height / length on desktop */
-  --hero-tv-max-width: calc(100vw - (var(--hero-margin, 20px) * 2));
-  --hero-tv-max-height: calc(100vh - (var(--hero-margin, 20px) * 2));
+  --hero-tv-max-width: calc(100vw - (var(--hero-margin, 25px) * 2));
+  --hero-tv-max-height: calc(100vh - (var(--hero-margin, 25px) * 2));
   --hero-tv-top: 53.5%;            /* Vertical position */
   --hero-tv-left: 49.5%;           /* Horizontal position */
   --hero-tv-scale: 1.05;           /* Scale multiplier */
-  --hero-tv-rect-margin-x: 20px;   /* Margin on left and right sides when expanded */
-  --hero-tv-rect-margin-y: 20px;   /* Margin on top and bottom sides when expanded */
+  --hero-tv-rect-margin-x: 25px;   /* Margin on left and right sides when expanded */
+  --hero-tv-rect-margin-y: 25px;   /* Margin on top and bottom sides when expanded */
   --headline-font-size: 54px;
   --headline-font-weight: 400;
   --statement-gap: 21px;
@@ -607,7 +607,7 @@
   flex-direction: column;
   align-items: center;
   width: var(--hero-tv-width, 900px);
-  max-width: calc(100vw - (var(--hero-margin, 20px) * 2));
+  max-width: calc(100vw - (var(--hero-margin, 25px) * 2));
   pointer-events: auto;
   user-select: none;
 }
@@ -616,7 +616,7 @@
   position: relative;
   width: 100%;
   height: var(--hero-tv-height, 122px);
-  max-height: calc(100vh - (var(--hero-margin, 20px) * 2));
+  max-height: calc(100vh - (var(--hero-margin, 25px) * 2));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -660,7 +660,7 @@
   left: var(--hero-tv-left, 49.5%);
   transform: translateX(-50%);
   width: var(--hero-tv-width, 910px);
-  max-width: calc(100vw - (var(--hero-margin, 20px) * 2));
+  max-width: calc(100vw - (var(--hero-margin, 25px) * 2));
   margin-top: var(--statement-gap, 21px);
   display: flex;
   justify-content: space-between;
@@ -748,8 +748,8 @@
 .hero-mid-meta-bar {
   position: absolute;
   top: 50%;
-  left: var(--hero-margin, 30px);
-  right: var(--hero-margin, 30px);
+  left: var(--hero-margin, 25px);
+  right: var(--hero-margin, 25px);
   transform: translateY(-50%);
   z-index: 5;
   display: flex;
@@ -1138,9 +1138,9 @@ html, body {
    ========================================================================== */
 .hero-bottom-bar {
   position: absolute;
-  bottom: var(--hero-margin, 20px);
-  left: var(--hero-margin, 20px);
-  right: var(--hero-margin, 20px);
+  bottom: var(--hero-margin, 25px);
+  left: var(--hero-margin, 25px);
+  right: var(--hero-margin, 25px);
   z-index: 5;
   display: flex;
   justify-content: space-between;

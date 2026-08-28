@@ -179,7 +179,7 @@
   --mono-letter-spacing: -0.2px;
 
   /* Global Hero Layout Margins */
-  --hero-margin: 30px;
+  --hero-margin: 25px;
 
   /* Navigation Typography, Boldness & Gaps */
   --nav-font-size: 14px;
@@ -196,7 +196,7 @@
   --nav-groups-gap: 252px;
   /* Gap between Group A and Group B */
   --nav-padding-y: 13px;
-  --nav-padding-x: 20px;
+  --nav-padding-x: 25px;
 
   /* Live Clock Typography & Green Dot */
   --clock-font-size: 12.5px;
@@ -232,7 +232,7 @@
   --hero-statement-letter-spacing: -1.2px;
   --hero-statement-font-weight: 500;
   --hero-statement-bottom: 28px;
-  --hero-statement-left: 20px;
+  --hero-statement-left: 25px;
 
   /* Custom Circle Cursor Settings */
   --cursor-size: 16px;

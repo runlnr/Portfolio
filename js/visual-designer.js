@@ -22,8 +22,9 @@
     // 1. Manifesto Statement & Section Spacing
     '--manifesto-line-height': { val: 1.04, unit: '', min: 0.90, max: 2.20, step: 0.02, label: 'Line Spacing (Line Height)' },
     '--manifesto-letter-spacing': { val: -1.2, unit: 'px', min: -4.0, max: 4.0, step: 0.1, label: 'Letter Spacing' },
-    '--manifesto-top-margin': { val: 40, unit: 'px', min: 0, max: 180, step: 2, label: 'Statement Top Margin' },
-    '--manifesto-right-margin': { val: 20, unit: 'px', min: 0, max: 120, step: 2, label: 'Statement Right Margin' },
+    '--manifesto-top-margin': { val: 60, unit: 'px', min: 0, max: 180, step: 2, label: 'Statement Top Margin' },
+    '--manifesto-left-margin': { val: 25, unit: 'px', min: 0, max: 200, step: 2, label: 'Statement Left Margin' },
+    '--manifesto-right-margin': { val: 25, unit: 'px', min: 0, max: 120, step: 2, label: 'Statement Right Margin' },
     '--manifesto-max-width': { val: 830, unit: 'px', min: 500, max: 1400, step: 10, label: 'Statement Max Width' },
     '--manifesto-font-size': { val: 49, unit: 'px', min: 24, max: 68, step: 1, label: 'Statement Font Size' },
     '--manifesto-gap': { val: 200, unit: 'px', min: 20, max: 300, step: 5, label: 'Statement Bottom Gap' },
@@ -94,7 +95,7 @@
     '--best-header-offset-y': { val: 60, unit: 'px', min: -60, max: 120, step: 2, label: 'Header Vertical Offset' },
 
     // 8. Viewport & Blueprint Grid Layout
-    '--hero-margin': { val: 20, unit: 'px', min: 10, max: 70, step: 2, label: 'Hero Margins (All 4 Sides)' },
+    '--hero-margin': { val: 25, unit: 'px', min: 10, max: 70, step: 2, label: 'Hero Margins (All 4 Sides)' },
     '--grid-opacity': { val: 0.06, unit: '', min: 0.01, max: 0.35, step: 0.01, label: 'Blueprint Grid Opacity' },
 
     // 9. Top Navigation Modular Box
@@ -113,6 +114,8 @@
     '--hero-tv-top': { val: 52.0, unit: '%', min: 20.0, max: 80.0, step: 0.5, label: 'Banner Vertical Pos (%)' },
     '--hero-tv-left': { val: 49.5, unit: '%', min: 20.0, max: 80.0, step: 0.5, label: 'Banner Horizontal Pos (%)' },
     '--hero-tv-scale': { val: 1.0, unit: '', min: 0.5, max: 1.8, step: 0.05, label: 'Banner Scale Multiplier' },
+    '--hero-tv-rect-margin-x': { val: 25, unit: 'px', min: 0, max: 80, step: 1, label: 'Expanded Fullscreen Left/Right Margin' },
+    '--hero-tv-rect-margin-y': { val: 25, unit: 'px', min: 0, max: 80, step: 1, label: 'Expanded Fullscreen Top/Bottom Margin' },
 
     // 11. Headline Statement & Slashes
     '--headline-font-size': { val: 55, unit: 'px', min: 28, max: 72, step: 1, label: 'Headline Font Size' },
@@ -140,6 +143,7 @@
         '--manifesto-line-height',
         '--manifesto-letter-spacing',
         '--manifesto-top-margin',
+        '--manifesto-left-margin',
         '--manifesto-right-margin',
         '--manifesto-max-width',
         '--manifesto-font-size',
@@ -239,7 +243,7 @@
     },
     {
       title: 'ASCII Ribbon Banner',
-      keys: ['--hero-tv-width', '--hero-tv-height', '--hero-tv-top', '--hero-tv-left', '--hero-tv-scale']
+      keys: ['--hero-tv-width', '--hero-tv-height', '--hero-tv-top', '--hero-tv-left', '--hero-tv-scale', '--hero-tv-rect-margin-x', '--hero-tv-rect-margin-y']
     },
     {
       title: 'Headline Statement & Slashes',
