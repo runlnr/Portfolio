@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Navigation Visual Designer HUD (Compact, Focused Real-Time Customizer)
+   Manifesto Statement Visual Designer HUD (Focused Real-Time Customizer)
    ========================================================================== */
 
 .vd-toggle-btn {
@@ -7,18 +7,18 @@
   bottom: 28px;
   right: 24px;
   z-index: 9999999;
-  background: rgba(18, 18, 20, 0.95);
+  background: rgba(16, 16, 18, 0.95);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 9px 15px;
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Sometype Mono', monospace);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  cursor: pointer !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -30,7 +30,7 @@
 
 .vd-toggle-btn:hover {
   transform: translateY(-2px);
-  background: #242428;
+  background: #202024;
   border-color: #00ff66;
   box-shadow: 0 12px 32px rgba(0, 255, 102, 0.25);
 }
@@ -55,13 +55,13 @@
   position: fixed;
   top: 24px;
   right: 24px;
-  width: 380px;
+  width: 360px;
   max-width: calc(100vw - 32px);
-  background: rgba(14, 14, 17, 0.96);
+  background: rgba(14, 14, 16, 0.96);
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
+  border-radius: 8px;
   z-index: 9999998;
   display: flex;
   flex-direction: column;
@@ -87,7 +87,7 @@
 }
 
 .vd-header {
-  padding: 12px 16px;
+  padding: 13px 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;
@@ -95,8 +95,8 @@
   background: rgba(255, 255, 255, 0.03);
   user-select: none;
   cursor: grab !important;
-  border-top-left-radius: 9px;
-  border-top-right-radius: 9px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
 }
 
 .vd-header:active,
@@ -106,7 +106,7 @@
 
 .vd-title {
   font-family: var(--font-mono, monospace);
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -139,8 +139,8 @@
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.5);
-  font-size: 18px;
-  cursor: pointer;
+  font-size: 16px;
+  cursor: pointer !important;
   padding: 4px;
   display: flex;
   align-items: center;
@@ -153,84 +153,30 @@
   color: #ffffff;
 }
 
-/* Category Tabs */
-.vd-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(0, 0, 0, 0.3);
-  padding: 6px;
-  gap: 4px;
-}
-
-.vd-tab-btn {
-  flex: 1 1 calc(33.333% - 4px);
-  min-width: 80px;
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.55);
-  font-family: var(--font-mono, monospace);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  padding: 6px 4px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.18s ease;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.vd-tab-btn:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.vd-tab-btn.active {
-  color: #000000;
-  background: #00ff66;
-  box-shadow: 0 2px 8px rgba(0, 255, 102, 0.3);
-}
-
 .vd-body {
   padding: 16px 18px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  max-height: min(480px, calc(80vh - 120px));
+  gap: 14px;
+  max-height: min(540px, calc(85vh - 120px));
   overflow-y: auto !important;
   overflow-x: hidden !important;
-  overscroll-behavior: contain !important;
-  touch-action: pan-y !important;
-  -webkit-overflow-scrolling: touch !important;
-  pointer-events: auto !important;
 }
 
-.vd-tab-pane {
-  display: none;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
+.vd-section-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 4px 0 2px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 4px;
 }
 
-.vd-tab-pane.active {
-  display: flex;
-}
-
-/* Custom Scrollbar */
-.vd-body::-webkit-scrollbar {
-  width: 5px;
-}
-.vd-body::-webkit-scrollbar-track {
-  background: transparent;
-}
-.vd-body::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.18);
-  border-radius: 3px;
-}
-.vd-body::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.35);
+.vd-section-label:first-child {
+  margin-top: 0;
 }
 
 .vd-control {
@@ -248,7 +194,7 @@
 }
 
 .vd-control-label {
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -0.01em;
 }
 
@@ -260,7 +206,7 @@
   border: 1px solid rgba(0, 255, 102, 0.25);
   padding: 2px 6px;
   border-radius: 3px;
-  min-width: 52px;
+  min-width: 48px;
   text-align: right;
 }
 
@@ -273,6 +219,7 @@
   background: rgba(255, 255, 255, 0.18);
   outline: none;
   transition: background 0.2s ease;
+  cursor: pointer !important;
 }
 
 .vd-range-slider::-webkit-slider-thumb {
@@ -282,7 +229,7 @@
   height: 14px;
   border-radius: 50%;
   background: #ffffff;
-  cursor: pointer;
+  cursor: grab !important;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   transition: transform 0.15s ease, background 0.15s ease;
 }
@@ -292,14 +239,19 @@
   background: #00ff66;
 }
 
+.vd-range-slider:active::-webkit-slider-thumb,
+.vd-range-slider::-webkit-slider-thumb:active {
+  cursor: grabbing !important;
+}
+
 .vd-footer {
   padding: 12px 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   gap: 10px;
   background: rgba(255, 255, 255, 0.02);
-  border-bottom-left-radius: 9px;
-  border-bottom-right-radius: 9px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
 }
 
 .vd-btn {
@@ -311,7 +263,7 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   border-radius: 4px;
-  cursor: pointer;
+  cursor: pointer !important;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
@@ -341,41 +293,13 @@
   border-color: #00ff66;
 }
 
-/* Toast message inside HUD */
-.vd-toast {
-  position: absolute;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%) translateY(-10px);
-  background: #00ff66;
-  color: #000000;
-  font-family: var(--font-mono, monospace);
-  font-size: 10.5px;
-  font-weight: 600;
-  padding: 5px 12px;
-  border-radius: 4px;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.25s ease;
-  z-index: 10;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.vd-toast.show {
-  transform: translateX(-50%) translateY(0);
-  opacity: 1;
-}
-
-/* Cursor Visibility */
+/* Cursor Visibility in HUD */
 .vd-toggle-btn,
 .vd-toggle-btn * {
   cursor: pointer !important;
 }
 
-.vd-panel {
-  cursor: default !important;
-}
-
+.vd-panel,
 .vd-panel * {
   cursor: default !important;
 }
@@ -383,27 +307,10 @@
 .vd-close-btn,
 .vd-close-btn *,
 .vd-btn,
-.vd-btn *,
-.vd-tab-btn {
+.vd-btn * {
   cursor: pointer !important;
 }
 
 .vd-range-slider {
   cursor: pointer !important;
-}
-
-.vd-range-slider::-webkit-slider-thumb {
-  cursor: grab !important;
-}
-
-.vd-range-slider:active::-webkit-slider-thumb,
-.vd-range-slider::-webkit-slider-thumb:active {
-  cursor: grabbing !important;
-}
-
-body.vd-cursor-hover .custom-cursor,
-.vd-panel:hover ~ .custom-cursor,
-.vd-toggle-btn:hover ~ .custom-cursor {
-  opacity: 0 !important;
-  visibility: hidden !important;
 }

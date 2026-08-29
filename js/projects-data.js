@@ -1,24 +1,28 @@
 // All 15 Portfolio Projects Dataset
 window.SWAG_PROJECTS = [
   {
-    "id": "wide-angle",
+    "id": "us-ski-snowboard",
     "number": "01",
     "total": "15",
-    "title": "WIDE ANGLE",
-    "tagline": "PORTFOLIO TEMPLATE FOR FILMMAKERS",
+    "title": "U.S. Ski & Snowboard | Milano Cortina",
+    "tagline": "OFFICIAL OLYMPIC IDENTITY & MOTION CAMPAIGN",
     "year": "2026",
-    "field": "Template",
-    "client": "Wide Angle",
+    "field": "Sport & Olympic",
+    "client": "U.S. Ski & Snowboard",
+    "tags": ["BRANDING", "EXPERIENCE", "PORTFOLIO"],
     "disciplines": [
-      "Art Direction",
-      "Interaction Design"
+      "Branding",
+      "Experience",
+      "Portfolio"
     ],
-    "description": "Wide Angle is a Framer portfolio template built for filmmakers. Crafted to carry the weight of your work with a visual language that feels as intentional as your films.",
-    "image": "https://framerusercontent.com/images/0Q1DaqJe0TIpdcOR4dUdPzKghNs.jpg",
+    "description": "Olympic team identity and motion design system for U.S. Ski & Snowboard heading into the Milano Cortina 2026 Winter Games. Built for alpine velocity, precision typography, and dynamic motion across broadcast and digital.",
+    "image": "https://framerusercontent.com/images/McfLASz7qCgeArkEfMksXwLY.jpg",
     "gallery": [
-      "https://framerusercontent.com/images/0Q1DaqJe0TIpdcOR4dUdPzKghNs.jpg",
       "https://framerusercontent.com/images/McfLASz7qCgeArkEfMksXwLY.jpg",
-      "https://framerusercontent.com/images/GW4U3mptwe10pQQ7jc7zflAi5WY.jpg"
+      "https://framerusercontent.com/images/0Q1DaqJe0TIpdcOR4dUdPzKghNs.jpg",
+      "https://framerusercontent.com/images/GW4U3mptwe10pQQ7jc7zflAi5WY.jpg",
+      "https://framerusercontent.com/images/aEYuYM1OVQKZX1mIzyaTRp6wXQ.jpg",
+      "https://framerusercontent.com/images/Z9WJp299xz8eg9DtFceQipWYudw.jpg"
     ],
     "credits": [
       {
@@ -26,35 +30,37 @@ window.SWAG_PROJECTS = [
         "name": "Noa Ferren"
       },
       {
-        "role": "UX/UI Designer",
+        "role": "Motion Designer",
         "name": "Eli Strand"
       },
       {
-        "role": "Copywriter",
+        "role": "Identity Lead",
         "name": "Mara Voss"
       }
     ],
-    "services": "Art Direction, UI/UX Design, Creative Direction, Development"
+    "services": "Olympic Brand Identity, Broadcast Motion Graphics, Kinetic Typography, Digital Guidelines"
   },
   {
-    "id": "titarvl-studio",
+    "id": "uniros",
     "number": "02",
     "total": "15",
-    "title": "TITARVL STUDIO",
-    "tagline": "IDENTITY FOR A FASHION CREATIVE",
+    "title": "Uniros",
+    "tagline": "NEXT-GEN CORPORATE BRANDING SYSTEM",
     "year": "2025",
-    "field": "Fashion",
-    "client": "Titarvl Studio",
+    "field": "Corporate",
+    "client": "Uniros Global",
+    "tags": ["BRANDING", "CORPORATE"],
     "disciplines": [
-      "Art Direction",
-      "Interaction Design"
+      "Branding",
+      "Corporate"
     ],
-    "description": "Titarvl Studio is a fashion creative's identity — sharp, considered, and built to hold the tension between editorial restraint and personal expression.",
-    "image": "https://framerusercontent.com/images/McfLASz7qCgeArkEfMksXwLY.jpg",
+    "description": "Strategic corporate identity and design system for Uniros, bringing clarity, structural elegance, and modular brand assets to global enterprise communications.",
+    "image": "https://framerusercontent.com/images/0Q1DaqJe0TIpdcOR4dUdPzKghNs.jpg",
     "gallery": [
-      "https://framerusercontent.com/images/McfLASz7qCgeArkEfMksXwLY.jpg",
+      "https://framerusercontent.com/images/0Q1DaqJe0TIpdcOR4dUdPzKghNs.jpg",
       "https://framerusercontent.com/images/aEYuYM1OVQKZX1mIzyaTRp6wXQ.jpg",
-      "https://framerusercontent.com/images/Z9WJp299xz8eg9DtFceQipWYudw.jpg"
+      "https://framerusercontent.com/images/Z9WJp299xz8eg9DtFceQipWYudw.jpg",
+      "https://framerusercontent.com/images/NEd0Frdvu3UyGZduh1BZoMXpCY.jpg"
     ],
     "credits": [
       {
@@ -66,31 +72,33 @@ window.SWAG_PROJECTS = [
         "name": "Suki Brenn"
       },
       {
-        "role": "Frontend Developer",
+        "role": "Systems Architect",
         "name": "Jules Arnot"
       }
     ],
-    "services": "Brand Identity, Art Direction, Editorial Styling, Digital Platform"
+    "services": "Corporate Identity, Design System, Digital Guidelines, Investor Collateral"
   },
   {
-    "id": "kade-agency",
+    "id": "nk-hoops",
     "number": "03",
     "total": "15",
-    "title": "KADE AGENCY",
-    "tagline": "ART DIRECTION FOR A CLOTHING BRAND",
-    "year": "2024",
-    "field": "Clothing Brand",
-    "client": "Kade Agency",
+    "title": "NK Hoops 3x3 Superleague",
+    "tagline": "URBAN BASKETBALL LEAGUE IDENTITY & MERCHANDISE",
+    "year": "2025",
+    "field": "Sports Event",
+    "client": "NK Hoops League",
+    "tags": ["EXPERIENCE", "PORTFOLIO"],
     "disciplines": [
-      "Art Direction",
-      "Interaction Design"
+      "Experience",
+      "Portfolio"
     ],
-    "description": "Kade Agency is art direction for a clothing brand that refuses to be ordinary. Every frame considered, every texture chosen with intent.",
+    "description": "High-octane visual identity, tournament event graphics, and custom apparel/merchandise for the premier NK Hoops 3x3 international streetball league.",
     "image": "https://framerusercontent.com/images/GW4U3mptwe10pQQ7jc7zflAi5WY.jpg",
     "gallery": [
       "https://framerusercontent.com/images/GW4U3mptwe10pQQ7jc7zflAi5WY.jpg",
       "https://framerusercontent.com/images/U3esvVaSiw2tStbsHN4RPPQMc.jpg",
-      "https://framerusercontent.com/images/J6WiFRpc3HpUeybEGogjgcwu2Fw.jpg"
+      "https://framerusercontent.com/images/J6WiFRpc3HpUeybEGogjgcwu2Fw.jpg",
+      "https://framerusercontent.com/images/pnDQdLWATyr8g1GR9N1WODAGJw.jpg"
     ],
     "credits": [
       {
@@ -98,39 +106,38 @@ window.SWAG_PROJECTS = [
         "name": "Remy Dahl"
       },
       {
-        "role": "Web Developer",
+        "role": "Apparel Designer",
         "name": "Cian Varro"
       },
       {
-        "role": "Motion Graphics Designer",
+        "role": "Motion Graphics",
         "name": "Petra Weil"
-      },
-      {
-        "role": "3D Artist",
-        "name": "Hana Solís"
       }
     ],
-    "services": "Art Direction, Lookbook Design, 3D Apparel Showcase, E-Commerce"
+    "services": "Tournament Branding, Apparel & Merchandise Design, Environmental Graphics, Promo Motion"
   },
   {
-    "id": "drift-labs",
+    "id": "memphis-grizzlies",
     "number": "04",
     "total": "15",
-    "title": "DRIFT LABS",
-    "tagline": "INTERACTION FOR A BEAUTY BRAND",
+    "title": "Memphis Grizzlies Social Media Rebrand",
+    "tagline": "NBA FRANCHISE DIGITAL & SOCIAL MOTION SUITE",
     "year": "2024",
-    "field": "Beauty",
-    "client": "Dune / Drift",
+    "field": "NBA / Sports Media",
+    "client": "Memphis Grizzlies",
+    "tags": ["BRANDING", "SPORT", "MOTION"],
     "disciplines": [
-      "Art Direction",
-      "Interaction Design"
+      "Branding",
+      "Sport",
+      "Motion"
     ],
-    "description": "Drift Labs is interaction design for a beauty brand with something to prove. Skin-deep is not deep enough — so we built an experience that goes further.",
+    "description": "Complete digital and social media identity system for the Memphis Grizzlies NBA franchise. Kinetic type systems, game-day motion graphics, and bold editorial storytelling.",
     "image": "https://framerusercontent.com/images/aEYuYM1OVQKZX1mIzyaTRp6wXQ.jpg",
     "gallery": [
       "https://framerusercontent.com/images/aEYuYM1OVQKZX1mIzyaTRp6wXQ.jpg",
       "https://framerusercontent.com/images/8w4MIpDnun1DwoU1xpqnazGx5M.jpg",
-      "https://framerusercontent.com/images/2Pj20wp2pjMoU79TaYn3fCyrY48.jpg"
+      "https://framerusercontent.com/images/2Pj20wp2pjMoU79TaYn3fCyrY48.jpg",
+      "https://framerusercontent.com/images/GxGR2UfUnzI8FDVNbcfE3fNTbjc.jpg"
     ],
     "credits": [
       {
@@ -138,11 +145,11 @@ window.SWAG_PROJECTS = [
         "name": "Ines Lark"
       },
       {
-        "role": "Creative Director",
+        "role": "Motion Director",
         "name": "Orin Cole"
       }
     ],
-    "services": "Packaging Art Direction, Interaction Design, Product Narrative"
+    "services": "Social Media Branding, In-Arena Visuals, Gameday Motion Toolkit, Kinetic Typography"
   },
   {
     "id": "monark",

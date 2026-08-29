@@ -163,7 +163,7 @@
    Footer Component (Dark Theme)
    ========================================================================== */
 .site-footer {
-  background-color: #000000;
+  background-color: #040404;
   border-top: 1px solid var(--border-color);
   padding: 60px clamp(25px, 3vw, 40px) 30px;
   margin-top: auto;
@@ -483,7 +483,7 @@
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000;
+  background-color: #040404;
   z-index: 9999999 !important; /* Highest z-index: hides taskbar and all elements */
   display: flex;
   align-items: center;
@@ -632,7 +632,7 @@ html.skip-intro .site-loader-overlay {
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000;
+  background-color: #040404;
   z-index: 999990;
   transform: translateY(100%);
   pointer-events: none;
@@ -664,7 +664,7 @@ html.is-navigating-in .page-transition-curtain {
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000;
+  background-color: #040404;
   z-index: 999990;
   transform: translateY(100%);
   pointer-events: none;

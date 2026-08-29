@@ -35,85 +35,59 @@
         );
       }
 
-      // Parallax on giant watermark number 25
-      const watermarkNum = document.querySelector('.f3-watermark-number');
-      const watermarkWrap = document.querySelector('.f3-card-03-overlap-wrap');
-      if (watermarkNum && watermarkWrap) {
+      // Staggered Entrance Animation for Horizontal Project Strips
+      const workStrips = document.querySelectorAll('.f3-work-strip');
+      if (workStrips.length > 0) {
         window.gsap.fromTo(
-          watermarkNum,
-          { y: 40, opacity: 0.5 },
+          workStrips,
+          { opacity: 0, y: 25 },
           {
-            y: -40,
             opacity: 1,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: watermarkWrap,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: 1.2
-            }
-          }
-        );
-      }
-
-      // Smooth organic reveal for project cards (immediateRender: false ensures elements are never blank)
-      const card01 = document.querySelector('.f3-project-card-01');
-      const card02 = document.querySelector('.f3-project-card-02');
-      const card03 = document.querySelector('.f3-project-card-03');
-
-      if (card01) {
-        window.gsap.from(
-          card01,
-          {
-            opacity: 0,
-            y: 25,
-            duration: 0.85,
+            y: 0,
+            duration: 0.75,
+            stagger: 0.14,
             ease: 'power3.out',
             immediateRender: false,
             scrollTrigger: {
-              trigger: card01,
-              start: 'top 90%',
+              trigger: '.f3-works-strips-container',
+              start: 'top 85%',
               once: true
             }
           }
         );
-      }
 
-      if (card02) {
-        window.gsap.from(
-          card02,
-          {
-            opacity: 0,
-            y: 25,
-            duration: 0.85,
-            delay: 0.1,
-            ease: 'power3.out',
-            immediateRender: false,
-            scrollTrigger: {
-              trigger: card02,
-              start: 'top 90%',
-              once: true
-            }
-          }
-        );
-      }
+        // Smooth desktop drag-to-scroll for horizontal filmstrip galleries
+        const galleries = document.querySelectorAll('.f3-strip-gallery');
+        galleries.forEach(gallery => {
+          let isDown = false;
+          let startX;
+          let scrollLeft;
 
-      if (card03) {
-        window.gsap.from(
-          card03,
-          {
-            opacity: 0,
-            y: 25,
-            duration: 0.85,
-            ease: 'power3.out',
-            immediateRender: false,
-            scrollTrigger: {
-              trigger: card03,
-              start: 'top 92%',
-              once: true
+          gallery.addEventListener('mousedown', (e) => {
+            if (e.target.closest('a')) {
+              // allow clicking links if not dragged
             }
-          }
-        );
+            isDown = true;
+            startX = e.pageX - gallery.offsetLeft;
+            scrollLeft = gallery.scrollLeft;
+          });
+
+          gallery.addEventListener('mouseleave', () => {
+            isDown = false;
+          });
+
+          gallery.addEventListener('mouseup', () => {
+            isDown = false;
+          });
+
+          gallery.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - gallery.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            gallery.scrollLeft = scrollLeft - walk;
+          });
+        });
       }
 
       // Staggered reveal for service rows

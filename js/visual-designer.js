@@ -1,224 +1,128 @@
 /**
- * Visual Designer HUD (Complete Hero & Navigation Customizer)
- * Clean tabbed layout:
- * 1. [Nav Bar] - Top, Length/Width, Min Width, Padding X/Y, Margins, Gap, Radius, Border
- * 2. [Nav Inside] - Brand N/P Size, Weight, Slash Gap, P Level Offset, (®) Mark, Status Line, 2-line Hamburger
- * 3. [CTA Button] - Corner Rounding, Length (Padding X), Thickness (Padding Y), Font Size, Weight
- * 4. [ASCII & Slashes] - ASCII Art Move Y/X, 4 Slashes Size, Boldness, Horizontal/Vertical Offsets
- * 5. [Headline] - "NOTHING HERE BY ACCIDENT." Size, Weight, Line Height, Letter Spacing, Bottom/Left Pos, Eyebrow
- * 6. [Tagline & Square] - "We help brands say who they are..." Size, Weight, Line Height, Letter Spacing, Bottom/Left Pos, Center Square Size/Y/X
+ * Manifesto Statement Visual Designer HUD
+ * Dedicated real-time customizer for Manifesto Statement Typography & Positioning:
+ * 1. Statement Max Width (--manifesto-max-width)
+ * 2. Font Sizing (--manifesto-font-size)
+ * 3. Line Spacing (--manifesto-line-height)
+ * 4. Letter Spacing (--manifesto-letter-spacing)
+ * 5. Top Distance (Y) (--manifesto-top-margin)
+ * 6. Left Offset (X) (--manifesto-left-margin)
+ * 7. Bottom Gap to Works (--manifesto-gap)
+ * 8. Gap to About Button (--manifesto-btn-gap)
  */
 
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'np_visual_designer_state_v7';
+  const STORAGE_KEY = 'np_manifesto_designer_v2';
 
-  const DESIGNER_CONFIG = {
-    // ------------------------------------------------------------------------
-    // TAB 1: Navigation Bar
-    // ------------------------------------------------------------------------
-    '--nav-box-top': { val: 25, unit: 'px', min: 0, max: 120, step: 1, label: 'Top Distance (Y)' },
-    '--nav-box-width': { val: 470, unit: 'px', min: 0, max: 900, step: 5, label: 'Nav Bar Length / Width (0 = Auto)' },
-    '--nav-box-min-width': { val: 290, unit: 'px', min: 160, max: 600, step: 5, label: 'Nav Min Width' },
-    '--nav-box-padx': { val: 18, unit: 'px', min: 4, max: 80, step: 1, label: 'Horizontal Padding (X)' },
-    '--nav-box-pady': { val: 10, unit: 'px', min: 2, max: 40, step: 1, label: 'Vertical Padding (Y)' },
-    '--nav-box-margin-top': { val: 0, unit: 'px', min: 0, max: 60, step: 1, label: 'Margin Top' },
-    '--nav-box-margin-bottom': { val: 0, unit: 'px', min: 0, max: 60, step: 1, label: 'Margin Bottom' },
-    '--nav-box-margin-left': { val: 0, unit: 'px', min: 0, max: 60, step: 1, label: 'Margin Left' },
-    '--nav-box-margin-right': { val: 0, unit: 'px', min: 0, max: 60, step: 1, label: 'Margin Right' },
-    '--nav-box-gap': { val: 25, unit: 'px', min: 4, max: 60, step: 1, label: 'Inner Items Gap' },
-    '--nav-box-radius': { val: 5, unit: 'px', min: 0, max: 40, step: 1, label: 'Corner Radius' },
-    '--nav-box-border-width': { val: 1, unit: 'px', min: 0, max: 5, step: 0.5, label: 'Border Thickness' },
-
-    // ------------------------------------------------------------------------
-    // TAB 2: Navigation Inside Elements (Brand, Status, 2-line Hamburger)
-    // ------------------------------------------------------------------------
-    '--nav-box-brand-size': { val: 17, unit: 'px', min: 11, max: 36, step: 0.5, label: 'Brand (N/P) Font Size' },
-    '--nav-box-brand-weight': { val: 700, unit: '', min: 300, max: 900, step: 100, label: 'Brand Font Weight' },
-    '--nav-box-brand-slash-gap': { val: 0, unit: 'px', min: -2, max: 10, step: 0.5, label: 'Brand Slash (/) Gap' },
-    '--nav-box-brand-p-offset-y': { val: 0, unit: 'px', min: -8, max: 8, step: 0.5, label: 'P Vertical Level Nudge' },
-    '--nav-box-brand-r-size': { val: 10, unit: 'px', min: 5, max: 18, step: 0.5, label: 'Registered (®) Mark Size' },
-    '--nav-box-brand-r-gap': { val: 1, unit: 'px', min: -4, max: 12, step: 0.5, label: 'Registered (®) Mark Gap' },
-    '--nav-status-font-size': { val: 11, unit: 'px', min: 8, max: 20, step: 0.5, label: 'Status Line Font Size' },
-    '--nav-status-font-weight': { val: 500, unit: '', min: 300, max: 900, step: 100, label: 'Status Line Weight' },
-    '--nav-status-letter-spacing': { val: -0.02, unit: 'em', min: -0.08, max: 0.30, step: 0.01, label: 'Status Letter Spacing' },
-    '--nav-hamburger-size': { val: 30, unit: 'px', min: 14, max: 50, step: 1, label: 'Hamburger Button Size' },
-    '--nav-hamburger-line-width': { val: 19, unit: 'px', min: 8, max: 40, step: 1, label: 'Hamburger Line Width' },
-    '--nav-hamburger-gap': { val: 4.5, unit: 'px', min: 2, max: 16, step: 0.5, label: 'Hamburger 2-Lines Gap' },
-
-    // ------------------------------------------------------------------------
-    // TAB 3: CTA Button ("LET'S TALK")
-    // ------------------------------------------------------------------------
-    '--cta-btn-radius': { val: 4, unit: 'px', min: 0, max: 50, step: 1, label: 'CTA Corner Rounding' },
-    '--cta-btn-padx': { val: 20, unit: 'px', min: 6, max: 60, step: 1, label: 'CTA Length (Padding X)' },
-    '--cta-btn-pady': { val: 9, unit: 'px', min: 2, max: 30, step: 1, label: 'CTA Thickness (Padding Y)' },
-    '--cta-btn-font-size': { val: 10.5, unit: 'px', min: 8, max: 20, step: 0.5, label: 'CTA Font Size' },
-    '--cta-btn-font-weight': { val: 600, unit: '', min: 300, max: 900, step: 100, label: 'CTA Font Weight' },
-
-    // ------------------------------------------------------------------------
-    // TAB 4: ASCII Art & 4 Corner Slashes
-    // ------------------------------------------------------------------------
-    '--hero-tv-top': { val: 51, unit: '%', min: 10, max: 90, step: 0.5, label: 'ASCII Vertical Pos (Y %)' },
-    '--hero-tv-left': { val: 50, unit: '%', min: 10, max: 90, step: 0.5, label: 'ASCII Horizontal Pos (X %)' },
-    '--hero-tv-width': { val: 910, unit: 'px', min: 280, max: 1400, step: 5, label: 'ASCII Box Width' },
-    '--hero-tv-height': { val: 156, unit: 'px', min: 50, max: 400, step: 2, label: 'ASCII Box Height' },
-    '--hero-tv-scale': { val: 1.0, unit: '', min: 0.4, max: 2.0, step: 0.02, label: 'ASCII Overall Scale' },
-    '--corner-slashes-size': { val: 54, unit: 'px', min: 16, max: 80, step: 1, label: '4 Slashes Font Size' },
-    '--corner-slashes-weight': { val: 700, unit: '', min: 300, max: 900, step: 100, label: '4 Slashes Boldness' },
-    '--corner-slashes-offset-x': { val: 2, unit: 'px', min: -100, max: 100, step: 1, label: 'Slashes Horizontal Offset (X)' },
-    '--corner-slashes-offset-y': { val: -60, unit: 'px', min: -140, max: 60, step: 1, label: 'Slashes Vertical Offset (Y)' },
-
-    // ------------------------------------------------------------------------
-    // TAB 5: Bottom-Left Headline ("NOTHING HERE BY ACCIDENT.")
-    // ------------------------------------------------------------------------
-    '--headline-font-size': { val: 60, unit: 'px', min: 22, max: 96, step: 1, label: 'Headline Font Size' },
-    '--headline-font-weight': { val: 500, unit: '', min: 300, max: 900, step: 100, label: 'Headline Weight' },
-    '--headline-line-height': { val: 0.94, unit: '', min: 0.70, max: 1.40, step: 0.02, label: 'Headline Line Height' },
-    '--headline-letter-spacing': { val: -0.03, unit: 'em', min: -0.10, max: 0.10, step: 0.005, label: 'Headline Letter Spacing' },
-    '--headline-bottom': { val: 25, unit: 'px', min: 0, max: 200, step: 1, label: 'Bottom Margin / Distance' },
-    '--headline-left': { val: 25, unit: 'px', min: 0, max: 200, step: 1, label: 'Left Margin / Distance' },
-    '--headline-max-width': { val: 520, unit: 'px', min: 200, max: 900, step: 10, label: 'Headline Max Width' },
-    '--eyebrow-font-size': { val: 11, unit: 'px', min: 8, max: 22, step: 0.5, label: 'Eyebrow (/ We are N/P /) Size' },
-    '--eyebrow-margin-bottom': { val: 10, unit: 'px', min: 0, max: 30, step: 1, label: 'Eyebrow Bottom Gap' },
-
-    // ------------------------------------------------------------------------
-    // TAB 6: Tagline & Center Square
-    // ------------------------------------------------------------------------
-    '--tagline-font-size': { val: 19.5, unit: 'px', min: 10, max: 32, step: 0.5, label: 'Tagline Font Size' },
-    '--tagline-font-weight': { val: 400, unit: '', min: 300, max: 800, step: 100, label: 'Tagline Font Weight' },
-    '--tagline-line-height': { val: 1.1, unit: '', min: 0.8, max: 2.6, step: 0.05, label: 'Line Spacing (Line Height)' },
-    '--tagline-letter-spacing': { val: -0.015, unit: 'em', min: -0.06, max: 0.25, step: 0.005, label: 'Letter Spacing' },
-    '--tagline-bottom': { val: 25, unit: 'px', min: 0, max: 200, step: 1, label: 'Tagline Bottom Pos' },
-    '--tagline-left': { val: 200, unit: 'px', min: -200, max: 400, step: 2, label: 'Tagline Left Offset from Center' },
-    '--tagline-max-width': { val: 270, unit: 'px', min: 150, max: 600, step: 10, label: 'Tagline Max Width' },
-    '--hero-square-size': { val: 7, unit: 'px', min: 2, max: 28, step: 1, label: 'Center Square Size' },
-    '--hero-square-bottom': { val: 32, unit: 'px', min: -50, max: 120, step: 1, label: 'Center Square Bottom Offset' },
-    '--hero-square-offset-x': { val: 187, unit: 'px', min: -200, max: 300, step: 1, label: 'Center Square Left/Right Offset' }
-  };
-
-  const CATEGORIES = [
+  const SECTIONS = [
     {
-      id: 'navbar',
-      title: 'Nav Bar',
+      title: 'TYPOGRAPHY & DIMENSIONS',
       keys: [
-        '--nav-box-top',
-        '--nav-box-width',
-        '--nav-box-min-width',
-        '--nav-box-padx',
-        '--nav-box-pady',
-        '--nav-box-margin-top',
-        '--nav-box-margin-bottom',
-        '--nav-box-margin-left',
-        '--nav-box-margin-right',
-        '--nav-box-gap',
-        '--nav-box-radius',
-        '--nav-box-border-width'
+        '--manifesto-max-width',
+        '--manifesto-font-size',
+        '--manifesto-line-height',
+        '--manifesto-letter-spacing'
       ]
     },
     {
-      id: 'navelements',
-      title: 'Nav Inside',
+      title: 'POSITIONING & SPACING',
       keys: [
-        '--nav-box-brand-size',
-        '--nav-box-brand-weight',
-        '--nav-box-brand-slash-gap',
-        '--nav-box-brand-p-offset-y',
-        '--nav-box-brand-r-size',
-        '--nav-box-brand-r-gap',
-        '--nav-status-font-size',
-        '--nav-status-font-weight',
-        '--nav-status-letter-spacing',
-        '--nav-hamburger-size',
-        '--nav-hamburger-line-width',
-        '--nav-hamburger-gap'
-      ]
-    },
-    {
-      id: 'cta',
-      title: 'CTA Button',
-      keys: [
-        '--cta-btn-radius',
-        '--cta-btn-padx',
-        '--cta-btn-pady',
-        '--cta-btn-font-size',
-        '--cta-btn-font-weight'
-      ]
-    },
-    {
-      id: 'slashes',
-      title: 'ASCII & Slashes',
-      keys: [
-        '--hero-tv-top',
-        '--hero-tv-left',
-        '--hero-tv-width',
-        '--hero-tv-height',
-        '--hero-tv-scale',
-        '--corner-slashes-size',
-        '--corner-slashes-weight',
-        '--corner-slashes-offset-x',
-        '--corner-slashes-offset-y'
-      ]
-    },
-    {
-      id: 'headline',
-      title: 'Headline',
-      keys: [
-        '--headline-font-size',
-        '--headline-font-weight',
-        '--headline-line-height',
-        '--headline-letter-spacing',
-        '--headline-bottom',
-        '--headline-left',
-        '--headline-max-width',
-        '--eyebrow-font-size',
-        '--eyebrow-margin-bottom'
-      ]
-    },
-    {
-      id: 'tagline',
-      title: 'Tagline & Square',
-      keys: [
-        '--tagline-font-size',
-        '--tagline-font-weight',
-        '--tagline-line-height',
-        '--tagline-letter-spacing',
-        '--tagline-bottom',
-        '--tagline-left',
-        '--tagline-max-width',
-        '--hero-square-size',
-        '--hero-square-bottom',
-        '--hero-square-offset-x'
+        '--manifesto-top-margin',
+        '--manifesto-left-margin',
+        '--manifesto-gap',
+        '--manifesto-btn-gap'
       ]
     }
   ];
 
-  class VisualDesignerHUD {
+  const DESIGNER_CONFIG = {
+    // Typography & Dimensions
+    '--manifesto-max-width': {
+      val: 850,
+      unit: 'px',
+      min: 300,
+      max: 1600,
+      step: 10,
+      label: 'Statement Max Width'
+    },
+    '--manifesto-font-size': {
+      val: 49,
+      unit: 'px',
+      min: 18,
+      max: 96,
+      step: 1,
+      label: 'Font Sizing'
+    },
+    '--manifesto-line-height': {
+      val: 1.1,
+      unit: '',
+      min: 0.70,
+      max: 2.20,
+      step: 0.02,
+      label: 'Line Spacing (Line Height)'
+    },
+    '--manifesto-letter-spacing': {
+      val: -0.8,
+      unit: 'px',
+      min: -5.0,
+      max: 4.0,
+      step: 0.1,
+      label: 'Letter Spacing'
+    },
+
+    // Positioning & Spacing
+    '--manifesto-top-margin': {
+      val: 38,
+      unit: 'px',
+      min: 0,
+      max: 250,
+      step: 2,
+      label: 'Top Distance (Y)'
+    },
+    '--manifesto-left-margin': {
+      val: 14,
+      unit: 'px',
+      min: 0,
+      max: 250,
+      step: 2,
+      label: 'Left Offset (X)'
+    },
+    '--manifesto-gap': {
+      val: 106,
+      unit: 'px',
+      min: 0,
+      max: 250,
+      step: 2,
+      label: 'Bottom Gap to Works'
+    },
+    '--manifesto-btn-gap': {
+      val: 26,
+      unit: 'px',
+      min: 0,
+      max: 100,
+      step: 2,
+      label: 'Gap to About Button'
+    }
+  };
+
+  class ManifestoVisualDesigner {
     constructor() {
       this.state = {};
-      this.activeTab = 'navbar';
-      this.isDragging = false;
-      this.loadSavedState();
-      this.buildUI();
+      this.loadState();
       this.applyAll();
+      this.createUI();
     }
 
-    loadSavedState() {
-      this.hasSavedState = false;
+    loadState() {
+      let saved = null;
       try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) {
-          const parsed = JSON.parse(saved);
-          for (const k in DESIGNER_CONFIG) {
-            this.state[k] = parsed[k] !== undefined ? parsed[k] : DESIGNER_CONFIG[k].val;
-          }
-          this.hasSavedState = true;
-          return;
-        }
+        saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
       } catch (e) {}
 
-      for (const k in DESIGNER_CONFIG) {
-        this.state[k] = DESIGNER_CONFIG[k].val;
+      for (const [key, conf] of Object.entries(DESIGNER_CONFIG)) {
+        this.state[key] = (saved && saved[key] !== undefined) ? saved[key] : conf.val;
       }
     }
 
@@ -228,161 +132,131 @@
       } catch (e) {}
     }
 
-    applyVal(key, val) {
+    apply(key, val) {
       const conf = DESIGNER_CONFIG[key];
       if (!conf) return;
+      this.state[key] = parseFloat(val);
+      const formatted = `${this.state[key]}${conf.unit}`;
+      document.documentElement.style.setProperty(key, formatted);
 
-      let formattedVal = `${val}${conf.unit}`;
-      if (key === '--nav-box-width') {
-        formattedVal = val === 0 ? 'auto' : `${val}px`;
-      } else if (key === '--tagline-left') {
-        formattedVal = `calc(50% + ${val}px)`;
+      // Direct DOM updates for instantaneous feedback
+      const manifestoStatement = document.querySelector('.f3-intro-statement');
+      const manifestoCol = document.querySelector('.f3-intro-right-col');
+      const sectionIntro = document.querySelector('.f3-section-intro');
+      const worksHeader = document.querySelector('.f3-works-header');
+
+      if (key === '--manifesto-max-width' && manifestoCol) {
+        manifestoCol.style.maxWidth = formatted;
+      }
+      if (key === '--manifesto-font-size' && manifestoStatement) {
+        manifestoStatement.style.fontSize = formatted;
+      }
+      if (key === '--manifesto-line-height' && manifestoStatement) {
+        manifestoStatement.style.lineHeight = formatted;
+      }
+      if (key === '--manifesto-letter-spacing' && manifestoStatement) {
+        manifestoStatement.style.letterSpacing = formatted;
+      }
+      if (key === '--manifesto-left-margin' && manifestoCol) {
+        manifestoCol.style.marginLeft = formatted;
+      }
+      if (key === '--manifesto-top-margin' && sectionIntro) {
+        sectionIntro.style.paddingTop = formatted;
+      }
+      if (key === '--manifesto-gap' && worksHeader) {
+        worksHeader.style.marginBottom = formatted;
+      }
+      if (key === '--manifesto-btn-gap' && manifestoStatement) {
+        manifestoStatement.style.marginBottom = formatted;
       }
 
-      document.documentElement.style.setProperty(key, formattedVal);
-
-      // Master offsets for corner slashes
-      if (key === '--corner-slashes-offset-x') {
-        document.documentElement.style.setProperty('--corner-tl-x', `${val}px`);
-        document.documentElement.style.setProperty('--corner-tr-x', `${val}px`);
-        document.documentElement.style.setProperty('--corner-bl-x', `${val}px`);
-        document.documentElement.style.setProperty('--corner-br-x', `${val}px`);
-      } else if (key === '--corner-slashes-offset-y') {
-        document.documentElement.style.setProperty('--corner-tl-y', `${val}px`);
-        document.documentElement.style.setProperty('--corner-tr-y', `${val}px`);
-        document.documentElement.style.setProperty('--corner-bl-y', `${val}px`);
-        document.documentElement.style.setProperty('--corner-br-y', `${val}px`);
-      }
+      this.saveState();
     }
 
     applyAll() {
-      for (const k in this.state) {
-        this.applyVal(k, this.state[k]);
+      for (const [key, val] of Object.entries(this.state)) {
+        this.apply(key, val);
       }
     }
 
-    buildUI() {
-      // Toggle button
+    createUI() {
+      // Toggle Floating Button
       const toggleBtn = document.createElement('button');
       toggleBtn.className = 'vd-toggle-btn';
-      toggleBtn.innerHTML = '<span class="vd-toggle-dot"></span><span>DESIGNER</span>';
-      toggleBtn.setAttribute('aria-label', 'Toggle Visual Designer Panel');
+      toggleBtn.id = 'vd-toggle-btn';
+      toggleBtn.setAttribute('aria-label', 'Toggle Manifesto Designer HUD');
+      toggleBtn.innerHTML = `
+        <span class="vd-toggle-dot"></span>
+        <span>MANIFESTO DESIGNER</span>
+      `;
       document.body.appendChild(toggleBtn);
 
-      // Main Panel
-      const panel = document.createElement('aside');
+      // Main HUD Panel
+      const panel = document.createElement('div');
       panel.className = 'vd-panel';
-      panel.id = 'vd-designer-panel';
-      panel.setAttribute('data-lenis-prevent', 'true');
-      panel.setAttribute('data-lenis-prevent-wheel', 'true');
-      panel.setAttribute('data-lenis-prevent-touch', 'true');
-
-      // Stop wheel & touch bubbling so page doesn't scroll instead of designer
-      panel.addEventListener('wheel', (e) => {
-        e.stopPropagation();
-      }, { passive: true });
-
-      panel.addEventListener('touchmove', (e) => {
-        e.stopPropagation();
-      }, { passive: true });
+      panel.id = 'vd-panel';
 
       // Header
       const header = document.createElement('div');
       header.className = 'vd-header';
       header.innerHTML = `
         <div class="vd-title">
-          <span>Visual Designer</span>
-          <span class="vd-drag-handle">:::</span>
+          <span>MANIFESTO DESIGNER</span>
+          <span class="vd-drag-handle">⠿</span>
         </div>
-        <button class="vd-close-btn" aria-label="Close Designer">&times;</button>
+        <button class="vd-close-btn" aria-label="Close HUD">✕</button>
       `;
       panel.appendChild(header);
 
-      // Tabs Header (Keeps the UI compact and organized)
-      const tabsNav = document.createElement('div');
-      tabsNav.className = 'vd-tabs';
-      tabsNav.setAttribute('data-lenis-prevent', 'true');
-      CATEGORIES.forEach((cat, idx) => {
-        const tabBtn = document.createElement('button');
-        tabBtn.className = `vd-tab-btn ${idx === 0 ? 'active' : ''}`;
-        tabBtn.dataset.tab = cat.id;
-        tabBtn.textContent = cat.title;
-        tabBtn.addEventListener('click', () => {
-          panel.querySelectorAll('.vd-tab-btn').forEach(b => b.classList.remove('active'));
-          panel.querySelectorAll('.vd-tab-pane').forEach(p => p.classList.remove('active'));
-          tabBtn.classList.add('active');
-          const targetPane = panel.querySelector(`.vd-tab-pane[data-tab="${cat.id}"]`);
-          if (targetPane) targetPane.classList.add('active');
-          this.activeTab = cat.id;
-        });
-        tabsNav.appendChild(tabBtn);
-      });
-      panel.appendChild(tabsNav);
-
-      // Body (Container for tab panes)
+      // Body / Controls List
       const body = document.createElement('div');
       body.className = 'vd-body';
-      body.setAttribute('data-lenis-prevent', 'true');
-      body.setAttribute('data-lenis-prevent-wheel', 'true');
-      body.setAttribute('data-lenis-prevent-touch', 'true');
 
-      body.addEventListener('wheel', (e) => {
-        e.stopPropagation();
-      }, { passive: true });
+      for (const sec of SECTIONS) {
+        const secHeader = document.createElement('div');
+        secHeader.className = 'vd-section-label';
+        secHeader.textContent = sec.title;
+        body.appendChild(secHeader);
 
-      CATEGORIES.forEach((cat, idx) => {
-        const pane = document.createElement('div');
-        pane.className = `vd-tab-pane ${idx === 0 ? 'active' : ''}`;
-        pane.dataset.tab = cat.id;
-        pane.setAttribute('data-lenis-prevent', 'true');
-
-        cat.keys.forEach(key => {
+        for (const key of sec.keys) {
           const conf = DESIGNER_CONFIG[key];
-          if (!conf) return;
+          if (!conf) continue;
 
-          const control = document.createElement('div');
-          control.className = 'vd-control';
-
-          const currentVal = this.state[key] !== undefined ? this.state[key] : conf.val;
-          let displayVal = `${currentVal}${conf.unit}`;
-          if (key === '--nav-box-width' && currentVal === 0) displayVal = 'Auto';
-
-          control.innerHTML = `
+          const curVal = this.state[key];
+          const ctrl = document.createElement('div');
+          ctrl.className = 'vd-control';
+          ctrl.innerHTML = `
             <div class="vd-control-header">
               <span class="vd-control-label">${conf.label}</span>
-              <span class="vd-control-value" id="val-${key}">${displayVal}</span>
+              <span class="vd-control-value" id="val-${key}">${curVal}${conf.unit}</span>
             </div>
-            <input type="range" 
-                   class="vd-range-slider" 
-                   data-key="${key}" 
-                   min="${conf.min}" 
-                   max="${conf.max}" 
-                   step="${conf.step}" 
-                   value="${currentVal}">
+            <input 
+              type="range" 
+              class="vd-range-slider" 
+              data-key="${key}"
+              min="${conf.min}" 
+              max="${conf.max}" 
+              step="${conf.step}" 
+              value="${curVal}" 
+            />
           `;
 
-          const slider = control.querySelector('input');
-          const valDisplay = control.querySelector('.vd-control-value');
+          const slider = ctrl.querySelector('.vd-range-slider');
+          const valDisplay = ctrl.querySelector(`#val-${key}`);
 
           slider.addEventListener('input', (e) => {
-            const num = parseFloat(e.target.value);
-            this.state[key] = num;
-            let display = `${num}${conf.unit}`;
-            if (key === '--nav-box-width' && num === 0) display = 'Auto';
-            valDisplay.textContent = display;
-            this.applyVal(key, num);
-            this.saveState();
+            const v = parseFloat(e.target.value);
+            this.apply(key, v);
+            valDisplay.textContent = `${v}${conf.unit}`;
           });
 
-          pane.appendChild(control);
-        });
-
-        body.appendChild(pane);
-      });
+          body.appendChild(ctrl);
+        }
+      }
 
       panel.appendChild(body);
 
-      // Footer with Action Buttons
+      // Footer
       const footer = document.createElement('div');
       footer.className = 'vd-footer';
       footer.innerHTML = `
@@ -392,7 +266,7 @@
       panel.appendChild(footer);
       document.body.appendChild(panel);
 
-      // Event Listeners
+      // Interactions & Event Listeners
       toggleBtn.addEventListener('click', () => {
         panel.classList.toggle('active');
       });
@@ -401,9 +275,9 @@
         panel.classList.remove('active');
       });
 
-      // Press 'H' to toggle
+      // Press 'M' or 'H' to toggle
       window.addEventListener('keydown', (e) => {
-        if (e.key === 'h' || e.key === 'H') {
+        if (e.key === 'm' || e.key === 'M' || e.key === 'h' || e.key === 'H') {
           if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
             panel.classList.toggle('active');
           }
@@ -412,43 +286,28 @@
 
       // Reset
       footer.querySelector('#vd-btn-reset').addEventListener('click', () => {
-        if (confirm('Reset all Visual Designer adjustments back to defaults?')) {
+        if (confirm('Reset Manifesto statement sizing and positioning back to defaults?')) {
           localStorage.removeItem(STORAGE_KEY);
-          for (const k in DESIGNER_CONFIG) {
-            this.state[k] = DESIGNER_CONFIG[k].val;
+          for (const [k, conf] of Object.entries(DESIGNER_CONFIG)) {
+            this.state[k] = conf.val;
+            this.apply(k, conf.val);
+            const slider = panel.querySelector(`input[data-key="${k}"]`);
+            const valDisplay = panel.querySelector(`#val-${k}`);
+            if (slider) slider.value = conf.val;
+            if (valDisplay) valDisplay.textContent = `${conf.val}${conf.unit}`;
           }
-          this.applyAll();
-          // Update inputs
-          panel.querySelectorAll('input[type="range"]').forEach(slider => {
-            const k = slider.dataset.key;
-            if (DESIGNER_CONFIG[k]) {
-              slider.value = DESIGNER_CONFIG[k].val;
-              const valEl = panel.querySelector(`#val-${k}`);
-              if (valEl) {
-                const v = DESIGNER_CONFIG[k].val;
-                let display = `${v}${DESIGNER_CONFIG[k].unit}`;
-                if (k === '--nav-box-width' && v === 0) display = 'Auto';
-                valEl.textContent = display;
-              }
-            }
-          });
         }
       });
 
       // Copy CSS
       footer.querySelector('#vd-btn-copy').addEventListener('click', () => {
-        let css = ':root {\n';
-        for (const cat of CATEGORIES) {
-          css += `  /* ${cat.title} */\n`;
-          for (const k of cat.keys) {
+        let css = ':root {\n  /* Manifesto Statement Controls */\n';
+        for (const sec of SECTIONS) {
+          css += `  /* ${sec.title} */\n`;
+          for (const k of sec.keys) {
             const conf = DESIGNER_CONFIG[k];
-            const v = this.state[k];
-            let formatted = `${v}${conf.unit}`;
-            if (k === '--nav-box-width' && v === 0) formatted = 'auto';
-            if (k === '--tagline-left') formatted = `calc(50% + ${v}px)`;
-            css += `  ${k}: ${formatted};\n`;
+            css += `  ${k}: ${this.state[k]}${conf.unit};\n`;
           }
-          css += '\n';
         }
         css += '}\n';
 
@@ -468,7 +327,7 @@
         });
       });
 
-      // Make Panel Draggable
+      // Drag Handling
       this.makeDraggable(panel, header);
     }
 
@@ -502,12 +361,12 @@
     }
   }
 
-  // Initialize once DOM is ready
+  // Initialize once DOM is loaded
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-      window.navVisualDesigner = new VisualDesignerHUD();
+      window.manifestoVisualDesigner = new ManifestoVisualDesigner();
     });
   } else {
-    window.navVisualDesigner = new VisualDesignerHUD();
+    window.manifestoVisualDesigner = new ManifestoVisualDesigner();
   }
 })();
