@@ -1,20 +1,24 @@
 /**
- * Hero Headline ASCII Scramble & Auto-Rotation
- * Alternates between (ALL CAPS):
- *   1) "NOTHING HERE" / "BY ACCIDENT."
- *   2) "NOTHING OUT" / "OF PLACE."
- * ASCII appearing mixing effect with random interval between 4 and 6 seconds.
+ * N/P® Hero Corner Statement ASCII Morph Effect
+ * Cycles between:
+ *   State 0: "Nothing here/" (Left)  |  "/by accident." (Right)
+ *   State 1: "Nothing out/"  (Left)  |  "/of place."     (Right)
+ *
+ * Scrambles with authentic rapid ASCII glyph decoding over 800ms - 1100ms
+ * Randomized interval between 5 and 8 seconds (5000ms - 8000ms).
  */
 
 (() => {
-  const HEADLINES = [
+  'use strict';
+
+  const PHRASES = [
     {
-      line1: 'NOTHING HERE',
-      line2: 'BY ACCIDENT.'
+      left: 'Nothing here/',
+      right: '/by accident.'
     },
     {
-      line1: 'NOTHING OUT',
-      line2: 'OF PLACE.'
+      left: 'Nothing out/',
+      right: '/of place.'
     }
   ];
 
@@ -30,16 +34,16 @@
   let isInitialized = false;
 
   /**
-   * Random duration between 5,000ms (5s) and 9,000ms (9s)
+   * Random interval between 5,000ms (5s) and 8,000ms (8s)
    */
   function getRandomInterval() {
-    return Math.floor(5000 + Math.random() * 4000);
+    return Math.floor(5000 + Math.random() * 3000);
   }
 
   /**
    * Scrambles an individual element's text to targetText using an ASCII appearing mixing effect.
    */
-  function scrambleElement(el, targetText, duration = 1000, delay = 0) {
+  function scrambleElement(el, targetText, duration = 900, delay = 0) {
     return new Promise(resolve => {
       setTimeout(() => {
         if (!el) {
@@ -47,17 +51,19 @@
           return;
         }
 
-        const startText = el.textContent || '';
+        const targetSpan = el.querySelector('span') || el;
+        const startText = targetSpan.textContent.trim();
         const maxLen = Math.max(startText.length, targetText.length);
-        const fps = 30;
-        const totalFrames = Math.max(20, Math.floor((duration / 1000) * fps));
+        const fps = 36;
+        const totalFrames = Math.max(24, Math.floor((duration / 1000) * fps));
         let frame = 0;
 
-        // Progressive stagger per character
+        // Progressive stagger: characters resolve left-to-right
         const resolveFrames = [];
         for (let i = 0; i < maxLen; i++) {
           const staggerRatio = i / Math.max(1, maxLen);
-          const startResolve = Math.floor(totalFrames * (0.35 + staggerRatio * 0.55));
+          // Characters start resolving between 30% and 85% of the total animation duration
+          const startResolve = Math.floor(totalFrames * (0.30 + staggerRatio * 0.55));
           resolveFrames.push(startResolve);
         }
 
@@ -67,6 +73,7 @@
 
           for (let i = 0; i < maxLen; i++) {
             if (i >= targetText.length) {
+              // Shrinking word: trailing characters cycle then dissolve
               if (frame < totalFrames * 0.5) {
                 result += getRandomGlyph();
               }
@@ -82,11 +89,11 @@
             }
           }
 
-          el.textContent = result;
+          targetSpan.textContent = result;
 
           if (frame >= totalFrames) {
             clearInterval(interval);
-            el.textContent = targetText;
+            targetSpan.textContent = targetText;
             resolve();
           }
         }, 1000 / fps);
@@ -95,31 +102,31 @@
   }
 
   /**
-   * Performs the ASCII scramble transition to target headline index
+   * Performs the ASCII scramble transition to target index
    */
   async function performScramble(targetIdx) {
-    const l1 = document.querySelector('.hero-bottom-headline .line-1');
-    const l2 = document.querySelector('.hero-bottom-headline .line-2');
-    const headline = document.querySelector('.hero-bottom-headline');
+    const leftEl = document.getElementById('hero-text-left') || document.querySelector('.hero-text-left');
+    const rightEl = document.getElementById('hero-text-right') || document.querySelector('.hero-text-right');
 
-    const target = HEADLINES[targetIdx];
+    const target = PHRASES[targetIdx];
     isScrambling = true;
 
-    if (l1 && l2) {
-      await Promise.all([
-        scrambleElement(l1, target.line1, 1000, 0),
-        scrambleElement(l2, target.line2, 1100, 60)
-      ]);
-    } else if (headline) {
-      await scrambleElement(headline, `${target.line1}\n${target.line2}`, 1100, 0);
+    const promises = [];
+    if (leftEl) {
+      promises.push(scrambleElement(leftEl, target.left, 850, 0));
     }
+    if (rightEl) {
+      promises.push(scrambleElement(rightEl, target.right, 950, 60));
+    }
+
+    await Promise.all(promises);
 
     currentIndex = targetIdx;
     isScrambling = false;
   }
 
   /**
-   * Schedules the next swap at a randomized interval between 4s and 6s
+   * Schedules the next swap at a randomized interval between 5s and 8s
    */
   function scheduleNextSwap() {
     if (swapTimeoutId) {
@@ -141,42 +148,41 @@
         return;
       }
 
-      const nextIndex = (currentIndex + 1) % HEADLINES.length;
+      const nextIndex = (currentIndex + 1) % PHRASES.length;
       await performScramble(nextIndex);
       scheduleNextSwap();
     }, nextDelay);
   }
 
   /**
-   * Initializes headline scramble effect on page reveal / load
+   * Initializes headline scramble effect on page load
    */
-  function initHeroHeadlineScramble(force = false) {
+  function initHeroStatementScramble(force = false) {
     if (isInitialized && !force) return;
-    const headline = document.querySelector('.hero-bottom-headline');
-    if (!headline) return;
+    const leftEl = document.getElementById('hero-text-left');
+    const rightEl = document.getElementById('hero-text-right');
+    if (!leftEl && !rightEl) return;
 
     isInitialized = true;
-
-    // Trigger initial ASCII decode reveal
-    performScramble(currentIndex).then(() => {
-      scheduleNextSwap();
-    });
+    scheduleNextSwap();
   }
 
   // Expose API for external control
-  window.initHeroHeadlineScramble = initHeroHeadlineScramble;
+  window.initHeroStatementScramble = initHeroStatementScramble;
   window.heroStatementScramble = {
     performScramble,
     scheduleNextSwap,
     get currentIndex() { return currentIndex; },
     get isScrambling() { return isScrambling; },
-    HEADLINES
+    PHRASES
   };
 
-  // Immediate initialize on DOMContentLoaded if intro loader has already run
-  document.addEventListener('DOMContentLoaded', () => {
-    if (sessionStorage.getItem('np_has_seen_intro')) {
-      initHeroHeadlineScramble(false);
-    }
-  });
+  // Immediate initialize on DOMContentLoaded or if already loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initHeroStatementScramble(false);
+    });
+  } else {
+    initHeroStatementScramble(false);
+  }
 })();
