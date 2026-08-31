@@ -1,53 +1,40 @@
 /**
- * Visual Designer & Hero Studio HUD
+ * Visual Designer & Hero Squares Studio HUD
  * Full interactive real-time control HUD for:
- * 1. 4 Corner Slashes Sizing, Weight, Position & Opacity
- * 2. Grid & Backdrop Opacity calibration
- * 3. Shape Sizing & SVG Ratio
- * 4. WebGL ASCII Shader parameters
+ * 1. 4 Corner Squares Sizing, Position & Opacity
+ * 2. Shape Sizing & SVG Ratio
+ * 3. WebGL ASCII Shader parameters
  */
 
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'np_hero_designer_state_v3';
+  const STORAGE_KEY = 'np_hero_designer_state_v4';
 
   // Config definition: maps control keys to their defaults, min, max, step, unit, and type
   const DESIGNER_CONFIG = {
     // ------------------------------------------------------------------------
-    // TAB 1: 4 Corner Slashes (Size, Weight & Position)
+    // TAB 1: 4 Corner Squares (Size & Position)
     // ------------------------------------------------------------------------
-    '--corner-slashes-size': { val: 54, unit: 'px', min: 10, max: 150, step: 1, label: 'Slashes Font Size', type: 'css' },
-    '--corner-slashes-weight': { val: 700, unit: '', min: 100, max: 900, step: 100, label: 'Slashes Font Weight (100–900)', type: 'css' },
-    '--corner-slashes-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'All Slashes Opacity (Master)', type: 'opacity' },
+    '--corner-square-size': { val: 7, unit: 'px', min: 2, max: 40, step: 1, label: 'Corner Squares Size (width & height)', type: 'css' },
+    '--corner-slashes-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'All Squares Opacity (Master)', type: 'opacity' },
     '--corner-slashes-offset-x': { val: 0, unit: 'px', min: -150, max: 150, step: 1, label: 'Global Offset X', type: 'css' },
-    '--corner-slashes-offset-y': { val: -65, unit: 'px', min: -150, max: 150, step: 1, label: 'Global Offset Y', type: 'css' },
-    '--corner-tl-x': { val: -20, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Left Slash X', type: 'css' },
-    '--corner-tl-y': { val: -3, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Left Slash Y', type: 'css' },
-    '--corner-tr-x': { val: -3, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Right Slash X', type: 'css' },
-    '--corner-tr-y': { val: -3, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Right Slash Y', type: 'css' },
-    '--corner-bl-x': { val: -20, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Left Slash X', type: 'css' },
-    '--corner-bl-y': { val: -8, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Left Slash Y', type: 'css' },
-    '--corner-br-x': { val: -3, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Right Slash X', type: 'css' },
-    '--corner-br-y': { val: -8, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Right Slash Y', type: 'css' },
-    '--corner-tl-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Top-Left Slash Opacity', type: 'opacity' },
-    '--corner-tr-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Top-Right Slash Opacity', type: 'opacity' },
-    '--corner-bl-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Bottom-Left Slash Opacity', type: 'opacity' },
-    '--corner-br-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Bottom-Right Slash Opacity', type: 'opacity' },
+    '--corner-slashes-offset-y': { val: 0, unit: 'px', min: -150, max: 150, step: 1, label: 'Global Offset Y', type: 'css' },
+    '--corner-tl-x': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Left Square X', type: 'css' },
+    '--corner-tl-y': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Left Square Y', type: 'css' },
+    '--corner-tr-x': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Right Square X', type: 'css' },
+    '--corner-tr-y': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Right Square Y', type: 'css' },
+    '--corner-bl-x': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Left Square X', type: 'css' },
+    '--corner-bl-y': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Left Square Y', type: 'css' },
+    '--corner-br-x': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Right Square X', type: 'css' },
+    '--corner-br-y': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Right Square Y', type: 'css' },
+    '--corner-tl-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Top-Left Square Opacity', type: 'opacity' },
+    '--corner-tr-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Top-Right Square Opacity', type: 'opacity' },
+    '--corner-bl-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Bottom-Left Square Opacity', type: 'opacity' },
+    '--corner-br-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Bottom-Right Square Opacity', type: 'opacity' },
 
     // ------------------------------------------------------------------------
-    // TAB 2: Grid & Hero Elements Opacity
-    // ------------------------------------------------------------------------
-    '--grid-opacity': { val: 1, min: 0, max: 100, step: 1, unit: '%', label: 'Blueprint Vector Grid Opacity', type: 'opacity' },
-    '--blueprint-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Blueprint Grid Container', type: 'opacity' },
-    '--hero-visual-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'ASCII Shape Visual (Container)', type: 'opacity' },
-    '--hero-canvas-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'ASCII Video Canvas', type: 'opacity' },
-    '--backdrop-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Obsidian Backdrop / Vignette', type: 'opacity' },
-    '--nav-box-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Top Modular Nav Box', type: 'opacity' },
-    '--hero-viewport-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Hero Viewport (Master)', type: 'opacity' },
-
-    // ------------------------------------------------------------------------
-    // TAB 3: Shape Sizing & Position
+    // TAB 2: Shape Sizing & Position
     // ------------------------------------------------------------------------
     '--hero-tv-width': { val: 910, unit: 'px', min: 200, max: 1400, step: 5, label: 'Shape Width', type: 'css' },
     '--hero-tv-height': { val: 310, unit: 'px', min: 50, max: 600, step: 2, label: 'Shape Height', type: 'css' },
@@ -56,7 +43,7 @@
     '--hero-tv-left': { val: 50.0, unit: '%', min: 10, max: 90, step: 0.5, label: 'Horizontal Pos (X %)', type: 'css' },
 
     // ------------------------------------------------------------------------
-    // TAB 4: ASCII Shader
+    // TAB 3: ASCII Shader
     // ------------------------------------------------------------------------
     'cellSize': { val: 10, unit: 'px', min: 2, max: 24, step: 0.5, label: 'Cell Size (Grid Density)', type: 'shader' },
     'dotScale': { val: 1.3, unit: 'x', min: 0.2, max: 3.0, step: 0.05, label: 'Glyph Fill / Dot Scale', type: 'shader' },
@@ -71,11 +58,10 @@
 
   const CATEGORIES = [
     {
-      id: 'slashes_tab',
-      title: 'Slashes (Size & Weight)',
+      id: 'squares_tab',
+      title: 'Corner Squares',
       keys: [
-        '--corner-slashes-size',
-        '--corner-slashes-weight',
+        '--corner-square-size',
         '--corner-slashes-opacity',
         '--corner-slashes-offset-x',
         '--corner-slashes-offset-y',
@@ -91,19 +77,6 @@
         '--corner-tr-opacity',
         '--corner-bl-opacity',
         '--corner-br-opacity'
-      ]
-    },
-    {
-      id: 'grid_opacities',
-      title: 'Grid & Opacities',
-      keys: [
-        '--grid-opacity',
-        '--blueprint-opacity',
-        '--hero-visual-opacity',
-        '--hero-canvas-opacity',
-        '--backdrop-opacity',
-        '--nav-box-opacity',
-        '--hero-viewport-opacity'
       ]
     },
     {
@@ -258,10 +231,10 @@
       const toggleBtn = document.createElement('button');
       toggleBtn.className = 'vd-toggle-btn';
       toggleBtn.id = 'vd-toggle-btn';
-      toggleBtn.setAttribute('aria-label', 'Toggle Slashes & Layout Studio');
+      toggleBtn.setAttribute('aria-label', 'Toggle Squares Studio HUD');
       toggleBtn.innerHTML = `
         <span class="vd-toggle-dot"></span>
-        <span>SLASHES STUDIO</span>
+        <span>SQUARES STUDIO</span>
       `;
       document.body.appendChild(toggleBtn);
 
@@ -279,7 +252,7 @@
       header.className = 'vd-header';
       header.innerHTML = `
         <div class="vd-title">
-          <span>SLASHES & LAYOUT STUDIO</span>
+          <span>CORNER SQUARES & LAYOUT STUDIO</span>
           <span class="vd-drag-handle">:::</span>
         </div>
         <button class="vd-close-btn" aria-label="Close Designer">&times;</button>
