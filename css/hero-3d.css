@@ -860,17 +860,18 @@ body.nav-dropdown-active .hero-center-visual {
 }
 
 .hero-blueprint-svg line {
-  stroke: rgba(255, 255, 255, var(--grid-opacity, 0.03));
+  stroke: rgba(255, 255, 255, var(--grid-opacity, 0.02));
 }
 
 .hero-grid-square {
+  display: none;
   position: absolute;
   width: var(--hero-square-size, 8px);
   height: var(--hero-square-size, 8px);
   background-color: var(--hero-square-color, #ffffff);
   bottom: var(--hero-square-bottom, 0px);
   z-index: 3;
-  opacity: var(--grid-square-opacity, 1);
+  opacity: var(--grid-square-opacity, 0);
 }
 
 .hero-square-center {
@@ -883,7 +884,7 @@ body.nav-dropdown-active .hero-center-visual {
    ========================================================================== */
 :root {
   --hero-margin: 25px;
-  --grid-opacity: 0.03;
+  --grid-opacity: 0.02;
   --hero-tv-width: 910px;          /* Width on desktop */
   --hero-tv-height: 310px;         /* Height on desktop */
   --hero-tv-max-width: calc(100vw - (var(--hero-margin, 25px) * 2));
@@ -1139,7 +1140,42 @@ body.nav-dropdown-active .hero-center-visual {
 }
 
 /* ==========================================================================
-   Bottom Left: Eyebrow + Bold Sans All-Caps Headline
+   Hero Bottom Corner Statements: "Nothing here/" & "/by accident."
+   ========================================================================== */
+.hero-bottom-text {
+  position: absolute;
+  bottom: var(--hero-margin, 25px);
+  z-index: 10;
+  pointer-events: auto;
+  user-select: none;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Display", var(--font-sans), -apple-system, sans-serif;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  white-space: nowrap;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.hero-text-left {
+  left: var(--hero-margin, 25px);
+  text-align: left;
+}
+
+.hero-text-right {
+  right: var(--hero-margin, 25px);
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .hero-bottom-text {
+    font-size: clamp(24px, 4vw, 36px);
+  }
+}
+
+/* ==========================================================================
+   Legacy Bottom Wrappers (Optional)
    ========================================================================== */
 .hero-bottom-headline-wrap {
   position: absolute;

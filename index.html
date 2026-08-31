@@ -115,8 +115,8 @@
       --corner-bl-opacity: 1;
       --corner-br-opacity: 1;
       --blueprint-opacity: 1;
-      --grid-opacity: 0.03;
-      --grid-square-opacity: 1;
+      --grid-opacity: 0.02;
+      --grid-square-opacity: 0;
       --backdrop-opacity: 1;
       --headline-opacity: 1;
       --eyebrow-opacity: 0.45;
@@ -300,9 +300,6 @@
           <!-- Diagonal 2: top-left of Col 4 to bottom-right of Col 4 -->
           <line x1="663" y1="0" x2="1000" y2="600" vector-effect="non-scaling-stroke" stroke-width="1" />
         </svg>
-
-        <!-- Bottom alignment mark sitting on bottom margin line (centered) -->
-        <div class="hero-grid-square hero-square-center" aria-hidden="true"></div>
       </div>
 
       <!-- SVG Clip Path Definition for Hero Shape -->
@@ -325,6 +322,16 @@
         <div class="hero-tv-wrapper" id="hero-tv-wrapper">
           <canvas id="hero-tv-canvas" class="hero-tv-canvas" aria-label="ASCII Video Effect"></canvas>
         </div>
+      </div>
+
+      <!-- Bottom Left: Nothing here/ -->
+      <div class="hero-bottom-text hero-text-left" id="hero-text-left">
+        <span>Nothing here/</span>
+      </div>
+
+      <!-- Bottom Right: /by accident. -->
+      <div class="hero-bottom-text hero-text-right" id="hero-text-right">
+        <span>/by accident.</span>
       </div>
     </section>
 

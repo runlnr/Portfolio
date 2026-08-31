@@ -32,6 +32,8 @@
     const heroViewport = document.getElementById('hero-viewport');
     const tvWrapper = document.getElementById('hero-tv-wrapper');
     const bottomHeadline = document.getElementById('hero-bottom-headline-wrap');
+    const bottomTextLeft = document.getElementById('hero-text-left');
+    const bottomTextRight = document.getElementById('hero-text-right');
     const topRightGroup = document.getElementById('hero-top-right-group');
     const centerTagline = document.getElementById('hero-center-tagline');
     const bottomSocials = document.getElementById('hero-bottom-socials');
@@ -142,6 +144,8 @@
     // --------------------------------------------------------------------------
     const auxElements = [
       bottomHeadline,
+      bottomTextLeft,
+      bottomTextRight,
       topRightGroup,
       centerTagline,
       bottomSocials,
