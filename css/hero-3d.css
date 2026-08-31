@@ -860,7 +860,7 @@ body.nav-dropdown-active .hero-center-visual {
 }
 
 .hero-blueprint-svg line {
-  stroke: rgba(255, 255, 255, var(--grid-opacity, 0.02));
+  stroke: rgba(255, 255, 255, var(--grid-opacity, 0.01));
 }
 
 .hero-grid-square {
@@ -884,7 +884,7 @@ body.nav-dropdown-active .hero-center-visual {
    ========================================================================== */
 :root {
   --hero-margin: 25px;
-  --grid-opacity: 0.02;
+  --grid-opacity: 0.01;
   --hero-tv-width: 910px;          /* Width on desktop */
   --hero-tv-height: 310px;         /* Height on desktop */
   --hero-tv-max-width: calc(100vw - (var(--hero-margin, 25px) * 2));
@@ -991,7 +991,7 @@ body.nav-dropdown-active .hero-center-visual {
 .ascii-corner-slash {
   position: absolute;
   font-family: var(--font-sans, -apple-system, sans-serif);
-  font-size: var(--corner-slashes-size, 34px);
+  font-size: var(--corner-slashes-size, 54px);
   font-weight: var(--corner-slashes-weight, 700);
   color: var(--corner-slashes-color, #ffffff);
   line-height: 1;
