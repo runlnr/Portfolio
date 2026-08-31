@@ -881,10 +881,10 @@ body.nav-dropdown-active .hero-center-visual {
   --hero-margin: 25px;
   --grid-opacity: 0.06;
   --hero-tv-width: 910px;          /* Width on desktop */
-  --hero-tv-height: 156px;         /* Height / length on desktop */
+  --hero-tv-height: 200px;         /* Height / length on desktop */
   --hero-tv-max-width: calc(100vw - (var(--hero-margin, 25px) * 2));
   --hero-tv-max-height: calc(100vh - (var(--hero-margin, 25px) * 2));
-  --hero-tv-top: 52%;              /* Vertical position */
+  --hero-tv-top: 51%;              /* Vertical position */
   --hero-tv-left: 50%;             /* Horizontal position */
   --hero-tv-scale: 1.0;            /* Scale multiplier */
   --hero-tv-rect-margin-x: 25px;   /* Margin on left and right sides when expanded */
@@ -1098,7 +1098,7 @@ body.nav-dropdown-active .hero-center-visual {
   font-family: 'Sometype Mono', var(--font-mono), monospace;
   font-size: var(--eyebrow-font-size, 11px);
   font-weight: var(--eyebrow-font-weight, 500);
-  letter-spacing: var(--eyebrow-letter-spacing, 0.08em);
+  letter-spacing: var(--eyebrow-letter-spacing, 0.1px);
   text-transform: uppercase;
   color: var(--eyebrow-color, rgba(255, 255, 255, 0.45));
   margin-bottom: var(--eyebrow-margin-bottom, 8px);
@@ -1160,7 +1160,7 @@ body.nav-dropdown-active .hero-center-visual {
   font-family: 'Sometype Mono', var(--font-mono), monospace;
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.45);
   text-decoration: none;
@@ -1218,7 +1218,7 @@ body.nav-dropdown-active .hero-center-visual {
   font-weight: 500 !important;
   line-height: 1;
   color: rgba(255, 255, 255, 0.45);
-  letter-spacing: -0.2px !important;
+  letter-spacing: 0.1px !important;
   text-transform: uppercase;
 }
 

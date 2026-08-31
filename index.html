@@ -22,8 +22,8 @@
   <link rel="stylesheet" href="css/hero-3d.css">
   <link rel="stylesheet" href="css/futurethree-scroll.css">
   <link rel="stylesheet" href="css/glassmorphism.css">
-  <link rel="stylesheet" href="css/visual-designer.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/visual-designer.css">
   <!-- MANUAL HERO CONTROLS: Calibrated tokens -->
   <style id="hero-tv-manual-controls">
     :root {
@@ -91,12 +91,12 @@
       --hero-tv-top: 51%;
       --hero-tv-left: 50%;
       --hero-tv-width: 910px;
-      --hero-tv-height: 156px;
+      --hero-tv-height: 200px;
       --hero-tv-scale: 1;
       --corner-slashes-size: 54px;
       --corner-slashes-weight: 700;
       --corner-slashes-color: #ffffff;
-      --corner-slashes-offset-x: 2px;
+      --corner-slashes-offset-x: 0px;
       --corner-slashes-offset-y: -60px;
       --corner-tl-x: var(--corner-slashes-offset-x);
       --corner-tl-y: var(--corner-slashes-offset-y);
@@ -117,7 +117,7 @@
       --headline-max-width: 520px;
       --eyebrow-font-size: 11px;
       --eyebrow-font-weight: 500;
-      --eyebrow-letter-spacing: 0.08em;
+      --eyebrow-letter-spacing: 0.1px;
       --eyebrow-margin-bottom: 10px;
       --eyebrow-color: rgba(255, 255, 255, 0.45);
 
@@ -198,8 +198,8 @@
             <span class="nav-row-slash nav-slash-left" aria-hidden="true">/</span>
             <span class="nav-row-roll roll-up" aria-hidden="true">
               <span class="nav-row-roll-inner">
-                <span class="nav-row-text">About us</span>
-                <span class="nav-row-text">About us</span>
+                <span class="nav-row-text">About</span>
+                <span class="nav-row-text">About</span>
               </span>
             </span>
             <span class="nav-row-slash nav-slash-right" aria-hidden="true">/</span>
@@ -227,8 +227,8 @@
         </div>
 
         <div class="nav-dropdown-footer">
-          <a href="assets/deck.pdf" target="_blank" class="nav-deck-btn" aria-label="Our Pitchdeck">
-            OUR PITCHDECK
+          <a href="assets/deck.pdf" target="_blank" class="nav-deck-btn" aria-label="My Pitchdeck">
+            MY PITCHDECK
           </a>
           <div class="nav-actions-grid">
             <a href="contact.html" class="nav-action-btn">
@@ -318,13 +318,11 @@
         <div class="hero-tv-wrapper" id="hero-tv-wrapper">
           <canvas id="hero-tv-canvas" class="hero-tv-canvas" aria-label="ASCII Video Effect"></canvas>
         </div>
-        <!-- Lava Spark Particle Overlay -->
-        <canvas id="hero-spark-canvas" class="hero-spark-canvas" aria-hidden="true"></canvas>
       </div>
 
       <!-- Bottom Left: Eyebrow + Bold Sans All-Caps Headline -->
       <div class="hero-bottom-headline-wrap" id="hero-bottom-headline-wrap">
-        <span class="hero-eyebrow">/ We are N/P /</span>
+        <span class="hero-eyebrow">/ HO CHI MINH CITY, VN /</span>
         <h1 class="hero-bottom-headline">
           <span class="headline-line line-1">NOTHING HERE</span><br>
           <span class="headline-line line-2">BY ACCIDENT.</span>
@@ -333,7 +331,7 @@
 
       <!-- Bottom Center-Right: 2-Line Tagline right of middle square -->
       <div class="hero-center-tagline" id="hero-center-tagline">
-        <p>We help brands say who they are, clearly and with precision.</p>
+        <p>Identity systems for brands that don't have room for guesswork.</p>
       </div>
 
       <!-- Bottom Right: Stacked Social List (Right-Aligned) -->
@@ -350,301 +348,33 @@
       <!-- A. Section 1: Studio Editorial & Portfolio Showcase -->
       <section class="f3-section-intro" id="f3-intro">
         <div class="f3-container">
-          <!-- Top Row: Manifesto Statement on Left, / Featured Works / Tag on Right -->
-          <div class="f3-works-header">
+          <!-- Manifesto Statement (Anchored to Right Column) -->
+          <div class="f3-intro-lockup">
             <div class="f3-intro-right-col">
               <h2 class="f3-intro-statement">
-                N/P® is a branding practice based in Ho Chi Minh City. We build identities and the digital experiences that carry them.
+                Nam Pham is an independent designer working across branding and digital experience, based in Ho Chi Minh City.
               </h2>
               <a href="about.html" class="f3-pill-btn">
-                <span>ABOUT US</span>
+                <span>ABOUT</span>
                 <span class="btn-arrow">↗</span>
               </a>
             </div>
-            <div class="f3-featured-tag-wrap" aria-hidden="true">
-              <span class="f3-featured-tag">/ Featured Works /</span>
-            </div>
           </div>
 
-          <!-- Full-Width Horizontal Filmstrip Works Strips -->
-          <div class="f3-works-strips-container" id="f3-portfolio">
-
-            <!-- Strip 01: U.S. Ski & Snowboard -->
-            <div class="f3-work-strip" data-id="us-ski-snowboard">
-              <div class="f3-strip-info">
-                <a href="project.html?id=us-ski-snowboard" class="f3-strip-title-link">
-                  <h3 class="f3-strip-title">U.S. Ski & Snowboard | Milano Cortina</h3>
-                </a>
-                <div class="f3-strip-tags">
-                  <span class="f3-tag-pill">BRANDING</span>
-                  <span class="f3-tag-pill">EXPERIENCE</span>
-                  <span class="f3-tag-pill">PORTFOLIO</span>
-                </div>
-                <a href="project.html?id=us-ski-snowboard" class="f3-strip-view-btn" aria-label="View U.S. Ski & Snowboard project">
-                  ( 2026 )
-                </a>
-              </div>
-              <div class="f3-strip-gallery">
-                <a href="project.html?id=us-ski-snowboard" class="f3-strip-card" aria-label="U.S. Ski & Snowboard slide 1">
-                  <img src="https://framerusercontent.com/images/McfLASz7qCgeArkEfMksXwLY.jpg" alt="U.S. Ski & Snowboard Preview 1" loading="lazy">
-                </a>
-                <a href="project.html?id=us-ski-snowboard" class="f3-strip-card" aria-label="U.S. Ski & Snowboard slide 2">
-                  <img src="https://framerusercontent.com/images/0Q1DaqJe0TIpdcOR4dUdPzKghNs.jpg" alt="U.S. Ski & Snowboard Preview 2" loading="lazy">
-                </a>
-                <a href="project.html?id=us-ski-snowboard" class="f3-strip-card" aria-label="U.S. Ski & Snowboard slide 3">
-                  <img src="https://framerusercontent.com/images/GW4U3mptwe10pQQ7jc7zflAi5WY.jpg" alt="U.S. Ski & Snowboard Preview 3" loading="lazy">
-                </a>
-                <a href="project.html?id=us-ski-snowboard" class="f3-strip-card" aria-label="U.S. Ski & Snowboard slide 4">
-                  <img src="https://framerusercontent.com/images/aEYuYM1OVQKZX1mIzyaTRp6wXQ.jpg" alt="U.S. Ski & Snowboard Preview 4" loading="lazy">
-                </a>
-                <a href="project.html?id=us-ski-snowboard" class="f3-strip-card" aria-label="U.S. Ski & Snowboard slide 5">
-                  <img src="https://framerusercontent.com/images/Z9WJp299xz8eg9DtFceQipWYudw.jpg" alt="U.S. Ski & Snowboard Preview 5" loading="lazy">
-                </a>
-              </div>
-            </div>
-
-            <!-- Strip 02: Uniros -->
-            <div class="f3-work-strip" data-id="uniros">
-              <div class="f3-strip-info">
-                <a href="project.html?id=uniros" class="f3-strip-title-link">
-                  <h3 class="f3-strip-title">Uniros</h3>
-                </a>
-                <div class="f3-strip-tags">
-                  <span class="f3-tag-pill">BRANDING</span>
-                  <span class="f3-tag-pill">CORPORATE</span>
-                </div>
-                <a href="project.html?id=uniros" class="f3-strip-view-btn" aria-label="View Uniros project">
-                  ( 2025 )
-                </a>
-              </div>
-              <div class="f3-strip-gallery">
-                <a href="project.html?id=uniros" class="f3-strip-card" aria-label="Uniros slide 1">
-                  <img src="https://framerusercontent.com/images/0Q1DaqJe0TIpdcOR4dUdPzKghNs.jpg" alt="Uniros Preview 1" loading="lazy">
-                </a>
-                <a href="project.html?id=uniros" class="f3-strip-card" aria-label="Uniros slide 2">
-                  <img src="https://framerusercontent.com/images/aEYuYM1OVQKZX1mIzyaTRp6wXQ.jpg" alt="Uniros Preview 2" loading="lazy">
-                </a>
-                <a href="project.html?id=uniros" class="f3-strip-card" aria-label="Uniros slide 3">
-                  <img src="https://framerusercontent.com/images/Z9WJp299xz8eg9DtFceQipWYudw.jpg" alt="Uniros Preview 3" loading="lazy">
-                </a>
-                <a href="project.html?id=uniros" class="f3-strip-card" aria-label="Uniros slide 4">
-                  <img src="https://framerusercontent.com/images/NEd0Frdvu3UyGZduh1BZoMXpCY.jpg" alt="Uniros Preview 4" loading="lazy">
-                </a>
-              </div>
-            </div>
-
-            <!-- Strip 03: NK Hoops -->
-            <div class="f3-work-strip" data-id="nk-hoops">
-              <div class="f3-strip-info">
-                <a href="project.html?id=nk-hoops" class="f3-strip-title-link">
-                  <h3 class="f3-strip-title">NK Hoops 3x3 Superleague</h3>
-                </a>
-                <div class="f3-strip-tags">
-                  <span class="f3-tag-pill">EXPERIENCE</span>
-                  <span class="f3-tag-pill">PORTFOLIO</span>
-                </div>
-                <a href="project.html?id=nk-hoops" class="f3-strip-view-btn" aria-label="View NK Hoops project">
-                  ( 2025 )
-                </a>
-              </div>
-              <div class="f3-strip-gallery">
-                <a href="project.html?id=nk-hoops" class="f3-strip-card" aria-label="NK Hoops slide 1">
-                  <img src="https://framerusercontent.com/images/GW4U3mptwe10pQQ7jc7zflAi5WY.jpg" alt="NK Hoops Preview 1" loading="lazy">
-                </a>
-                <a href="project.html?id=nk-hoops" class="f3-strip-card" aria-label="NK Hoops slide 2">
-                  <img src="https://framerusercontent.com/images/U3esvVaSiw2tStbsHN4RPPQMc.jpg" alt="NK Hoops Preview 2" loading="lazy">
-                </a>
-                <a href="project.html?id=nk-hoops" class="f3-strip-card" aria-label="NK Hoops slide 3">
-                  <img src="https://framerusercontent.com/images/J6WiFRpc3HpUeybEGogjgcwu2Fw.jpg" alt="NK Hoops Preview 3" loading="lazy">
-                </a>
-                <a href="project.html?id=nk-hoops" class="f3-strip-card" aria-label="NK Hoops slide 4">
-                  <img src="https://framerusercontent.com/images/pnDQdLWATyr8g1GR9N1WODAGJw.jpg" alt="NK Hoops Preview 4" loading="lazy">
-                </a>
-              </div>
-            </div>
-
-            <!-- Strip 04: Memphis Grizzlies -->
-            <div class="f3-work-strip" data-id="memphis-grizzlies">
-              <div class="f3-strip-info">
-                <a href="project.html?id=memphis-grizzlies" class="f3-strip-title-link">
-                  <h3 class="f3-strip-title">Memphis Grizzlies</h3>
-                </a>
-                <div class="f3-strip-tags">
-                  <span class="f3-tag-pill">BRANDING</span>
-                  <span class="f3-tag-pill">SPORT</span>
-                  <span class="f3-tag-pill">MOTION</span>
-                </div>
-                <a href="project.html?id=memphis-grizzlies" class="f3-strip-view-btn" aria-label="View Memphis Grizzlies project">
-                  ( 2024 )
-                </a>
-              </div>
-              <div class="f3-strip-gallery">
-                <a href="project.html?id=memphis-grizzlies" class="f3-strip-card" aria-label="Memphis Grizzlies slide 1">
-                  <img src="https://framerusercontent.com/images/aEYuYM1OVQKZX1mIzyaTRp6wXQ.jpg" alt="Memphis Grizzlies Preview 1" loading="lazy">
-                </a>
-                <a href="project.html?id=memphis-grizzlies" class="f3-strip-card" aria-label="Memphis Grizzlies slide 2">
-                  <img src="https://framerusercontent.com/images/8w4MIpDnun1DwoU1xpqnazGx5M.jpg" alt="Memphis Grizzlies Preview 2" loading="lazy">
-                </a>
-                <a href="project.html?id=memphis-grizzlies" class="f3-strip-card" aria-label="Memphis Grizzlies slide 3">
-                  <img src="https://framerusercontent.com/images/2Pj20wp2pjMoU79TaYn3fCyrY48.jpg" alt="Memphis Grizzlies Preview 3" loading="lazy">
-                </a>
-                <a href="project.html?id=memphis-grizzlies" class="f3-strip-card" aria-label="Memphis Grizzlies slide 4">
-                  <img src="https://framerusercontent.com/images/GxGR2UfUnzI8FDVNbcfE3fNTbjc.jpg" alt="Memphis Grizzlies Preview 4" loading="lazy">
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- C. Section 3: "Our Core SERVICES" Editorial Bento -->
-      <section class="f3-section-services" id="f3-services">
-        <div class="f3-container">
-          <!-- Header Lockup -->
-          <div class="f3-services-heading-lockup">
-            <span class="f3-services-subhead">Our Core</span>
-            <span class="f3-services-mainhead">SERVICES</span>
+          <!-- Section Tag Moved Down Directly Above Works Grid -->
+          <div class="f3-featured-tag-row">
+            <span class="f3-featured-tag">/ Featured Works /</span>
           </div>
 
-          <!-- Services List -->
-          <div class="f3-services-list">
-            <!-- Row 1: Branding -->
-            <div class="f3-service-row">
-              <div class="f3-service-side-tag">THREE SERVICES DRIVE OUR WORK</div>
-              <h3 class="f3-service-title">Branding</h3>
-              <div class="f3-service-details">
-                <h4>Brand Identity Design</h4>
-                <p>Distinct brand identities resonate through strategic logos, cohesive style guidelines and thoughtful
-                  visual systems. Every element is precision designed to tell your story and forge an emotional
-                  connection. The goal: a memorable brand that stands out in any landscape.</p>
-              </div>
-              <div class="f3-service-media-card">
-                <img src="https://framerusercontent.com/images/aEYuYM1OVQKZX1mIzyaTRp6wXQ.jpg" alt="Branding Showcase"
-                  loading="lazy">
-                <a href="#f3-portfolio" class="f3-service-pill-btn">
-                  <span>VIEW BRANDING PROJECTS</span>
-                  <span>↗</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- Row 2: Web Design -->
-            <div class="f3-service-row">
-              <div class="f3-service-side-tag">DIGITAL EXPERIENCES</div>
-              <h3 class="f3-service-title">Web Design</h3>
-              <div class="f3-service-details">
-                <h4>UX / UI & Creative Dev</h4>
-                <p>From pixel-perfect UI to immersive 3D interactions, we marry editorial-grade aesthetics with
-                  intuitive user experiences. We prototype, iterate, and refine every interface until it’s as seamless
-                  to use as it is striking to behold. The result is a digital presence that captivates and converts.</p>
-              </div>
-              <div class="f3-service-media-card">
-                <img src="https://framerusercontent.com/images/Z9WJp299xz8eg9DtFceQipWYudw.jpg"
-                  alt="Web Design Showcase" loading="lazy">
-                <a href="#f3-portfolio" class="f3-service-pill-btn">
-                  <span>VIEW DESIGN PROJECTS</span>
-                  <span>↗</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- Row 3: Art Direction -->
-            <div class="f3-service-row">
-              <div class="f3-service-side-tag">EDITORIAL & PRINT</div>
-              <h3 class="f3-service-title">Art Direction</h3>
-              <div class="f3-service-details">
-                <h4>Editorial & Spatial Craft</h4>
-                <p>We bring campaigns and publications to life with meticulous typography, custom lettering, lookbooks,
-                  and spatial environmental design. Our craftsmanship ensures every detail feels intentional, tactile,
-                  and built to endure.</p>
-              </div>
-              <div class="f3-service-media-card">
-                <img src="https://framerusercontent.com/images/U3esvVaSiw2tStbsHN4RPPQMc.jpg"
-                  alt="Art Direction Showcase" loading="lazy">
-                <a href="#f3-portfolio" class="f3-service-pill-btn">
-                  <span>VIEW EDITORIAL PROJECTS</span>
-                  <span>↗</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- D. Section 4: Giant Brand Billboard -->
-      <section class="f3-section-billboard" id="f3-billboard">
-        <h2 class="f3-billboard-text">N / P D E S I G N</h2>
-      </section>
-
-      <!-- E. Section 5: Studio Outro & Contact Strip -->
-      <section class="f3-section-outro" id="f3-outro">
-        <div class="f3-container">
-          <div class="f3-outro-grid">
-            <!-- Left: Featured Product Card (Drift Labs) -->
-            <div class="f3-outro-featured-card">
-              <div class="f3-outro-featured-top">
-                <span class="f3-mono-tag">FEATURED CASE STUDY</span>
-              </div>
-              <div class="f3-outro-featured-img-wrap">
-                <img src="https://framerusercontent.com/images/aEYuYM1OVQKZX1mIzyaTRp6wXQ.jpg"
-                  alt="Drift Labs Packaging" loading="lazy">
-              </div>
-              <div class="f3-outro-featured-bottom">
-                <h4 class="f3-outro-featured-title">Drift Labs</h4>
-                <a href="project.html?id=drift-labs" class="f3-outro-view-btn">VIEW CASE ↗</a>
-              </div>
-            </div>
-
-            <!-- Right: Inquiries & Contact Lockup -->
-            <div class="f3-outro-content">
-              <div>
-                <h3 class="f3-outro-headline">
-                  <span class="f3-accent-red">Let’s create something timeless</span><br>
-                  If you’ve got a project in mind, get in touch and let’s get started!
-                </h3>
-              </div>
-
-              <div>
-                <a href="contact.html" class="f3-pill-btn">
-                  <span>GET IN TOUCH</span>
-                  <span class="btn-arrow">↗</span>
-                </a>
-              </div>
-
-              <!-- Directory Grid -->
-              <div class="f3-outro-directory-grid">
-                <div class="f3-outro-dir-label">Location</div>
-                <div class="f3-outro-dir-value">
-                  N/P Practice<br>
-                  District 1,<br>
-                  Ho Chi Minh City, VN
-                </div>
-
-                <div class="f3-outro-social-list">
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-                  <a href="https://behance.net" target="_blank" rel="noopener noreferrer">Behance ↗</a>
-                </div>
-
-                <div class="f3-outro-social-list">
-                  <a href="https://awwwards.com" target="_blank" rel="noopener noreferrer">Awwwards ↗</a>
-                </div>
-              </div>
-
-              <!-- Email Link -->
-              <div class="f3-outro-contact-links">
-                <a href="mailto:phnm@outlook.com">phnm@outlook.com</a>
-
-                <div class="f3-calendly-block">
-                  <a href="contact.html" class="f3-calendly-link">Start an inquiry with N/P</a>
-                  <span class="f3-mono-tag">[100% NON-BINDING]</span>
-                </div>
-              </div>
+          <!-- Works Grid (Ready for upcoming projects) -->
+          <div class="f3-works-grid-container" id="f3-portfolio">
+            <div class="f3-works-grid" id="f3-works-grid">
+              <!-- Projects cleared for now -->
             </div>
           </div>
 
           <!-- Bottom Legal Bar -->
-          <div class="f3-footer-legal-bar">
+          <div class="f3-footer-legal-bar" style="margin-top: 80px; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
             <span>N/P® PRACTICE</span>
             <div style="display: flex; gap: 24px;">
               <a href="policies.html">IMPRINT</a>
@@ -652,6 +382,7 @@
             </div>
             <span>©2026</span>
           </div>
+
         </div>
       </section>
 
@@ -672,7 +403,7 @@
   <script src="js/project.js"></script>
   <script src="js/contact.js"></script>
   <script src="js/hero-ascii-tv.js"></script>
-  <script src="js/hero-lava-sparks.js"></script>
+  <!-- <script src="js/hero-lava-sparks.js"></script> -->
   <script src="js/hero-scroll-transition.js"></script>
   <script src="js/hero-statement-scramble.js"></script>
   <script src="js/visual-designer.js"></script>

@@ -1,24 +1,25 @@
-/* ==========================================================================
-   Manifesto Statement Visual Designer HUD (Focused Real-Time Customizer)
-   ========================================================================== */
+/**
+ * Visual Designer HUD Styles
+ * Sleek, glassmorphism floating control panel for real-time ASCII and layout adjustments.
+ */
 
 .vd-toggle-btn {
   position: fixed;
-  bottom: 28px;
+  bottom: 24px;
   right: 24px;
   z-index: 9999999;
-  background: rgba(16, 16, 18, 0.95);
+  background: rgba(18, 18, 22, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 9px 15px;
-  font-family: var(--font-mono, 'Sometype Mono', monospace);
+  font-family: var(--font-mono, monospace);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer !important;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -30,7 +31,7 @@
 
 .vd-toggle-btn:hover {
   transform: translateY(-2px);
-  background: #202024;
+  background: #242428;
   border-color: #00ff66;
   box-shadow: 0 12px 32px rgba(0, 255, 102, 0.25);
 }
@@ -55,20 +56,20 @@
   position: fixed;
   top: 24px;
   right: 24px;
-  width: 360px;
+  width: 390px;
   max-width: calc(100vw - 32px);
-  background: rgba(14, 14, 16, 0.96);
+  background: rgba(14, 14, 17, 0.96);
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
+  border-radius: 10px;
   z-index: 9999998;
   display: flex;
   flex-direction: column;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, sans-serif);
   color: #ffffff;
-  transform: translateX(420px);
+  transform: translateX(430px);
   opacity: 0;
   pointer-events: none;
   transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
@@ -87,7 +88,7 @@
 }
 
 .vd-header {
-  padding: 13px 16px;
+  padding: 12px 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;
@@ -95,8 +96,8 @@
   background: rgba(255, 255, 255, 0.03);
   user-select: none;
   cursor: grab !important;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
 }
 
 .vd-header:active,
@@ -106,7 +107,7 @@
 
 .vd-title {
   font-family: var(--font-mono, monospace);
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -139,7 +140,7 @@
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.5);
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer !important;
   padding: 4px;
   display: flex;
@@ -153,30 +154,82 @@
   color: #ffffff;
 }
 
+/* Category Tabs */
+.vd-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 6px;
+  gap: 4px;
+}
+
+.vd-tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 7px 4px;
+  border-radius: 4px;
+  cursor: pointer !important;
+  transition: all 0.18s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.vd-tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.vd-tab-btn.active {
+  color: #000000;
+  background: #00ff66;
+  box-shadow: 0 2px 8px rgba(0, 255, 102, 0.3);
+}
+
 .vd-body {
   padding: 16px 18px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  max-height: min(540px, calc(85vh - 120px));
+  max-height: min(500px, calc(80vh - 140px));
   overflow-y: auto !important;
   overflow-x: hidden !important;
+  overscroll-behavior: contain !important;
+  touch-action: pan-y !important;
+  -webkit-overflow-scrolling: touch !important;
+  pointer-events: auto !important;
 }
 
-.vd-section-label {
-  font-family: var(--font-mono, monospace);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
-  padding: 4px 0 2px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  margin-top: 4px;
+.vd-tab-pane {
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
 }
 
-.vd-section-label:first-child {
-  margin-top: 0;
+.vd-tab-pane.active {
+  display: flex;
+}
+
+/* Custom Scrollbar */
+.vd-body::-webkit-scrollbar {
+  width: 5px;
+}
+.vd-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.vd-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 3px;
+}
+.vd-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .vd-control {
@@ -194,7 +247,7 @@
 }
 
 .vd-control-label {
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.01em;
 }
 
@@ -206,7 +259,7 @@
   border: 1px solid rgba(0, 255, 102, 0.25);
   padding: 2px 6px;
   border-radius: 3px;
-  min-width: 48px;
+  min-width: 54px;
   text-align: right;
 }
 
@@ -239,8 +292,7 @@
   background: #00ff66;
 }
 
-.vd-range-slider:active::-webkit-slider-thumb,
-.vd-range-slider::-webkit-slider-thumb:active {
+.vd-range-slider:active::-webkit-slider-thumb {
   cursor: grabbing !important;
 }
 
@@ -250,8 +302,8 @@
   display: flex;
   gap: 10px;
   background: rgba(255, 255, 255, 0.02);
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
 }
 
 .vd-btn {
@@ -291,26 +343,4 @@
 .vd-btn-copy:hover {
   background: #00ff66;
   border-color: #00ff66;
-}
-
-/* Cursor Visibility in HUD */
-.vd-toggle-btn,
-.vd-toggle-btn * {
-  cursor: pointer !important;
-}
-
-.vd-panel,
-.vd-panel * {
-  cursor: default !important;
-}
-
-.vd-close-btn,
-.vd-close-btn *,
-.vd-btn,
-.vd-btn * {
-  cursor: pointer !important;
-}
-
-.vd-range-slider {
-  cursor: pointer !important;
 }

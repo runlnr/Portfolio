@@ -1,14 +1,45 @@
 /**
  * ==========================================================================
- * USER CONFIGURATION: Page Transition & Motion Speeds
+ * USER CONFIGURATION: Loading Screen & Page Transitions
  * Easily adjust timing (in milliseconds) below:
  * ==========================================================================
  */
+
+// 1. Loading Screen Blinking & Emergence Speeds (in milliseconds)
+window.LOADER_CONFIG = {
+  // Blink 1
+  blink1On: 120,          // Time when 1st blink turns ON
+  blink1Off: 320,         // Time when 1st blink turns OFF
+
+  // Blink 2
+  blink2On: 480,          // Time when 2nd blink turns ON
+  blink2Off: 680,         // Time when 2nd blink turns OFF
+
+  // Emergence: Slash stays solid and "N / P" slide outward
+  emergeStart: 860,       // Time when "/" turns solid and "N" + "P" slide out
+
+  // ® Mark: Small registered symbol pops up
+  rPop: 1420,             // Time when ® pops up next to P
+
+  // Page Reveal: Whole black loader curtain slides up to show the site
+  slideUpReveal: 2050,    // Time when loader slides up to reveal page
+
+  // Clean-up: Loader is removed from layout
+  exitComplete: 3150      // Time when loader display is set to none
+};
+
+// 2. Page Transition Curtains Speed
 window.TRANSITION_CONFIG = {
   coverDuration: 1100,    // Milliseconds for curtain to drag UP and cover
   revealDuration: 1200,   // Milliseconds for curtain to continue UP and reveal
   easeCover: 'cubic-bezier(0.65, 0, 0.15, 1)',
   easeReveal: 'cubic-bezier(0.16, 1, 0.3, 1)'
+};
+
+// Helper: Replay loader anytime in Console using `replayIntroLoader()`
+window.replayIntroLoader = function () {
+  sessionStorage.removeItem('np_has_seen_intro');
+  window.location.reload();
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -36,26 +67,37 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!hasSeenIntro && loader && slash && lockup) {
     document.body.classList.add('is-loading');
 
-    // Blink 1 (deliberate, steady pulse)
-    setTimeout(() => { slash.style.opacity = '1'; }, 250);
-    setTimeout(() => { slash.style.opacity = '0'; }, 750);
+    const cfg = window.LOADER_CONFIG || {
+      blink1On: 120,
+      blink1Off: 320,
+      blink2On: 480,
+      blink2Off: 680,
+      emergeStart: 860,
+      rPop: 1420,
+      slideUpReveal: 2050,
+      exitComplete: 3150
+    };
 
-    // Blink 2 (second and final blink before emergence)
-    setTimeout(() => { slash.style.opacity = '1'; }, 1150);
-    setTimeout(() => { slash.style.opacity = '0'; }, 1650);
+    // Blink 1 (fast, crisp pulse)
+    setTimeout(() => { slash.style.opacity = '1'; }, cfg.blink1On);
+    setTimeout(() => { slash.style.opacity = '0'; }, cfg.blink1Off);
+
+    // Blink 2 (second fast blink before emergence)
+    setTimeout(() => { slash.style.opacity = '1'; }, cfg.blink2On);
+    setTimeout(() => { slash.style.opacity = '0'; }, cfg.blink2Off);
 
     // 3rd Beat: Slash emerges solid & N/P slide out smoothly from behind /
     setTimeout(() => {
       slash.style.opacity = '1';
       lockup.classList.add('popped');
-    }, 2050);
+    }, cfg.emergeStart);
 
     // 4th Beat: Copyright R (®) pops up as letters settle into position
     setTimeout(() => {
       lockup.classList.add('r-popped');
-    }, 2850);
+    }, cfg.rPop);
 
-    // 5th Beat: Fullscreen loader slides up slowly, revealing the page
+    // 5th Beat: Fullscreen loader slides up, revealing the page
     setTimeout(() => {
       loader.classList.add('slide-up');
       document.body.classList.remove('is-loading');
@@ -69,13 +111,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.location.hash === '#f3-portfolio') {
         setTimeout(() => scrollToPortfolioSection(true), 400);
       }
-    }, 3650);
+    }, cfg.slideUpReveal);
 
     // 6th Beat: Loader completely leaves viewport
     setTimeout(() => {
       loader.style.display = 'none';
       loader.style.pointerEvents = 'none';
-    }, 4850);
+    }, cfg.exitComplete);
   } else {
     if (loader) {
       loader.style.display = 'none';

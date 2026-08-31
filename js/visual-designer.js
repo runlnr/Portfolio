@@ -1,128 +1,120 @@
 /**
- * Manifesto Statement Visual Designer HUD
- * Dedicated real-time customizer for Manifesto Statement Typography & Positioning:
- * 1. Statement Max Width (--manifesto-max-width)
- * 2. Font Sizing (--manifesto-font-size)
- * 3. Line Spacing (--manifesto-line-height)
- * 4. Letter Spacing (--manifesto-letter-spacing)
- * 5. Top Distance (Y) (--manifesto-top-margin)
- * 6. Left Offset (X) (--manifesto-left-margin)
- * 7. Bottom Gap to Works (--manifesto-gap)
- * 8. Gap to About Button (--manifesto-btn-gap)
+ * Visual Designer HUD
+ * Interactive real-time control HUD for calibrating ASCII shader parameters,
+ * rectangular TV box layout, corner slashes, and typography.
  */
 
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'np_manifesto_designer_v2';
+  const STORAGE_KEY = 'np_visual_designer_state';
 
-  const SECTIONS = [
+  // Config definition: maps control keys to their default, min, max, step, unit, and type
+  const DESIGNER_CONFIG = {
+    // ------------------------------------------------------------------------
+    // TAB 1: ASCII Box & Frame Layout (CSS)
+    // ------------------------------------------------------------------------
+    '--hero-tv-width': { val: 910, unit: 'px', min: 280, max: 1400, step: 5, label: 'ASCII Box Width', type: 'css' },
+    '--hero-tv-height': { val: 200, unit: 'px', min: 50, max: 400, step: 2, label: 'ASCII Box Height', type: 'css' },
+    '--hero-tv-top': { val: 51, unit: '%', min: 10, max: 90, step: 0.5, label: 'ASCII Vertical Pos (Y %)', type: 'css' },
+    '--hero-tv-left': { val: 50, unit: '%', min: 10, max: 90, step: 0.5, label: 'ASCII Horizontal Pos (X %)', type: 'css' },
+    '--hero-tv-scale': { val: 1.0, unit: '', min: 0.4, max: 2.0, step: 0.02, label: 'ASCII Overall Scale', type: 'css' },
+    '--corner-slashes-size': { val: 54, unit: 'px', min: 16, max: 80, step: 1, label: 'Corner Slashes Font Size', type: 'css' },
+    '--corner-slashes-offset-x': { val: 0, unit: 'px', min: -100, max: 100, step: 1, label: 'Corner Slashes Offset X', type: 'css' },
+    '--corner-slashes-offset-y': { val: -60, unit: 'px', min: -140, max: 60, step: 1, label: 'Corner Slashes Offset Y', type: 'css' },
+
+    // ------------------------------------------------------------------------
+    // TAB 2: ASCII Shader Effect
+    // ------------------------------------------------------------------------
+    'cellSize': { val: 10, unit: 'px', min: 2, max: 24, step: 0.5, label: 'Cell Size (Grid Density)', type: 'shader' },
+    'dotScale': { val: 1.3, unit: 'x', min: 0.2, max: 3.0, step: 0.05, label: 'Glyph Fill / Dot Scale', type: 'shader' },
+    'contrast': { val: 0.2, unit: 'x', min: 0.1, max: 3.0, step: 0.05, label: 'Video Contrast', type: 'shader' },
+    'brightness': { val: 0.7, unit: '', min: -0.5, max: 1.0, step: 0.01, label: 'Video Brightness', type: 'shader' },
+    'bloomStrength': { val: 0.3, unit: 'x', min: 0.0, max: 2.5, step: 0.05, label: 'Glow / Bloom Strength', type: 'shader' },
+    'tvness': { val: 0.95, unit: '', min: 0.0, max: 2.0, step: 0.05, label: 'CRT Scanlines & Color Mix', type: 'shader' },
+    'fisheyeStrength': { val: 0.0, unit: '', min: 0.0, max: 0.5, step: 0.01, label: 'CRT Fisheye Distortion', type: 'shader' },
+    'sideBulge': { val: 0.0, unit: '', min: 0.0, max: 0.4, step: 0.01, label: 'Side Tube Curvature', type: 'shader' },
+    'vertBulge': { val: 0.0, unit: '', min: 0.0, max: 0.4, step: 0.01, label: 'Vertical Tube Curvature', type: 'shader' },
+    'tvSizeX': { val: 1.5, unit: '', min: 0.5, max: 2.0, step: 0.02, label: 'Tube Frame Width Mask', type: 'shader' },
+    'tvSizeY': { val: 1.0, unit: '', min: 0.5, max: 2.0, step: 0.02, label: 'Tube Frame Height Mask', type: 'shader' },
+
+    // ------------------------------------------------------------------------
+    // TAB 3: Nav & Typography
+    // ------------------------------------------------------------------------
+    '--nav-box-top': { val: 25, unit: 'px', min: 0, max: 80, step: 1, label: 'Nav Bar Top', type: 'css' },
+    '--nav-box-width': { val: 470, unit: 'px', min: 200, max: 800, step: 5, label: 'Nav Bar Width', type: 'css' },
+    '--headline-font-size': { val: 60, unit: 'px', min: 24, max: 96, step: 1, label: 'Headline Font Size', type: 'css' },
+    '--tagline-font-size': { val: 19.5, unit: 'px', min: 12, max: 32, step: 0.5, label: 'Tagline Font Size', type: 'css' },
+    '--tagline-left': { val: 200, unit: 'px', min: -100, max: 400, step: 2, label: 'Tagline Left Center Offset', type: 'css' }
+  };
+
+  const CATEGORIES = [
     {
-      title: 'TYPOGRAPHY & DIMENSIONS',
+      id: 'ascii_box',
+      title: 'ASCII Box & Frame',
       keys: [
-        '--manifesto-max-width',
-        '--manifesto-font-size',
-        '--manifesto-line-height',
-        '--manifesto-letter-spacing'
+        '--hero-tv-width',
+        '--hero-tv-height',
+        '--hero-tv-top',
+        '--hero-tv-left',
+        '--hero-tv-scale',
+        '--corner-slashes-size',
+        '--corner-slashes-offset-x',
+        '--corner-slashes-offset-y'
       ]
     },
     {
-      title: 'POSITIONING & SPACING',
+      id: 'ascii_shader',
+      title: 'ASCII Effect',
       keys: [
-        '--manifesto-top-margin',
-        '--manifesto-left-margin',
-        '--manifesto-gap',
-        '--manifesto-btn-gap'
+        'cellSize',
+        'dotScale',
+        'contrast',
+        'brightness',
+        'bloomStrength',
+        'tvness',
+        'fisheyeStrength',
+        'sideBulge',
+        'vertBulge',
+        'tvSizeX',
+        'tvSizeY'
+      ]
+    },
+    {
+      id: 'typography',
+      title: 'Typography & Nav',
+      keys: [
+        '--nav-box-top',
+        '--nav-box-width',
+        '--headline-font-size',
+        '--tagline-font-size',
+        '--tagline-left'
       ]
     }
   ];
 
-  const DESIGNER_CONFIG = {
-    // Typography & Dimensions
-    '--manifesto-max-width': {
-      val: 850,
-      unit: 'px',
-      min: 300,
-      max: 1600,
-      step: 10,
-      label: 'Statement Max Width'
-    },
-    '--manifesto-font-size': {
-      val: 49,
-      unit: 'px',
-      min: 18,
-      max: 96,
-      step: 1,
-      label: 'Font Sizing'
-    },
-    '--manifesto-line-height': {
-      val: 1.1,
-      unit: '',
-      min: 0.70,
-      max: 2.20,
-      step: 0.02,
-      label: 'Line Spacing (Line Height)'
-    },
-    '--manifesto-letter-spacing': {
-      val: -0.8,
-      unit: 'px',
-      min: -5.0,
-      max: 4.0,
-      step: 0.1,
-      label: 'Letter Spacing'
-    },
-
-    // Positioning & Spacing
-    '--manifesto-top-margin': {
-      val: 38,
-      unit: 'px',
-      min: 0,
-      max: 250,
-      step: 2,
-      label: 'Top Distance (Y)'
-    },
-    '--manifesto-left-margin': {
-      val: 14,
-      unit: 'px',
-      min: 0,
-      max: 250,
-      step: 2,
-      label: 'Left Offset (X)'
-    },
-    '--manifesto-gap': {
-      val: 106,
-      unit: 'px',
-      min: 0,
-      max: 250,
-      step: 2,
-      label: 'Bottom Gap to Works'
-    },
-    '--manifesto-btn-gap': {
-      val: 26,
-      unit: 'px',
-      min: 0,
-      max: 100,
-      step: 2,
-      label: 'Gap to About Button'
-    }
-  };
-
-  class ManifestoVisualDesigner {
+  class VisualDesignerHUD {
     constructor() {
       this.state = {};
       this.loadState();
-      this.applyAll();
       this.createUI();
+      this.applyAll();
     }
 
     loadState() {
-      let saved = null;
       try {
-        saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-      } catch (e) {}
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          this.state = JSON.parse(saved);
+        }
+      } catch (e) {
+        console.warn('Could not load visual designer state', e);
+      }
 
-      for (const [key, conf] of Object.entries(DESIGNER_CONFIG)) {
-        this.state[key] = (saved && saved[key] !== undefined) ? saved[key] : conf.val;
+      for (const k in DESIGNER_CONFIG) {
+        if (this.state[k] === undefined) {
+          this.state[k] = DESIGNER_CONFIG[k].val;
+        }
       }
     }
 
@@ -132,50 +124,75 @@
       } catch (e) {}
     }
 
-    apply(key, val) {
+    applyVal(key, val) {
       const conf = DESIGNER_CONFIG[key];
       if (!conf) return;
-      this.state[key] = parseFloat(val);
-      const formatted = `${this.state[key]}${conf.unit}`;
-      document.documentElement.style.setProperty(key, formatted);
 
-      // Direct DOM updates for instantaneous feedback
-      const manifestoStatement = document.querySelector('.f3-intro-statement');
-      const manifestoCol = document.querySelector('.f3-intro-right-col');
-      const sectionIntro = document.querySelector('.f3-section-intro');
-      const worksHeader = document.querySelector('.f3-works-header');
+      this.state[key] = val;
 
-      if (key === '--manifesto-max-width' && manifestoCol) {
-        manifestoCol.style.maxWidth = formatted;
-      }
-      if (key === '--manifesto-font-size' && manifestoStatement) {
-        manifestoStatement.style.fontSize = formatted;
-      }
-      if (key === '--manifesto-line-height' && manifestoStatement) {
-        manifestoStatement.style.lineHeight = formatted;
-      }
-      if (key === '--manifesto-letter-spacing' && manifestoStatement) {
-        manifestoStatement.style.letterSpacing = formatted;
-      }
-      if (key === '--manifesto-left-margin' && manifestoCol) {
-        manifestoCol.style.marginLeft = formatted;
-      }
-      if (key === '--manifesto-top-margin' && sectionIntro) {
-        sectionIntro.style.paddingTop = formatted;
-      }
-      if (key === '--manifesto-gap' && worksHeader) {
-        worksHeader.style.marginBottom = formatted;
-      }
-      if (key === '--manifesto-btn-gap' && manifestoStatement) {
-        manifestoStatement.style.marginBottom = formatted;
+      if (conf.type === 'shader') {
+        if (typeof window.setHeroTvAscii === 'function') {
+          const updateObj = {};
+          updateObj[key] = val;
+          window.setHeroTvAscii(updateObj);
+        }
+      } else if (conf.type === 'css') {
+        let formatted = `${val}${conf.unit}`;
+        if (key === '--tagline-left') {
+          formatted = `calc(50% + ${val}px)`;
+        }
+        document.documentElement.style.setProperty(key, formatted);
+
+        // Remove any inline clipPath if lingering
+        const tvWrapper = document.getElementById('hero-tv-wrapper');
+        if (tvWrapper && tvWrapper.style.clipPath) {
+          tvWrapper.style.clipPath = '';
+          tvWrapper.style.webkitClipPath = '';
+        }
+
+        const centerVisual = document.getElementById('hero-center-visual');
+        if (centerVisual) {
+          if (key === '--hero-tv-width') centerVisual.style.width = `${val}px`;
+          if (key === '--hero-tv-height') {
+            centerVisual.style.height = `${val}px`;
+            if (tvWrapper) tvWrapper.style.height = `${val}px`;
+          }
+          if (key === '--hero-tv-top') centerVisual.style.top = `${val}%`;
+          if (key === '--hero-tv-left') centerVisual.style.left = `${val}%`;
+          if (key === '--hero-tv-scale') centerVisual.style.transform = `translate(-50%, -50%) scale(${val})`;
+        }
+
+        if (window.ScrollTrigger) {
+          window.ScrollTrigger.refresh();
+        }
       }
 
       this.saveState();
     }
 
     applyAll() {
-      for (const [key, val] of Object.entries(this.state)) {
-        this.apply(key, val);
+      const shaderUpdates = {};
+      for (const [k, conf] of Object.entries(DESIGNER_CONFIG)) {
+        const val = this.state[k] !== undefined ? this.state[k] : conf.val;
+        if (conf.type === 'shader') {
+          shaderUpdates[k] = val;
+        } else if (conf.type === 'css') {
+          let formatted = `${val}${conf.unit}`;
+          if (k === '--tagline-left') {
+            formatted = `calc(50% + ${val}px)`;
+          }
+          document.documentElement.style.setProperty(k, formatted);
+        }
+      }
+
+      const tvWrapper = document.getElementById('hero-tv-wrapper');
+      if (tvWrapper && tvWrapper.style.clipPath) {
+        tvWrapper.style.clipPath = '';
+        tvWrapper.style.webkitClipPath = '';
+      }
+
+      if (typeof window.setHeroTvAscii === 'function' && Object.keys(shaderUpdates).length > 0) {
+        window.setHeroTvAscii(shaderUpdates);
       }
     }
 
@@ -184,10 +201,10 @@
       const toggleBtn = document.createElement('button');
       toggleBtn.className = 'vd-toggle-btn';
       toggleBtn.id = 'vd-toggle-btn';
-      toggleBtn.setAttribute('aria-label', 'Toggle Manifesto Designer HUD');
+      toggleBtn.setAttribute('aria-label', 'Toggle ASCII Designer HUD');
       toggleBtn.innerHTML = `
         <span class="vd-toggle-dot"></span>
-        <span>MANIFESTO DESIGNER</span>
+        <span>ASCII DESIGNER</span>
       `;
       document.body.appendChild(toggleBtn);
 
@@ -195,78 +212,108 @@
       const panel = document.createElement('div');
       panel.className = 'vd-panel';
       panel.id = 'vd-panel';
+      panel.setAttribute('data-lenis-prevent', 'true');
+
+      panel.addEventListener('wheel', (e) => { e.stopPropagation(); }, { passive: true });
+      panel.addEventListener('touchmove', (e) => { e.stopPropagation(); }, { passive: true });
 
       // Header
       const header = document.createElement('div');
       header.className = 'vd-header';
       header.innerHTML = `
         <div class="vd-title">
-          <span>MANIFESTO DESIGNER</span>
-          <span class="vd-drag-handle">⠿</span>
+          <span>ASCII VISUAL DESIGNER</span>
+          <span class="vd-drag-handle">:::</span>
         </div>
-        <button class="vd-close-btn" aria-label="Close HUD">✕</button>
+        <button class="vd-close-btn" aria-label="Close Designer">&times;</button>
       `;
       panel.appendChild(header);
 
-      // Body / Controls List
+      // Tabs Header
+      const tabsNav = document.createElement('div');
+      tabsNav.className = 'vd-tabs';
+      tabsNav.setAttribute('data-lenis-prevent', 'true');
+
+      CATEGORIES.forEach((cat, idx) => {
+        const tabBtn = document.createElement('button');
+        tabBtn.className = `vd-tab-btn ${idx === 0 ? 'active' : ''}`;
+        tabBtn.dataset.tab = cat.id;
+        tabBtn.textContent = cat.title;
+        tabBtn.addEventListener('click', () => {
+          panel.querySelectorAll('.vd-tab-btn').forEach(b => b.classList.remove('active'));
+          panel.querySelectorAll('.vd-tab-pane').forEach(p => p.classList.remove('active'));
+          tabBtn.classList.add('active');
+          const targetPane = panel.querySelector(`.vd-tab-pane[data-tab="${cat.id}"]`);
+          if (targetPane) targetPane.classList.add('active');
+        });
+        tabsNav.appendChild(tabBtn);
+      });
+      panel.appendChild(tabsNav);
+
+      // Body (Panes)
       const body = document.createElement('div');
       body.className = 'vd-body';
+      body.setAttribute('data-lenis-prevent', 'true');
+      body.setAttribute('data-lenis-prevent-wheel', 'true');
+      body.setAttribute('data-lenis-prevent-touch', 'true');
 
-      for (const sec of SECTIONS) {
-        const secHeader = document.createElement('div');
-        secHeader.className = 'vd-section-label';
-        secHeader.textContent = sec.title;
-        body.appendChild(secHeader);
+      CATEGORIES.forEach((cat, idx) => {
+        const pane = document.createElement('div');
+        pane.className = `vd-tab-pane ${idx === 0 ? 'active' : ''}`;
+        pane.dataset.tab = cat.id;
 
-        for (const key of sec.keys) {
+        cat.keys.forEach(key => {
           const conf = DESIGNER_CONFIG[key];
-          if (!conf) continue;
+          if (!conf) return;
 
-          const curVal = this.state[key];
-          const ctrl = document.createElement('div');
-          ctrl.className = 'vd-control';
-          ctrl.innerHTML = `
+          const control = document.createElement('div');
+          control.className = 'vd-control';
+
+          const curVal = this.state[key] !== undefined ? this.state[key] : conf.val;
+          const displayVal = `${curVal}${conf.unit}`;
+
+          control.innerHTML = `
             <div class="vd-control-header">
               <span class="vd-control-label">${conf.label}</span>
-              <span class="vd-control-value" id="val-${key}">${curVal}${conf.unit}</span>
+              <span class="vd-control-value" id="val-${key}">${displayVal}</span>
             </div>
-            <input 
-              type="range" 
-              class="vd-range-slider" 
-              data-key="${key}"
-              min="${conf.min}" 
-              max="${conf.max}" 
-              step="${conf.step}" 
-              value="${curVal}" 
-            />
+            <input type="range" 
+                   class="vd-range-slider" 
+                   data-key="${key}" 
+                   min="${conf.min}" 
+                   max="${conf.max}" 
+                   step="${conf.step}" 
+                   value="${curVal}">
           `;
 
-          const slider = ctrl.querySelector('.vd-range-slider');
-          const valDisplay = ctrl.querySelector(`#val-${key}`);
+          const slider = control.querySelector('input');
+          const valDisplay = control.querySelector('.vd-control-value');
 
           slider.addEventListener('input', (e) => {
-            const v = parseFloat(e.target.value);
-            this.apply(key, v);
-            valDisplay.textContent = `${v}${conf.unit}`;
+            const num = parseFloat(e.target.value);
+            valDisplay.textContent = `${num}${conf.unit}`;
+            this.applyVal(key, num);
           });
 
-          body.appendChild(ctrl);
-        }
-      }
+          pane.appendChild(control);
+        });
+
+        body.appendChild(pane);
+      });
 
       panel.appendChild(body);
 
-      // Footer
+      // Footer with Reset and Copy
       const footer = document.createElement('div');
       footer.className = 'vd-footer';
       footer.innerHTML = `
         <button class="vd-btn vd-btn-reset" id="vd-btn-reset">Reset</button>
-        <button class="vd-btn vd-btn-copy" id="vd-btn-copy">Copy CSS</button>
+        <button class="vd-btn vd-btn-copy" id="vd-btn-copy">Copy Config</button>
       `;
       panel.appendChild(footer);
       document.body.appendChild(panel);
 
-      // Interactions & Event Listeners
+      // Events
       toggleBtn.addEventListener('click', () => {
         panel.classList.toggle('active');
       });
@@ -275,9 +322,9 @@
         panel.classList.remove('active');
       });
 
-      // Press 'M' or 'H' to toggle
+      // Press 'H' or 'D' to toggle
       window.addEventListener('keydown', (e) => {
-        if (e.key === 'm' || e.key === 'M' || e.key === 'h' || e.key === 'H') {
+        if (e.key === 'h' || e.key === 'H' || e.key === 'd' || e.key === 'D') {
           if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
             panel.classList.toggle('active');
           }
@@ -286,32 +333,54 @@
 
       // Reset
       footer.querySelector('#vd-btn-reset').addEventListener('click', () => {
-        if (confirm('Reset Manifesto statement sizing and positioning back to defaults?')) {
+        if (confirm('Reset parameters back to defaults?')) {
           localStorage.removeItem(STORAGE_KEY);
-          for (const [k, conf] of Object.entries(DESIGNER_CONFIG)) {
-            this.state[k] = conf.val;
-            this.apply(k, conf.val);
-            const slider = panel.querySelector(`input[data-key="${k}"]`);
-            const valDisplay = panel.querySelector(`#val-${k}`);
-            if (slider) slider.value = conf.val;
-            if (valDisplay) valDisplay.textContent = `${conf.val}${conf.unit}`;
+          for (const k in DESIGNER_CONFIG) {
+            this.state[k] = DESIGNER_CONFIG[k].val;
           }
+          this.applyAll();
+
+          // Refresh slider displays
+          panel.querySelectorAll('input[type="range"]').forEach(slider => {
+            const k = slider.dataset.key;
+            if (DESIGNER_CONFIG[k]) {
+              slider.value = DESIGNER_CONFIG[k].val;
+              const valEl = panel.querySelector(`#val-${k}`);
+              if (valEl) {
+                valEl.textContent = `${DESIGNER_CONFIG[k].val}${DESIGNER_CONFIG[k].unit}`;
+              }
+            }
+          });
         }
       });
 
-      // Copy CSS
+      // Copy Config
       footer.querySelector('#vd-btn-copy').addEventListener('click', () => {
-        let css = ':root {\n  /* Manifesto Statement Controls */\n';
-        for (const sec of SECTIONS) {
-          css += `  /* ${sec.title} */\n`;
-          for (const k of sec.keys) {
-            const conf = DESIGNER_CONFIG[k];
-            css += `  ${k}: ${this.state[k]}${conf.unit};\n`;
-          }
+        let jsConfig = 'window.heroTvAsciiConfig = {\n';
+        for (const k of CATEGORIES[1].keys) {
+          jsConfig += `  ${k}: ${this.state[k]},\n`;
         }
-        css += '}\n';
+        jsConfig += '};\n\n';
 
-        navigator.clipboard.writeText(css).then(() => {
+        let cssConfig = '/* Hero CSS Tokens */\n:root {\n';
+        // Box tokens
+        cssConfig += `  /* ${CATEGORIES[0].title} */\n`;
+        for (const k of CATEGORIES[0].keys) {
+          const conf = DESIGNER_CONFIG[k];
+          cssConfig += `  ${k}: ${this.state[k]}${conf.unit};\n`;
+        }
+        cssConfig += `\n  /* ${CATEGORIES[2].title} */\n`;
+        for (const k of CATEGORIES[2].keys) {
+          const conf = DESIGNER_CONFIG[k];
+          let valStr = `${this.state[k]}${conf.unit}`;
+          if (k === '--tagline-left') valStr = `calc(50% + ${this.state[k]}px)`;
+          cssConfig += `  ${k}: ${valStr};\n`;
+        }
+        cssConfig += '}\n';
+
+        const fullExport = `${jsConfig}${cssConfig}`;
+
+        navigator.clipboard.writeText(fullExport).then(() => {
           const btn = footer.querySelector('#vd-btn-copy');
           const origText = btn.textContent;
           btn.textContent = 'COPIED!';
@@ -323,11 +392,10 @@
             btn.style.color = '';
           }, 1800);
         }).catch(() => {
-          prompt('Copy CSS rules below:', css);
+          prompt('Copy settings below:', fullExport);
         });
       });
 
-      // Drag Handling
       this.makeDraggable(panel, header);
     }
 
@@ -353,20 +421,20 @@
           posY = mouseY - e.clientY;
           mouseX = e.clientX;
           mouseY = e.clientY;
-          el.style.top = (el.offsetTop - posY) + 'px';
-          el.style.left = (el.offsetLeft - posX) + 'px';
+          el.style.top = Math.max(10, el.offsetTop - posY) + 'px';
+          el.style.left = Math.max(10, el.offsetLeft - posX) + 'px';
           el.style.right = 'auto';
         };
       };
     }
   }
 
-  // Initialize once DOM is loaded
+  // Initialize once DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-      window.manifestoVisualDesigner = new ManifestoVisualDesigner();
+      window.npVisualDesigner = new VisualDesignerHUD();
     });
   } else {
-    window.manifestoVisualDesigner = new ManifestoVisualDesigner();
+    window.npVisualDesigner = new VisualDesignerHUD();
   }
 })();

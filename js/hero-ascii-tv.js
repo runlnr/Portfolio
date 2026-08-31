@@ -78,7 +78,7 @@
     }
 
     const video = document.createElement('video');
-    video.src = 'assets/videos/Yellow%20Waves.mp4';
+    video.src = 'assets/videos/Static.mp4';
     video.muted = true;
     video.loop = true;
     video.autoplay = true;
@@ -99,20 +99,33 @@
     }
 
     const defaultConfig = {
-      cellSize: 9.5,
-      dotScale: 1.5,
-      contrast: 1.05,
-      brightness: 0.14,
+      cellSize: 10,
+      dotScale: 1.3,
+      contrast: 0.2,
+      brightness: 0.7,
+      bloomStrength: 0.3,
+      tvness: 0.95,
       fisheyeStrength: 0.0,
-      bloomStrength: 0.9,
-      tvness: 1.0,
       sideBulge: 0.0,   // Straight crisp sides for letterbox banner
       vertBulge: 0.0,   // Straight top & bottom
-      tvSizeX: 1.0,
+      tvSizeX: 1.5,
       tvSizeY: 1.0,
     };
 
-    const params = Object.assign({}, defaultConfig, window.heroTvAsciiConfig || {});
+    let savedShaderState = {};
+    try {
+      const stored = localStorage.getItem('np_visual_designer_state');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (parsed) {
+          Object.keys(defaultConfig).forEach(k => {
+            if (parsed[k] !== undefined) savedShaderState[k] = parsed[k];
+          });
+        }
+      }
+    } catch (e) {}
+
+    const params = Object.assign({}, defaultConfig, savedShaderState, window.heroTvAsciiConfig || {});
     window.setHeroTvAscii = function(newParams) {
       Object.assign(params, newParams);
     };
@@ -217,6 +230,20 @@
 
         // Sample video
         vec3 color = texture2D(u_video, videoUV).rgb;
+
+        // Watermark suppressor (removes bottom-right sparkle by sampling clean dark floor)
+        vec2 wmMin = vec2(0.82, 0.04);
+        vec2 wmMax = vec2(0.99, 0.30);
+        if (videoUV.x > wmMin.x && videoUV.x < wmMax.x && videoUV.y > wmMin.y && videoUV.y < wmMax.y) {
+          vec2 cleanFloorUV = vec2(clamp(videoUV.x - 0.14, 0.65, 0.81), clamp(videoUV.y + 0.06, 0.04, 0.36));
+          vec3 cleanFloorColor = texture2D(u_video, cleanFloorUV).rgb;
+          vec2 wmCenter = (wmMin + wmMax) * 0.5;
+          vec2 wmHalf = (wmMax - wmMin) * 0.5;
+          vec2 dNorm = abs(videoUV - wmCenter) / wmHalf;
+          float blend = 1.0 - smoothstep(0.60, 1.0, max(dNorm.x, dNorm.y));
+          color = mix(color, cleanFloorColor, blend);
+        }
+
         float luma = dot(color, vec3(0.299, 0.587, 0.114));
         luma = clamp((luma - 0.5) * u_contrast + 0.5 + u_brightness, 0.0, 1.0);
 
@@ -305,6 +332,7 @@
 
     function render() {
       resize();
+
       if (video.readyState >= 2) {
         gl.activeTexture(gl.TEXTURE0);
         gl.bindTexture(gl.TEXTURE_2D, videoTexture);

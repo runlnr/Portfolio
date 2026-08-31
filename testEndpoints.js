@@ -16,18 +16,20 @@ const endpoints = [
   '/css/futurethree-scroll.css',
   '/css/pages.css',
   '/css/responsive.css',
+  '/css/visual-designer.css',
   '/js/motion-stack.js',
   '/js/futurethree-scroll.js',
   '/js/hero-ascii-tv.js',
   '/js/hero-scroll-transition.js',
   '/js/hero-statement-scramble.js',
+  '/js/visual-designer.js',
   '/js/works.js',
   '/js/contact.js',
   '/js/project.js',
   '/js/projects-data.js',
   '/js/utils.js',
   '/js/app.js',
-  '/assets/videos/Yellow%20Waves.mp4',
+  '/assets/videos/Static.mp4',
   '/assets/fonts/NeueHaasDisplayRoman.ttf'
 ];
 

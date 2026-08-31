@@ -529,7 +529,7 @@
 .loader-slash {
   position: relative;
   opacity: 0;
-  transition: opacity 0.14s ease;
+  transition: opacity 0.08s ease;
   z-index: 10;
   margin: 0 1px;
   font-size: inherit;

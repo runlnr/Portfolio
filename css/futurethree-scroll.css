@@ -12,15 +12,15 @@
      MANIFESTO STATEMENT & POSITION ADJUSTMENT CONTROLS
      ========================================================================== */
   /* TYPOGRAPHY & DIMENSIONS */
-  --manifesto-max-width: 850px;
-  --manifesto-font-size: 49px;
+  --manifesto-max-width: 780px;
+  --manifesto-font-size: 43px;
   --manifesto-line-height: 1.1;
   --manifesto-letter-spacing: -0.8px;
   /* POSITIONING & SPACING */
   --manifesto-top-margin: 38px;
-  --manifesto-left-margin: 14px;
-  --manifesto-gap: 106px;
-  --manifesto-btn-gap: 26px;
+  --manifesto-left-margin: 500px;
+  --manifesto-gap: 200px;
+  --manifesto-btn-gap: 20px;
 
   /* ==========================================================================
      EDITORIAL GRID & PROJECT CARDS VISUAL DESIGNER TOKENS
@@ -168,20 +168,20 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: var(--manifesto-max-width, 850px);
+  max-width: var(--manifesto-max-width, 780px);
   width: 100%;
-  margin-left: var(--manifesto-left-margin, 0px);
-  margin-right: auto;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .f3-intro-statement {
   font-family: var(--font-sans);
-  font-size: var(--manifesto-font-size, 49px);
+  font-size: var(--manifesto-font-size, 43px);
   font-weight: 400;
   line-height: var(--manifesto-line-height, 1.1);
   letter-spacing: var(--manifesto-letter-spacing, -0.8px);
   color: var(--f3-text);
-  margin: 0 0 var(--manifesto-btn-gap, 30px) 0;
+  margin: 0 0 var(--manifesto-btn-gap, 20px) 0;
   max-width: 100%;
   width: 100%;
   text-align: left;
@@ -190,24 +190,23 @@
 .f3-pill-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background-color: #161616;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: none;
   color: #ffffff;
   font-family: var(--font-mono, 'Sometype Mono', monospace);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: -0.2px;
   text-transform: uppercase;
-  padding: 6px 12px;
+  padding: 4px 8px;
   border-radius: 2px;
   text-decoration: none;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color var(--transition-fast), border-color var(--transition-fast);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color var(--transition-fast);
 }
 
 .f3-pill-btn:hover {
   background-color: #242424;
-  border-color: rgba(255, 255, 255, 0.35);
   transform: translateY(-2px);
   color: #ffffff;
 }
@@ -222,20 +221,23 @@
 }
 
 /* ==========================================================================
-   EDITORIAL HORIZONTAL FILMSTRIP PROJECT STRIPS
-   Modeled after the multi-thumbnail full-width strip reference
+   EDITORIAL INTRO LOCKUP (Manifesto Statement)
    ========================================================================== */
-.f3-works-header {
+.f3-intro-lockup {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: var(--manifesto-gap, 80px);
-  gap: 30px;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-bottom: var(--manifesto-gap, 200px);
+  width: 100%;
 }
 
-.f3-featured-tag-wrap {
-  padding-bottom: 8px;
-  white-space: nowrap;
+/* Section Tag Moved Down Directly Above Works Grid */
+.f3-featured-tag-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 32px;
 }
 
 .f3-featured-tag {
@@ -246,50 +248,98 @@
   letter-spacing: -0.01em;
 }
 
-/* Strips Container */
-.f3-works-strips-container {
+/* Works 2-Column Grid Container */
+.f3-works-grid-container {
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding-bottom: clamp(60px, 8vh, 100px);
 }
 
-/* Individual Full-Width Strip */
-.f3-work-strip {
+.f3-works-grid {
   display: grid;
-  grid-template-columns: minmax(460px, 1fr) auto;
-  gap: clamp(24px, 3.5vw, 48px);
-  align-items: center;
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 32px;
+  row-gap: 64px;
   width: 100%;
-  position: relative;
-  transition: background-color 0.25s ease;
 }
 
-/* Left Metadata Subgrid: Title | Tags | Year */
-.f3-strip-info {
-  display: grid;
-  grid-template-columns: minmax(220px, 1.45fr) minmax(170px, 1.15fr) auto;
-  align-items: center;
-  gap: clamp(20px, 3vw, 44px);
-  min-width: 0;
-}
-
-.f3-strip-title-link {
+/* Individual Work Card */
+.f3-work-card {
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   color: inherit;
-  display: inline-flex;
-  align-items: center;
-  min-width: 0;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.f3-strip-title {
+/* 16:10 Cinematic Aspect Ratio Media Frame */
+.f3-work-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.f3-work-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  filter: contrast(1.03) saturate(1.01);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.f3-work-card:hover .f3-work-card-media img {
+  transform: scale(1.028);
+  filter: contrast(1.05) saturate(1.03);
+}
+
+.f3-work-card-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0);
+  transition: background-color 0.3s ease;
+  pointer-events: none;
+}
+
+.f3-work-card:hover .f3-work-card-media::after {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Metadata Row Directly Beneath Image */
+.f3-work-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 14px;
+  line-height: 1.35;
+}
+
+.f3-work-card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  padding-right: 16px;
+}
+
+.f3-work-card-title {
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 14.5px;
   font-weight: 500;
   letter-spacing: -0.015em;
+  text-transform: uppercase;
   color: #ffffff;
   margin: 0;
   white-space: nowrap;
@@ -298,106 +348,113 @@
   transition: color 0.2s ease;
 }
 
-.f3-strip-title-link:hover .f3-strip-title {
+.f3-work-card:hover .f3-work-card-title {
   color: var(--f3-accent-red, #ff3333);
 }
 
-.f3-strip-tags {
+.f3-work-card-tags {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
-.f3-tag-pill {
-  font-family: var(--font-mono, 'Sometype Mono', monospace);
-  font-size: 8.5px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.5);
-  background-color: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 2.5px 6.5px;
-  border-radius: 2px;
-  text-transform: uppercase;
-  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
-}
-
-.f3-work-strip:hover .f3-tag-pill {
-  border-color: rgba(255, 255, 255, 0.22);
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.f3-strip-view-btn {
-  font-family: var(--font-mono, 'Sometype Mono', monospace);
+.f3-work-tag {
+  font-family: var(--font-sans);
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.45);
-  text-decoration: none;
-  white-space: nowrap;
-  margin-left: auto;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.46);
+  transition: color 0.2s ease;
+}
+
+.f3-work-tag:not(:last-child)::after {
+  content: ',';
+  margin-right: 1px;
+}
+
+.f3-work-card:hover .f3-work-tag {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.f3-work-card-right {
   flex-shrink: 0;
-  transition: color 0.2s ease, transform 0.2s ease;
+  text-align: right;
 }
 
-.f3-strip-view-btn:hover,
-.f3-work-strip:hover .f3-strip-view-btn {
+.f3-work-card-year {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease;
+}
+
+.f3-work-card:hover .f3-work-card-year {
   color: #ffffff;
-  transform: translateX(2px);
 }
 
-/* Right Filmstrip Gallery - Aligned to Right Side */
-.f3-strip-gallery {
+/* Expand / Collapse Button Container */
+.f3-works-expand-wrap {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-end;
-  margin-left: auto;
-  gap: 10px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding: 2px 0;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  margin-top: 72px;
+  width: 100%;
 }
 
-.f3-strip-gallery::-webkit-scrollbar {
+.f3-works-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-family: var(--font-mono, 'Sometype Mono', monospace);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+  user-select: none;
+}
+
+.f3-works-expand-btn:hover {
+  background-color: #1f1f1f;
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+.f3-works-expand-btn .expand-arrow {
+  font-size: 12px;
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.f3-works-expand-btn.is-expanded .expand-arrow {
+  transform: rotate(180deg);
+}
+
+/* Hidden projects container for smooth expand */
+.f3-work-card.f3-hidden-card {
   display: none;
 }
 
-.f3-strip-card {
-  flex: 0 0 auto;
-  width: 115px;
-  height: 118px;
-  border-radius: 2px;
-  overflow: hidden;
-  position: relative;
-  background-color: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  text-decoration: none;
-  display: block;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.35s ease;
-}
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .f3-works-grid {
+    grid-template-columns: 1fr;
+    row-gap: 44px;
+  }
 
-.f3-strip-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: contrast(1.05);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.f3-strip-card:hover {
-  transform: translateY(-3px) scale(1.03);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-  z-index: 5;
-}
-
-.f3-strip-card:hover img {
-  transform: scale(1.06);
+  .f3-work-card-media {
+    aspect-ratio: 16 / 10;
+  }
 }
 
 .f3-project-card-01 .f3-card-title {
@@ -1049,42 +1106,45 @@
 
 /* Mobile / Tablet (< 960px) */
 @media (max-width: 960px) {
-  .f3-works-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    margin-bottom: 50px;
+  .f3-intro-lockup {
+    margin-bottom: 60px;
   }
 
-  .f3-work-strip {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 16px 0;
-  }
-
-  .f3-strip-info {
-    width: 100%;
-    grid-template-columns: auto auto auto;
-    justify-content: space-between;
-    gap: 12px;
+  .f3-works-grid {
+    column-gap: 24px;
+    row-gap: 48px;
   }
 }
 
 /* Mobile / Tablet (< 768px) */
 @media (max-width: 768px) {
+  .f3-intro-lockup {
+    margin-bottom: 40px;
+  }
+
+  .f3-intro-right-col {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
   .f3-intro-split-grid {
     flex-direction: column;
     gap: 24px;
   }
 
-  .f3-work-strip {
-    padding: 14px 0;
-    gap: 12px;
+  .f3-works-grid {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
   }
 
-  .f3-strip-card {
-    width: 105px;
-    height: 108px;
+  .f3-works-expand-wrap {
+    margin-top: 48px;
+  }
+
+  .f3-works-expand-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
   }
 
   .f3-editorial-main-grid {
