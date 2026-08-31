@@ -965,11 +965,11 @@ body.nav-dropdown-active .hero-center-visual {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  will-change: width, height, transform, clip-path;
-  background-color: #040404;
-  clip-path: polygon(41.496% 0%, 98.150% 0%, 100% 19.792%, 100% 80.215%, 56.652% 80.215%, 58.502% 100%, 1.848% 100%, 0% 80.215%, 0% 19.792%, 43.346% 19.792%);
-  -webkit-clip-path: polygon(41.496% 0%, 98.150% 0%, 100% 19.792%, 100% 80.215%, 56.652% 80.215%, 58.502% 100%, 1.848% 100%, 0% 80.215%, 0% 19.792%, 43.346% 19.792%);
+  overflow: visible;
+  will-change: width, height, transform;
+  background-color: transparent;
+  clip-path: none;
+  -webkit-clip-path: none;
 }
 
 .hero-tv-wrapper:hover {

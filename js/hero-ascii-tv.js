@@ -108,8 +108,9 @@
       fisheyeStrength: 0.0,
       sideBulge: 0.0,
       vertBulge: 0.0,
-      tvSizeX: 2.0, // 2.0 fills entire canvas without clipping the polygon
+      tvSizeX: 2.0,
       tvSizeY: 2.0,
+      shapeMorph: 0.0,
     };
 
     let savedShaderState = {};
@@ -165,12 +166,7 @@
       uniform float u_tv_size_y;
       uniform float u_glyph_count;
       uniform float u_time;
-
-      float hash(vec2 p) {
-        p = fract(p * vec2(123.34, 456.21));
-        p += dot(p, p + 45.32);
-        return fract(p.x * p.y);
-      }
+      uniform float u_shape_morph;
 
       vec2 coverUV(vec2 uv, vec2 src, vec2 dst) {
         float srcAspect = src.x / src.y;
@@ -196,17 +192,36 @@
         return p * 0.5 + 0.5;
       }
 
-      float tvShape(vec2 p, vec2 b, float bulgeTop, float bulgeBot, float vBulgeTop, float vBulgeBot) {
-        float yNorm = clamp(p.y / b.y, -1.0, 1.0);
-        float bulge = mix(bulgeBot, bulgeTop, smoothstep(-1.0, 1.0, yNorm));
-        float effW = b.x + bulge * (1.0 - yNorm * yNorm);
-
-        float xNorm = clamp(p.x / b.x, -1.0, 1.0);
-        float vBulge = p.y < 0.0 ? vBulgeBot : vBulgeTop;
-        float effH = b.y + vBulge * (1.0 - xNorm * xNorm);
-
-        vec2 d = abs(p) - vec2(effW, effH);
-        return max(d.x, d.y);
+      bool inHeroShape(vec2 uv, float morph) {
+        if (morph >= 0.999) {
+          return (uv.x >= 0.0 && uv.x <= 1.0 && uv.y >= 0.0 && uv.y <= 1.0);
+        }
+        
+        float y = 1.0 - uv.y; // 0=top, 1=bottom
+        float x = uv.x;
+        
+        if (x < 0.0 || x > 1.0 || y < 0.0 || y > 1.0) return false;
+        
+        // Middle band (19.792% to 80.215%)
+        if (y >= 0.19792 && y <= 0.80215) return true;
+        
+        // Top tab (0% to 19.792%)
+        if (y < 0.19792) {
+          float t = clamp(y / 0.19792, 0.0, 1.0);
+          float leftX = mix(mix(0.41496, 0.43346, t), 0.0, morph);
+          float rightX = mix(mix(0.98150, 1.0, t), 1.0, morph);
+          return (x >= leftX && x <= rightX);
+        }
+        
+        // Bottom tab (80.215% to 100%)
+        if (y > 0.80215) {
+          float t = clamp((y - 0.80215) / (1.0 - 0.80215), 0.0, 1.0);
+          float leftX = mix(mix(0.0, 0.01848, t), 0.0, morph);
+          float rightX = mix(mix(0.56652, 0.58502, t), 1.0, morph);
+          return (x >= leftX && x <= rightX);
+        }
+        
+        return false;
       }
 
       void main() {
@@ -215,23 +230,30 @@
         vec2 center = (cellCoord + 0.5) * u_cell;
         vec2 cellUV = center / u_resolution;
 
-        // CRT barrel distortion
-        cellUV = fisheyeUV(cellUV, u_fisheye_strength * u_tvness);
-        cellUV = clamp(cellUV, vec2(0.001), vec2(0.999));
-        vec2 videoUV = coverUV(cellUV, u_video_resolution, u_resolution);
+        // Discrete ASCII cell shape quantization (makes edges composed of complete ASCII glyphs)
+        bool inside = inHeroShape(cellUV, u_shape_morph);
+        if (!inside) {
+          gl_FragColor = vec4(0.0);
+          return;
+        }
 
-        // TV CRT Tube Shape clipping
-        vec2 tubeP = v_uv * 2.0 - 1.0;
-        vec2 tvSize = vec2(u_tv_size_x, u_tv_size_y);
-        float tubeDist = tvShape(tubeP, tvSize, u_side_bulge, u_side_bulge, u_vert_bulge, u_vert_bulge);
-        float pxToUnits = 2.0 / min(u_resolution.x, u_resolution.y);
-        float edgeFalloff = u_cell * 0.9 * pxToUnits;
-        float tubeMask = 1.0 - smoothstep(0.0, edgeFalloff, tubeDist);
+        // Perimeter edge cell detection
+        vec2 stepUV = u_cell / u_resolution;
+        bool nL = inHeroShape(cellUV - vec2(stepUV.x, 0.0), u_shape_morph);
+        bool nR = inHeroShape(cellUV + vec2(stepUV.x, 0.0), u_shape_morph);
+        bool nT = inHeroShape(cellUV + vec2(0.0, stepUV.y), u_shape_morph);
+        bool nB = inHeroShape(cellUV - vec2(0.0, stepUV.y), u_shape_morph);
+        bool isEdge = (!nL || !nR || !nT || !nB);
+
+        // CRT barrel distortion
+        vec2 sampleUV = fisheyeUV(cellUV, u_fisheye_strength * u_tvness);
+        sampleUV = clamp(sampleUV, vec2(0.001), vec2(0.999));
+        vec2 videoUV = coverUV(sampleUV, u_video_resolution, u_resolution);
 
         // Sample video
         vec3 color = texture2D(u_video, videoUV).rgb;
 
-        // Watermark suppressor (removes bottom-right sparkle by sampling clean dark floor)
+        // Watermark suppressor
         vec2 wmMin = vec2(0.82, 0.04);
         vec2 wmMax = vec2(0.99, 0.30);
         if (videoUV.x > wmMin.x && videoUV.x < wmMax.x && videoUV.y > wmMin.y && videoUV.y < wmMax.y) {
@@ -247,6 +269,12 @@
         float luma = dot(color, vec3(0.299, 0.587, 0.114));
         luma = clamp((luma - 0.5) * u_contrast + 0.5 + u_brightness, 0.0, 1.0);
 
+        // Matrix perimeter vibrancy: makes the edges actively feel like living ASCII code
+        if (isEdge && u_shape_morph < 0.9) {
+          float edgePulse = sin(u_time * 2.5 + (cellCoord.x * 0.3 + cellCoord.y * 0.4)) * 0.12;
+          luma = clamp(max(luma, 0.30) + edgePulse, 0.0, 1.0);
+        }
+
         // ASCII glyph selection
         float glyphIndex = floor((1.0 - luma) * (u_glyph_count - 1.0) + 0.5);
         vec2 local = (mod(frag, u_cell) - (u_cell * 0.5)) / (u_cell * 0.5 * max(u_dot_scale, 0.1));
@@ -255,8 +283,11 @@
         float glyphMask = texture2D(u_glyph, glyphUV).r;
 
         // CRT subtle phosphor background grid
-        vec3 bgCharColor = vec3(0.07, 0.07, 0.07);
+        vec3 bgCharColor = vec3(0.08, 0.08, 0.08);
         vec3 activeColor = color * 1.35;
+        if (isEdge && u_shape_morph < 0.9) {
+          activeColor = mix(activeColor, vec3(1.0, 1.0, 1.0), 0.35);
+        }
         vec3 characterColor = mix(bgCharColor, activeColor, clamp(luma * 1.5, 0.0, 1.0));
 
         // Scanline modulation
@@ -267,8 +298,7 @@
         vec3 bloom = activeColor * smoothstep(0.65, 1.0, luma) * u_bloom_strength;
         vec3 finalColor = asciiColor + bloom;
 
-        float alpha = clamp(tubeMask, 0.0, 1.0);
-        gl_FragColor = vec4(finalColor * alpha, alpha);
+        gl_FragColor = vec4(finalColor, 1.0);
       }
     `;
 
@@ -301,6 +331,7 @@
     const uTvSizeY = gl.getUniformLocation(program, 'u_tv_size_y');
     const uGlyphCount = gl.getUniformLocation(program, 'u_glyph_count');
     const uTime = gl.getUniformLocation(program, 'u_time');
+    const uShapeMorph = gl.getUniformLocation(program, 'u_shape_morph');
 
     const videoTexture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, videoTexture);
@@ -358,7 +389,7 @@
         gl.uniform1f(uTvSizeY, params.tvSizeY);
         gl.uniform1f(uGlyphCount, glyphChars.length);
         gl.uniform1f(uTime, performance.now() * 0.001);
-
+        gl.uniform1f(uShapeMorph, params.shapeMorph !== undefined ? params.shapeMorph : 0.0);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       }
       currentAnimId = requestAnimationFrame(render);

@@ -85,7 +85,7 @@
     // Initial shader curvature settings
     const initialShaderParams = (typeof window.getHeroTvAscii === 'function')
       ? window.getHeroTvAscii()
-      : { sideBulge: 0.0, vertBulge: 0.0, tvSizeX: 2.0, tvSizeY: 2.0 };
+      : { sideBulge: 0.0, vertBulge: 0.0, tvSizeX: 2.0, tvSizeY: 2.0, shapeMorph: 0.0 };
 
     const initSide = initialShaderParams.sideBulge || 0.0;
     const initVert = initialShaderParams.vertBulge || 0.0;
@@ -96,7 +96,8 @@
       sideBulge: initSide,
       vertBulge: initVert,
       tvSizeX: initSizeX,
-      tvSizeY: initSizeY
+      tvSizeY: initSizeY,
+      shapeMorph: 0.0
     };
 
     function updateShader() {
@@ -105,25 +106,29 @@
           sideBulge: shapeProxy.sideBulge,
           vertBulge: shapeProxy.vertBulge,
           tvSizeX: shapeProxy.tvSizeX,
-          tvSizeY: shapeProxy.tvSizeY
+          tvSizeY: shapeProxy.tvSizeY,
+          shapeMorph: shapeProxy.shapeMorph
         });
       }
     }
 
-    // Total scroll track travel
-    const scrollDistance = window.innerHeight * 0.85;
-
+    // GSAP ScrollTrigger Timeline
     const tl = window.gsap.timeline({
       scrollTrigger: {
         trigger: heroViewport,
         start: 'top top',
-        end: `+=${scrollDistance}`,
+        end: '+=100%',
+        scrub: 0.5,
         pin: true,
-        scrub: 1.0, // Smooth organic scrub with physical momentum
         anticipatePin: 1,
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          window.heroScrollProgress = self.progress;
+        fastScrollEnd: true,
+        preventOverlaps: true,
+        onLeave: () => {
+          if (typeof window.updateNavbarTheme === 'function') {
+            window.updateNavbarTheme();
+          }
+        },
+        onEnterBack: () => {
           if (typeof window.updateNavbarTheme === 'function') {
             window.updateNavbarTheme();
           }
@@ -133,14 +138,11 @@
     currentTimeline = tl;
 
     // Timing markers:
-    // Text slides up and exits completely at t = 0.35
-    // At t = 0.35, TV extension is at 90%
-    // TV reaches full 20px margins at t = 0.60 and holds cleanly
     const TEXT_EXIT_TIME = 0.35;
     const TV_FINISH_TIME = 0.60;
 
     // --------------------------------------------------------------------------
-    // 1. Hero Text, Slashes & Adjacent Components: Fade & blur in-place
+    // 1. Hero Text & Auxiliary Components: Fade & blur in-place
     // --------------------------------------------------------------------------
     const auxElements = [
       bottomHeadline,
@@ -173,7 +175,7 @@
       tl.fromTo(
         centerVisual,
         {
-          top: () => `${parseFloat(window.getComputedStyle(document.documentElement).getPropertyValue('--hero-tv-top')) || 51}%`,
+          top: () => `${parseFloat(window.getComputedStyle(document.documentElement).getPropertyValue('--hero-tv-top')) || 50}%`,
           left: () => `${parseFloat(window.getComputedStyle(document.documentElement).getPropertyValue('--hero-tv-left')) || 50}%`,
           width: () => `${getInitialTvDimensions().w}px`,
           height: () => `${getInitialTvDimensions().h}px`,
@@ -197,15 +199,13 @@
     }
 
     // --------------------------------------------------------------------------
-    // 2. CRT TV Extension: 0 -> 90% while text exits (0 to 0.42)
+    // 2. CRT TV Extension: 0 -> 90% while text exits (0 to 0.35)
     // --------------------------------------------------------------------------
     tl.fromTo(
       tvWrapper,
       {
         width: () => `${getInitialTvDimensions().w}px`,
         height: () => `${getInitialTvDimensions().h}px`,
-        clipPath: SHAPE_POLYGON,
-        webkitClipPath: SHAPE_POLYGON,
         maxWidth: 'none',
         maxHeight: 'none',
         opacity: 1
@@ -213,8 +213,6 @@
       {
         width: () => `${getTvDimensionsAt(0.90).w}px`,
         height: () => `${getTvDimensionsAt(0.90).h}px`,
-        clipPath: RECT_POLYGON,
-        webkitClipPath: RECT_POLYGON,
         maxWidth: 'none',
         maxHeight: 'none',
         opacity: 1,
@@ -224,20 +222,22 @@
       0
     );
 
-    // Shader 90% uncurling during 0 to 0.42
+    // Shader ASCII Shape Morph: 0.0 (Custom Silhouette) -> 1.0 (Full Screen Matrix)
     tl.fromTo(
       shapeProxy,
       {
         sideBulge: initSide,
         vertBulge: initVert,
         tvSizeX: initSizeX,
-        tvSizeY: initSizeY
+        tvSizeY: initSizeY,
+        shapeMorph: 0.0
       },
       {
         sideBulge: 0.0,
         vertBulge: 0.0,
         tvSizeX: 2.0,
         tvSizeY: 2.0,
+        shapeMorph: 1.0,
         ease: 'power1.out',
         duration: TEXT_EXIT_TIME,
         onUpdate: updateShader
@@ -253,12 +253,10 @@
       {
         width: () => `${getTargetTvDimensions().w}px`,
         height: () => `${getTargetTvDimensions().h}px`,
-        clipPath: RECT_POLYGON,
-        webkitClipPath: RECT_POLYGON,
         maxWidth: 'none',
         maxHeight: 'none',
         opacity: 1,
-        ease: 'power1.inOut',
+        ease: 'power2.out',
         duration: TV_FINISH_TIME - TEXT_EXIT_TIME
       },
       TEXT_EXIT_TIME
