@@ -989,9 +989,10 @@ body.nav-dropdown-active .hero-center-visual {
   opacity: var(--hero-canvas-opacity, 1);
 }
 
-/* 4 Corner Square Marks around ASCII Box (7px squares) */
+/* 4 Corner Square Marks around ASCII Box (Hidden) */
 .ascii-corner-slash,
 .ascii-corner-square {
+  display: none;
   position: absolute;
   width: var(--corner-square-size, 7px);
   height: var(--corner-square-size, 7px);
@@ -1000,7 +1001,7 @@ body.nav-dropdown-active .hero-center-visual {
   user-select: none;
   z-index: 15;
   transition: opacity 0.3s ease, filter 0.3s ease;
-  opacity: var(--corner-slashes-opacity, 1);
+  opacity: var(--corner-slashes-opacity, 0);
 }
 
 .ascii-corner-tl {
