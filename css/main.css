@@ -1,12 +1,12 @@
 :root {
-  --bg: #040404;
+  --bg: #020202;
   --text-color: #ffffff;
   --text-muted: #8e8e8e;
   --border-color: rgba(255, 255, 255, 0.14);
   --border-light: rgba(255, 255, 255, 0.08);
   --card-bg: #121212;
   --accent-red: #ff3333;
-  --surface-dark: #040404;
+  --surface-dark: #020202;
   --surface-dark-card: #181818;
   --text-light: #ffffff;
   
@@ -42,14 +42,14 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  background-color: #040404;
+  background-color: #020202;
   cursor: none !important;
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
 }
 
 body {
-  background-color: #040404;
+  background-color: #020202;
   color: #ffffff;
   min-height: 100vh;
   display: flex;

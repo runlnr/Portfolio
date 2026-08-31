@@ -269,7 +269,7 @@
         float glyphMask = texture2D(u_glyph, glyphUV).r;
 
         // Natural video color matching without artificial outline/stroke
-        vec3 bgCharColor = vec3(0.04, 0.04, 0.04);
+        vec3 bgCharColor = vec3(0.008, 0.008, 0.008);
         vec3 activeColor = color;
         vec3 characterColor = mix(bgCharColor, activeColor, clamp(luma * 1.2, 0.0, 1.0));
 

@@ -1497,7 +1497,7 @@ html, body {
   height: 100vh;
   min-height: 640px;
   overflow: hidden;
-  background-color: #040404;
+  background-color: #020202;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1514,7 +1514,7 @@ html, body {
   z-index: 1;
   overflow: hidden;
   pointer-events: none;
-  background-color: #040404;
+  background-color: #020202;
   opacity: var(--backdrop-opacity, 1);
 }
 
