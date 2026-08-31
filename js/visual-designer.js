@@ -1,30 +1,69 @@
 /**
- * Visual Designer HUD
- * Interactive real-time control HUD for calibrating ASCII shader parameters,
- * rectangular TV box layout, corner slashes, and typography.
+ * Visual Designer & Hero Opacity Studio HUD
+ * Full interactive real-time control HUD for:
+ * 1. 0-100% Opacity calibration of every hero element
+ * 2. Shape sizing & SVG aspect ratio lock
+ * 3. Individual corner slashes positioning
+ * 4. WebGL ASCII shader parameters
  */
 
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'np_visual_designer_state';
+  const STORAGE_KEY = 'np_hero_designer_state_v2';
 
-  // Config definition: maps control keys to their default, min, max, step, unit, and type
+  // Config definition: maps control keys to their defaults, min, max, step, unit, and type
   const DESIGNER_CONFIG = {
     // ------------------------------------------------------------------------
-    // TAB 1: ASCII Box & Frame Layout (CSS)
+    // TAB 1: Opacity Controls (0 - 100%)
     // ------------------------------------------------------------------------
-    '--hero-tv-width': { val: 910, unit: 'px', min: 280, max: 1400, step: 5, label: 'ASCII Box Width', type: 'css' },
-    '--hero-tv-height': { val: 200, unit: 'px', min: 50, max: 400, step: 2, label: 'ASCII Box Height', type: 'css' },
-    '--hero-tv-top': { val: 51, unit: '%', min: 10, max: 90, step: 0.5, label: 'ASCII Vertical Pos (Y %)', type: 'css' },
-    '--hero-tv-left': { val: 50, unit: '%', min: 10, max: 90, step: 0.5, label: 'ASCII Horizontal Pos (X %)', type: 'css' },
-    '--hero-tv-scale': { val: 1.0, unit: '', min: 0.4, max: 2.0, step: 0.02, label: 'ASCII Overall Scale', type: 'css' },
-    '--corner-slashes-size': { val: 54, unit: 'px', min: 16, max: 80, step: 1, label: 'Corner Slashes Font Size', type: 'css' },
-    '--corner-slashes-offset-x': { val: 0, unit: 'px', min: -100, max: 100, step: 1, label: 'Corner Slashes Offset X', type: 'css' },
-    '--corner-slashes-offset-y': { val: -60, unit: 'px', min: -140, max: 60, step: 1, label: 'Corner Slashes Offset Y', type: 'css' },
+    '--hero-visual-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'ASCII Shape Visual (Container)', type: 'opacity' },
+    '--hero-canvas-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'ASCII Matrix Video Canvas', type: 'opacity' },
+    '--corner-slashes-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'All Corner Slashes (Master)', type: 'opacity' },
+    '--corner-tl-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Top-Left Slash (/)', type: 'opacity' },
+    '--corner-tr-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Top-Right Slash (\\)', type: 'opacity' },
+    '--corner-bl-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Bottom-Left Slash (\\)', type: 'opacity' },
+    '--corner-br-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Bottom-Right Slash (/)', type: 'opacity' },
+    '--blueprint-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Blueprint Grid Container', type: 'opacity' },
+    '--grid-opacity': { val: 6, min: 0, max: 100, step: 1, unit: '%', label: 'Blueprint Vector Lines', type: 'opacity' },
+    '--grid-square-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Center Alignment Square', type: 'opacity' },
+    '--backdrop-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Obsidian Backdrop / Vignette', type: 'opacity' },
+    '--headline-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Main Headline (NOTHING HERE...)', type: 'opacity' },
+    '--eyebrow-opacity': { val: 45, min: 0, max: 100, step: 1, unit: '%', label: 'Eyebrow City Tag', type: 'opacity' },
+    '--tagline-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Tagline (Identity systems...)', type: 'opacity' },
+    '--socials-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Socials (Behance / IG / Awwwards)', type: 'opacity' },
+    '--meta-bar-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Mid Meta Bar (01/ & /INTRO)', type: 'opacity' },
+    '--nav-box-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Top Modular Nav Box', type: 'opacity' },
+    '--cta-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: "LET'S TALK CTA Button", type: 'opacity' },
+    '--clock-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Live Clock & Status Dot', type: 'opacity' },
+    '--hero-viewport-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Hero Viewport (Master)', type: 'opacity' },
 
     // ------------------------------------------------------------------------
-    // TAB 2: ASCII Shader Effect
+    // TAB 2: Shape Sizing & Position
+    // ------------------------------------------------------------------------
+    '--hero-tv-width': { val: 910, unit: 'px', min: 200, max: 1400, step: 5, label: 'Shape Width', type: 'css' },
+    '--hero-tv-height': { val: 268.85, unit: 'px', min: 50, max: 600, step: 2, label: 'Shape Height', type: 'css' },
+    '--hero-tv-scale': { val: 1.0, unit: '', min: 0.4, max: 2.0, step: 0.02, label: 'Overall Scale Multiplier', type: 'css' },
+    '--hero-tv-top': { val: 50.5, unit: '%', min: 10, max: 90, step: 0.5, label: 'Vertical Pos (Y %)', type: 'css' },
+    '--hero-tv-left': { val: 50, unit: '%', min: 10, max: 90, step: 0.5, label: 'Horizontal Pos (X %)', type: 'css' },
+
+    // ------------------------------------------------------------------------
+    // TAB 3: Slashes Position
+    // ------------------------------------------------------------------------
+    '--corner-slashes-size': { val: 54, unit: 'px', min: 14, max: 80, step: 1, label: 'All Slashes Font Size', type: 'css' },
+    '--corner-slashes-offset-x': { val: 0, unit: 'px', min: -150, max: 150, step: 1, label: 'Global Offset X', type: 'css' },
+    '--corner-slashes-offset-y': { val: -65, unit: 'px', min: -150, max: 150, step: 1, label: 'Global Offset Y', type: 'css' },
+    '--corner-tl-x': { val: -20, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Left Slash X', type: 'css' },
+    '--corner-tl-y': { val: -3, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Left Slash Y', type: 'css' },
+    '--corner-tr-x': { val: -3, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Right Slash X', type: 'css' },
+    '--corner-tr-y': { val: -3, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Right Slash Y', type: 'css' },
+    '--corner-bl-x': { val: -20, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Left Slash X', type: 'css' },
+    '--corner-bl-y': { val: -8, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Left Slash Y', type: 'css' },
+    '--corner-br-x': { val: -3, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Right Slash X', type: 'css' },
+    '--corner-br-y': { val: -8, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Right Slash Y', type: 'css' },
+
+    // ------------------------------------------------------------------------
+    // TAB 4: ASCII Shader
     // ------------------------------------------------------------------------
     'cellSize': { val: 10, unit: 'px', min: 2, max: 24, step: 0.5, label: 'Cell Size (Grid Density)', type: 'shader' },
     'dotScale': { val: 1.3, unit: 'x', min: 0.2, max: 3.0, step: 0.05, label: 'Glyph Fill / Dot Scale', type: 'shader' },
@@ -33,39 +72,68 @@
     'bloomStrength': { val: 0.3, unit: 'x', min: 0.0, max: 2.5, step: 0.05, label: 'Glow / Bloom Strength', type: 'shader' },
     'tvness': { val: 0.95, unit: '', min: 0.0, max: 2.0, step: 0.05, label: 'CRT Scanlines & Color Mix', type: 'shader' },
     'fisheyeStrength': { val: 0.0, unit: '', min: 0.0, max: 0.5, step: 0.01, label: 'CRT Fisheye Distortion', type: 'shader' },
-    'sideBulge': { val: 0.0, unit: '', min: 0.0, max: 0.4, step: 0.01, label: 'Side Tube Curvature', type: 'shader' },
-    'vertBulge': { val: 0.0, unit: '', min: 0.0, max: 0.4, step: 0.01, label: 'Vertical Tube Curvature', type: 'shader' },
-    'tvSizeX': { val: 1.5, unit: '', min: 0.5, max: 2.0, step: 0.02, label: 'Tube Frame Width Mask', type: 'shader' },
-    'tvSizeY': { val: 1.0, unit: '', min: 0.5, max: 2.0, step: 0.02, label: 'Tube Frame Height Mask', type: 'shader' },
-
-    // ------------------------------------------------------------------------
-    // TAB 3: Nav & Typography
-    // ------------------------------------------------------------------------
-    '--nav-box-top': { val: 25, unit: 'px', min: 0, max: 80, step: 1, label: 'Nav Bar Top', type: 'css' },
-    '--nav-box-width': { val: 470, unit: 'px', min: 200, max: 800, step: 5, label: 'Nav Bar Width', type: 'css' },
-    '--headline-font-size': { val: 60, unit: 'px', min: 24, max: 96, step: 1, label: 'Headline Font Size', type: 'css' },
-    '--tagline-font-size': { val: 19.5, unit: 'px', min: 12, max: 32, step: 0.5, label: 'Tagline Font Size', type: 'css' },
-    '--tagline-left': { val: 200, unit: 'px', min: -100, max: 400, step: 2, label: 'Tagline Left Center Offset', type: 'css' }
+    'tvSizeX': { val: 2.0, unit: '', min: 0.5, max: 2.0, step: 0.02, label: 'Tube Frame Width Mask (2.0 = full)', type: 'shader' },
+    'tvSizeY': { val: 2.0, unit: '', min: 0.5, max: 2.0, step: 0.02, label: 'Tube Frame Height Mask (2.0 = full)', type: 'shader' }
   };
 
   const CATEGORIES = [
     {
-      id: 'ascii_box',
-      title: 'ASCII Box & Frame',
+      id: 'opacities',
+      title: 'Opacities (0-100%)',
+      keys: [
+        '--hero-visual-opacity',
+        '--hero-canvas-opacity',
+        '--corner-slashes-opacity',
+        '--corner-tl-opacity',
+        '--corner-tr-opacity',
+        '--corner-bl-opacity',
+        '--corner-br-opacity',
+        '--blueprint-opacity',
+        '--grid-opacity',
+        '--grid-square-opacity',
+        '--backdrop-opacity',
+        '--headline-opacity',
+        '--eyebrow-opacity',
+        '--tagline-opacity',
+        '--socials-opacity',
+        '--meta-bar-opacity',
+        '--nav-box-opacity',
+        '--cta-opacity',
+        '--clock-opacity',
+        '--hero-viewport-opacity'
+      ]
+    },
+    {
+      id: 'shape_sizing',
+      title: 'Shape Sizing',
       keys: [
         '--hero-tv-width',
         '--hero-tv-height',
-        '--hero-tv-top',
-        '--hero-tv-left',
         '--hero-tv-scale',
+        '--hero-tv-top',
+        '--hero-tv-left'
+      ]
+    },
+    {
+      id: 'slashes_position',
+      title: 'Slashes Position',
+      keys: [
         '--corner-slashes-size',
         '--corner-slashes-offset-x',
-        '--corner-slashes-offset-y'
+        '--corner-slashes-offset-y',
+        '--corner-tl-x',
+        '--corner-tl-y',
+        '--corner-tr-x',
+        '--corner-tr-y',
+        '--corner-bl-x',
+        '--corner-bl-y',
+        '--corner-br-x',
+        '--corner-br-y'
       ]
     },
     {
       id: 'ascii_shader',
-      title: 'ASCII Effect',
+      title: 'ASCII Shader',
       keys: [
         'cellSize',
         'dotScale',
@@ -74,21 +142,8 @@
         'bloomStrength',
         'tvness',
         'fisheyeStrength',
-        'sideBulge',
-        'vertBulge',
         'tvSizeX',
         'tvSizeY'
-      ]
-    },
-    {
-      id: 'typography',
-      title: 'Typography & Nav',
-      keys: [
-        '--nav-box-top',
-        '--nav-box-width',
-        '--headline-font-size',
-        '--tagline-font-size',
-        '--tagline-left'
       ]
     }
   ];
@@ -108,7 +163,7 @@
           this.state = JSON.parse(saved);
         }
       } catch (e) {
-        console.warn('Could not load visual designer state', e);
+        console.warn('Could not load designer state', e);
       }
 
       for (const k in DESIGNER_CONFIG) {
@@ -130,20 +185,13 @@
 
       this.state[key] = val;
 
-      if (conf.type === 'shader') {
-        if (typeof window.setHeroTvAscii === 'function') {
-          const updateObj = {};
-          updateObj[key] = val;
-          window.setHeroTvAscii(updateObj);
-        }
+      if (conf.type === 'opacity') {
+        const decimalVal = (val / 100).toFixed(4).replace(/\.?0+$/, '');
+        document.documentElement.style.setProperty(key, decimalVal);
       } else if (conf.type === 'css') {
-        let formatted = `${val}${conf.unit}`;
-        if (key === '--tagline-left') {
-          formatted = `calc(50% + ${val}px)`;
-        }
+        const formatted = `${val}${conf.unit}`;
         document.documentElement.style.setProperty(key, formatted);
 
-        // Remove any inline clipPath if lingering
         const tvWrapper = document.getElementById('hero-tv-wrapper');
         if (tvWrapper && tvWrapper.style.clipPath) {
           tvWrapper.style.clipPath = '';
@@ -155,7 +203,7 @@
           if (key === '--hero-tv-width') centerVisual.style.width = `${val}px`;
           if (key === '--hero-tv-height') {
             centerVisual.style.height = `${val}px`;
-            if (tvWrapper) tvWrapper.style.height = `${val}px`;
+            if (tvWrapper) tvWrapper.style.height = '100%';
           }
           if (key === '--hero-tv-top') centerVisual.style.top = `${val}%`;
           if (key === '--hero-tv-left') centerVisual.style.left = `${val}%`;
@@ -164,6 +212,12 @@
 
         if (window.ScrollTrigger) {
           window.ScrollTrigger.refresh();
+        }
+      } else if (conf.type === 'shader') {
+        if (typeof window.setHeroTvAscii === 'function') {
+          const updateObj = {};
+          updateObj[key] = val;
+          window.setHeroTvAscii(updateObj);
         }
       }
 
@@ -174,14 +228,14 @@
       const shaderUpdates = {};
       for (const [k, conf] of Object.entries(DESIGNER_CONFIG)) {
         const val = this.state[k] !== undefined ? this.state[k] : conf.val;
-        if (conf.type === 'shader') {
-          shaderUpdates[k] = val;
+        if (conf.type === 'opacity') {
+          const decimalVal = (val / 100).toFixed(4).replace(/\.?0+$/, '');
+          document.documentElement.style.setProperty(k, decimalVal);
         } else if (conf.type === 'css') {
-          let formatted = `${val}${conf.unit}`;
-          if (k === '--tagline-left') {
-            formatted = `calc(50% + ${val}px)`;
-          }
+          const formatted = `${val}${conf.unit}`;
           document.documentElement.style.setProperty(k, formatted);
+        } else if (conf.type === 'shader') {
+          shaderUpdates[k] = val;
         }
       }
 
@@ -191,20 +245,38 @@
         tvWrapper.style.webkitClipPath = '';
       }
 
+      const centerVisual = document.getElementById('hero-center-visual');
+      if (centerVisual) {
+        if (this.state['--hero-tv-width']) centerVisual.style.width = `${this.state['--hero-tv-width']}px`;
+        if (this.state['--hero-tv-height']) {
+          centerVisual.style.height = `${this.state['--hero-tv-height']}px`;
+          if (tvWrapper) tvWrapper.style.height = '100%';
+        }
+        if (this.state['--hero-tv-top']) centerVisual.style.top = `${this.state['--hero-tv-top']}%`;
+        if (this.state['--hero-tv-left']) centerVisual.style.left = `${this.state['--hero-tv-left']}%`;
+        if (this.state['--hero-tv-scale']) centerVisual.style.transform = `translate(-50%, -50%) scale(${this.state['--hero-tv-scale']})`;
+      }
+
       if (typeof window.setHeroTvAscii === 'function' && Object.keys(shaderUpdates).length > 0) {
         window.setHeroTvAscii(shaderUpdates);
       }
     }
 
     createUI() {
+      // Remove any existing buttons/panels
+      const oldBtn = document.getElementById('vd-toggle-btn');
+      if (oldBtn) oldBtn.remove();
+      const oldPanel = document.getElementById('vd-panel');
+      if (oldPanel) oldPanel.remove();
+
       // Toggle Floating Button
       const toggleBtn = document.createElement('button');
       toggleBtn.className = 'vd-toggle-btn';
       toggleBtn.id = 'vd-toggle-btn';
-      toggleBtn.setAttribute('aria-label', 'Toggle ASCII Designer HUD');
+      toggleBtn.setAttribute('aria-label', 'Toggle Designer HUD');
       toggleBtn.innerHTML = `
         <span class="vd-toggle-dot"></span>
-        <span>ASCII DESIGNER</span>
+        <span>DESIGNER HUD</span>
       `;
       document.body.appendChild(toggleBtn);
 
@@ -222,7 +294,7 @@
       header.className = 'vd-header';
       header.innerHTML = `
         <div class="vd-title">
-          <span>ASCII VISUAL DESIGNER</span>
+          <span>VISUAL DESIGNER & OPACITIES</span>
           <span class="vd-drag-handle">:::</span>
         </div>
         <button class="vd-close-btn" aria-label="Close Designer">&times;</button>
@@ -262,6 +334,27 @@
         pane.className = `vd-tab-pane ${idx === 0 ? 'active' : ''}`;
         pane.dataset.tab = cat.id;
 
+        // Add special Sync Aspect Ratio button in shape sizing tab
+        if (cat.id === 'shape_sizing') {
+          const syncBox = document.createElement('div');
+          syncBox.style.cssText = 'display:flex;gap:8px;margin-bottom:6px;';
+          syncBox.innerHTML = `
+            <button class="vd-btn" id="vd-btn-sync-ratio" style="flex:1;padding:8px;font-size:10px;background:#1a1a20;border:1px solid rgba(255,255,255,0.18);border-radius:4px;color:#00ff66;cursor:pointer;">
+              🔒 Snap to Exact SVG Ratio (268.85px)
+            </button>
+          `;
+          syncBox.querySelector('#vd-btn-sync-ratio').addEventListener('click', () => {
+            const curW = this.state['--hero-tv-width'] || 910;
+            const newH = Math.round((curW / (487.57 / 144.05)) * 100) / 100;
+            this.applyVal('--hero-tv-height', newH);
+            const slider = pane.querySelector('input[data-key="--hero-tv-height"]');
+            if (slider) slider.value = newH;
+            const valEl = pane.querySelector('#val---hero-tv-height');
+            if (valEl) valEl.textContent = `${newH}px`;
+          });
+          pane.appendChild(syncBox);
+        }
+
         cat.keys.forEach(key => {
           const conf = DESIGNER_CONFIG[key];
           if (!conf) return;
@@ -270,12 +363,12 @@
           control.className = 'vd-control';
 
           const curVal = this.state[key] !== undefined ? this.state[key] : conf.val;
-          const displayVal = `${curVal}${conf.unit}`;
+          const unitStr = conf.unit !== undefined ? conf.unit : '';
 
           control.innerHTML = `
             <div class="vd-control-header">
               <span class="vd-control-label">${conf.label}</span>
-              <span class="vd-control-value" id="val-${key}">${displayVal}</span>
+              <span class="vd-control-value" id="val-${key}">${curVal}${unitStr}</span>
             </div>
             <input type="range" 
                    class="vd-range-slider" 
@@ -291,7 +384,7 @@
 
           slider.addEventListener('input', (e) => {
             const num = parseFloat(e.target.value);
-            valDisplay.textContent = `${num}${conf.unit}`;
+            valDisplay.textContent = `${num}${unitStr}`;
             this.applyVal(key, num);
           });
 
@@ -307,8 +400,8 @@
       const footer = document.createElement('div');
       footer.className = 'vd-footer';
       footer.innerHTML = `
-        <button class="vd-btn vd-btn-reset" id="vd-btn-reset">Reset</button>
-        <button class="vd-btn vd-btn-copy" id="vd-btn-copy">Copy Config</button>
+        <button class="vd-btn vd-btn-reset" id="vd-btn-reset">Reset All</button>
+        <button class="vd-btn vd-btn-copy" id="vd-btn-copy">Copy All Config</button>
       `;
       panel.appendChild(footer);
       document.body.appendChild(panel);
@@ -322,9 +415,9 @@
         panel.classList.remove('active');
       });
 
-      // Press 'H' or 'D' to toggle
+      // Press 'H' or 'D' or 'O' to toggle
       window.addEventListener('keydown', (e) => {
-        if (e.key === 'h' || e.key === 'H' || e.key === 'd' || e.key === 'D') {
+        if (e.key === 'h' || e.key === 'H' || e.key === 'd' || e.key === 'D' || e.key === 'o' || e.key === 'O') {
           if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
             panel.classList.toggle('active');
           }
@@ -333,7 +426,7 @@
 
       // Reset
       footer.querySelector('#vd-btn-reset').addEventListener('click', () => {
-        if (confirm('Reset parameters back to defaults?')) {
+        if (confirm('Reset all parameters back to defaults?')) {
           localStorage.removeItem(STORAGE_KEY);
           for (const k in DESIGNER_CONFIG) {
             this.state[k] = DESIGNER_CONFIG[k].val;
@@ -347,7 +440,7 @@
               slider.value = DESIGNER_CONFIG[k].val;
               const valEl = panel.querySelector(`#val-${k}`);
               if (valEl) {
-                valEl.textContent = `${DESIGNER_CONFIG[k].val}${DESIGNER_CONFIG[k].unit}`;
+                valEl.textContent = `${DESIGNER_CONFIG[k].val}${DESIGNER_CONFIG[k].unit || ''}`;
               }
             }
           });
@@ -357,24 +450,29 @@
       // Copy Config
       footer.querySelector('#vd-btn-copy').addEventListener('click', () => {
         let jsConfig = 'window.heroTvAsciiConfig = {\n';
-        for (const k of CATEGORIES[1].keys) {
-          jsConfig += `  ${k}: ${this.state[k]},\n`;
+        const shaderCat = CATEGORIES.find(c => c.id === 'ascii_shader');
+        if (shaderCat) {
+          for (const k of shaderCat.keys) {
+            jsConfig += `  ${k}: ${this.state[k] !== undefined ? this.state[k] : DESIGNER_CONFIG[k].val},\n`;
+          }
         }
         jsConfig += '};\n\n';
 
         let cssConfig = '/* Hero CSS Tokens */\n:root {\n';
-        // Box tokens
-        cssConfig += `  /* ${CATEGORIES[0].title} */\n`;
-        for (const k of CATEGORIES[0].keys) {
-          const conf = DESIGNER_CONFIG[k];
-          cssConfig += `  ${k}: ${this.state[k]}${conf.unit};\n`;
-        }
-        cssConfig += `\n  /* ${CATEGORIES[2].title} */\n`;
-        for (const k of CATEGORIES[2].keys) {
-          const conf = DESIGNER_CONFIG[k];
-          let valStr = `${this.state[k]}${conf.unit}`;
-          if (k === '--tagline-left') valStr = `calc(50% + ${this.state[k]}px)`;
-          cssConfig += `  ${k}: ${valStr};\n`;
+        for (const cat of CATEGORIES) {
+          if (cat.id === 'ascii_shader') continue;
+          cssConfig += `  /* ${cat.title} */\n`;
+          for (const k of cat.keys) {
+            const conf = DESIGNER_CONFIG[k];
+            const val = this.state[k] !== undefined ? this.state[k] : conf.val;
+            if (conf.type === 'opacity') {
+              const decimalVal = (val / 100).toFixed(4).replace(/\.?0+$/, '');
+              cssConfig += `  ${k}: ${decimalVal}; /* ${val}% */\n`;
+            } else {
+              cssConfig += `  ${k}: ${val}${conf.unit};\n`;
+            }
+          }
+          cssConfig += '\n';
         }
         cssConfig += '}\n';
 

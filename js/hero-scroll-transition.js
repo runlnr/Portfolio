@@ -48,11 +48,14 @@
     // Register ScrollTrigger plugin
     window.gsap.registerPlugin(window.ScrollTrigger);
 
+    const SHAPE_POLYGON = 'polygon(41.496% 0%, 98.150% 0%, 100% 19.792%, 100% 80.215%, 56.652% 80.215%, 58.502% 100%, 1.848% 100%, 0% 80.215%, 0% 19.792%, 43.346% 19.792%)';
+    const RECT_POLYGON = 'polygon(0% 0%, 100% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%, 0% 100%, 0% 100%, 0% 0%, 0% 0%)';
+
     // Initial sizes helper (respects Visual Designer or CSS overrides)
     function getInitialTvDimensions() {
       const computed = window.getComputedStyle(document.documentElement);
       const w = parseFloat(computed.getPropertyValue('--hero-tv-width')) || 910;
-      const h = parseFloat(computed.getPropertyValue('--hero-tv-height')) || 156;
+      const h = parseFloat(computed.getPropertyValue('--hero-tv-height')) || (w / (487.57 / 144.05));
       return { w, h };
     }
 
@@ -80,12 +83,12 @@
     // Initial shader curvature settings
     const initialShaderParams = (typeof window.getHeroTvAscii === 'function')
       ? window.getHeroTvAscii()
-      : { sideBulge: 0.035, vertBulge: 0.14, tvSizeX: 0.93, tvSizeY: 0.82 };
+      : { sideBulge: 0.0, vertBulge: 0.0, tvSizeX: 2.0, tvSizeY: 2.0 };
 
-    const initSide = initialShaderParams.sideBulge || 0.035;
-    const initVert = initialShaderParams.vertBulge || 0.14;
-    const initSizeX = initialShaderParams.tvSizeX || 0.93;
-    const initSizeY = initialShaderParams.tvSizeY || 0.82;
+    const initSide = initialShaderParams.sideBulge || 0.0;
+    const initVert = initialShaderParams.vertBulge || 0.0;
+    const initSizeX = initialShaderParams.tvSizeX || 2.0;
+    const initSizeY = initialShaderParams.tvSizeY || 2.0;
 
     const shapeProxy = {
       sideBulge: initSide,
@@ -166,8 +169,8 @@
       tl.fromTo(
         centerVisual,
         {
-          top: () => `${parseFloat(window.getComputedStyle(document.documentElement).getPropertyValue('--hero-tv-top')) || 55}%`,
-          left: () => `${parseFloat(window.getComputedStyle(document.documentElement).getPropertyValue('--hero-tv-left')) || 49.5}%`,
+          top: () => `${parseFloat(window.getComputedStyle(document.documentElement).getPropertyValue('--hero-tv-top')) || 51}%`,
+          left: () => `${parseFloat(window.getComputedStyle(document.documentElement).getPropertyValue('--hero-tv-left')) || 50}%`,
           width: () => `${getInitialTvDimensions().w}px`,
           height: () => `${getInitialTvDimensions().h}px`,
           maxWidth: 'none',
@@ -197,6 +200,8 @@
       {
         width: () => `${getInitialTvDimensions().w}px`,
         height: () => `${getInitialTvDimensions().h}px`,
+        clipPath: SHAPE_POLYGON,
+        webkitClipPath: SHAPE_POLYGON,
         maxWidth: 'none',
         maxHeight: 'none',
         opacity: 1
@@ -204,6 +209,8 @@
       {
         width: () => `${getTvDimensionsAt(0.90).w}px`,
         height: () => `${getTvDimensionsAt(0.90).h}px`,
+        clipPath: RECT_POLYGON,
+        webkitClipPath: RECT_POLYGON,
         maxWidth: 'none',
         maxHeight: 'none',
         opacity: 1,
@@ -223,10 +230,10 @@
         tvSizeY: initSizeY
       },
       {
-        sideBulge: initSide * 0.10, // 90% uncurled
-        vertBulge: initVert * 0.10,
-        tvSizeX: initSizeX + (1.0 - initSizeX) * 0.90,
-        tvSizeY: initSizeY + (1.0 - initSizeY) * 0.90,
+        sideBulge: 0.0,
+        vertBulge: 0.0,
+        tvSizeX: 2.0,
+        tvSizeY: 2.0,
         ease: 'power1.out',
         duration: TEXT_EXIT_TIME,
         onUpdate: updateShader
@@ -242,6 +249,8 @@
       {
         width: () => `${getTargetTvDimensions().w}px`,
         height: () => `${getTargetTvDimensions().h}px`,
+        clipPath: RECT_POLYGON,
+        webkitClipPath: RECT_POLYGON,
         maxWidth: 'none',
         maxHeight: 'none',
         opacity: 1,
@@ -255,10 +264,10 @@
     tl.to(
       shapeProxy,
       {
-        sideBulge: 0.0,  // Pure straight sides
-        vertBulge: 0.0,  // Pure straight top/bottom
-        tvSizeX: 1.0,
-        tvSizeY: 1.0,
+        sideBulge: 0.0,
+        vertBulge: 0.0,
+        tvSizeX: 2.0,
+        tvSizeY: 2.0,
         ease: 'power1.inOut',
         duration: TV_FINISH_TIME - TEXT_EXIT_TIME,
         onUpdate: updateShader
@@ -291,6 +300,8 @@
           tvWrapper.style.removeProperty('height');
           tvWrapper.style.removeProperty('max-width');
           tvWrapper.style.removeProperty('max-height');
+          tvWrapper.style.removeProperty('clip-path');
+          tvWrapper.style.removeProperty('-webkit-clip-path');
         }
       }
     }

@@ -116,7 +116,8 @@
    Top Navigation: Centered Modular Navigation Box with Roll Animation
    ========================================================================== */
 :root {
-  --nav-box-top: 26px;
+  --nav-box-top: 25px;
+  --nav-box-width: 470px;
   --nav-box-offset-x: 0px;
   --nav-box-offset-y: 0px;
   --nav-box-margin-top: 0px;
@@ -410,6 +411,7 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   user-select: none;
   position: relative;
+  opacity: var(--nav-box-opacity, 1);
 }
 
 /* Center Status Line in Nav Box */
@@ -847,6 +849,7 @@ body.nav-dropdown-active .hero-center-visual {
   bottom: var(--hero-margin, 25px);
   pointer-events: none;
   z-index: 2;
+  opacity: var(--blueprint-opacity, 1);
 }
 
 .hero-blueprint-svg {
@@ -857,7 +860,7 @@ body.nav-dropdown-active .hero-center-visual {
 }
 
 .hero-blueprint-svg line {
-  stroke: rgba(255, 255, 255, var(--grid-opacity, 0.06));
+  stroke: rgba(255, 255, 255, var(--grid-opacity, 0.03));
 }
 
 .hero-grid-square {
@@ -867,6 +870,7 @@ body.nav-dropdown-active .hero-center-visual {
   background-color: var(--hero-square-color, #ffffff);
   bottom: var(--hero-square-bottom, 0px);
   z-index: 3;
+  opacity: var(--grid-square-opacity, 1);
 }
 
 .hero-square-center {
@@ -879,21 +883,62 @@ body.nav-dropdown-active .hero-center-visual {
    ========================================================================== */
 :root {
   --hero-margin: 25px;
-  --grid-opacity: 0.06;
+  --grid-opacity: 0.03;
   --hero-tv-width: 910px;          /* Width on desktop */
-  --hero-tv-height: 200px;         /* Height / length on desktop */
+  --hero-tv-height: 310px;         /* Height on desktop */
   --hero-tv-max-width: calc(100vw - (var(--hero-margin, 25px) * 2));
   --hero-tv-max-height: calc(100vh - (var(--hero-margin, 25px) * 2));
-  --hero-tv-top: 51%;              /* Vertical position */
+  --hero-tv-top: 50%;              /* Vertical position */
   --hero-tv-left: 50%;             /* Horizontal position */
-  --hero-tv-scale: 1.0;            /* Scale multiplier */
+  --hero-tv-scale: 1;              /* Scale multiplier */
   --hero-tv-rect-margin-x: 25px;   /* Margin on left and right sides when expanded */
   --hero-tv-rect-margin-y: 25px;   /* Margin on top and bottom sides when expanded */
+
+  /* Corner Slashes Global & Per-Corner Offsets */
+  --corner-slashes-size: 54px;
+  --corner-slashes-weight: 700;
+  --corner-slashes-color: #ffffff;
+  --corner-slashes-offset-x: 0px;
+  --corner-slashes-offset-y: -65px;
+  --corner-tl-x: -20px;
+  --corner-tl-y: -3px;
+  --corner-tr-x: -3px;
+  --corner-tr-y: -3px;
+  --corner-bl-x: -20px;
+  --corner-bl-y: -8px;
+  --corner-br-x: -3px;
+  --corner-br-y: -8px;
+
+  /* Typography */
+  --headline-font-size: 60px;
+  --tagline-font-size: 19.5px;
+  --tagline-left: calc(50% + 200px);
+
+  /* Hero Element Opacity Controls */
+  --hero-viewport-opacity: 1;
+  --hero-visual-opacity: 1;
+  --hero-canvas-opacity: 1;
+  --corner-slashes-opacity: 1;
+  --corner-tl-opacity: 1;
+  --corner-tr-opacity: 1;
+  --corner-bl-opacity: 1;
+  --corner-br-opacity: 1;
+  --blueprint-opacity: 1;
+  --grid-square-opacity: 1;
+  --backdrop-opacity: 1;
+  --headline-opacity: 1;
+  --eyebrow-opacity: 0.45;
+  --tagline-opacity: 1;
+  --socials-opacity: 1;
+  --meta-bar-opacity: 1;
+  --nav-box-opacity: 1;
+  --cta-opacity: 1;
+  --clock-opacity: 1;
 }
 
 .hero-center-visual {
   position: absolute;
-  top: var(--hero-tv-top, 52%);
+  top: var(--hero-tv-top, 50%);
   left: var(--hero-tv-left, 50%);
   transform: translate(-50%, -50%) scale(var(--hero-tv-scale, 1));
   transform-origin: center center;
@@ -902,22 +947,26 @@ body.nav-dropdown-active .hero-center-visual {
   flex-direction: column;
   align-items: center;
   width: var(--hero-tv-width, 910px);
+  height: var(--hero-tv-height, 310px);
   max-width: calc(100vw - (var(--hero-margin, 25px) * 2));
   pointer-events: auto;
   user-select: none;
+  opacity: var(--hero-visual-opacity, 1);
 }
 
 .hero-tv-wrapper {
   position: relative;
   width: 100%;
-  height: var(--hero-tv-height, 156px);
+  height: 100%;
   max-height: calc(100vh - (var(--hero-margin, 25px) * 2));
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  will-change: width, height, transform;
+  will-change: width, height, transform, clip-path;
   background-color: #040404;
+  clip-path: polygon(41.496% 0%, 98.150% 0%, 100% 19.792%, 100% 80.215%, 56.652% 80.215%, 58.502% 100%, 1.848% 100%, 0% 80.215%, 0% 19.792%, 43.346% 19.792%);
+  -webkit-clip-path: polygon(41.496% 0%, 98.150% 0%, 100% 19.792%, 100% 80.215%, 56.652% 80.215%, 58.502% 100%, 1.848% 100%, 0% 80.215%, 0% 19.792%, 43.346% 19.792%);
 }
 
 .hero-tv-wrapper:hover {
@@ -934,6 +983,7 @@ body.nav-dropdown-active .hero-center-visual {
   background-color: transparent;
   pointer-events: auto;
   user-select: none;
+  opacity: var(--hero-canvas-opacity, 1);
 }
 
 /* 4 Corner Slash Marks around ASCII Box */
@@ -948,26 +998,31 @@ body.nav-dropdown-active .hero-center-visual {
   user-select: none;
   z-index: 15;
   transition: opacity 0.3s ease, filter 0.3s ease;
+  opacity: var(--corner-slashes-opacity, 1);
 }
 
 .ascii-corner-tl {
   top: var(--corner-tl-y, var(--corner-slashes-offset-y, -18px));
   left: var(--corner-tl-x, var(--corner-slashes-offset-x, -12px));
+  opacity: calc(var(--corner-slashes-opacity, 1) * var(--corner-tl-opacity, 1));
 }
 
 .ascii-corner-tr {
   top: var(--corner-tr-y, var(--corner-slashes-offset-y, -18px));
   right: var(--corner-tr-x, var(--corner-slashes-offset-x, -12px));
+  opacity: calc(var(--corner-slashes-opacity, 1) * var(--corner-tr-opacity, 1));
 }
 
 .ascii-corner-bl {
   bottom: var(--corner-bl-y, var(--corner-slashes-offset-y, -18px));
   left: var(--corner-bl-x, var(--corner-slashes-offset-x, -12px));
+  opacity: calc(var(--corner-slashes-opacity, 1) * var(--corner-bl-opacity, 1));
 }
 
 .ascii-corner-br {
   bottom: var(--corner-br-y, var(--corner-slashes-offset-y, -18px));
   right: var(--corner-br-x, var(--corner-slashes-offset-x, -12px));
+  opacity: calc(var(--corner-slashes-opacity, 1) * var(--corner-br-opacity, 1));
 }
 
 /* Lava ASCII spark particle canvas */
@@ -1018,7 +1073,9 @@ body.nav-dropdown-active .hero-center-visual {
   overflow: hidden;
   position: relative;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.2s ease;
+              box-shadow 0.2s ease,
+              opacity 0.2s ease;
+  opacity: var(--cta-opacity, 1);
 }
 
 .hero-cta-btn .cta-roll {
@@ -1067,6 +1124,7 @@ body.nav-dropdown-active .hero-center-visual {
   color: #ffffff;
   letter-spacing: -0.2px;
   line-height: 1;
+  opacity: var(--clock-opacity, 1);
 }
 
 .hero-clock-dot {
@@ -1092,6 +1150,7 @@ body.nav-dropdown-active .hero-center-visual {
   user-select: none;
   text-align: left;
   max-width: var(--headline-max-width, 520px);
+  opacity: var(--headline-opacity, 1);
 }
 
 .hero-eyebrow {
@@ -1103,6 +1162,7 @@ body.nav-dropdown-active .hero-center-visual {
   color: var(--eyebrow-color, rgba(255, 255, 255, 0.45));
   margin-bottom: var(--eyebrow-margin-bottom, 8px);
   display: block;
+  opacity: var(--eyebrow-opacity, 0.45);
 }
 
 .hero-bottom-headline {
@@ -1128,6 +1188,7 @@ body.nav-dropdown-active .hero-center-visual {
   user-select: none;
   max-width: var(--tagline-max-width, 290px);
   text-align: left;
+  opacity: var(--tagline-opacity, 1);
 }
 
 .hero-center-tagline p {
@@ -1154,6 +1215,7 @@ body.nav-dropdown-active .hero-center-visual {
   flex-direction: column;
   align-items: flex-end;
   gap: 4px;
+  opacity: var(--socials-opacity, 1);
 }
 
 .hero-bottom-socials a {
@@ -1177,7 +1239,8 @@ body.nav-dropdown-active .hero-center-visual {
     width: 90vw;
   }
   .hero-tv-wrapper {
-    height: 60px;
+    height: auto;
+    aspect-ratio: 487.57 / 144.05;
   }
   .ascii-corner-slash {
     font-size: 22px;
@@ -1209,6 +1272,7 @@ body.nav-dropdown-active .hero-center-visual {
   align-items: center;
   pointer-events: none;
   user-select: none;
+  opacity: var(--meta-bar-opacity, 1);
 }
 
 .hero-meta-index,
@@ -1400,6 +1464,7 @@ html, body {
   flex-direction: column;
   justify-content: space-between;
   user-select: none;
+  opacity: var(--hero-viewport-opacity, 1);
 }
 
 /* Full-bleed Pure Black Backdrop */
@@ -1412,6 +1477,7 @@ html, body {
   overflow: hidden;
   pointer-events: none;
   background-color: #040404;
+  opacity: var(--backdrop-opacity, 1);
 }
 
 .hero-backdrop-duotone {

@@ -106,10 +106,10 @@
       bloomStrength: 0.3,
       tvness: 0.95,
       fisheyeStrength: 0.0,
-      sideBulge: 0.0,   // Straight crisp sides for letterbox banner
-      vertBulge: 0.0,   // Straight top & bottom
-      tvSizeX: 1.5,
-      tvSizeY: 1.0,
+      sideBulge: 0.0,
+      vertBulge: 0.0,
+      tvSizeX: 2.0, // 2.0 fills entire canvas without clipping the polygon
+      tvSizeY: 2.0,
     };
 
     let savedShaderState = {};

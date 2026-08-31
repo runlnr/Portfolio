@@ -23,7 +23,6 @@
   <link rel="stylesheet" href="css/futurethree-scroll.css">
   <link rel="stylesheet" href="css/glassmorphism.css">
   <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="css/visual-designer.css">
   <!-- MANUAL HERO CONTROLS: Calibrated tokens -->
   <style id="hero-tv-manual-controls">
     :root {
@@ -88,24 +87,46 @@
       --cta-btn-font-weight: 600;
 
       /* ASCII & Slashes */
-      --hero-tv-top: 51%;
+      --hero-tv-top: 50%;
       --hero-tv-left: 50%;
       --hero-tv-width: 910px;
-      --hero-tv-height: 200px;
+      --hero-tv-height: 310px;
       --hero-tv-scale: 1;
       --corner-slashes-size: 54px;
       --corner-slashes-weight: 700;
       --corner-slashes-color: #ffffff;
       --corner-slashes-offset-x: 0px;
-      --corner-slashes-offset-y: -60px;
-      --corner-tl-x: var(--corner-slashes-offset-x);
-      --corner-tl-y: var(--corner-slashes-offset-y);
-      --corner-tr-x: var(--corner-slashes-offset-x);
-      --corner-tr-y: var(--corner-slashes-offset-y);
-      --corner-bl-x: var(--corner-slashes-offset-x);
-      --corner-bl-y: var(--corner-slashes-offset-y);
-      --corner-br-x: var(--corner-slashes-offset-x);
-      --corner-br-y: var(--corner-slashes-offset-y);
+      --corner-slashes-offset-y: -65px;
+      --corner-tl-x: -20px;
+      --corner-tl-y: -3px;
+      --corner-tr-x: -3px;
+      --corner-tr-y: -3px;
+      --corner-bl-x: -20px;
+      --corner-bl-y: -8px;
+      --corner-br-x: -3px;
+      --corner-br-y: -8px;
+
+      /* Opacities (0-100%) */
+      --hero-visual-opacity: 1;
+      --hero-canvas-opacity: 1;
+      --corner-slashes-opacity: 1;
+      --corner-tl-opacity: 1;
+      --corner-tr-opacity: 1;
+      --corner-bl-opacity: 1;
+      --corner-br-opacity: 1;
+      --blueprint-opacity: 1;
+      --grid-opacity: 0.03;
+      --grid-square-opacity: 1;
+      --backdrop-opacity: 1;
+      --headline-opacity: 1;
+      --eyebrow-opacity: 0.45;
+      --tagline-opacity: 1;
+      --socials-opacity: 1;
+      --meta-bar-opacity: 1;
+      --nav-box-opacity: 1;
+      --cta-opacity: 1;
+      --clock-opacity: 1;
+      --hero-viewport-opacity: 1;
 
       /* Headline */
       --headline-font-size: 60px;
@@ -137,7 +158,6 @@
 
       /* Hero Viewport & TV Canvas */
       --hero-margin: 25px;
-      --grid-opacity: 0.06;
       --hero-tv-rect-margin-x: 25px;
       --hero-tv-rect-margin-y: 25px;
     }
@@ -307,7 +327,16 @@
         <span class="hero-meta-tag">/INTRO</span>
       </div>
 
-      <!-- Central Lockup: Wide CRT TV Banner + 4 Corner Slashes -->
+      <!-- SVG Clip Path Definition for Hero Shape -->
+      <svg width="0" height="0" style="position:absolute;width:0;height:0;pointer-events:none;" aria-hidden="true">
+        <defs>
+          <clipPath id="hero-shape-clip" clipPathUnits="objectBoundingBox">
+            <polygon points="0.41496 0, 0.98150 0, 1 0.19792, 1 0.80215, 0.56652 0.80215, 0.58502 1, 0.01848 1, 0 0.80215, 0 0.19792, 0.43346 0.19792" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <!-- Central Lockup: Geometric Cyber ASCII Shape Visual + 4 Corner Slashes -->
       <div class="hero-center-visual" id="hero-center-visual">
         <!-- 4 Corner Slash Marks around ASCII Box -->
         <span class="ascii-corner-slash ascii-corner-tl" aria-hidden="true">/</span>
@@ -406,7 +435,6 @@
   <!-- <script src="js/hero-lava-sparks.js"></script> -->
   <script src="js/hero-scroll-transition.js"></script>
   <script src="js/hero-statement-scramble.js"></script>
-  <script src="js/visual-designer.js"></script>
   <script src="js/app.js"></script>
 </body>
 
