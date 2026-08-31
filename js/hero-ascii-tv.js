@@ -237,14 +237,6 @@
           return;
         }
 
-        // Perimeter edge cell detection
-        vec2 stepUV = u_cell / u_resolution;
-        bool nL = inHeroShape(cellUV - vec2(stepUV.x, 0.0), u_shape_morph);
-        bool nR = inHeroShape(cellUV + vec2(stepUV.x, 0.0), u_shape_morph);
-        bool nT = inHeroShape(cellUV + vec2(0.0, stepUV.y), u_shape_morph);
-        bool nB = inHeroShape(cellUV - vec2(0.0, stepUV.y), u_shape_morph);
-        bool isEdge = (!nL || !nR || !nT || !nB);
-
         // CRT barrel distortion
         vec2 sampleUV = fisheyeUV(cellUV, u_fisheye_strength * u_tvness);
         sampleUV = clamp(sampleUV, vec2(0.001), vec2(0.999));
@@ -269,12 +261,6 @@
         float luma = dot(color, vec3(0.299, 0.587, 0.114));
         luma = clamp((luma - 0.5) * u_contrast + 0.5 + u_brightness, 0.0, 1.0);
 
-        // Matrix perimeter vibrancy: makes the edges actively feel like living ASCII code
-        if (isEdge && u_shape_morph < 0.9) {
-          float edgePulse = sin(u_time * 2.5 + (cellCoord.x * 0.3 + cellCoord.y * 0.4)) * 0.12;
-          luma = clamp(max(luma, 0.30) + edgePulse, 0.0, 1.0);
-        }
-
         // ASCII glyph selection
         float glyphIndex = floor((1.0 - luma) * (u_glyph_count - 1.0) + 0.5);
         vec2 local = (mod(frag, u_cell) - (u_cell * 0.5)) / (u_cell * 0.5 * max(u_dot_scale, 0.1));
@@ -282,13 +268,10 @@
         vec2 glyphUV = vec2((glyphIndex + glyphLocal.x) / u_glyph_count, glyphLocal.y);
         float glyphMask = texture2D(u_glyph, glyphUV).r;
 
-        // CRT subtle phosphor background grid
-        vec3 bgCharColor = vec3(0.08, 0.08, 0.08);
-        vec3 activeColor = color * 1.35;
-        if (isEdge && u_shape_morph < 0.9) {
-          activeColor = mix(activeColor, vec3(1.0, 1.0, 1.0), 0.35);
-        }
-        vec3 characterColor = mix(bgCharColor, activeColor, clamp(luma * 1.5, 0.0, 1.0));
+        // Natural video color matching without artificial outline/stroke
+        vec3 bgCharColor = vec3(0.04, 0.04, 0.04);
+        vec3 activeColor = color;
+        vec3 characterColor = mix(bgCharColor, activeColor, clamp(luma * 1.2, 0.0, 1.0));
 
         // Scanline modulation
         float scanline = sin(frag.y * 1.2) * 0.05 + 0.95;
