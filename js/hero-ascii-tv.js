@@ -101,18 +101,19 @@
     const defaultConfig = {
       cellSize: 10,
       dotScale: 1.3,
-      contrast: 0.2,
+      contrast: 0.1,
       brightness: 0.7,
-      bloomStrength: 0.3,
+      bloomStrength: 0.35,
       tvness: 0.95,
-      fisheyeStrength: 0.0,
-      sideBulge: 0.0,
-      vertBulge: 0.0,
+      fisheyeStrength: 0.08,
+      sideBulge: 0.06,
+      vertBulge: 0.06,
       tvSizeX: 2.0,
       tvSizeY: 2.0,
       videoScale: 1.0,
       videoOffsetX: 0.0,
-      videoOffsetY: 0.0
+      videoOffsetY: 0.0,
+      edgeSoftness: 0.05
     };
 
     let savedShaderState = {};
@@ -170,6 +171,7 @@
       uniform vec2 u_video_offset;
       uniform float u_glyph_count;
       uniform float u_time;
+      uniform float u_edge_softness;
 
       vec2 coverUV(vec2 uv, vec2 src, vec2 dst, float vScale, vec2 vOffset) {
         float srcAspect = src.x / src.y;
@@ -186,12 +188,17 @@
         return outUV;
       }
 
-      vec2 fisheyeUV(vec2 uv, float strength) {
+      vec2 crtDistortUV(vec2 uv, float sideBulge, float vertBulge, float fisheye) {
         vec2 p = uv * 2.0 - 1.0;
         float aspect = u_resolution.x / max(u_resolution.y, 1.0);
         p.x *= aspect;
+        
+        // CRT Barrel distortion
+        p.x += p.x * (p.y * p.y) * sideBulge * 0.4;
+        p.y += p.y * (p.x * p.x) * (vertBulge / max(aspect * aspect, 0.1)) * 0.4;
+
         float r2 = dot(p, p);
-        p *= (1.0 + strength * r2);
+        p *= (1.0 + fisheye * r2);
         p.x /= aspect;
         return p * 0.5 + 0.5;
       }
@@ -203,7 +210,7 @@
         vec2 cellUV = center / u_resolution;
 
         // CRT barrel distortion
-        vec2 sampleUV = fisheyeUV(cellUV, u_fisheye_strength * u_tvness);
+        vec2 sampleUV = crtDistortUV(cellUV, u_side_bulge * u_tvness, u_vert_bulge * u_tvness, u_fisheye_strength * u_tvness);
         sampleUV = clamp(sampleUV, vec2(0.001), vec2(0.999));
         vec2 videoUV = coverUV(sampleUV, u_video_resolution, u_resolution, u_video_scale, u_video_offset);
 
@@ -281,6 +288,7 @@
     const uVideoOffset = gl.getUniformLocation(program, 'u_video_offset');
     const uGlyphCount = gl.getUniformLocation(program, 'u_glyph_count');
     const uTime = gl.getUniformLocation(program, 'u_time');
+    const uEdgeSoftness = gl.getUniformLocation(program, 'u_edge_softness');
 
     const videoTexture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, videoTexture);
@@ -340,6 +348,7 @@
         gl.uniform2f(uVideoOffset, params.videoOffsetX || 0.0, params.videoOffsetY || 0.0);
         gl.uniform1f(uGlyphCount, glyphChars.length);
         gl.uniform1f(uTime, performance.now() * 0.001);
+        gl.uniform1f(uEdgeSoftness, params.edgeSoftness !== undefined ? params.edgeSoftness : 0.05);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       }
       currentAnimId = requestAnimationFrame(render);

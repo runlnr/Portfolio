@@ -50,9 +50,13 @@
     // Register ScrollTrigger plugin
     window.gsap.registerPlugin(window.ScrollTrigger);
 
-    const DEFAULT_SHAPE_POLYGON = 'polygon(41.446% 0.000%, 97.892% 0.000%, 100.000% 17.000%, 100.000% 83.000%, 56.526% 83.000%, 58.634% 100.000%, 2.108% 100.000%, 0.000% 83.000%, 0.000% 17.000%, 43.554% 17.000%)';
-    const getShapePolygon = () => window.currentShapePolygon || DEFAULT_SHAPE_POLYGON;
-    const RECT_POLYGON  = 'polygon(0% 0%, 100% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%, 0% 100%, 0% 100%, 0% 0%, 0% 0%)';
+    const DEFAULT_CRT_PATH = 'M 0.0520 0.1150 Q 0.5000 0.0000 0.9480 0.1150 Q 0.9500 0.1150 0.9500 0.1170 Q 1.0000 0.5000 0.9500 0.8830 Q 0.9500 0.8850 0.9480 0.8850 Q 0.5000 1.0000 0.0520 0.8850 Q 0.0500 0.8850 0.0500 0.8830 Q 0.0000 0.5000 0.0500 0.1170 Q 0.0500 0.1150 0.0520 0.1150 Z';
+    const RECT_CRT_PATH    = 'M 0.0000 0.0000 Q 0.5000 0.0000 1.0000 0.0000 Q 1.0000 0.0000 1.0000 0.0000 Q 1.0000 0.5000 1.0000 1.0000 Q 1.0000 1.0000 1.0000 1.0000 Q 0.5000 1.0000 0.0000 1.0000 Q 0.0000 1.0000 0.0000 1.0000 Q 0.0000 0.5000 0.0000 0.0000 Q 0.0000 0.0000 0.0000 0.0000 Z';
+
+    const getCrtPath = () => window.currentCrtPath || DEFAULT_CRT_PATH;
+    const clipPathEl = document.getElementById('hero-shape-clip-path');
+    const maskPathEl = document.getElementById('hero-shape-mask-path');
+    const blurFilterEl = document.getElementById('crt-blur-elem');
 
     // Initial sizes helper (respects Visual Designer or CSS overrides)
     function getInitialTvDimensions() {
@@ -86,18 +90,20 @@
     // Initial shader curvature settings
     const initialShaderParams = (typeof window.getHeroTvAscii === 'function')
       ? window.getHeroTvAscii()
-      : { sideBulge: 0.0, vertBulge: 0.0, tvSizeX: 2.0, tvSizeY: 2.0 };
+      : { sideBulge: 0.0, vertBulge: 0.0, tvSizeX: 2.0, tvSizeY: 2.0, edgeSoftness: 0.05 };
 
     const initSide = initialShaderParams.sideBulge || 0.0;
     const initVert = initialShaderParams.vertBulge || 0.0;
     const initSizeX = initialShaderParams.tvSizeX || 2.0;
     const initSizeY = initialShaderParams.tvSizeY || 2.0;
+    const initEdgeSoft = initialShaderParams.edgeSoftness || 0.05;
 
     const shapeProxy = {
       sideBulge: initSide,
       vertBulge: initVert,
       tvSizeX: initSizeX,
-      tvSizeY: initSizeY
+      tvSizeY: initSizeY,
+      edgeSoftness: initEdgeSoft
     };
 
     function updateShader() {
@@ -106,7 +112,8 @@
           sideBulge: shapeProxy.sideBulge,
           vertBulge: shapeProxy.vertBulge,
           tvSizeX: shapeProxy.tvSizeX,
-          tvSizeY: shapeProxy.tvSizeY
+          tvSizeY: shapeProxy.tvSizeY,
+          edgeSoftness: shapeProxy.edgeSoftness
         });
       }
     }
@@ -158,7 +165,33 @@
     if (auxElements.length > 0) {
       tl.fromTo(
         auxElements,
-        { opacity: 1, filter: 'blur(0px)' },
+        {
+          opacity: (i, target) => {
+            if (target.classList.contains('ascii-corner-slash')) {
+              const comp = window.getComputedStyle(document.documentElement);
+              const master = parseFloat(comp.getPropertyValue('--corner-slashes-opacity')) ?? 1;
+              if (target.classList.contains('ascii-corner-tl')) {
+                const v = comp.getPropertyValue('--corner-tl-opacity');
+                return v !== '' ? parseFloat(v) : master;
+              }
+              if (target.classList.contains('ascii-corner-tr')) {
+                const v = comp.getPropertyValue('--corner-tr-opacity');
+                return v !== '' ? parseFloat(v) : master;
+              }
+              if (target.classList.contains('ascii-corner-bl')) {
+                const v = comp.getPropertyValue('--corner-bl-opacity');
+                return v !== '' ? parseFloat(v) : master;
+              }
+              if (target.classList.contains('ascii-corner-br')) {
+                const v = comp.getPropertyValue('--corner-br-opacity');
+                return v !== '' ? parseFloat(v) : master;
+              }
+              return master;
+            }
+            return 1;
+          },
+          filter: 'blur(0px)'
+        },
         {
           opacity: 0,
           filter: 'blur(8px)',
@@ -205,8 +238,6 @@
       {
         width: () => `${getInitialTvDimensions().w}px`,
         height: () => `${getInitialTvDimensions().h}px`,
-        clipPath: getShapePolygon(),
-        webkitClipPath: getShapePolygon(),
         maxWidth: 'none',
         maxHeight: 'none',
         opacity: 1
@@ -214,8 +245,6 @@
       {
         width: () => `${getTvDimensionsAt(0.90).w}px`,
         height: () => `${getTvDimensionsAt(0.90).h}px`,
-        clipPath: RECT_POLYGON,
-        webkitClipPath: RECT_POLYGON,
         maxWidth: 'none',
         maxHeight: 'none',
         opacity: 1,
@@ -225,6 +254,46 @@
       0
     );
 
+    // SVG CRT Bezier path uncurling to flat rectangle
+    if (clipPathEl) {
+      tl.fromTo(
+        clipPathEl,
+        { attr: { d: getCrtPath } },
+        {
+          attr: { d: RECT_CRT_PATH },
+          ease: 'power1.out',
+          duration: TEXT_EXIT_TIME
+        },
+        0
+      );
+    }
+
+    if (maskPathEl) {
+      tl.fromTo(
+        maskPathEl,
+        { attr: { d: getCrtPath } },
+        {
+          attr: { d: RECT_CRT_PATH },
+          ease: 'power1.out',
+          duration: TEXT_EXIT_TIME
+        },
+        0
+      );
+    }
+
+    if (blurFilterEl) {
+      tl.fromTo(
+        blurFilterEl,
+        { attr: { stdDeviation: () => blurFilterEl.getAttribute('stdDeviation') || '0.012' } },
+        {
+          attr: { stdDeviation: '0.000' },
+          ease: 'power1.out',
+          duration: TEXT_EXIT_TIME
+        },
+        0
+      );
+    }
+
     // Shader uncurling during 0 to 0.35
     tl.fromTo(
       shapeProxy,
@@ -232,13 +301,15 @@
         sideBulge: initSide,
         vertBulge: initVert,
         tvSizeX: initSizeX,
-        tvSizeY: initSizeY
+        tvSizeY: initSizeY,
+        edgeSoftness: initEdgeSoft
       },
       {
         sideBulge: 0.0,
         vertBulge: 0.0,
         tvSizeX: 2.0,
         tvSizeY: 2.0,
+        edgeSoftness: 0.0,
         ease: 'power1.out',
         duration: TEXT_EXIT_TIME,
         onUpdate: updateShader
@@ -254,8 +325,6 @@
       {
         width: () => `${getTargetTvDimensions().w}px`,
         height: () => `${getTargetTvDimensions().h}px`,
-        clipPath: RECT_POLYGON,
-        webkitClipPath: RECT_POLYGON,
         maxWidth: 'none',
         maxHeight: 'none',
         opacity: 1,
