@@ -65,7 +65,8 @@
       --nav-hamburger-gap: 4.5px;
       --nav-hamburger-active-rotate: -68deg; /* Rotation angle into '//' slashes (between 45deg and 90deg) */
 
-      /* Dropdown Menu Spacing & Padding Controls */
+      /* Dropdown Menu Controls */
+      --nav-dropdown-bg: #101010;
       --nav-dropdown-padding-top: 6px;
       --nav-dropdown-padding-bottom: 20px;
       --nav-dropdown-padding-x: 20px;
@@ -75,7 +76,8 @@
       --nav-dropdown-deck-padding-y: 18px;
       --nav-dropdown-actions-gap: 12px;
       --nav-dropdown-actions-margin-top: 12px;
-      --nav-dropdown-action-btn-padding-y: 18px;
+      --nav-dropdown-item-font-size: 16.5px;
+      --nav-dropdown-info-font-size: 14px;
       --nav-dropdown-item-font-weight: 400;
       --nav-dropdown-btn-font-weight: 500;
 
@@ -86,26 +88,25 @@
       --cta-btn-font-size: 10.5px;
       --cta-btn-font-weight: 600;
 
-      /* ASCII & 4 Corner Squares */
+      /* ASCII & Slashes */
       --hero-tv-top: 50%;
       --hero-tv-left: 50%;
       --hero-tv-width: 910px;
       --hero-tv-height: 310px;
       --hero-tv-scale: 1;
-      --corner-square-size: 7px;
-      --corner-square-color: #ffffff;
-      --corner-slashes-size: 7px;
+      --corner-slashes-size: 54px;
+      --corner-slashes-weight: 700;
       --corner-slashes-color: #ffffff;
       --corner-slashes-offset-x: 0px;
-      --corner-slashes-offset-y: 0px;
-      --corner-tl-x: -16px;
-      --corner-tl-y: -16px;
-      --corner-tr-x: -16px;
-      --corner-tr-y: -16px;
-      --corner-bl-x: -16px;
-      --corner-bl-y: -16px;
-      --corner-br-x: -16px;
-      --corner-br-y: -16px;
+      --corner-slashes-offset-y: -65px;
+      --corner-tl-x: -20px;
+      --corner-tl-y: -3px;
+      --corner-tr-x: -3px;
+      --corner-tr-y: -3px;
+      --corner-bl-x: -20px;
+      --corner-bl-y: -8px;
+      --corner-br-x: -3px;
+      --corner-br-y: -8px;
 
       /* Opacities (0-100%) */
       --hero-visual-opacity: 1;
@@ -122,8 +123,9 @@
       --nav-box-opacity: 1;
       --hero-viewport-opacity: 1;
 
-      /* Headline */
-      --headline-font-size: 45px;
+      /* Headline & Bottom Hero Text */
+      --headline-font-size: 48px;
+      --hero-bottom-text-size: 48px;
       --headline-font-weight: 500;
       --headline-line-height: 0.94;
       --headline-letter-spacing: -0.03em;
@@ -186,7 +188,7 @@
       </a>
 
       <!-- Center: Status Line -->
-      <div class="nav-status-line" id="nav-status-line">LOOKING SHARP TODAY</div>
+      <div class="nav-status-line" id="nav-status-line">Looking sharp today</div>
 
       <!-- Right: Hamburger Menu Button (2 lines) -->
       <button class="nav-hamburger-btn" id="nav-hamburger-btn" aria-label="Toggle Navigation Menu"
@@ -195,67 +197,105 @@
         <span class="hamburger-line"></span>
       </button>
 
-      <!-- Full-Width Dropdown Menu matching exact reference design -->
+      <!-- Full-Width 2-Column Split Dropdown Menu matching reference design -->
       <div class="nav-dropdown-menu" id="nav-dropdown-menu" aria-hidden="true">
-        <div class="nav-dropdown-list">
-          <a href="#f3-portfolio" class="nav-dropdown-row-link" id="nav-works-link">
-            <span class="nav-row-slash nav-slash-left" aria-hidden="true">/</span>
-            <span class="nav-row-roll roll-up" aria-hidden="true">
-              <span class="nav-row-roll-inner">
-                <span class="nav-row-text">Work</span>
-                <span class="nav-row-text">Work</span>
+        <div class="nav-dropdown-grid">
+          <!-- Left Column: Navigation Links -->
+          <div class="nav-dropdown-col-left">
+            <a href="index.html" class="nav-dropdown-row-link" id="nav-home-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">Home</span>
+                  <span class="nav-row-text">Home</span>
+                </span>
               </span>
-            </span>
-            <span class="nav-row-slash nav-slash-right" aria-hidden="true">/</span>
-          </a>
-          <a href="about.html" class="nav-dropdown-row-link">
-            <span class="nav-row-slash nav-slash-left" aria-hidden="true">/</span>
-            <span class="nav-row-roll roll-up" aria-hidden="true">
-              <span class="nav-row-roll-inner">
-                <span class="nav-row-text">About</span>
-                <span class="nav-row-text">About</span>
-              </span>
-            </span>
-            <span class="nav-row-slash nav-slash-right" aria-hidden="true">/</span>
-          </a>
-          <a href="policies.html" class="nav-dropdown-row-link">
-            <span class="nav-row-slash nav-slash-left" aria-hidden="true">/</span>
-            <span class="nav-row-roll roll-up" aria-hidden="true">
-              <span class="nav-row-roll-inner">
-                <span class="nav-row-text">Archive</span>
-                <span class="nav-row-text">Archive</span>
-              </span>
-            </span>
-            <span class="nav-row-slash nav-slash-right" aria-hidden="true">/</span>
-          </a>
-          <a href="contact.html" class="nav-dropdown-row-link">
-            <span class="nav-row-slash nav-slash-left" aria-hidden="true">/</span>
-            <span class="nav-row-roll roll-up" aria-hidden="true">
-              <span class="nav-row-roll-inner">
-                <span class="nav-row-text">Contact</span>
-                <span class="nav-row-text">Contact</span>
-              </span>
-            </span>
-            <span class="nav-row-slash nav-slash-right" aria-hidden="true">/</span>
-          </a>
-        </div>
+            </a>
 
-        <div class="nav-dropdown-footer">
-          <a href="assets/deck.pdf" target="_blank" class="nav-deck-btn" aria-label="My Pitchdeck">
-            MY PITCHDECK
-          </a>
-          <div class="nav-actions-grid">
-            <a href="contact.html" class="nav-action-btn">
-              SCHEDULE A CALL
+            <a href="#f3-portfolio" class="nav-dropdown-row-link" id="nav-works-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">Projects<span class="nav-row-count">(06)</span></span>
+                  <span class="nav-row-text">Projects<span class="nav-row-count">(06)</span></span>
+                </span>
+              </span>
             </a>
-            <a href="contact.html" class="nav-action-btn">
-              START A PROJECT
+
+            <a href="about.html" class="nav-dropdown-row-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">About</span>
+                  <span class="nav-row-text">About</span>
+                </span>
+              </span>
             </a>
+
+            <a href="contact.html" class="nav-dropdown-row-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">Contact</span>
+                  <span class="nav-row-text">Contact</span>
+                </span>
+              </span>
+            </a>
+
+            <a href="policies.html" class="nav-dropdown-row-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">Archive</span>
+                  <span class="nav-row-text">Archive</span>
+                </span>
+              </span>
+            </a>
+          </div>
+
+          <!-- Vertical Dashed Divider -->
+          <div class="nav-dropdown-divider" aria-hidden="true"></div>
+
+          <!-- Right Column: Live Clock, Studio Details & Socials -->
+          <div class="nav-dropdown-col-right">
+            <!-- Top Right: Live Studio Clock -->
+            <div class="nav-dropdown-clock-wrap">
+              <span class="nav-clock-dot"></span>
+              <span class="nav-dropdown-clock live-clock">--:--:-- (GMT+7)</span>
+            </div>
+
+            <!-- Middle / Bottom Right Details -->
+            <div class="nav-dropdown-info-stack">
+              <a href="mailto:phnm@outlook.com" class="nav-info-email" aria-label="Email Studio">
+                phnm@outlook.com
+              </a>
+              <a href="tel:+84707280208" class="nav-info-phone" aria-label="Phone Number">
+                +84 707 280 208
+              </a>
+
+              <!-- Social Links -->
+              <div class="nav-dropdown-socials">
+                <a href="https://www.behance.net" target="_blank" rel="noopener noreferrer" class="nav-social-icon" aria-label="Behance">
+                  <span class="social-icon-txt">Bē</span>
+                </a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="nav-social-icon" aria-label="Instagram">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="nav-social-icon" aria-label="LinkedIn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </nav>
   </header>
+
+  <!-- Bottom-Centered Floating 'Start a project' Call CTA (Fixed to viewport bottom) -->
+  <a href="contact.html" class="nav-floating-cta" id="nav-floating-cta" aria-label="Start a project">
+    <span class="floating-cta-icon" aria-hidden="true">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+    </span>
+    <span class="floating-cta-text">Start a project</span>
+  </a>
 
   <!-- Scrollable Homepage Container -->
   <main class="homepage-main" id="homepage-main">

@@ -14,24 +14,25 @@
   // Config definition: maps control keys to their defaults, min, max, step, unit, and type
   const DESIGNER_CONFIG = {
     // ------------------------------------------------------------------------
-    // TAB 1: 4 Corner Squares (Size & Position)
+    // TAB 1: 4 Corner Slashes (Size & Position)
     // ------------------------------------------------------------------------
-    '--corner-square-size': { val: 7, unit: 'px', min: 2, max: 40, step: 1, label: 'Corner Squares Size (width & height)', type: 'css' },
-    '--corner-slashes-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'All Squares Opacity (Master)', type: 'opacity' },
+    '--corner-slashes-size': { val: 54, unit: 'px', min: 10, max: 150, step: 1, label: 'Slashes Font Size', type: 'css' },
+    '--corner-slashes-weight': { val: 700, unit: '', min: 100, max: 900, step: 100, label: 'Slashes Font Weight (100–900)', type: 'css' },
+    '--corner-slashes-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'All Slashes Opacity (Master)', type: 'opacity' },
     '--corner-slashes-offset-x': { val: 0, unit: 'px', min: -150, max: 150, step: 1, label: 'Global Offset X', type: 'css' },
-    '--corner-slashes-offset-y': { val: 0, unit: 'px', min: -150, max: 150, step: 1, label: 'Global Offset Y', type: 'css' },
-    '--corner-tl-x': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Left Square X', type: 'css' },
-    '--corner-tl-y': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Left Square Y', type: 'css' },
-    '--corner-tr-x': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Right Square X', type: 'css' },
-    '--corner-tr-y': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Right Square Y', type: 'css' },
-    '--corner-bl-x': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Left Square X', type: 'css' },
-    '--corner-bl-y': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Left Square Y', type: 'css' },
-    '--corner-br-x': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Right Square X', type: 'css' },
-    '--corner-br-y': { val: -16, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Right Square Y', type: 'css' },
-    '--corner-tl-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Top-Left Square Opacity', type: 'opacity' },
-    '--corner-tr-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Top-Right Square Opacity', type: 'opacity' },
-    '--corner-bl-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Bottom-Left Square Opacity', type: 'opacity' },
-    '--corner-br-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Bottom-Right Square Opacity', type: 'opacity' },
+    '--corner-slashes-offset-y': { val: -65, unit: 'px', min: -150, max: 150, step: 1, label: 'Global Offset Y', type: 'css' },
+    '--corner-tl-x': { val: -20, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Left Slash X', type: 'css' },
+    '--corner-tl-y': { val: -3, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Left Slash Y', type: 'css' },
+    '--corner-tr-x': { val: -3, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Right Slash X', type: 'css' },
+    '--corner-tr-y': { val: -3, unit: 'px', min: -200, max: 200, step: 1, label: 'Top-Right Slash Y', type: 'css' },
+    '--corner-bl-x': { val: -20, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Left Slash X', type: 'css' },
+    '--corner-bl-y': { val: -8, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Left Slash Y', type: 'css' },
+    '--corner-br-x': { val: -3, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Right Slash X', type: 'css' },
+    '--corner-br-y': { val: -8, unit: 'px', min: -200, max: 200, step: 1, label: 'Bottom-Right Slash Y', type: 'css' },
+    '--corner-tl-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Top-Left Slash Opacity', type: 'opacity' },
+    '--corner-tr-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Top-Right Slash Opacity', type: 'opacity' },
+    '--corner-bl-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Bottom-Left Slash Opacity', type: 'opacity' },
+    '--corner-br-opacity': { val: 100, min: 0, max: 100, step: 1, unit: '%', label: 'Bottom-Right Slash Opacity', type: 'opacity' },
 
     // ------------------------------------------------------------------------
     // TAB 2: Shape Sizing & Position
@@ -58,28 +59,6 @@
 
   const CATEGORIES = [
     {
-      id: 'squares_tab',
-      title: 'Corner Squares',
-      keys: [
-        '--corner-square-size',
-        '--corner-slashes-opacity',
-        '--corner-slashes-offset-x',
-        '--corner-slashes-offset-y',
-        '--corner-tl-x',
-        '--corner-tl-y',
-        '--corner-tr-x',
-        '--corner-tr-y',
-        '--corner-bl-x',
-        '--corner-bl-y',
-        '--corner-br-x',
-        '--corner-br-y',
-        '--corner-tl-opacity',
-        '--corner-tr-opacity',
-        '--corner-bl-opacity',
-        '--corner-br-opacity'
-      ]
-    },
-    {
       id: 'shape_sizing',
       title: 'Shape Sizing',
       keys: [
@@ -103,6 +82,29 @@
         'fisheyeStrength',
         'tvSizeX',
         'tvSizeY'
+      ]
+    },
+    {
+      id: 'slashes_tab',
+      title: 'Slashes',
+      keys: [
+        '--corner-slashes-size',
+        '--corner-slashes-weight',
+        '--corner-slashes-opacity',
+        '--corner-slashes-offset-x',
+        '--corner-slashes-offset-y',
+        '--corner-tl-x',
+        '--corner-tl-y',
+        '--corner-tr-x',
+        '--corner-tr-y',
+        '--corner-bl-x',
+        '--corner-bl-y',
+        '--corner-br-x',
+        '--corner-br-y',
+        '--corner-tl-opacity',
+        '--corner-tr-opacity',
+        '--corner-bl-opacity',
+        '--corner-br-opacity'
       ]
     }
   ];
@@ -151,25 +153,31 @@
         const formatted = `${val}${conf.unit}`;
         document.documentElement.style.setProperty(key, formatted);
 
-        const tvWrapper = document.getElementById('hero-tv-wrapper');
-        if (tvWrapper && tvWrapper.style.clipPath) {
-          tvWrapper.style.clipPath = '';
-          tvWrapper.style.webkitClipPath = '';
-        }
-
         const centerVisual = document.getElementById('hero-center-visual');
+        const tvWrapper = document.getElementById('hero-tv-wrapper');
+
+        const curW = this.state['--hero-tv-width'] !== undefined ? this.state['--hero-tv-width'] : 910;
+        const curH = this.state['--hero-tv-height'] !== undefined ? this.state['--hero-tv-height'] : 310;
+        const curTop = this.state['--hero-tv-top'] !== undefined ? this.state['--hero-tv-top'] : 50;
+        const curLeft = this.state['--hero-tv-left'] !== undefined ? this.state['--hero-tv-left'] : 50;
+        const curScale = this.state['--hero-tv-scale'] !== undefined ? this.state['--hero-tv-scale'] : 1;
+
         if (centerVisual) {
-          if (key === '--hero-tv-width') centerVisual.style.width = `${val}px`;
-          if (key === '--hero-tv-height') {
-            centerVisual.style.height = `${val}px`;
-            if (tvWrapper) tvWrapper.style.height = '100%';
-          }
-          if (key === '--hero-tv-top') centerVisual.style.top = `${val}%`;
-          if (key === '--hero-tv-left') centerVisual.style.left = `${val}%`;
-          if (key === '--hero-tv-scale') centerVisual.style.transform = `translate(-50%, -50%) scale(${val})`;
+          centerVisual.style.setProperty('width', `${curW}px`, 'important');
+          centerVisual.style.setProperty('height', `${curH}px`, 'important');
+          centerVisual.style.setProperty('top', `${curTop}%`, 'important');
+          centerVisual.style.setProperty('left', `${curLeft}%`, 'important');
+          centerVisual.style.setProperty('transform', `translate(-50%, -50%) scale(${curScale})`, 'important');
         }
 
-        if (window.ScrollTrigger) {
+        if (tvWrapper) {
+          tvWrapper.style.setProperty('width', '100%', 'important');
+          tvWrapper.style.setProperty('height', '100%', 'important');
+        }
+
+        if (typeof window.initHeroScrollTransition === 'function') {
+          window.initHeroScrollTransition();
+        } else if (window.ScrollTrigger) {
           window.ScrollTrigger.refresh();
         }
       } else if (conf.type === 'shader') {
@@ -198,26 +206,36 @@
         }
       }
 
+      const centerVisual = document.getElementById('hero-center-visual');
       const tvWrapper = document.getElementById('hero-tv-wrapper');
-      if (tvWrapper && tvWrapper.style.clipPath) {
-        tvWrapper.style.clipPath = '';
-        tvWrapper.style.webkitClipPath = '';
+
+      const curW = this.state['--hero-tv-width'] !== undefined ? this.state['--hero-tv-width'] : 910;
+      const curH = this.state['--hero-tv-height'] !== undefined ? this.state['--hero-tv-height'] : 310;
+      const curTop = this.state['--hero-tv-top'] !== undefined ? this.state['--hero-tv-top'] : 50;
+      const curLeft = this.state['--hero-tv-left'] !== undefined ? this.state['--hero-tv-left'] : 50;
+      const curScale = this.state['--hero-tv-scale'] !== undefined ? this.state['--hero-tv-scale'] : 1;
+
+      if (centerVisual) {
+        centerVisual.style.setProperty('width', `${curW}px`, 'important');
+        centerVisual.style.setProperty('height', `${curH}px`, 'important');
+        centerVisual.style.setProperty('top', `${curTop}%`, 'important');
+        centerVisual.style.setProperty('left', `${curLeft}%`, 'important');
+        centerVisual.style.setProperty('transform', `translate(-50%, -50%) scale(${curScale})`, 'important');
       }
 
-      const centerVisual = document.getElementById('hero-center-visual');
-      if (centerVisual) {
-        if (this.state['--hero-tv-width']) centerVisual.style.width = `${this.state['--hero-tv-width']}px`;
-        if (this.state['--hero-tv-height']) {
-          centerVisual.style.height = `${this.state['--hero-tv-height']}px`;
-          if (tvWrapper) tvWrapper.style.height = '100%';
-        }
-        if (this.state['--hero-tv-top']) centerVisual.style.top = `${this.state['--hero-tv-top']}%`;
-        if (this.state['--hero-tv-left']) centerVisual.style.left = `${this.state['--hero-tv-left']}%`;
-        if (this.state['--hero-tv-scale']) centerVisual.style.transform = `translate(-50%, -50%) scale(${this.state['--hero-tv-scale']})`;
+      if (tvWrapper) {
+        tvWrapper.style.setProperty('width', '100%', 'important');
+        tvWrapper.style.setProperty('height', '100%', 'important');
       }
 
       if (typeof window.setHeroTvAscii === 'function' && Object.keys(shaderUpdates).length > 0) {
         window.setHeroTvAscii(shaderUpdates);
+      }
+
+      if (typeof window.initHeroScrollTransition === 'function') {
+        window.initHeroScrollTransition();
+      } else if (window.ScrollTrigger) {
+        window.ScrollTrigger.refresh();
       }
     }
 
@@ -231,10 +249,10 @@
       const toggleBtn = document.createElement('button');
       toggleBtn.className = 'vd-toggle-btn';
       toggleBtn.id = 'vd-toggle-btn';
-      toggleBtn.setAttribute('aria-label', 'Toggle Squares Studio HUD');
+      toggleBtn.setAttribute('aria-label', 'Toggle Visual Designer HUD');
       toggleBtn.innerHTML = `
         <span class="vd-toggle-dot"></span>
-        <span>SQUARES STUDIO</span>
+        <span>VISUAL DESIGNER</span>
       `;
       document.body.appendChild(toggleBtn);
 
@@ -252,7 +270,7 @@
       header.className = 'vd-header';
       header.innerHTML = `
         <div class="vd-title">
-          <span>CORNER SQUARES & LAYOUT STUDIO</span>
+          <span>ASCII HERO & LAYOUT DESIGNER</span>
           <span class="vd-drag-handle">:::</span>
         </div>
         <button class="vd-close-btn" aria-label="Close Designer">&times;</button>

@@ -740,6 +740,13 @@ document.addEventListener('DOMContentLoaded', () => {
         closeNavDropdown();
       });
     });
+
+    const navFloatingCta = document.getElementById('nav-floating-cta');
+    if (navFloatingCta) {
+      navFloatingCta.addEventListener('click', () => {
+        closeNavDropdown();
+      });
+    }
   }
 
   // 6. Highlight Active Navigation Item Initial

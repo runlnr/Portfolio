@@ -109,8 +109,7 @@
       sideBulge: 0.0,
       vertBulge: 0.0,
       tvSizeX: 2.0,
-      tvSizeY: 2.0,
-      shapeMorph: 0.0,
+      tvSizeY: 2.0
     };
 
     let savedShaderState = {};
@@ -166,7 +165,6 @@
       uniform float u_tv_size_y;
       uniform float u_glyph_count;
       uniform float u_time;
-      uniform float u_shape_morph;
 
       vec2 coverUV(vec2 uv, vec2 src, vec2 dst) {
         float srcAspect = src.x / src.y;
@@ -192,50 +190,11 @@
         return p * 0.5 + 0.5;
       }
 
-      bool inHeroShape(vec2 uv, float morph) {
-        if (morph >= 0.999) {
-          return (uv.x >= 0.0 && uv.x <= 1.0 && uv.y >= 0.0 && uv.y <= 1.0);
-        }
-        
-        float y = 1.0 - uv.y; // 0=top, 1=bottom
-        float x = uv.x;
-        
-        if (x < 0.0 || x > 1.0 || y < 0.0 || y > 1.0) return false;
-        
-        // Middle band (19.792% to 80.215%)
-        if (y >= 0.19792 && y <= 0.80215) return true;
-        
-        // Top tab (0% to 19.792%)
-        if (y < 0.19792) {
-          float t = clamp(y / 0.19792, 0.0, 1.0);
-          float leftX = mix(mix(0.41496, 0.43346, t), 0.0, morph);
-          float rightX = mix(mix(0.98150, 1.0, t), 1.0, morph);
-          return (x >= leftX && x <= rightX);
-        }
-        
-        // Bottom tab (80.215% to 100%)
-        if (y > 0.80215) {
-          float t = clamp((y - 0.80215) / (1.0 - 0.80215), 0.0, 1.0);
-          float leftX = mix(mix(0.0, 0.01848, t), 0.0, morph);
-          float rightX = mix(mix(0.56652, 0.58502, t), 1.0, morph);
-          return (x >= leftX && x <= rightX);
-        }
-        
-        return false;
-      }
-
       void main() {
         vec2 frag = v_uv * u_resolution;
         vec2 cellCoord = floor(frag / u_cell);
         vec2 center = (cellCoord + 0.5) * u_cell;
         vec2 cellUV = center / u_resolution;
-
-        // Discrete ASCII cell shape quantization (makes edges composed of complete ASCII glyphs)
-        bool inside = inHeroShape(cellUV, u_shape_morph);
-        if (!inside) {
-          gl_FragColor = vec4(0.0);
-          return;
-        }
 
         // CRT barrel distortion
         vec2 sampleUV = fisheyeUV(cellUV, u_fisheye_strength * u_tvness);
@@ -314,7 +273,6 @@
     const uTvSizeY = gl.getUniformLocation(program, 'u_tv_size_y');
     const uGlyphCount = gl.getUniformLocation(program, 'u_glyph_count');
     const uTime = gl.getUniformLocation(program, 'u_time');
-    const uShapeMorph = gl.getUniformLocation(program, 'u_shape_morph');
 
     const videoTexture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, videoTexture);
@@ -372,7 +330,6 @@
         gl.uniform1f(uTvSizeY, params.tvSizeY);
         gl.uniform1f(uGlyphCount, glyphChars.length);
         gl.uniform1f(uTime, performance.now() * 0.001);
-        gl.uniform1f(uShapeMorph, params.shapeMorph !== undefined ? params.shapeMorph : 0.0);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       }
       currentAnimId = requestAnimationFrame(render);

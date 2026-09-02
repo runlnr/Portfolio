@@ -419,8 +419,7 @@
   font-family: 'Sometype Mono', var(--font-mono), monospace;
   font-size: var(--nav-status-font-size, 11px);
   font-weight: var(--nav-status-font-weight, 500);
-  letter-spacing: var(--nav-status-letter-spacing, 0.08em);
-  text-transform: uppercase;
+  letter-spacing: var(--nav-status-letter-spacing, -0.01em);
   color: var(--nav-status-color, rgba(255, 255, 255, 0.65));
   white-space: nowrap;
   pointer-events: none;
@@ -526,7 +525,7 @@ body.nav-dropdown-active .hero-center-visual {
   transition: filter 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Full-Width Dropdown Menu spanning width of the nav bar */
+/* Full-Width 2-Column Split Dropdown Menu spanning width of the nav bar */
 .nav-dropdown-menu {
   position: absolute;
   top: calc(100% + 8px);
@@ -534,13 +533,13 @@ body.nav-dropdown-active .hero-center-visual {
   right: 0;
   width: 100%;
   box-sizing: border-box;
-  background: #101010;
+  background: var(--nav-dropdown-bg, #101010);
   backdrop-filter: blur(32px) saturate(190%);
   -webkit-backdrop-filter: blur(32px) saturate(190%);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--nav-box-radius, 6px);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  padding: var(--nav-dropdown-padding-top, 6px) var(--nav-dropdown-padding-x, 20px) var(--nav-dropdown-padding-bottom, 20px) var(--nav-dropdown-padding-x, 20px);
+  padding: 24px 22px 22px 22px;
   display: flex;
   flex-direction: column;
   opacity: 0;
@@ -548,6 +547,11 @@ body.nav-dropdown-active .hero-center-visual {
   pointer-events: none;
   transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1000;
+  text-transform: none !important;
+}
+
+.nav-dropdown-menu * {
+  text-transform: none !important;
 }
 
 .nav-dropdown-menu.is-open {
@@ -556,43 +560,51 @@ body.nav-dropdown-active .hero-center-visual {
   pointer-events: auto;
 }
 
-/* Dropdown list rows */
-.nav-dropdown-list {
-  display: flex;
-  flex-direction: column;
+/* 2-Column Grid Container - Centered 50/50 Split */
+.nav-dropdown-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  gap: 0;
   width: 100%;
 }
 
-.nav-dropdown-row-link {
+/* Left Column: Navigation Links */
+.nav-dropdown-col-left {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+  padding-right: 20px;
+}
+
+.nav-dropdown-row-link {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
-  text-align: center;
-  padding: var(--nav-dropdown-item-padding-y, 20px) var(--nav-dropdown-item-padding-x, 4px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+  padding: 2px 0;
   text-decoration: none;
   color: #ffffff;
-  font-family: var(--font-sans, "Inter", -apple-system, sans-serif);
-  font-size: 18px;
+  font-family: var(--font-display, "Neue Haas Grotesk Display Pro", "Inter", -apple-system, sans-serif);
+  font-size: var(--nav-dropdown-item-font-size, 16.5px);
   font-weight: var(--nav-dropdown-item-font-weight, 400);
   letter-spacing: -0.02em;
   user-select: none !important;
-  gap: 12px;
-  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: none !important;
+  transition: opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Dim unhovered items when dropdown list is hovered */
-.nav-dropdown-list:hover .nav-dropdown-row-link {
-  color: rgba(255, 255, 255, 0.3);
-  opacity: 0.4;
+/* Dim unhovered items when left column is hovered */
+.nav-dropdown-col-left:hover .nav-dropdown-row-link {
+  color: rgba(255, 255, 255, 0.4);
 }
 
-.nav-dropdown-list .nav-dropdown-row-link:hover,
-.nav-dropdown-list .nav-dropdown-row-link:focus-visible {
+.nav-dropdown-col-left .nav-dropdown-row-link:hover,
+.nav-dropdown-col-left .nav-dropdown-row-link:focus-visible {
   color: #ffffff !important;
-  opacity: 1 !important;
 }
 
 /* Rolling Text Flip Container */
@@ -613,13 +625,16 @@ body.nav-dropdown-active .hero-center-visual {
 }
 
 .nav-dropdown-row-link .nav-row-roll-inner .nav-row-text {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
   height: 1.25em;
   line-height: 1.25em;
-  text-align: center;
+  text-align: left;
   color: inherit;
   white-space: nowrap;
   user-select: none !important;
+  text-transform: none !important;
 }
 
 /* Flip text once on hover */
@@ -628,99 +643,248 @@ body.nav-dropdown-active .hero-center-visual {
   transform: translateY(-50%);
 }
 
-/* 2 White Slashes "/" (1 on each side) */
-.nav-dropdown-row-link .nav-row-slash {
-  font-family: var(--font-sans, "Inter", -apple-system, sans-serif);
-  font-size: 18px;
-  font-weight: 300;
+/* Row Counter Badge (e.g. (06) at top right of Works) */
+.nav-dropdown-row-link .nav-row-count {
+  font-family: 'Sometype Mono', var(--font-mono), monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.65);
+  display: inline-block;
+  vertical-align: top;
+  margin-top: -3px;
+  margin-left: 3px;
+  line-height: 1;
+  transition: color 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-dropdown-row-link:hover .nav-row-count,
+.nav-dropdown-row-link:focus-visible .nav-row-count {
   color: #ffffff;
-  opacity: 0;
-  transform: scale(0.6);
-  transition: opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-  user-select: none !important;
+}
+
+/* Vertical Dashed Divider (Centered in Middle) */
+.nav-dropdown-divider {
+  width: 1px;
+  border-left: 1px dashed rgba(255, 255, 255, 0.16);
+  margin: 0;
+}
+
+/* Right Column: Clock, Info & Socials */
+.nav-dropdown-col-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: right;
+  padding-left: 20px;
+}
+
+/* Top Right Clock */
+.nav-dropdown-clock-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Sometype Mono', var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-transform: none !important;
+}
+
+.nav-dropdown-clock-wrap .nav-clock-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: #00ff66;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #00ff66;
+  flex-shrink: 0;
+}
+
+/* Middle / Bottom Info Stack */
+.nav-dropdown-info-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.nav-info-email,
+.nav-info-phone {
+  font-family: var(--font-sans, "Inter", -apple-system, sans-serif);
+  font-size: var(--nav-dropdown-info-font-size, 14px);
+  font-weight: 400;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  line-height: 1.35;
+  text-transform: none !important;
+}
+
+.nav-info-email:hover,
+.nav-info-phone:hover {
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+/* Socials Row */
+.nav-dropdown-socials {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.nav-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-social-icon:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.nav-social-icon .social-icon-txt {
+  font-family: var(--font-display, "Neue Haas Grotesk Display Pro", "Inter", sans-serif);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.02em;
   line-height: 1;
 }
 
-.nav-dropdown-row-link:hover .nav-row-slash,
-.nav-dropdown-row-link:focus-visible .nav-row-slash {
-  opacity: 1;
-  transform: scale(1);
+.nav-social-icon svg {
+  width: 14px;
+  height: 14px;
+  display: block;
 }
 
-/* Dropdown Footer & Action Buttons */
-.nav-dropdown-footer {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-top: 4px;
-  user-select: none !important;
+@media (max-width: 500px) {
+  .nav-dropdown-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .nav-dropdown-divider {
+    display: none;
+  }
+  .nav-dropdown-col-left {
+    padding-right: 0;
+  }
+  .nav-dropdown-col-right {
+    padding-left: 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .nav-dropdown-clock-wrap {
+    justify-content: flex-start;
+  }
+  .nav-dropdown-info-stack {
+    align-items: flex-start;
+    padding-top: 10px;
+  }
+  .nav-dropdown-socials {
+    justify-content: flex-start;
+  }
 }
 
-.nav-deck-btn {
-  margin-top: var(--nav-dropdown-deck-margin-top, 18px);
-  display: flex;
+/* Bottom-Centered Floating 'Start a project' Call Button (Syncs with Dropdown) */
+.nav-floating-cta {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px) scale(0.9);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  box-sizing: border-box;
-  padding: var(--nav-dropdown-deck-padding-y, 18px) 16px;
-  background: #101010;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 6px;
-  color: #ffffff;
-  font-family: 'Sometype Mono', var(--font-mono), monospace;
-  font-size: 11px;
-  font-weight: var(--nav-dropdown-btn-font-weight, 500);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  user-select: none !important;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
-}
-
-.nav-deck-btn:hover,
-.nav-deck-btn:focus-visible {
-  background: #1e1e24;
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-1px);
-}
-
-.nav-actions-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--nav-dropdown-actions-gap, 12px);
-  margin-top: var(--nav-dropdown-actions-margin-top, 12px);
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.nav-action-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--nav-dropdown-action-btn-padding-y, 18px) 10px;
+  height: 46px;
+  min-width: 46px;
+  padding: 0 15px;
   background: #f4f0ea;
   color: #0e0e11;
-  border-radius: 6px;
-  font-family: 'Sometype Mono', var(--font-mono), monospace;
-  font-size: 11px;
-  font-weight: var(--nav-dropdown-btn-font-weight, 500);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.3);
   text-decoration: none;
-  text-align: center;
-  white-space: nowrap;
+  cursor: pointer;
+  z-index: 1001;
+  opacity: 0;
+  pointer-events: none;
   user-select: none !important;
-  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  text-transform: none !important;
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              box-shadow 0.2s ease,
+              padding 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 
-.nav-action-btn:hover,
-.nav-action-btn:focus-visible {
+/* Make visible when dropdown menu is active */
+body.nav-dropdown-active .nav-floating-cta,
+.nav-floating-cta.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.nav-floating-cta:hover,
+.nav-floating-cta:focus-visible {
   background: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.75), 0 4px 12px rgba(255, 255, 255, 0.15);
+  transform: translateX(-50%) translateY(-2px) scale(1.02);
+  padding: 0 20px 0 16px;
+}
+
+.nav-floating-cta .floating-cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: #0e0e11;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.nav-floating-cta:hover .floating-cta-icon {
+  transform: rotate(-8deg) scale(1.05);
+}
+
+.nav-floating-cta .floating-cta-text {
+  display: inline-block;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--font-display, "Neue Haas Grotesk Display Pro", "Inter", sans-serif);
+  font-size: 13.5px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #0e0e11;
+  text-transform: none !important;
+  margin-left: 0;
+  transition: max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease,
+              margin-left 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-floating-cta:hover .floating-cta-text,
+.nav-floating-cta:focus-visible .floating-cta-text {
+  max-width: 140px;
+  opacity: 1;
+  margin-left: 9px;
 }
 
 /* Compact Brand Lockup (N/P®) - Aligned on Exact Same Visual Level */
@@ -965,16 +1129,15 @@ body.nav-dropdown-active .hero-center-visual {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: visible;
-  will-change: width, height, transform;
-  background-color: transparent;
-  clip-path: none;
-  -webkit-clip-path: none;
+  overflow: hidden;
+  will-change: width, height, transform, clip-path;
+  background-color: #040404;
+  clip-path: polygon(41.496% 0%, 98.150% 0%, 100% 19.792%, 100% 80.215%, 56.652% 80.215%, 58.502% 100%, 1.848% 100%, 0% 80.215%, 0% 19.792%, 43.346% 19.792%);
+  -webkit-clip-path: polygon(41.496% 0%, 98.150% 0%, 100% 19.792%, 100% 80.215%, 56.652% 80.215%, 58.502% 100%, 1.848% 100%, 0% 80.215%, 0% 19.792%, 43.346% 19.792%);
 }
 
 .hero-tv-wrapper:hover {
   transform: none !important;
-  filter: none !important;
 }
 
 .hero-tv-canvas {
@@ -989,43 +1152,44 @@ body.nav-dropdown-active .hero-center-visual {
   opacity: var(--hero-canvas-opacity, 1);
 }
 
-/* 4 Corner Square Marks around ASCII Box (Hidden) */
-.ascii-corner-slash,
-.ascii-corner-square {
+/* 4 Corner Slash Marks around ASCII Box (Removed) */
+.ascii-corner-slash {
   display: none;
   position: absolute;
-  width: var(--corner-square-size, 7px);
-  height: var(--corner-square-size, 7px);
-  background-color: var(--corner-square-color, #ffffff);
+  font-family: var(--font-sans, -apple-system, sans-serif);
+  font-size: var(--corner-slashes-size, 54px);
+  font-weight: var(--corner-slashes-weight, 700);
+  color: var(--corner-slashes-color, #ffffff);
+  line-height: 1;
   pointer-events: none;
   user-select: none;
   z-index: 15;
   transition: opacity 0.3s ease, filter 0.3s ease;
-  opacity: var(--corner-slashes-opacity, 0);
+  opacity: 0;
 }
 
 .ascii-corner-tl {
-  top: var(--corner-tl-y, -16px);
-  left: var(--corner-tl-x, -16px);
-  opacity: calc(var(--corner-slashes-opacity, 1) * var(--corner-tl-opacity, 1));
+  top: var(--corner-tl-y, var(--corner-slashes-offset-y, -65px));
+  left: var(--corner-tl-x, var(--corner-slashes-offset-x, 0px));
+  opacity: 0;
 }
 
 .ascii-corner-tr {
-  top: var(--corner-tr-y, -16px);
-  right: var(--corner-tr-x, -16px);
-  opacity: calc(var(--corner-slashes-opacity, 1) * var(--corner-tr-opacity, 1));
+  top: var(--corner-tr-y, var(--corner-slashes-offset-y, -65px));
+  right: var(--corner-tr-x, var(--corner-slashes-offset-x, 0px));
+  opacity: 0;
 }
 
 .ascii-corner-bl {
-  bottom: var(--corner-bl-y, -16px);
-  left: var(--corner-bl-x, -16px);
-  opacity: calc(var(--corner-slashes-opacity, 1) * var(--corner-bl-opacity, 1));
+  bottom: var(--corner-bl-y, var(--corner-slashes-offset-y, -65px));
+  left: var(--corner-bl-x, var(--corner-slashes-offset-x, 0px));
+  opacity: 0;
 }
 
 .ascii-corner-br {
-  bottom: var(--corner-br-y, -16px);
-  right: var(--corner-br-x, -16px);
-  opacity: calc(var(--corner-slashes-opacity, 1) * var(--corner-br-opacity, 1));
+  bottom: var(--corner-br-y, var(--corner-slashes-offset-y, -65px));
+  right: var(--corner-br-x, var(--corner-slashes-offset-x, 0px));
+  opacity: 0;
 }
 
 /* Lava ASCII spark particle canvas */
@@ -1151,7 +1315,7 @@ body.nav-dropdown-active .hero-center-visual {
   pointer-events: auto;
   user-select: none;
   font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Display", var(--font-sans), -apple-system, sans-serif;
-  font-size: 45px;
+  font-size: var(--hero-bottom-text-size, var(--headline-font-size, 48px));
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.02em;
