@@ -586,7 +586,7 @@ body.nav-dropdown-active .hero-center-visual {
   text-align: left;
   padding: 2px 0;
   text-decoration: none;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.85);
   font-family: var(--font-display, "Neue Haas Grotesk Display Pro", "Inter", -apple-system, sans-serif);
   font-size: var(--nav-dropdown-item-font-size, 16.5px);
   font-weight: var(--nav-dropdown-item-font-weight, 400);
@@ -599,12 +599,15 @@ body.nav-dropdown-active .hero-center-visual {
 
 /* Dim unhovered items when left column is hovered */
 .nav-dropdown-col-left:hover .nav-dropdown-row-link {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .nav-dropdown-col-left .nav-dropdown-row-link:hover,
-.nav-dropdown-col-left .nav-dropdown-row-link:focus-visible {
+.nav-dropdown-col-left .nav-dropdown-row-link:focus-visible,
+.nav-dropdown-row-link:hover,
+.nav-dropdown-row-link:focus-visible {
   color: #ffffff !important;
+  opacity: 1 !important;
 }
 
 /* Rolling Text Flip Container */
@@ -635,6 +638,13 @@ body.nav-dropdown-active .hero-center-visual {
   white-space: nowrap;
   user-select: none !important;
   text-transform: none !important;
+  transition: color 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-dropdown-row-link:hover .nav-row-roll-inner .nav-row-text,
+.nav-dropdown-row-link:focus-visible .nav-row-roll-inner .nav-row-text {
+  color: #ffffff !important;
+  opacity: 1 !important;
 }
 
 /* Flip text once on hover */
@@ -655,12 +665,13 @@ body.nav-dropdown-active .hero-center-visual {
   margin-top: -3px;
   margin-left: 3px;
   line-height: 1;
-  transition: color 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-dropdown-row-link:hover .nav-row-count,
 .nav-dropdown-row-link:focus-visible .nav-row-count {
-  color: #ffffff;
+  color: #ffffff !important;
+  opacity: 1 !important;
 }
 
 /* Vertical Dashed Divider (Centered in Middle) */
@@ -692,6 +703,12 @@ body.nav-dropdown-active .hero-center-visual {
   letter-spacing: 0.02em;
   line-height: 1;
   text-transform: none !important;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-dropdown-clock-wrap:hover {
+  color: #ffffff !important;
+  opacity: 1 !important;
 }
 
 .nav-dropdown-clock-wrap .nav-clock-dot {
@@ -714,12 +731,17 @@ body.nav-dropdown-active .hero-center-visual {
   padding-top: 24px;
 }
 
+.nav-dropdown-info-stack:hover .nav-info-email,
+.nav-dropdown-info-stack:hover .nav-info-phone {
+  color: rgba(255, 255, 255, 0.35);
+}
+
 .nav-info-email,
 .nav-info-phone {
   font-family: var(--font-sans, "Inter", -apple-system, sans-serif);
   font-size: var(--nav-dropdown-info-font-size, 14px);
   font-weight: 400;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   letter-spacing: -0.01em;
   transition: opacity 0.2s ease, color 0.2s ease;
@@ -727,10 +749,14 @@ body.nav-dropdown-active .hero-center-visual {
   text-transform: none !important;
 }
 
+.nav-dropdown-info-stack .nav-info-email:hover,
+.nav-dropdown-info-stack .nav-info-phone:hover,
 .nav-info-email:hover,
-.nav-info-phone:hover {
-  color: #ffffff;
-  opacity: 0.7;
+.nav-info-phone:hover,
+.nav-info-email:focus-visible,
+.nav-info-phone:focus-visible {
+  color: #ffffff !important;
+  opacity: 1 !important;
 }
 
 /* Socials Row */
@@ -742,19 +768,39 @@ body.nav-dropdown-active .hero-center-visual {
   margin-top: 6px;
 }
 
+.nav-dropdown-socials:hover .nav-social-icon {
+  color: rgba(255, 255, 255, 0.35);
+  opacity: 0.6;
+}
+
 .nav-social-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
-  opacity: 0.75;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
 }
 
-.nav-social-icon:hover {
-  opacity: 1;
+.nav-dropdown-socials .nav-social-icon:hover,
+.nav-dropdown-socials .nav-social-icon:focus-visible,
+.nav-social-icon:hover,
+.nav-social-icon:focus-visible {
+  opacity: 1 !important;
+  color: #ffffff !important;
   transform: translateY(-1px);
+}
+
+.nav-social-icon:hover svg,
+.nav-social-icon:focus-visible svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.nav-social-icon:hover .social-icon-txt,
+.nav-social-icon:focus-visible .social-icon-txt {
+  color: #ffffff !important;
 }
 
 .nav-social-icon .social-icon-txt {
@@ -763,12 +809,16 @@ body.nav-dropdown-active .hero-center-visual {
   font-size: 13px;
   letter-spacing: -0.02em;
   line-height: 1;
+  color: inherit;
+  transition: color 0.2s ease;
 }
 
 .nav-social-icon svg {
   width: 14px;
   height: 14px;
   display: block;
+  stroke: currentColor;
+  transition: color 0.2s ease, stroke 0.2s ease;
 }
 
 @media (max-width: 500px) {
