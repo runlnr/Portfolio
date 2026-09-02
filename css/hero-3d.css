@@ -586,7 +586,7 @@ body.nav-dropdown-active .hero-center-visual {
   text-align: left;
   padding: 2px 0;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.85);
+  color: #626262;
   font-family: var(--font-display, "Neue Haas Grotesk Display Pro", "Inter", -apple-system, sans-serif);
   font-size: var(--nav-dropdown-item-font-size, 16.5px);
   font-weight: var(--nav-dropdown-item-font-weight, 400);
@@ -599,7 +599,7 @@ body.nav-dropdown-active .hero-center-visual {
 
 /* Dim unhovered items when left column is hovered */
 .nav-dropdown-col-left:hover .nav-dropdown-row-link {
-  color: rgba(255, 255, 255, 0.35);
+  color: #383838;
 }
 
 .nav-dropdown-col-left .nav-dropdown-row-link:hover,
@@ -668,6 +668,10 @@ body.nav-dropdown-active .hero-center-visual {
   transition: color 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.nav-dropdown-col-left:hover .nav-dropdown-row-link .nav-row-count {
+  color: #383838;
+}
+
 .nav-dropdown-row-link:hover .nav-row-count,
 .nav-dropdown-row-link:focus-visible .nav-row-count {
   color: #ffffff !important;
@@ -699,7 +703,7 @@ body.nav-dropdown-active .hero-center-visual {
   font-family: 'Sometype Mono', var(--font-mono), monospace;
   font-size: 11px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  color: #626262;
   letter-spacing: 0.02em;
   line-height: 1;
   text-transform: none !important;
@@ -733,7 +737,7 @@ body.nav-dropdown-active .hero-center-visual {
 
 .nav-dropdown-info-stack:hover .nav-info-email,
 .nav-dropdown-info-stack:hover .nav-info-phone {
-  color: rgba(255, 255, 255, 0.35);
+  color: #383838;
 }
 
 .nav-info-email,
@@ -741,7 +745,7 @@ body.nav-dropdown-active .hero-center-visual {
   font-family: var(--font-sans, "Inter", -apple-system, sans-serif);
   font-size: var(--nav-dropdown-info-font-size, 14px);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
+  color: #626262;
   text-decoration: none;
   letter-spacing: -0.01em;
   transition: opacity 0.2s ease, color 0.2s ease;
@@ -769,7 +773,7 @@ body.nav-dropdown-active .hero-center-visual {
 }
 
 .nav-dropdown-socials:hover .nav-social-icon {
-  color: rgba(255, 255, 255, 0.35);
+  color: #383838;
   opacity: 0.6;
 }
 
@@ -777,9 +781,9 @@ body.nav-dropdown-active .hero-center-visual {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.75);
+  color: #626262;
   text-decoration: none;
-  opacity: 0.85;
+  opacity: 1;
   transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
 }
 
