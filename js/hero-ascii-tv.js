@@ -98,12 +98,29 @@
       return;
     }
 
+    window.heroTvAsciiConfig = window.heroTvAsciiConfig || {
+      videoScale: 1,
+      videoOffsetX: 0,
+      videoOffsetY: 0,
+      cellSize: 10,
+      dotScale: 1.35,
+      contrast: 0.1,
+      brightness: 0.69,
+      bloomStrength: 0.4,
+      tvness: 0.95,
+      fisheyeStrength: 0.08,
+      sideBulge: 0.06,
+      vertBulge: 0.06,
+      tvSizeX: 2,
+      tvSizeY: 2,
+    };
+
     const defaultConfig = {
       cellSize: 10,
-      dotScale: 1.3,
+      dotScale: 1.35,
       contrast: 0.1,
-      brightness: 0.7,
-      bloomStrength: 0.35,
+      brightness: 0.69,
+      bloomStrength: 0.4,
       tvness: 0.95,
       fisheyeStrength: 0.08,
       sideBulge: 0.06,

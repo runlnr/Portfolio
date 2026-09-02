@@ -11,21 +11,21 @@
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'np_hero_designer_state_v20';
+  const STORAGE_KEY = 'np_hero_designer_state_v21';
 
   const DESIGNER_CONFIG = {
     // ── TAB 1: SHAPE ─────────────────────────────────────────────────────────
     '--hero-tv-width':  { val: 980,  unit: 'px', min: 200,  max: 1600, step: 5,    label: 'Shape Width',               type: 'css' },
-    '--hero-tv-height': { val: 540,  unit: 'px', min: 50,   max: 900,  step: 2,    label: 'Shape Height',              type: 'css' },
+    '--hero-tv-height': { val: 586,  unit: 'px', min: 50,   max: 900,  step: 2,    label: 'Shape Height',              type: 'css' },
     '--hero-tv-scale':  { val: 1.0,  unit: '',   min: 0.4,  max: 2.5,  step: 0.02, label: 'Overall Scale',             type: 'css' },
-    '--hero-tv-top':    { val: 51.0, unit: '%',  min: 10,   max: 90,   step: 0.5,  label: 'Vertical Position (Y %)',   type: 'css' },
+    '--hero-tv-top':    { val: 50.5, unit: '%',  min: 10,   max: 90,   step: 0.5,  label: 'Vertical Position (Y %)',   type: 'css' },
     '--hero-tv-left':   { val: 50.0, unit: '%',  min: 10,   max: 90,   step: 0.5,  label: 'Horizontal Position (X %)', type: 'css' },
 
     // ── TAB 2: CRT TUBE CURVATURE & GEOMETRY ─────────────────────────────────
     'crtSideBulge':     { val: 5.0,  unit: '%',  min: 0,    max: 15,   step: 0.1,  label: 'Horizontal / Side Bulge (% W)',       type: 'crt' },
     'crtVertBulge':     { val: 11.5, unit: '%',  min: 0,    max: 15,   step: 0.1,  label: 'Vertical / Top-Bot Bulge (% H)',      type: 'crt' },
     'crtCornerRadius':  { val: 0.2,  unit: '%',  min: 0.1,  max: 15,   step: 0.1,  label: 'Corner Fillet Radius (%)',            type: 'crt' },
-    'crtEdgeBlur':      { val: 5.0,  unit: 'px', min: 0,    max: 40,   step: 0.5,  label: 'Edge Blur / Defocus',                 type: 'crt' },
+    'crtEdgeBlur':      { val: 3.0,  unit: 'px', min: 0,    max: 40,   step: 0.5,  label: 'Edge Blur / Defocus',                 type: 'crt' },
 
     // ── TAB 3: TEXT & TYPOGRAPHY ─────────────────────────────────────────────
     '--hero-bottom-text-size':    { val: 48,    unit: 'px', min: 14,   max: 140, step: 1,     label: 'Bottom Statements Size',    type: 'css' },
@@ -57,10 +57,10 @@
     'videoOffsetX':     { val: 0.0,  unit: '',   min: -1.0, max: 1.0,  step: 0.01, label: 'Pan Character X',                type: 'shader' },
     'videoOffsetY':     { val: 0.0,  unit: '',   min: -1.0, max: 1.0,  step: 0.01, label: 'Pan Character Y',                type: 'shader' },
     'cellSize':         { val: 10,   unit: 'px', min: 2,    max: 28,  step: 0.5,  label: 'Cell Size (Grid Density)',        type: 'shader' },
-    'dotScale':         { val: 1.3,  unit: 'x',  min: 0.2,  max: 3.0, step: 0.05, label: 'Glyph Fill / Dot Scale',           type: 'shader' },
+    'dotScale':         { val: 1.35, unit: 'x',  min: 0.2,  max: 3.0, step: 0.05, label: 'Glyph Fill / Dot Scale',           type: 'shader' },
     'contrast':         { val: 0.1,  unit: 'x',  min: 0.1,  max: 3.0, step: 0.05, label: 'Video Contrast',                   type: 'shader' },
-    'brightness':       { val: 0.7,  unit: '',   min: -0.5, max: 1.5, step: 0.01, label: 'Video Brightness',                 type: 'shader' },
-    'bloomStrength':    { val: 0.35, unit: 'x',  min: 0.0,  max: 3.0, step: 0.05, label: 'Glow / Bloom Strength',            type: 'shader' },
+    'brightness':       { val: 0.69, unit: '',   min: -0.5, max: 1.5, step: 0.01, label: 'Video Brightness',                 type: 'shader' },
+    'bloomStrength':    { val: 0.4,  unit: 'x',  min: 0.0,  max: 3.0, step: 0.05, label: 'Glow / Bloom Strength',            type: 'shader' },
     'tvness':           { val: 0.95, unit: '',   min: 0.0,  max: 2.0, step: 0.05, label: 'CRT Scanlines & Color Mix',        type: 'shader' },
     'fisheyeStrength':  { val: 0.08, unit: '',   min: 0.0,  max: 0.5, step: 0.01, label: 'CRT Fisheye Distortion',           type: 'shader' },
     'sideBulge':        { val: 0.06, unit: '',   min: -0.5, max: 0.5, step: 0.01, label: 'Side Bulge (barrel/pin)',          type: 'shader' },
