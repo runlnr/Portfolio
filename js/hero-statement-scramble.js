@@ -167,15 +167,28 @@
     scheduleNextSwap();
   }
 
+  function destroyHeroStatementScramble() {
+    if (swapTimeoutId) {
+      clearTimeout(swapTimeoutId);
+      swapTimeoutId = null;
+    }
+    isInitialized = false;
+    isScrambling = false;
+  }
+
   // Expose API for external control
   window.initHeroStatementScramble = initHeroStatementScramble;
+  window.destroyHeroStatementScramble = destroyHeroStatementScramble;
   window.heroStatementScramble = {
     performScramble,
     scheduleNextSwap,
+    destroyHeroStatementScramble,
     get currentIndex() { return currentIndex; },
     get isScrambling() { return isScrambling; },
     PHRASES
   };
+
+  window.addEventListener('pagehide', destroyHeroStatementScramble, { once: true });
 
   // Immediate initialize on DOMContentLoaded or if already loaded
   if (document.readyState === 'loading') {

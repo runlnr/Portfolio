@@ -109,12 +109,15 @@
       sideBulge: 0.0,
       vertBulge: 0.0,
       tvSizeX: 2.0,
-      tvSizeY: 2.0
+      tvSizeY: 2.0,
+      videoScale: 1.0,
+      videoOffsetX: 0.0,
+      videoOffsetY: 0.0
     };
 
     let savedShaderState = {};
     try {
-      const stored = localStorage.getItem('np_visual_designer_state');
+      const stored = localStorage.getItem('np_hero_designer_state_v6') || localStorage.getItem('np_visual_designer_state');
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed) {
@@ -163,10 +166,12 @@
       uniform float u_vert_bulge;
       uniform float u_tv_size_x;
       uniform float u_tv_size_y;
+      uniform float u_video_scale;
+      uniform vec2 u_video_offset;
       uniform float u_glyph_count;
       uniform float u_time;
 
-      vec2 coverUV(vec2 uv, vec2 src, vec2 dst) {
+      vec2 coverUV(vec2 uv, vec2 src, vec2 dst, float vScale, vec2 vOffset) {
         float srcAspect = src.x / src.y;
         float dstAspect = dst.x / dst.y;
         vec2 outUV = uv;
@@ -177,6 +182,7 @@
           float scale = dstAspect / srcAspect;
           outUV.x = uv.x * scale + (1.0 - scale) * 0.5;
         }
+        outUV = (outUV - 0.5 - vOffset) / max(vScale, 0.05) + 0.5;
         return outUV;
       }
 
@@ -199,7 +205,7 @@
         // CRT barrel distortion
         vec2 sampleUV = fisheyeUV(cellUV, u_fisheye_strength * u_tvness);
         sampleUV = clamp(sampleUV, vec2(0.001), vec2(0.999));
-        vec2 videoUV = coverUV(sampleUV, u_video_resolution, u_resolution);
+        vec2 videoUV = coverUV(sampleUV, u_video_resolution, u_resolution, u_video_scale, u_video_offset);
 
         // Sample video
         vec3 color = texture2D(u_video, videoUV).rgb;
@@ -271,6 +277,8 @@
     const uVertBulge = gl.getUniformLocation(program, 'u_vert_bulge');
     const uTvSizeX = gl.getUniformLocation(program, 'u_tv_size_x');
     const uTvSizeY = gl.getUniformLocation(program, 'u_tv_size_y');
+    const uVideoScale = gl.getUniformLocation(program, 'u_video_scale');
+    const uVideoOffset = gl.getUniformLocation(program, 'u_video_offset');
     const uGlyphCount = gl.getUniformLocation(program, 'u_glyph_count');
     const uTime = gl.getUniformLocation(program, 'u_time');
 
@@ -328,6 +336,8 @@
         gl.uniform1f(uVertBulge, params.vertBulge);
         gl.uniform1f(uTvSizeX, params.tvSizeX);
         gl.uniform1f(uTvSizeY, params.tvSizeY);
+        gl.uniform1f(uVideoScale, params.videoScale !== undefined ? params.videoScale : 1.0);
+        gl.uniform2f(uVideoOffset, params.videoOffsetX || 0.0, params.videoOffsetY || 0.0);
         gl.uniform1f(uGlyphCount, glyphChars.length);
         gl.uniform1f(uTime, performance.now() * 0.001);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
@@ -341,7 +351,29 @@
     render();
   }
 
+  function destroyHeroTvAscii() {
+    if (currentAnimId) {
+      cancelAnimationFrame(currentAnimId);
+      currentAnimId = null;
+    }
+    if (currentVideo) {
+      try {
+        currentVideo.pause();
+        currentVideo.src = '';
+        currentVideo.remove();
+      } catch (e) {}
+      currentVideo = null;
+    }
+    if (currentResizeHandler) {
+      window.removeEventListener('resize', currentResizeHandler);
+      currentResizeHandler = null;
+    }
+  }
+
   window.initHeroTvAscii = initHeroTvAscii;
+  window.destroyHeroTvAscii = destroyHeroTvAscii;
+
+  window.addEventListener('pagehide', destroyHeroTvAscii, { once: true });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initHeroTvAscii);

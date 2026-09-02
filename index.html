@@ -5,7 +5,7 @@
   <script>if (sessionStorage.getItem('np_has_seen_intro')) { document.documentElement.classList.add('skip-intro'); }</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>N/P® — Award-Winning Graphic Design Studio</title>
+  <title>Nam Pham</title>
   <meta name="description"
     content="N/P is an independent graphic design practice based in Ho Chi Minh City, creating timeless brands and digital experiences where flawless functionality meets editorial aesthetics.">
 
@@ -15,6 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600;700;800;900&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@1,400;1,600;1,700&display=swap"
     rel="stylesheet">
 
+  <link rel="preload" href="assets/fonts/NeueHaasDisplayRoman.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="css/typography.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
@@ -88,25 +89,28 @@
       --cta-btn-font-size: 10.5px;
       --cta-btn-font-weight: 600;
 
+      /* Polygon Slant Clip-Path */
+      --hero-tv-clip-path: polygon(41.446% 0.000%, 97.892% 0.000%, 100.000% 17.000%, 100.000% 83.000%, 56.526% 83.000%, 58.634% 100.000%, 2.108% 100.000%, 0.000% 83.000%, 0.000% 17.000%, 43.554% 17.000%);
+
       /* ASCII & Slashes */
       --hero-tv-top: 50%;
       --hero-tv-left: 50%;
       --hero-tv-width: 910px;
       --hero-tv-height: 310px;
       --hero-tv-scale: 1;
-      --corner-slashes-size: 54px;
-      --corner-slashes-weight: 700;
+      --corner-slashes-size: 43px;
+      --corner-slashes-weight: 600;
       --corner-slashes-color: #ffffff;
       --corner-slashes-offset-x: 0px;
-      --corner-slashes-offset-y: -65px;
-      --corner-tl-x: -20px;
-      --corner-tl-y: -3px;
-      --corner-tr-x: -3px;
-      --corner-tr-y: -3px;
-      --corner-bl-x: -20px;
-      --corner-bl-y: -8px;
-      --corner-br-x: -3px;
-      --corner-br-y: -8px;
+      --corner-slashes-offset-y: 0px;
+      --corner-tl-x: -22px;
+      --corner-tl-y: -6px;
+      --corner-tr-x: -22px;
+      --corner-tr-y: -6px;
+      --corner-bl-x: -22px;
+      --corner-bl-y: -6px;
+      --corner-br-x: -22px;
+      --corner-br-y: -6px;
 
       /* Opacities (0-100%) */
       --hero-visual-opacity: 1;
@@ -312,13 +316,19 @@
       <svg width="0" height="0" style="position:absolute;width:0;height:0;pointer-events:none;" aria-hidden="true">
         <defs>
           <clipPath id="hero-shape-clip" clipPathUnits="objectBoundingBox">
-            <polygon points="0.41496 0, 0.98150 0, 1 0.19792, 1 0.80215, 0.56652 0.80215, 0.58502 1, 0.01848 1, 0 0.80215, 0 0.19792, 0.43346 0.19792" />
+            <polygon points="0.41446 0, 0.97892 0, 1 0.17000, 1 0.83000, 0.56526 0.83000, 0.58634 1, 0.02108 1, 0 0.83000, 0 0.17000, 0.43554 0.17000" />
           </clipPath>
         </defs>
       </svg>
 
       <!-- Central Lockup: Geometric Cyber ASCII Shape Visual -->
       <div class="hero-center-visual" id="hero-center-visual">
+        <!-- 4 Corner Slash Marks around ASCII Box -->
+        <span class="ascii-corner-slash ascii-corner-tl" aria-hidden="true">/</span>
+        <span class="ascii-corner-slash ascii-corner-tr" aria-hidden="true">\</span>
+        <span class="ascii-corner-slash ascii-corner-bl" aria-hidden="true">\</span>
+        <span class="ascii-corner-slash ascii-corner-br" aria-hidden="true">/</span>
+
         <div class="hero-tv-wrapper" id="hero-tv-wrapper">
           <canvas id="hero-tv-canvas" class="hero-tv-canvas" aria-label="ASCII Video Effect"></canvas>
         </div>
@@ -396,7 +406,6 @@
   <script src="js/project.js"></script>
   <script src="js/contact.js"></script>
   <script src="js/hero-ascii-tv.js"></script>
-  <!-- <script src="js/hero-lava-sparks.js"></script> -->
   <script src="js/hero-scroll-transition.js"></script>
   <script src="js/hero-statement-scramble.js"></script>
   <script src="js/app.js"></script>

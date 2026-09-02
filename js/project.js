@@ -32,6 +32,7 @@ window.initProjectPage = function() {
     heroImg.src = project.image;
     heroImg.alt = project.title;
   }
+  document.title = `${project.title} • Nam Pham`;
 
   // Populate Gallery Images
   if (gallery && project.gallery && project.gallery.length) {

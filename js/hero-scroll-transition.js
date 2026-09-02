@@ -50,8 +50,9 @@
     // Register ScrollTrigger plugin
     window.gsap.registerPlugin(window.ScrollTrigger);
 
-    const SHAPE_POLYGON = 'polygon(41.496% 0%, 98.150% 0%, 100% 19.792%, 100% 80.215%, 56.652% 80.215%, 58.502% 100%, 1.848% 100%, 0% 80.215%, 0% 19.792%, 43.346% 19.792%)';
-    const RECT_POLYGON = 'polygon(0% 0%, 100% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%, 0% 100%, 0% 100%, 0% 0%, 0% 0%)';
+    const DEFAULT_SHAPE_POLYGON = 'polygon(41.446% 0.000%, 97.892% 0.000%, 100.000% 17.000%, 100.000% 83.000%, 56.526% 83.000%, 58.634% 100.000%, 2.108% 100.000%, 0.000% 83.000%, 0.000% 17.000%, 43.554% 17.000%)';
+    const getShapePolygon = () => window.currentShapePolygon || DEFAULT_SHAPE_POLYGON;
+    const RECT_POLYGON  = 'polygon(0% 0%, 100% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%, 0% 100%, 0% 100%, 0% 0%, 0% 0%)';
 
     // Initial sizes helper (respects Visual Designer or CSS overrides)
     function getInitialTvDimensions() {
@@ -204,8 +205,8 @@
       {
         width: () => `${getInitialTvDimensions().w}px`,
         height: () => `${getInitialTvDimensions().h}px`,
-        clipPath: SHAPE_POLYGON,
-        webkitClipPath: SHAPE_POLYGON,
+        clipPath: getShapePolygon(),
+        webkitClipPath: getShapePolygon(),
         maxWidth: 'none',
         maxHeight: 'none',
         opacity: 1
@@ -305,13 +306,36 @@
     clearInlineOverridesAtTop();
     tl.eventCallback('onUpdate', clearInlineOverridesAtTop);
 
-    // Refresh ScrollTrigger on window resize
+    let resizeTimer = null;
     window.addEventListener('resize', () => {
-      window.ScrollTrigger.refresh();
+      if (resizeTimer) cancelAnimationFrame(resizeTimer);
+      resizeTimer = requestAnimationFrame(() => {
+        if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+      });
     }, { passive: true });
   }
 
+  function destroyHeroScrollTransition() {
+    if (currentTimeline) {
+      currentTimeline.kill();
+      currentTimeline = null;
+    }
+  }
+
+  function refreshHeroTransition() {
+    if (currentTimeline) {
+      currentTimeline.invalidate();
+    }
+    if (window.ScrollTrigger) {
+      window.ScrollTrigger.refresh();
+    }
+  }
+
   window.initHeroScrollTransition = initHeroScrollTransition;
+  window.destroyHeroScrollTransition = destroyHeroScrollTransition;
+  window.refreshHeroTransition = refreshHeroTransition;
+
+  window.addEventListener('pagehide', destroyHeroScrollTransition, { once: true });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {

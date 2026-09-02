@@ -788,33 +788,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  setInterval(updateLiveClockGMT7, 1000);
+  const clockIntervalId = setInterval(updateLiveClockGMT7, 1000);
   updateLiveClockGMT7();
 
   // 8. Description Anchor Sync for Top Navigation (Group B left edge === Description left edge)
+  let syncRafId = null;
   function syncNavAnchorToDescription() {
-    const desc = document.querySelector('.hero-bottom-desc');
-    const anchor = document.getElementById('nav-anchor-container');
-    if (!desc || !anchor) return;
+    if (syncRafId) cancelAnimationFrame(syncRafId);
+    syncRafId = requestAnimationFrame(() => {
+      const desc = document.querySelector('.hero-bottom-desc');
+      const anchor = document.getElementById('nav-anchor-container');
+      if (!desc || !anchor) return;
 
-    const descRect = desc.getBoundingClientRect();
-    if (descRect && descRect.left > 0) {
-      document.documentElement.style.setProperty('--nav-desc-left', `${descRect.left}px`);
-    }
+      const descRect = desc.getBoundingClientRect();
+      if (descRect && descRect.left > 0) {
+        document.documentElement.style.setProperty('--nav-desc-left', `${descRect.left}px`);
+      }
+    });
   }
 
   window.syncNavAnchorToDescription = syncNavAnchorToDescription;
 
   // Run on load, resize, and layout changes
-  window.addEventListener('resize', syncNavAnchorToDescription);
+  window.addEventListener('resize', syncNavAnchorToDescription, { passive: true });
+  let bottomBarRo = null;
   if (window.ResizeObserver) {
     const bottomBar = document.querySelector('.hero-bottom-bar');
     if (bottomBar) {
-      const ro = new ResizeObserver(() => syncNavAnchorToDescription());
-      ro.observe(bottomBar);
+      bottomBarRo = new ResizeObserver(() => syncNavAnchorToDescription());
+      bottomBarRo.observe(bottomBar);
     }
   }
   setTimeout(syncNavAnchorToDescription, 60);
   setTimeout(syncNavAnchorToDescription, 300);
   setTimeout(syncNavAnchorToDescription, 1000);
+
+  // Lifecycle Cleanup on page navigation
+  window.addEventListener('pagehide', () => {
+    clearInterval(clockIntervalId);
+    if (syncRafId) cancelAnimationFrame(syncRafId);
+    if (bottomBarRo) bottomBarRo.disconnect();
+  }, { once: true });
 });

@@ -161,6 +161,14 @@ class MotionStack {
     });
   }
 
+  destroy() {
+    if (this.lenis) {
+      this.lenis.destroy();
+      this.lenis = null;
+    }
+    this.isInitialized = false;
+  }
+
   refresh() {
     if (this.lenis) this.lenis.resize();
     if (window.ScrollTrigger) window.ScrollTrigger.refresh();
@@ -171,3 +179,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.motionStack = new MotionStack();
   if (window.initIcons) window.initIcons();
 });
+
+window.addEventListener('pagehide', () => {
+  if (window.motionStack && typeof window.motionStack.destroy === 'function') {
+    window.motionStack.destroy();
+  }
+}, { once: true });
