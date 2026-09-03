@@ -18,7 +18,7 @@ window.initContactPage = function() {
       setTimeout(() => {
         if (statusMsg) {
           statusMsg.textContent = 'MESSAGE DISPATCHED SUCCESSFULLY.';
-          statusMsg.style.color = '#ffffff';
+          statusMsg.style.color = '#faf9fc';
         }
         form.reset();
         if (submitBtn) {

@@ -46,7 +46,7 @@
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = '#000000';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = '#faf9fc';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.font = `${fontWeight} ${Math.floor(glyphSize * 0.78)}px Menlo, Monaco, "Courier New", monospace`;

@@ -770,9 +770,14 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       const timeStr = new Intl.DateTimeFormat('en-GB', options).format(now);
       const formatted = `${timeStr} (GMT+7)`;
+      const formattedICT = `${timeStr} ICT`;
 
       clockElements.forEach(el => {
-        el.textContent = formatted;
+        if (el.classList.contains('nav-dropdown-clock') || el.closest('.nav-dropdown-menu')) {
+          el.textContent = formattedICT;
+        } else {
+          el.textContent = formatted;
+        }
       });
     } catch (e) {
       const now = new Date();
@@ -781,9 +786,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const hours = String(gmt7.getHours()).padStart(2, '0');
       const minutes = String(gmt7.getMinutes()).padStart(2, '0');
       const seconds = String(gmt7.getSeconds()).padStart(2, '0');
-      const formatted = `${hours}:${minutes}:${seconds} (GMT+7)`;
+      const timeStr = `${hours}:${minutes}:${seconds}`;
+      const formatted = `${timeStr} (GMT+7)`;
+      const formattedICT = `${timeStr} ICT`;
       clockElements.forEach(el => {
-        el.textContent = formatted;
+        if (el.classList.contains('nav-dropdown-clock') || el.closest('.nav-dropdown-menu')) {
+          el.textContent = formattedICT;
+        } else {
+          el.textContent = formatted;
+        }
       });
     }
   }

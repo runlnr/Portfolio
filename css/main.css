@@ -1,6 +1,6 @@
 :root {
   --bg: #030303;
-  --text-color: #ffffff;
+  --text-color: #faf9fc;
   --text-muted: #8e8e8e;
   --border-color: rgba(255, 255, 255, 0.14);
   --border-light: rgba(255, 255, 255, 0.08);
@@ -8,7 +8,7 @@
   --accent-red: #ff3333;
   --surface-dark: #030303;
   --surface-dark-card: #181818;
-  --text-light: #ffffff;
+  --text-light: #faf9fc;
   
   --spacing-xs: 4px;
   --spacing-sm: 8px;
@@ -50,7 +50,7 @@ html {
 
 body {
   background-color: #030303;
-  color: #ffffff;
+  color: #faf9fc;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

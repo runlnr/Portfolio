@@ -3,6 +3,10 @@
  */
 
 window.initProjectPage = function() {
+  // Only execute on project case study pages with hero elements
+  const isProjectPage = document.getElementById('project-title') || document.getElementById('project-hero-image');
+  if (!isProjectPage) return;
+
   const projects = window.SWAG_PROJECTS || [];
   if (!projects.length) return;
 

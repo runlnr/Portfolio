@@ -151,7 +151,7 @@
       --tagline-font-weight: 400;
       --tagline-line-height: 1.1;
       --tagline-letter-spacing: -0.015em;
-      --tagline-color: #ffffff;
+      --tagline-color: #faf9fc;
       --tagline-bottom: 25px;
       --tagline-left: calc(50% + 200px);
       --tagline-max-width: 270px;
@@ -264,7 +264,7 @@
             <!-- Top Right: Live Studio Clock -->
             <div class="nav-dropdown-clock-wrap">
               <span class="nav-clock-dot"></span>
-              <span class="nav-dropdown-clock live-clock">--:--:-- (GMT+7)</span>
+              <span class="nav-dropdown-clock live-clock">--:--:-- ICT</span>
             </div>
 
             <!-- Middle / Bottom Right Details -->
@@ -361,8 +361,18 @@
       <!-- A. Section 1: Studio Editorial & Portfolio Showcase -->
       <section class="f3-section-intro" id="f3-intro">
         <div class="f3-container">
-          <!-- Manifesto Statement (Anchored to Right Column) -->
+          <!-- Manifesto Statement with Coordinates & Ongoing Projects Left Column -->
           <div class="f3-intro-lockup">
+            <!-- Left Column: Coordinates & Ongoing Projects Badge -->
+            <div class="f3-intro-left-col">
+              <span class="f3-intro-coordinates">10°49'23"N, 106°37'47"E</span>
+              <div class="f3-intro-ongoing-row">
+                <span class="f3-ongoing-badge">01</span>
+                <span class="f3-ongoing-label">Ongoing projects</span>
+              </div>
+            </div>
+
+            <!-- Right Column: Manifesto Statement & About Button -->
             <div class="f3-intro-right-col">
               <h2 class="f3-intro-statement">
                 Nam Pham is an independent designer working across branding and digital experience, based in Ho Chi Minh City.
@@ -374,20 +384,158 @@
             </div>
           </div>
 
-          <!-- Section Tag Moved Down Directly Above Works Grid -->
+          <!-- Section Header Row: 2 Columns matching Manifesto and Works Grid -->
           <div class="f3-featured-tag-row">
-            <span class="f3-featured-tag">/ Featured Works /</span>
+            <div class="f3-featured-col-left">
+              <span class="f3-featured-tag">/ Featured works /</span>
+            </div>
+            <div class="f3-featured-col-right">
+              <!-- View Switcher (List / Grid) in red box location -->
+              <div class="f3-view-switcher" role="radiogroup" aria-label="Portfolio View Switcher">
+                <button type="button" class="f3-view-btn" id="f3-view-list" aria-checked="false">LIST</button>
+                <button type="button" class="f3-view-btn is-active" id="f3-view-grid" aria-checked="true">GRID</button>
+              </div>
+
+              <!-- View more Link on far right -->
+              <a href="works.html" class="f3-featured-more-link">View more</a>
+            </div>
           </div>
 
-          <!-- Works Grid (Ready for upcoming projects) -->
+          <!-- Works Grid (Staggered 2-column editorial showcase) -->
           <div class="f3-works-grid-container" id="f3-portfolio">
-            <div class="f3-works-grid" id="f3-works-grid">
-              <!-- Projects cleared for now -->
+            <div class="f3-works-staggered-grid" id="f3-works-grid">
+              <!-- Column 1 (Left): Memphis Grizzlies, NK Hoops -->
+              <div class="f3-works-col f3-works-col-left">
+                <!-- Project 1: Memphis Grizzlies -->
+                <a href="project.html?id=memphis-grizzlies" class="f3-work-card" aria-label="Memphis Grizzlies (2024)">
+                  <div class="f3-work-card-media">
+                    <img src="assets/images/memphis-grizzlies.png" alt="Memphis Grizzlies" loading="lazy" />
+                  </div>
+                  <div class="f3-work-card-info">
+                    <div class="f3-work-card-title-row">
+                      <h3 class="f3-work-card-title">Memphis Grizzlies</h3>
+                      <span class="f3-work-card-year">2024</span>
+                    </div>
+                    <div class="f3-work-card-tags">
+                      <span class="f3-work-tag">BRANDING</span>
+                      <span class="f3-work-tag">SOCIAL</span>
+                      <span class="f3-work-tag">SPORT</span>
+                    </div>
+                  </div>
+                </a>
+
+                <!-- Project 3: NK Hoops -->
+                <a href="project.html?id=nk-hoops" class="f3-work-card" aria-label="NK Hoops (2025)">
+                  <div class="f3-work-card-media">
+                    <img src="assets/images/nk-hoops.jpg" alt="NK Hoops" loading="lazy" />
+                  </div>
+                  <div class="f3-work-card-info">
+                    <div class="f3-work-card-title-row">
+                      <h3 class="f3-work-card-title">NK Hoops</h3>
+                      <span class="f3-work-card-year">2025</span>
+                    </div>
+                    <div class="f3-work-card-tags">
+                      <span class="f3-work-tag">BRANDING</span>
+                      <span class="f3-work-tag">SOCIAL</span>
+                      <span class="f3-work-tag">SPORT</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Column 2 (Right): U.S. Ski & Snowboard | OWG Milano Cortina, Audi Revolut F1 -->
+              <div class="f3-works-col f3-works-col-right">
+                <!-- Project 2: U.S. Ski & Snowboard | OWG Milano Cortina -->
+                <a href="project.html?id=us-ski-snowboard" class="f3-work-card" aria-label="U.S. Ski & Snowboard | OWG Milano Cortina (2026)">
+                  <div class="f3-work-card-media">
+                    <img src="assets/images/us-ski-snowboard.jpg" alt="U.S. Ski & Snowboard | OWG Milano Cortina" loading="lazy" />
+                  </div>
+                  <div class="f3-work-card-info">
+                    <div class="f3-work-card-title-row">
+                      <h3 class="f3-work-card-title">U.S. Ski & Snowboard | OWG Milano Cortina</h3>
+                      <span class="f3-work-card-year">2026</span>
+                    </div>
+                    <div class="f3-work-card-tags">
+                      <span class="f3-work-tag">BRANDING</span>
+                      <span class="f3-work-tag">SOCIAL</span>
+                      <span class="f3-work-tag">SPORT</span>
+                    </div>
+                  </div>
+                </a>
+
+                <!-- Project 4: Audi Revolut F1 -->
+                <a href="project.html?id=audi-revolut-f1" class="f3-work-card" aria-label="Audi Revolut F1 (2026)">
+                  <div class="f3-work-card-media f3-work-card-media-photo">
+                    <img src="assets/images/audi-revolut-f1.jpg" alt="Audi Revolut F1" loading="lazy" />
+                  </div>
+                  <div class="f3-work-card-info">
+                    <div class="f3-work-card-title-row">
+                      <h3 class="f3-work-card-title">Audi Revolut F1</h3>
+                      <span class="f3-work-card-year">2026</span>
+                    </div>
+                    <div class="f3-work-card-tags">
+                      <span class="f3-work-tag">BRANDING</span>
+                      <span class="f3-work-tag">MOTION</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- List View (Hidden by default, shown when 'list' is selected) -->
+            <div class="f3-works-list-view" id="f3-works-list" style="display: none;">
+              <div class="f3-list-header-row">
+                <span class="f3-list-col-num">#</span>
+                <span class="f3-list-col-title">Project</span>
+                <span class="f3-list-col-field">Discipline</span>
+                <span class="f3-list-col-client">Client</span>
+                <span class="f3-list-col-year">Year</span>
+                <span class="f3-list-col-arrow"></span>
+              </div>
+              <div class="f3-list-items-wrap" id="f3-works-list-items">
+                <a href="project.html?id=memphis-grizzlies" class="f3-list-item-row" data-image="assets/images/memphis-grizzlies.png">
+                  <span class="f3-list-col-num">01</span>
+                  <span class="f3-list-col-title">Memphis Grizzlies</span>
+                  <span class="f3-list-col-field">Branding, Social, Sport</span>
+                  <span class="f3-list-col-client">Memphis Grizzlies / NBA</span>
+                  <span class="f3-list-col-year">2024</span>
+                  <span class="f3-list-col-arrow">↗</span>
+                </a>
+                <a href="project.html?id=us-ski-snowboard" class="f3-list-item-row" data-image="assets/images/us-ski-snowboard.jpg">
+                  <span class="f3-list-col-num">02</span>
+                  <span class="f3-list-col-title">U.S. Ski & Snowboard | OWG Milano Cortina</span>
+                  <span class="f3-list-col-field">Branding, Social, Sport</span>
+                  <span class="f3-list-col-client">U.S. Ski & Snowboard Team</span>
+                  <span class="f3-list-col-year">2026</span>
+                  <span class="f3-list-col-arrow">↗</span>
+                </a>
+                <a href="project.html?id=nk-hoops" class="f3-list-item-row" data-image="assets/images/nk-hoops.jpg">
+                  <span class="f3-list-col-num">03</span>
+                  <span class="f3-list-col-title">NK Hoops</span>
+                  <span class="f3-list-col-field">Branding, Social, Sport</span>
+                  <span class="f3-list-col-client">NK Basketball League</span>
+                  <span class="f3-list-col-year">2025</span>
+                  <span class="f3-list-col-arrow">↗</span>
+                </a>
+                <a href="project.html?id=audi-revolut-f1" class="f3-list-item-row" data-image="assets/images/audi-revolut-f1.jpg">
+                  <span class="f3-list-col-num">04</span>
+                  <span class="f3-list-col-title">Audi Revolut F1</span>
+                  <span class="f3-list-col-field">Branding, Motion</span>
+                  <span class="f3-list-col-client">Audi Revolut F1 Team</span>
+                  <span class="f3-list-col-year">2026</span>
+                  <span class="f3-list-col-arrow">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Floating Image Preview for List Rows -->
+            <div class="f3-hover-preview" id="f3-list-hover-preview" aria-hidden="true">
+              <img src="" id="f3-list-hover-img" alt="Project preview" />
             </div>
           </div>
 
           <!-- Bottom Legal Bar -->
-          <div class="f3-footer-legal-bar" style="margin-top: 80px; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+          <div class="f3-footer-legal-bar">
             <span>N/P® PRACTICE</span>
             <div style="display: flex; gap: 24px;">
               <a href="policies.html">IMPRINT</a>
@@ -413,7 +561,6 @@
   <script src="js/motion-stack.js"></script>
   <script src="js/futurethree-scroll.js"></script>
   <script src="js/works.js"></script>
-  <script src="js/project.js"></script>
   <script src="js/contact.js"></script>
   <script src="js/hero-ascii-tv.js"></script>
   <script src="js/hero-scroll-transition.js"></script>

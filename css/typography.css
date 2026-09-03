@@ -201,7 +201,7 @@ body {
   font-size: 13px;
   line-height: 1.35;
   letter-spacing: -0.015em;
-  color: #ffffff;
+  color: #faf9fc;
   background-color: #030303;
 }
 
@@ -218,5 +218,5 @@ body {
   line-height: var(--nav-line-height);
   letter-spacing: var(--nav-letter-spacing);
   text-transform: uppercase;
-  color: #ffffff;
+  color: #faf9fc;
 }
