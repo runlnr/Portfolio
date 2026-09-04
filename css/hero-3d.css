@@ -1358,7 +1358,6 @@ body.nav-dropdown-active .nav-floating-cta,
   letter-spacing: var(--hero-bottom-text-spacing, -0.02em);
   color: #faf9fc;
   white-space: nowrap;
-  transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
 .hero-text-left {

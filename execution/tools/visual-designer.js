@@ -16,7 +16,7 @@
     // ── TAB 1: MANIFESTO LOCKUP & STATEMENT ──────────────────────────────────
     '--manifesto-top-margin':           { val: 60,  unit: 'px', min: 0,   max: 250, step: 2, label: 'Section Top Padding',          type: 'css' },
     '--manifesto-lockup-margin-top':    { val: -18, unit: 'px', min: -50, max: 150, step: 1, label: 'Intro Lockup Margin Top',     type: 'css' },
-    '--manifesto-gap':                  { val: 120, unit: 'px', min: 0,   max: 400, step: 5, label: 'Intro Lockup Bottom Margin',  type: 'css' },
+    '--manifesto-gap':                  { val: 200, unit: 'px', min: 0,   max: 400, step: 5, label: 'Intro Lockup Bottom Margin',  type: 'css' },
     '--manifesto-coord-margin-top':     { val: 3,   unit: 'px', min: -40, max: 100, step: 1, label: 'Coordinates Top Offset',      type: 'css' },
     '--manifesto-coord-gap':            { val: 7,   unit: 'px', min: 0,   max: 80,  step: 1, label: 'Coordinates to Ongoing Gap',   type: 'css' },
     '--manifesto-statement-margin-top': { val: 0,   unit: 'px', min: -40, max: 100, step: 1, label: 'Statement Text Margin Top',   type: 'css' },

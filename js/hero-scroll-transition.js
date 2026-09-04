@@ -130,13 +130,26 @@
         fastScrollEnd: true,
         preventOverlaps: true,
         onLeave: () => {
+          if (bottomTextLeft) bottomTextLeft.style.visibility = 'hidden';
+          if (bottomTextRight) bottomTextRight.style.visibility = 'hidden';
           if (typeof window.updateNavbarTheme === 'function') {
             window.updateNavbarTheme();
           }
         },
         onEnterBack: () => {
+          if (bottomTextLeft) bottomTextLeft.style.visibility = '';
+          if (bottomTextRight) bottomTextRight.style.visibility = '';
           if (typeof window.updateNavbarTheme === 'function') {
             window.updateNavbarTheme();
+          }
+        },
+        onRefresh: (self) => {
+          if (self.progress >= 0.35) {
+            if (bottomTextLeft) bottomTextLeft.style.visibility = 'hidden';
+            if (bottomTextRight) bottomTextRight.style.visibility = 'hidden';
+          } else {
+            if (bottomTextLeft) bottomTextLeft.style.visibility = '';
+            if (bottomTextRight) bottomTextRight.style.visibility = '';
           }
         }
       }

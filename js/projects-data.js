@@ -10,7 +10,7 @@ window.SWAG_PROJECTS = [
     field: 'Branding, Social, Sport',
     disciplines: ['Branding', 'Social', 'Sport'],
     tags: ['BRANDING', 'SOCIAL', 'SPORT'],
-    image: 'assets/images/memphis-grizzlies.png',
+    image: 'assets/thumbnails/Memphis.webp',
     description: 'Dynamic visual identity, arena graphics, and social content campaign for the Memphis Grizzlies.'
   },
   {
@@ -23,7 +23,7 @@ window.SWAG_PROJECTS = [
     field: 'Branding, Social, Sport',
     disciplines: ['Branding', 'Social', 'Sport'],
     tags: ['BRANDING', 'SOCIAL', 'SPORT'],
-    image: 'assets/images/us-ski-snowboard.jpg',
+    image: 'assets/thumbnails/US S&S.webp',
     description: 'Identity exploration and generative artwork for the Olympic Winter Games Milano Cortina 2026 showcase.'
   },
   {

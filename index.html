@@ -390,10 +390,22 @@
               <span class="f3-featured-tag">/ Featured works /</span>
             </div>
             <div class="f3-featured-col-right">
-              <!-- View Switcher (List / Grid) in red box location -->
               <div class="f3-view-switcher" role="radiogroup" aria-label="Portfolio View Switcher">
-                <button type="button" class="f3-view-btn" id="f3-view-list" aria-checked="false">LIST</button>
-                <button type="button" class="f3-view-btn is-active" id="f3-view-grid" aria-checked="true">GRID</button>
+                <button type="button" class="f3-view-btn" id="f3-view-list" aria-checked="false" aria-label="List view">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="0" y="2.25" width="14" height="1.4" fill="currentColor"/>
+                    <rect x="0" y="6.3" width="14" height="1.4" fill="currentColor"/>
+                    <rect x="0" y="10.35" width="14" height="1.4" fill="currentColor"/>
+                  </svg>
+                </button>
+                <button type="button" class="f3-view-btn is-active" id="f3-view-grid" aria-checked="true" aria-label="Grid view">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="0" y="0" width="6.3" height="6.3" fill="currentColor"/>
+                    <rect x="7.7" y="0" width="6.3" height="6.3" fill="currentColor"/>
+                    <rect x="0" y="7.7" width="6.3" height="6.3" fill="currentColor"/>
+                    <rect x="7.7" y="7.7" width="6.3" height="6.3" fill="currentColor"/>
+                  </svg>
+                </button>
               </div>
 
               <!-- View more Link on far right -->
@@ -409,11 +421,19 @@
                 <!-- Project 1: Memphis Grizzlies -->
                 <a href="project.html?id=memphis-grizzlies" class="f3-work-card" aria-label="Memphis Grizzlies (2024)">
                   <div class="f3-work-card-media">
-                    <img src="assets/images/memphis-grizzlies.png" alt="Memphis Grizzlies" loading="lazy" />
+                    <img src="assets/thumbnails/Memphis.webp" alt="Memphis Grizzlies" class="f3-card-img-primary" loading="lazy" />
+                    <div class="f3-card-hover-box" aria-hidden="true">
+                      <img src="assets/thumbnails/Memphis 2.webp?v=2" alt="Memphis Grizzlies Case Study" class="f3-card-img-secondary" loading="lazy" />
+                    </div>
                   </div>
                   <div class="f3-work-card-info">
                     <div class="f3-work-card-title-row">
-                      <h3 class="f3-work-card-title">Memphis Grizzlies</h3>
+                      <h3 class="f3-work-card-title">
+                        <span class="f3-title-flip">
+                          <span class="f3-title-face f3-title-front">Memphis Grizzlies</span>
+                          <span class="f3-title-face f3-title-back" aria-hidden="true">Memphis Grizzlies <span class="f3-title-arrow">↗</span></span>
+                        </span>
+                      </h3>
                       <span class="f3-work-card-year">2024</span>
                     </div>
                     <div class="f3-work-card-tags">
@@ -427,11 +447,19 @@
                 <!-- Project 3: NK Hoops -->
                 <a href="project.html?id=nk-hoops" class="f3-work-card" aria-label="NK Hoops (2025)">
                   <div class="f3-work-card-media">
-                    <img src="assets/images/nk-hoops.jpg" alt="NK Hoops" loading="lazy" />
+                    <img src="assets/images/nk-hoops.jpg" alt="NK Hoops" class="f3-card-img-primary" loading="lazy" />
+                    <div class="f3-card-hover-box" aria-hidden="true">
+                      <img src="assets/images/nk-hoops-preview.jpg" alt="NK Hoops Case Study" class="f3-card-img-secondary" loading="lazy" />
+                    </div>
                   </div>
                   <div class="f3-work-card-info">
                     <div class="f3-work-card-title-row">
-                      <h3 class="f3-work-card-title">NK Hoops</h3>
+                      <h3 class="f3-work-card-title">
+                        <span class="f3-title-flip">
+                          <span class="f3-title-face f3-title-front">NK Hoops</span>
+                          <span class="f3-title-face f3-title-back" aria-hidden="true">NK Hoops <span class="f3-title-arrow">↗</span></span>
+                        </span>
+                      </h3>
                       <span class="f3-work-card-year">2025</span>
                     </div>
                     <div class="f3-work-card-tags">
@@ -448,11 +476,19 @@
                 <!-- Project 2: U.S. Ski & Snowboard | OWG Milano Cortina -->
                 <a href="project.html?id=us-ski-snowboard" class="f3-work-card" aria-label="U.S. Ski & Snowboard | OWG Milano Cortina (2026)">
                   <div class="f3-work-card-media">
-                    <img src="assets/images/us-ski-snowboard.jpg" alt="U.S. Ski & Snowboard | OWG Milano Cortina" loading="lazy" />
+                    <img src="assets/thumbnails/US S&S.webp" alt="U.S. Ski & Snowboard | OWG Milano Cortina" class="f3-card-img-primary" loading="lazy" />
+                    <div class="f3-card-hover-box" aria-hidden="true">
+                      <img src="assets/thumbnails/US S&S 2.webp" alt="U.S. Ski & Snowboard Case Study" class="f3-card-img-secondary" loading="lazy" />
+                    </div>
                   </div>
                   <div class="f3-work-card-info">
                     <div class="f3-work-card-title-row">
-                      <h3 class="f3-work-card-title">U.S. Ski & Snowboard | OWG Milano Cortina</h3>
+                      <h3 class="f3-work-card-title">
+                        <span class="f3-title-flip">
+                          <span class="f3-title-face f3-title-front">U.S. Ski & Snowboard | OWG Milano Cortina</span>
+                          <span class="f3-title-face f3-title-back" aria-hidden="true">U.S. Ski & Snowboard | OWG Milano Cortina <span class="f3-title-arrow">↗</span></span>
+                        </span>
+                      </h3>
                       <span class="f3-work-card-year">2026</span>
                     </div>
                     <div class="f3-work-card-tags">
@@ -466,11 +502,19 @@
                 <!-- Project 4: Audi Revolut F1 -->
                 <a href="project.html?id=audi-revolut-f1" class="f3-work-card" aria-label="Audi Revolut F1 (2026)">
                   <div class="f3-work-card-media f3-work-card-media-photo">
-                    <img src="assets/images/audi-revolut-f1.jpg" alt="Audi Revolut F1" loading="lazy" />
+                    <img src="assets/images/audi-revolut-f1.jpg" alt="Audi Revolut F1" class="f3-card-img-primary" loading="lazy" />
+                    <div class="f3-card-hover-box" aria-hidden="true">
+                      <img src="assets/images/audi-revolut-preview.jpg" alt="Audi Revolut F1 Case Study" class="f3-card-img-secondary" loading="lazy" />
+                    </div>
                   </div>
                   <div class="f3-work-card-info">
                     <div class="f3-work-card-title-row">
-                      <h3 class="f3-work-card-title">Audi Revolut F1</h3>
+                      <h3 class="f3-work-card-title">
+                        <span class="f3-title-flip">
+                          <span class="f3-title-face f3-title-front">Audi Revolut F1</span>
+                          <span class="f3-title-face f3-title-back" aria-hidden="true">Audi Revolut F1 <span class="f3-title-arrow">↗</span></span>
+                        </span>
+                      </h3>
                       <span class="f3-work-card-year">2026</span>
                     </div>
                     <div class="f3-work-card-tags">
@@ -493,7 +537,7 @@
                 <span class="f3-list-col-arrow"></span>
               </div>
               <div class="f3-list-items-wrap" id="f3-works-list-items">
-                <a href="project.html?id=memphis-grizzlies" class="f3-list-item-row" data-image="assets/images/memphis-grizzlies.png">
+                <a href="project.html?id=memphis-grizzlies" class="f3-list-item-row" data-image="assets/thumbnails/Memphis.webp">
                   <span class="f3-list-col-num">01</span>
                   <span class="f3-list-col-title">Memphis Grizzlies</span>
                   <span class="f3-list-col-field">Branding, Social, Sport</span>
@@ -501,7 +545,7 @@
                   <span class="f3-list-col-year">2024</span>
                   <span class="f3-list-col-arrow">↗</span>
                 </a>
-                <a href="project.html?id=us-ski-snowboard" class="f3-list-item-row" data-image="assets/images/us-ski-snowboard.jpg">
+                <a href="project.html?id=us-ski-snowboard" class="f3-list-item-row" data-image="assets/thumbnails/US S&S.webp">
                   <span class="f3-list-col-num">02</span>
                   <span class="f3-list-col-title">U.S. Ski & Snowboard | OWG Milano Cortina</span>
                   <span class="f3-list-col-field">Branding, Social, Sport</span>
