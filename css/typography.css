@@ -1,0 +1,471 @@
+/* ==========================================================================
+   AT Aero — Exact Local OTF Webfonts
+   ========================================================================== */
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-Air.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-AirItalic.otf") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-Thin.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-ThinItalic.otf") format("opentype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: local("At Aero Retina"), local("AtAero-Retina"), url("../assets/fonts/AtAero-Retina.otf") format("opentype");
+  font-weight: 450;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: local("At Aero Retina Italic"), local("AtAero-RetinaItalic"), url("../assets/fonts/AtAero-RetinaItalic.otf") format("opentype");
+  font-weight: 450;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero Retina";
+  src: local("At Aero Retina"), local("AtAero-Retina"), url("../assets/fonts/AtAero-Retina.otf") format("opentype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero Retina";
+  src: local("At Aero Retina Italic"), local("AtAero-RetinaItalic"), url("../assets/fonts/AtAero-RetinaItalic.otf") format("opentype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "At Aero Retina";
+  src: local("At Aero Retina"), local("AtAero-Retina"), url("../assets/fonts/AtAero-Retina.otf") format("opentype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-SemiboldItalic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-Super.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Aero";
+  src: url("../assets/fonts/AtAero-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Aliases: Also map "Neue Haas Grotesk Display Pro" and "Neue Haas Grotesk Display" to AT Aero */
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/AtAero-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/AtAero-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/AtAero-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../assets/fonts/AtAero-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display";
+  src: url("../assets/fonts/AtAero-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display";
+  src: url("../assets/fonts/AtAero-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display";
+  src: url("../assets/fonts/AtAero-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display";
+  src: url("../assets/fonts/AtAero-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter Display Webfonts Fallback */
+@font-face {
+  font-family: "Inter Display";
+  src: url("https://framerusercontent.com/assets/gazZKZuUEtvr9ULhdA4SprP0AZ0.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter Display";
+  src: url("https://framerusercontent.com/assets/ePuN3mCjzajIHnyCdvKBFiZkyY0.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter Display";
+  src: url("https://framerusercontent.com/assets/I11LrmuBDQZweplJ62KkVsklU5Y.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Authentic Neue Haas Display for Geometric Symbols & Underscores */
+@font-face {
+  font-family: "Neue Haas Real";
+  src: url("../assets/fonts/NeueHaasDisplayBold.ttf") format("truetype");
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Real";
+  src: url("../assets/fonts/NeueHaasDisplayMediu.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Real";
+  src: url("../assets/fonts/NeueHaasDisplayRoman.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Standard Easing Curves & Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.15, 1);
+  --transition-cover-speed: 0.48s;
+  --transition-reveal-speed: 0.52s;
+  --transition-cover-ease: cubic-bezier(0.65, 0, 0.15, 1);
+  --transition-reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --font-display: 'AT Aero', 'At Aero', 'AtAero', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-nav: 'AT Aero', 'At Aero', 'AtAero', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-sans: 'AT Aero', 'At Aero', 'AtAero', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-retina: 'AT Aero Retina', 'At Aero Retina', 'AtAero-Retina', 'AT Aero', 'At Aero', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-serif-italic: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Sometype Mono', 'Share Tech Mono', Menlo, Monaco, Consolas, monospace;
+  --mono-font-size: 11px;
+  --mono-font-weight: 500;
+  --mono-letter-spacing: -0.2px;
+
+  /* Global Hero Layout Margins */
+  --hero-margin: 25px;
+
+  /* Navigation Typography, Boldness & Gaps */
+  --nav-font-size: 14px;
+  --nav-font-weight: 500;
+  --nav-line-height: 16px;
+  --nav-letter-spacing: -0.8px;
+  --nav-item-gap: 56px;
+  --nav-padding-y: 13px;
+  --nav-padding-x: 25px;
+
+  /* Live Clock Typography & Green Dot */
+  --clock-font-size: 12.5px;
+  --clock-font-weight: 400;
+  --clock-letter-spacing: -0.035em;
+  --clock-dot-size: 5.5px;
+  --clock-dot-color: #00ff66;
+
+  /* Custom Circle Cursor Settings */
+  --cursor-size: 16px;
+
+  /* ==========================================================================
+     STANDARDIZED TYPOGRAPHY PRESETS (Type A, B, C, D, Mono A)
+     ========================================================================== */
+  /* At Aero Type A */
+  --type-aero-a-font: var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif);
+  --type-aero-a-weight: 450;
+  --type-aero-a-size: 43px;
+  --type-aero-a-line: 49px;
+  --type-aero-a-spacing: -2px;
+
+  /* At Aero Type B */
+  --type-aero-b-font: var(--font-primary, 'AT Aero', sans-serif);
+  --type-aero-b-weight: 400;
+  --type-aero-b-size: 30px;
+  --type-aero-b-line: 35px;
+  --type-aero-b-spacing: -1px;
+
+  /* At Aero Type C */
+  --type-aero-c-font: var(--font-primary, 'AT Aero', sans-serif);
+  --type-aero-c-weight: 400;
+  --type-aero-c-size: 20px;
+  --type-aero-c-line: 27.5px;
+  --type-aero-c-spacing: -1.5px;
+
+  /* At Aero Type D */
+  --type-aero-d-font: var(--font-primary, 'AT Aero', sans-serif);
+  --type-aero-d-weight: 500;
+  --type-aero-d-size: 230px;
+  --type-aero-d-line: 230px;
+  --type-aero-d-spacing: -17px;
+
+  /* At Aero Type E */
+  --type-aero-e-font: var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif);
+  --type-aero-e-weight: 450;
+  --type-aero-e-size: 17px;
+  --type-aero-e-line: 20px;
+  --type-aero-e-spacing: -0.7px;
+
+  /* Sometype Mono Type A */
+  --type-mono-a-font: var(--font-mono, 'Sometype Mono', monospace);
+  --type-mono-a-weight: 400;
+  --type-mono-a-size: 11px;
+  --type-mono-a-line: 13px;
+  --type-mono-a-spacing: -0.2px;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY PRESET UTILITY CLASSES
+   ========================================================================== */
+.type-aero-a {
+  font-family: var(--type-aero-a-font);
+  font-weight: var(--type-aero-a-weight);
+  font-size: var(--type-aero-a-size);
+  line-height: var(--type-aero-a-line);
+  letter-spacing: var(--type-aero-a-spacing);
+}
+
+.type-aero-b {
+  font-family: var(--type-aero-b-font);
+  font-weight: var(--type-aero-b-weight);
+  font-size: var(--type-aero-b-size);
+  line-height: var(--type-aero-b-line);
+  letter-spacing: var(--type-aero-b-spacing);
+}
+
+.type-aero-c {
+  font-family: var(--type-aero-c-font);
+  font-weight: var(--type-aero-c-weight);
+  font-size: var(--type-aero-c-size);
+  line-height: var(--type-aero-c-line);
+  letter-spacing: var(--type-aero-c-spacing);
+}
+
+.type-aero-d {
+  font-family: var(--type-aero-d-font);
+  font-weight: var(--type-aero-d-weight);
+  font-size: var(--type-aero-d-size);
+  line-height: var(--type-aero-d-line);
+  letter-spacing: var(--type-aero-d-spacing);
+}
+
+.type-aero-d .neue-haas-underscore {
+  margin-left: var(--f3-footer-underscore-margin-left, 0px);
+  margin-right: var(--f3-footer-underscore-margin-right, 0px);
+}
+
+.type-aero-d .neue-haas-underscore.underscore-1 {
+  margin-left: var(--f3-footer-underscore-1-margin-left, var(--f3-footer-underscore-margin-left, 0px));
+  margin-right: var(--f3-footer-underscore-1-margin-right, var(--f3-footer-underscore-margin-right, 0px));
+}
+
+.type-aero-d .neue-haas-underscore.underscore-2 {
+  margin-left: var(--f3-footer-underscore-2-margin-left, var(--f3-footer-underscore-margin-left, 0px));
+  margin-right: var(--f3-footer-underscore-2-margin-right, var(--f3-footer-underscore-margin-right, 0px));
+}
+
+.type-aero-e {
+  font-family: var(--type-aero-e-font);
+  font-weight: var(--type-aero-e-weight);
+  font-size: var(--type-aero-e-size);
+  line-height: var(--type-aero-e-line);
+  letter-spacing: var(--type-aero-e-spacing);
+}
+
+.type-mono-a {
+  font-family: var(--type-mono-a-font);
+  font-weight: var(--type-mono-a-weight);
+  font-size: var(--type-mono-a-size);
+  line-height: var(--type-mono-a-line);
+  letter-spacing: var(--type-mono-a-spacing);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.35;
+  letter-spacing: calc(-0.015em - 0.7px);
+  color: #faf9fc;
+  background-color: #030303;
+}
+
+/* Nav Typography - Exact Inter Display */
+.hero-top-nav,
+.site-nav-top,
+.hero-nav-brand,
+.hero-nav-link,
+.hero-nav-stack,
+.nav-text {
+  font-family: var(--font-nav);
+  font-size: var(--nav-font-size);
+  font-weight: var(--nav-font-weight);
+  line-height: var(--nav-line-height);
+  letter-spacing: var(--nav-letter-spacing);
+  text-transform: uppercase;
+  color: #faf9fc;
+}

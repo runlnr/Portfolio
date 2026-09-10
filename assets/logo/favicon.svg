@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Sharp background square in site black (#101010) -->
+  <rect width="512" height="512" fill="#101010" />
+
+  <!-- Centered white logo mark in site off-white (#faf9fc) with ~19% balanced margin -->
+  <g class="favicon-logo-mark" fill="#faf9fc" transform="translate(62.77, 44.32) scale(1.10)">
+    <path class="logo-stroke logo-stroke-1" d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z" transform="translate(211.63, 128.18) rotate(-158.12) scale(1.02, 1)" />
+    <path class="logo-stroke logo-stroke-2" d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z" transform="translate(139.7, 256.69) rotate(21.88) scale(1.02, 1)" />
+  </g>
+</svg>

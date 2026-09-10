@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Dark-Mode Glassmorphism & Motion Styling Standards
+   ========================================================================== */
+
+:root {
+  --glass-bg-subtle: rgba(255, 255, 255, 0.03);
+  --glass-bg-medium: rgba(255, 255, 255, 0.06);
+  --glass-bg-heavy: rgba(255, 255, 255, 0.10);
+  --glass-border-subtle: rgba(255, 255, 255, 0.08);
+  --glass-border-medium: rgba(255, 255, 255, 0.14);
+  --glass-border-highlight: rgba(255, 255, 255, 0.25);
+  --glass-blur-sm: 8px;
+  --glass-blur-md: 16px;
+  --glass-blur-lg: 24px;
+}
+
+/* Glassmorphic Panel Utilities */
+.glass-panel {
+  background: var(--glass-bg-subtle);
+  border: 1px solid var(--glass-border-subtle);
+  backdrop-filter: blur(var(--glass-blur-md));
+  -webkit-backdrop-filter: blur(var(--glass-blur-md));
+  border-radius: var(--radius-md, 8px);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.glass-panel:hover {
+  background: var(--glass-bg-medium);
+  border-color: var(--glass-border-medium);
+}
+
+.glass-card-interactive {
+  position: relative;
+  background: var(--glass-bg-subtle);
+  border: 1px solid var(--glass-border-subtle);
+  backdrop-filter: blur(var(--glass-blur-md));
+  -webkit-backdrop-filter: blur(var(--glass-blur-md));
+  border-radius: var(--radius-md, 8px);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease, 
+              box-shadow 0.35s ease;
+}
+
+.glass-card-interactive:hover {
+  transform: translateY(-4px);
+  border-color: var(--glass-border-highlight);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Magnetic Button Utility */
+.btn-magnetic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: var(--radius-full, 9999px);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Lucide Icon Smooth Micro-Transitions */
+.lucide-icon,
+svg.lucide {
+  display: inline-block;
+  vertical-align: middle;
+  stroke-width: 1.5;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.2s ease;
+}
+
+.hover-icon-shift:hover svg.lucide {
+  transform: translate(2px, -2px);
+}
