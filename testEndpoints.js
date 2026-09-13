@@ -2,6 +2,7 @@ const http = require('http');
 
 const endpoints = [
   '/',
+  '/project.html',
   '/css/main.css',
   '/css/typography.css',
   '/css/components.css',

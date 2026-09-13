@@ -200,10 +200,12 @@
       f3WorkCards.forEach(card => {
         card.addEventListener('mouseenter', e => {
           isHoveringCard = true;
-          const href = card.getAttribute('href') || '';
-          const cardText = card.textContent || '';
-          const isAudi = href.includes('audi') || cardText.includes('Audi');
-          viewCursorTag.textContent = isAudi ? '/coming soon/' : '/view/';
+          const href = (card.getAttribute('href') || '').toLowerCase();
+          const cardText = (card.textContent || '').toLowerCase();
+          const ariaLabel = (card.getAttribute('aria-label') || '').toLowerCase();
+          const customTag = card.getAttribute('data-cursor');
+          const isAudi = href.includes('audi') || cardText.includes('audi') || ariaLabel.includes('audi') || cardText.includes('revolut');
+          viewCursorTag.textContent = customTag || (isAudi ? '/coming soon/' : '/view/');
           viewCursorTag.classList.add('is-visible');
           mouseX = e.clientX;
           mouseY = e.clientY;
@@ -224,10 +226,12 @@
           mouseY = e.clientY;
           if (!isHoveringCard) {
             isHoveringCard = true;
-            const href = card.getAttribute('href') || '';
-            const cardText = card.textContent || '';
-            const isAudi = href.includes('audi') || cardText.includes('Audi');
-            viewCursorTag.textContent = isAudi ? '/coming soon/' : '/view/';
+            const href = (card.getAttribute('href') || '').toLowerCase();
+            const cardText = (card.textContent || '').toLowerCase();
+            const ariaLabel = (card.getAttribute('aria-label') || '').toLowerCase();
+            const customTag = card.getAttribute('data-cursor');
+            const isAudi = href.includes('audi') || cardText.includes('audi') || ariaLabel.includes('audi') || cardText.includes('revolut');
+            viewCursorTag.textContent = customTag || (isAudi ? '/coming soon/' : '/view/');
             viewCursorTag.classList.add('is-visible');
           }
         });

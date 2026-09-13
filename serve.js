@@ -42,6 +42,12 @@ const server = http.createServer((req, res) => {
   }
 
 
+  if (reqUrl === '/works' || reqUrl === '/works.html') {
+    res.writeHead(302, { 'Location': '/#f3-portfolio' });
+    res.end();
+    return;
+  }
+
   if (reqUrl === '/') {
     reqUrl = '/index.html';
   } else if (!path.extname(reqUrl)) {

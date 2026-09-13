@@ -176,10 +176,62 @@
     isScrambling = false;
   }
 
+  /**
+   * Triggers the authentic ASCII appear animation on the hero bottom text
+   * ("Nothing here/" and "/by accident.") starting immediately with a 60ms stagger.
+   */
+  function triggerHeroAsciiAppear() {
+    const leftEl = document.getElementById('hero-text-left') || document.querySelector('.hero-text-left');
+    const rightEl = document.getElementById('hero-text-right') || document.querySelector('.hero-text-right');
+    if (!leftEl && !rightEl) return;
+
+    if (swapTimeoutId) {
+      clearTimeout(swapTimeoutId);
+      swapTimeoutId = null;
+    }
+
+    currentIndex = 0;
+    const target = PHRASES[0]; // { left: 'Nothing here/', right: '/by accident.' }
+    isScrambling = true;
+
+    if (leftEl) {
+      const leftSpan = leftEl.querySelector('span') || leftEl;
+      let glyphs = '';
+      for (let i = 0; i < target.left.length; i++) {
+        glyphs += (target.left[i] === ' ' ? ' ' : getRandomGlyph());
+      }
+      leftSpan.textContent = glyphs;
+    }
+
+    if (rightEl) {
+      const rightSpan = rightEl.querySelector('span') || rightEl;
+      let glyphs = '';
+      for (let i = 0; i < target.right.length; i++) {
+        glyphs += (target.right[i] === ' ' ? ' ' : getRandomGlyph());
+      }
+      rightSpan.textContent = glyphs;
+    }
+
+    const baseDuration = (window.HERO_SCRAMBLE_DURATION && typeof window.HERO_SCRAMBLE_DURATION === 'number')
+      ? window.HERO_SCRAMBLE_DURATION
+      : 1250; // Calibrated from 750ms to 1250ms for relaxed, cinematic decode
+
+    const p1 = leftEl ? scrambleElement(leftEl, target.left, baseDuration, 0) : Promise.resolve();
+    const p2 = rightEl ? scrambleElement(rightEl, target.right, baseDuration + 150, 70) : Promise.resolve();
+
+    Promise.all([p1, p2]).then(() => {
+      isScrambling = false;
+      isInitialized = true;
+      scheduleNextSwap();
+    });
+  }
+
   // Expose API for external control
+  window.triggerHeroAsciiAppear = triggerHeroAsciiAppear;
   window.initHeroStatementScramble = initHeroStatementScramble;
   window.destroyHeroStatementScramble = destroyHeroStatementScramble;
   window.heroStatementScramble = {
+    triggerHeroAsciiAppear,
     performScramble,
     scheduleNextSwap,
     destroyHeroStatementScramble,

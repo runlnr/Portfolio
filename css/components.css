@@ -494,13 +494,16 @@
   background-color: #030303;
   z-index: 9999999 !important; /* Highest z-index: hides taskbar and all elements */
   pointer-events: all;
-  transition: transform 1.1s cubic-bezier(0.76, 0, 0.24, 1);
-  will-change: transform;
+  opacity: 1;
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
   overflow: hidden;
 }
 
-.site-loader-overlay.slide-up {
-  transform: translateY(-100%);
+.site-loader-overlay.slide-up,
+.site-loader-overlay.fade-out {
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 /* Centered Unified Logo with Bottom-to-Top Fill */
@@ -514,6 +517,13 @@
   aspect-ratio: 351.33 / 384.87;
   pointer-events: none;
   user-select: none;
+  opacity: 1;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
+.loader-logo-center.fade-out {
+  opacity: 0 !important;
 }
 
 .loader-logo-svg {
@@ -576,72 +586,51 @@ body.is-loading .custom-cursor {
 }
 
 /* ==========================================================================
-   Page Transition Curtain & Taskbar Fixed Visibility (Drag UP)
+   Page Transition Overlay (Silk-Smooth Cross-Fade)
    ========================================================================== */
 html.skip-intro .site-loader-overlay {
   display: none !important;
 }
 
-/* Top Taskbar: Standard fixed layer (Covered by page transition curtain) */
-.hero-top-nav,
-.site-nav-top {
-  z-index: 1000 !important;
-}
-
-/* Transition Curtain: Sweeps UP from bottom beneath the top taskbar */
 .page-transition-curtain {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
   background-color: #030303;
-  z-index: 999990;
-  transform: translateY(100%);
+  z-index: 9999999 !important;
   pointer-events: none;
-  will-change: transform;
+  opacity: 0;
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
 }
 
-/* ==========================================================================
-   Page Transition Curtain (Subtle, Silk-Smooth, Zero-Glitch Easing)
-   ========================================================================== */
-html.skip-intro .site-loader-overlay {
-  display: none !important;
-}
-
-/* Zero flash: when arriving from a page click, start curtain fully covering */
-html.is-navigating-in .page-transition-curtain {
-  transform: translateY(0) !important;
-  transition: none !important;
-}
-
-/* Top Taskbar */
-.hero-top-nav,
-.site-nav-top {
-  z-index: 1000 !important;
-}
-
-/* Transition Curtain: 0.68s / 0.75s luxurious cubic-bezier */
-.page-transition-curtain {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #030303;
-  z-index: 999990;
-  transform: translateY(100%);
-  pointer-events: none;
-  transition: transform 0.68s cubic-bezier(0.65, 0, 0.15, 1);
-  will-change: transform;
-}
-
+/* Phase 1: On Click, smoothly fades in dark overlay (0 -> 1) */
 .page-transition-curtain.is-covering {
-  transform: translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: all;
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Phase 2: On page arrival, pre-painted covering at opacity: 1 with zero flash */
+html.is-navigating-in .page-transition-curtain {
+  opacity: 1 !important;
+  transition: none !important;
   pointer-events: all;
 }
 
-.page-transition-curtain.is-revealing {
-  transform: translateY(-100%) !important;
-  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) !important;
+/* Phase 3: Reveal, smoothly fades out overlay (1 -> 0) to reveal new page */
+html.is-navigating-in .page-transition-curtain.is-revealing {
+  opacity: 0 !important;
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition-curtain {
+    display: none !important;
+    transition: none !important;
+  }
 }
 .hero-top-nav,
 .site-nav-top {

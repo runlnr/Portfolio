@@ -30,8 +30,11 @@
   --intro-divider-margin-bottom: 24px;
 
   /* 2. Featured Header & Grid */
-  --featured-tag-font-size: var(--type-aero-b-size);
-  --featured-tag-font-weight: var(--type-aero-b-weight);
+  --featured-tag-font-family: var(--font-primary, 'AT Aero', sans-serif);
+  --featured-tag-font-size: 25px;
+  --featured-tag-font-weight: 400;
+  --featured-tag-letter-spacing: -1.2px;
+  --featured-tag-line-height: 27.5px;
   --featured-tag-color: #faf9fc;
   --featured-tag-margin-top: 0px;
   --featured-tag-margin-bottom: 0px;
@@ -302,24 +305,23 @@
 }
 
 .f3-intro-about-link {
-  font-family: var(--type-aero-e-font, var(--font-retina, 'AT Aero Retina', var(--font-sans)));
-  font-size: var(--type-aero-e-size, 16px);
+  font-family: var(--type-aero-e-font, var(--font-retina, 'AT Aero Retina', sans-serif));
+  font-size: var(--type-aero-e-size, 17px);
   font-weight: var(--type-aero-e-weight, 450);
   line-height: var(--type-aero-e-line, 20px);
   letter-spacing: var(--type-aero-e-spacing, -0.7px);
-  color: var(--f3-text, #faf9fc);
+  color: #6d6d6d;
   text-decoration: none;
   border-bottom: none;
   padding-bottom: 0;
   display: inline-block;
   white-space: nowrap;
   width: fit-content;
-  transition: opacity var(--transition-fast);
-  cursor: pointer;
+  cursor: default;
 }
 
 .f3-intro-about-link:hover {
-  opacity: 0.65;
+  opacity: 1;
 }
 
 .f3-intro-ongoing-row {
@@ -397,12 +399,12 @@
 }
 
 .f3-featured-tag {
-  font-family: var(--type-aero-b-font);
-  font-size: var(--featured-tag-font-size, var(--type-aero-b-size));
-  font-weight: var(--featured-tag-font-weight, var(--type-aero-b-weight));
+  font-family: var(--featured-tag-font-family, var(--font-primary, 'AT Aero', sans-serif));
+  font-size: var(--featured-tag-font-size, 25px);
+  font-weight: var(--featured-tag-font-weight, 400);
   color: var(--featured-tag-color, #faf9fc);
-  letter-spacing: var(--type-aero-b-spacing);
-  line-height: var(--type-aero-b-line);
+  letter-spacing: var(--featured-tag-letter-spacing, -1.2px);
+  line-height: var(--featured-tag-line-height, 27.5px);
 }
 
 /* View Switcher: LIST & GRID horizontal icons (same line) */
@@ -806,38 +808,10 @@
   position: relative;
 }
 
-.text-flip-wrapper {
-  display: inline-flex;
-  align-items: baseline;
-  white-space: nowrap;
-}
-
-.text-flip-word {
-  display: inline-flex;
-  align-items: baseline;
-  white-space: nowrap;
-}
-
-.text-flip-space {
-  display: inline-block;
-  width: 0.28em;
-  white-space: pre;
-}
-
-.text-flip-char {
-  display: inline-block;
-  overflow: hidden;
-  height: 1.14em;
-  line-height: 1.14em;
-  vertical-align: -0.22em;
-  position: relative;
-  contain: layout style;
-}
-
 .text-flip-inner {
   display: flex;
   flex-direction: column;
-  height: 2.28em;
+  height: 2.36em;
   transform: translateY(0%);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -846,10 +820,12 @@
 }
 
 .text-flip-face {
-  display: inline-block;
-  height: 1.14em;
-  line-height: 1.14em;
-  white-space: pre;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 1.18em;
+  line-height: 1.18em;
+  white-space: nowrap;
   color: inherit;
 }
 
@@ -861,16 +837,12 @@
   color: inherit;
 }
 
-.text-flip-char.f3-title-arrow {
-  font-size: 0.82em;
-}
-
 .f3-title-face {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   height: 1.18em;
-  line-height: 1.18;
+  line-height: 1.18em;
   white-space: nowrap;
 }
 
@@ -885,16 +857,12 @@
 .f3-title-arrow {
   display: inline-block;
   font-size: 0.82em;
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Fallback only when JS text-flip has not initialized */
-.f3-work-card:hover .f3-title-flip:not([data-flip-initialized="true"]) {
+.f3-work-card:hover .f3-title-flip:not([data-flip-initialized="true"]) .text-flip-inner,
+.f3-work-card:hover .f3-title-flip:not([data-flip-initialized="true"]) .f3-title-face {
   transform: translateY(-50%);
-}
-
-.f3-work-card:hover .f3-title-flip:not([data-flip-initialized="true"]) .f3-title-arrow {
-  transform: translate(2px, -2px);
 }
 
 .f3-work-card-year {

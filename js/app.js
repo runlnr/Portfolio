@@ -5,30 +5,90 @@
  * ==========================================================================
  */
 
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
 // 1. Loading Screen Fill & Reveal Speeds (in milliseconds)
 window.LOADER_CONFIG = {
   // Fill duration: Time (ms) for logo to fill from grey to solid white
   fillDuration: 5000,
   // Fill easing exponent: Fast in, slow out curve (1.5 = energetic initial surge, smooth deceleration)
   fillEasingExp: 1.5,
-  // Settling hold: Pause (ms) on the fully white logo before sliding up (0 = immediate)
-  settlingHold: 0,
-  // Slide-up reveal: Duration (ms) for fullscreen loader curtain to slide up
+  // Step 1: Hold fully white logo for 2 seconds (2000ms)
+  whiteHoldDuration: 2000,
+  // Step 2: Duration for logo itself to fade out (800ms)
+  logoFadeDuration: 800,
+  // Step 3: Wait on pure solid black screen for 1 second (1000ms)
+  blackHoldDuration: 1000,
+  // Step 4: Fade-out reveal: Duration (ms) for black loader overlay to fade into hero page
+  fadeDuration: 1100,
   slideUpDuration: 1100
 };
 
-// 2. Page Transition Curtains Speed
+// 2. Page Transition Speed (Silk-Smooth Cross-Fade: 1100ms fade + 800ms black screen wait + 1100ms reveal)
 window.TRANSITION_CONFIG = {
-  coverDuration: 1100,    // Milliseconds for curtain to drag UP and cover
-  revealDuration: 1200,   // Milliseconds for curtain to continue UP and reveal
-  easeCover: 'cubic-bezier(0.65, 0, 0.15, 1)',
-  easeReveal: 'cubic-bezier(0.16, 1, 0.3, 1)'
+  coverDuration: 1100,   // 1100ms to fade out to black on click
+  holdDuration: 800,     // 800ms black screen wait in the middle
+  revealDuration: 1100,  // 1100ms to fade in the new page on arrival
+  ease: 'cubic-bezier(0.16, 1, 0.3, 1)'
 };
+
+// 3. ASCII Decode Durations (in milliseconds) — relaxed cinematic decode speed
+window.PROJECT_SCRAMBLE_DURATION = 1350; // Total duration for project page context ASCII decode
+window.HERO_SCRAMBLE_DURATION = 1250;    // Total duration for hero bottom text ASCII decode
 
 // Helper: Replay loader anytime in Console using `replayIntroLoader()`
 window.replayIntroLoader = function () {
   sessionStorage.removeItem('np_has_seen_intro');
   window.location.reload();
+};
+
+/**
+ * 3. Viewport Text Reveal Engine (Authentic In-Place ASCII Shuffle Appear)
+ * Runs strictly once after the page fade-in transition finishes
+ */
+let hasRevealedViewportText = false;
+
+window.triggerViewportTextReveal = function () {
+  if (hasRevealedViewportText) return;
+  hasRevealedViewportText = true;
+
+  const isProjectPage = !!document.querySelector('.project-main-wrap');
+
+  if (isProjectPage) {
+    // 1. Project Page: Simultaneous Terminal Matrix ASCII appear across all context content
+    if (typeof window.triggerProjectAsciiAppear === 'function') {
+      window.triggerProjectAsciiAppear();
+    } else {
+      let retries = 0;
+      const checkProjectAscii = setInterval(() => {
+        retries++;
+        if (typeof window.triggerProjectAsciiAppear === 'function' || retries > 12) {
+          clearInterval(checkProjectAscii);
+          if (typeof window.triggerProjectAsciiAppear === 'function') {
+            window.triggerProjectAsciiAppear();
+          }
+        }
+      }, 25);
+    }
+  } else {
+    // 2. Hero Page: Authentic ASCII appear animation on "Nothing here/" and "/by accident."
+    if (typeof window.triggerHeroAsciiAppear === 'function') {
+      window.triggerHeroAsciiAppear();
+    } else {
+      let retry = 0;
+      const checkHeroAscii = setInterval(() => {
+        retry++;
+        if (typeof window.triggerHeroAsciiAppear === 'function' || retry > 12) {
+          clearInterval(checkHeroAscii);
+          if (typeof window.triggerHeroAsciiAppear === 'function') {
+            window.triggerHeroAsciiAppear();
+          }
+        }
+      }, 25);
+    }
+  }
 };
 
 /**
@@ -52,7 +112,9 @@ window.previewLoader = function (state = 'white') {
   }
   loader.style.display = 'block';
   loader.style.pointerEvents = 'all';
-  loader.classList.remove('slide-up');
+  loader.classList.remove('slide-up', 'fade-out');
+  const logoCenter = document.getElementById('loader-logo-center');
+  if (logoCenter) logoCenter.classList.remove('fade-out');
   document.body.classList.add('is-loading');
 
   if (state === 'grey' || state === 'start') {
@@ -128,35 +190,48 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animateFill);
 
     function onFillComplete() {
-      const holdTime = typeof cfg.settlingHold === 'number' ? cfg.settlingHold : 0;
-      const slideDuration = typeof cfg.slideUpDuration === 'number' ? cfg.slideUpDuration : 1100;
+      const whiteHold = typeof cfg.whiteHoldDuration === 'number' ? cfg.whiteHoldDuration : 2000;
+      const logoFade = typeof cfg.logoFadeDuration === 'number' ? cfg.logoFadeDuration : 800;
+      const blackHold = typeof cfg.blackHoldDuration === 'number' ? cfg.blackHoldDuration : 1000;
+      const fadeDuration = typeof cfg.fadeDuration === 'number' ? cfg.fadeDuration : (typeof cfg.slideUpDuration === 'number' ? cfg.slideUpDuration : 1100);
 
-      const triggerSlideUp = () => {
-        loader.classList.add('slide-up');
-        document.body.classList.remove('is-loading');
-        document.body.classList.add('loader-revealed');
-        loaderFinished = true;
-        sessionStorage.setItem('np_has_seen_intro', 'true');
-        initHeroTvInteraction();
-        if (window.initHeroHeadlineScramble) {
-          window.initHeroHeadlineScramble(true);
-        }
-        if (window.location.hash === '#f3-portfolio') {
-          setTimeout(() => scrollToPortfolioSection(true), 400);
+      const logoCenter = document.getElementById('loader-logo-center');
+
+      // 1. Keep the fully white logo there for 2 seconds (2000ms)
+      setTimeout(() => {
+        // 2. Fade out the logo
+        if (logoCenter) {
+          logoCenter.style.transition = `opacity ${logoFade}ms cubic-bezier(0.16, 1, 0.3, 1)`;
+          logoCenter.classList.add('fade-out');
         }
 
-        // Remove loader once slide-up completes
+        // 3. Wait for logo fade duration + 1 second on solid black screen
         setTimeout(() => {
-          loader.style.display = 'none';
-          loader.style.pointerEvents = 'none';
-        }, slideDuration);
-      };
+          // 4. Fade into the hero page
+          loader.style.transition = `opacity ${fadeDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
+          loader.classList.add('slide-up', 'fade-out');
+          document.body.classList.remove('is-loading');
+          document.body.classList.add('loader-revealed');
+          loaderFinished = true;
+          sessionStorage.setItem('np_has_seen_intro', 'true');
+          initHeroTvInteraction();
 
-      if (holdTime > 0) {
-        setTimeout(triggerSlideUp, holdTime);
-      } else {
-        triggerSlideUp();
-      }
+          // Start ASCII appear decoding immediately as hero fade begins (zero delay)
+          if (window.triggerHeroAsciiAppear) {
+            window.triggerHeroAsciiAppear();
+          }
+
+          if (window.location.hash === '#f3-portfolio') {
+            setTimeout(() => scrollToPortfolioSection(true), 400);
+          }
+
+          // Remove loader once page fade completes
+          setTimeout(() => {
+            loader.style.display = 'none';
+            loader.style.pointerEvents = 'none';
+          }, fadeDuration);
+        }, logoFade + blackHold);
+      }, whiteHold);
     }
   } else {
     if (loader) {
@@ -204,100 +279,117 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 2. Pure Upward SPA Page Transition Engine
-  let curtain = document.querySelector('.page-transition-curtain');
-  if (!curtain) {
-    curtain = document.createElement('div');
-    curtain.className = 'page-transition-curtain';
-    document.body.appendChild(curtain);
-  }
+  // 2. Multi-Page Navigation Helper with Smooth Fade Transition
+  let isNavigating = false;
 
-  let isTransitioning = false;
+  function navigateTo(url) {
+    if (!url) return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const curtain = document.getElementById('page-transition-curtain');
 
-  async function navigateTo(url, push = true) {
-    if (isTransitioning) return;
-    isTransitioning = true;
-
-    const config = window.TRANSITION_CONFIG || { coverDuration: 480, revealDuration: 520, easeCover: 'cubic-bezier(0.65, 0, 0.15, 1)', easeReveal: 'cubic-bezier(0.16, 1, 0.3, 1)' };
-
-    try {
-      let fetchUrl = url.split('#')[0] || 'index.html';
-      if (fetchUrl === '' || fetchUrl === '/' || fetchUrl === './') {
-        fetchUrl = 'index.html';
-      }
-      const fetchPromise = fetch(fetchUrl).then(res => res.text());
-
-      // 1. Animate curtain smoothly UP to cover screen
-      curtain.style.transition = `transform ${config.coverDuration}ms ${config.easeCover}`;
-      curtain.style.transform = 'translateY(0)';
-
-      const [htmlText] = await Promise.all([
-        fetchPromise,
-        new Promise(resolve => setTimeout(resolve, config.coverDuration))
-      ]);
-
-      // 2. Parse fetched HTML and swap header and main content
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(htmlText, 'text/html');
-
-      document.title = doc.title;
-
-      const currentHeader = document.querySelector('header');
-      const newHeader = doc.querySelector('header');
-      if (currentHeader && newHeader) {
-        currentHeader.parentNode.replaceChild(newHeader, currentHeader);
-      }
-
-      const currentCurtain = document.getElementById('nav-dropdown-curtain');
-      const newCurtain = doc.getElementById('nav-dropdown-curtain');
-      if (newCurtain) {
-        if (currentCurtain) {
-          currentCurtain.parentNode.replaceChild(newCurtain, currentCurtain);
-        } else {
-          document.body.appendChild(newCurtain);
-        }
-      } else if (currentCurtain) {
-        currentCurtain.remove();
-      }
-
-      const currentMain = document.querySelector('main');
-      const newMain = doc.querySelector('main');
-
-      if (currentMain && newMain) {
-        currentMain.parentNode.replaceChild(newMain, currentMain);
-      }
-
-      if (push) {
-        window.history.pushState({ url }, '', url);
-      }
-
-      window.scrollTo(0, 0);
-      if (window.motionStack && window.motionStack.lenis) {
-        window.motionStack.lenis.scrollTo(0, { immediate: true });
-      }
-
-      updateActiveNavLinks(url);
-      rehydratePage(url, newMain);
-
-      // 3. Animate curtain continuing UPWARD to reveal new page
-      curtain.style.transition = `transform ${config.revealDuration}ms ${config.easeReveal}`;
-      curtain.style.transform = 'translateY(-100%)';
-
-      setTimeout(() => {
-        curtain.style.transition = 'none';
-        curtain.style.transform = 'translateY(100%)';
-        isTransitioning = false;
-
-        if (url.includes('#f3-portfolio') || window.location.hash === '#f3-portfolio') {
-          setTimeout(() => scrollToPortfolioSection(true), 60);
-        }
-      }, config.revealDuration + 40);
-
-    } catch (err) {
-      console.error('SPA Navigation fallback:', err && err.stack ? err.stack : err);
+    if (prefersReducedMotion || !curtain || isNavigating) {
       window.location.href = url;
+      return;
     }
+
+    isNavigating = true;
+    sessionStorage.setItem('np_is_navigating', 'true');
+
+    // Phase 1: Smoothly fade dark overlay in (opacity 0 -> 1)
+    curtain.classList.remove('is-revealing');
+    curtain.classList.add('is-covering');
+
+    const duration = (window.TRANSITION_CONFIG && window.TRANSITION_CONFIG.coverDuration) || 1100;
+    setTimeout(() => {
+      window.location.href = url;
+    }, duration);
   }
+  window.navigateTo = navigateTo;
+
+  // Reveal incoming page smoothly (dark overlay fades out: opacity 1 -> 0)
+  function initPageTransitions() {
+    const curtain = document.getElementById('page-transition-curtain');
+    const isNavigatingIn = sessionStorage.getItem('np_is_navigating') === 'true';
+
+    if (curtain && isNavigatingIn) {
+      const holdDuration = (window.TRANSITION_CONFIG && window.TRANSITION_CONFIG.holdDuration) || 800;
+      const revealDuration = (window.TRANSITION_CONFIG && window.TRANSITION_CONFIG.revealDuration) || 1100;
+
+      // Force layout reflow so opacity: 1 is guaranteed painted before fade-out starts
+      void curtain.offsetHeight;
+
+      // Wait 800ms on solid black screen before fading in the new page
+      setTimeout(() => {
+        requestAnimationFrame(() => {
+          // Phase 3: Smoothly fade dark overlay out (opacity 1 -> 0)
+          curtain.classList.remove('is-covering');
+          curtain.classList.add('is-revealing');
+          document.documentElement.classList.remove('is-navigating-in');
+
+          // Trigger appearing animation IMMEDIATELY as fade begins (ZERO DELAY):
+          if (window.triggerViewportTextReveal) {
+            window.triggerViewportTextReveal();
+          }
+
+          setTimeout(() => {
+            curtain.classList.remove('is-revealing');
+            sessionStorage.removeItem('np_is_navigating');
+            isNavigating = false;
+          }, revealDuration);
+        });
+      }, holdDuration);
+    } else if (!isNavigatingIn) {
+      document.documentElement.classList.remove('is-navigating-in');
+    }
+
+    // Intercept internal page link clicks across the site
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a');
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      // Ignore hash-only anchors or JS actions
+      if (href.startsWith('#') || href.startsWith('javascript:')) return;
+
+      // Ignore new tab links, downloads, mailto, tel
+      if (link.target === '_blank' || link.hasAttribute('download')) return;
+      if (href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+      // Check external vs internal domain
+      try {
+        const targetUrl = new URL(href, window.location.href);
+        if (targetUrl.origin !== window.location.origin) return;
+
+        // If target is same path and query with hash, allow smooth scroll anchor
+        if (targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search && targetUrl.hash) {
+          return;
+        }
+
+        e.preventDefault();
+        navigateTo(href);
+      } catch (err) {
+        // Fallback for relative paths
+        e.preventDefault();
+        navigateTo(href);
+      }
+    });
+
+    // Reset on browser back/forward history navigation (bfcache)
+    window.addEventListener('pageshow', (event) => {
+      if (event.persisted) {
+        sessionStorage.removeItem('np_is_navigating');
+        document.documentElement.classList.remove('is-navigating-in');
+        if (curtain) {
+          curtain.classList.remove('is-covering', 'is-revealing');
+        }
+        isNavigating = false;
+      }
+    });
+  }
+
+  initPageTransitions();
 
   function updateActiveNavLinks(url) {
     const cleanUrl = (url || window.location.pathname).split('?')[0].split('#')[0];
@@ -608,9 +700,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const href = link.getAttribute('href');
     const target = link.getAttribute('target');
 
-    if (!href || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http://') || href.startsWith('https://') || target === '_blank' || e.metaKey || e.ctrlKey) {
+    if (!href || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http://') || href.startsWith('https://') || href.startsWith('javascript:') || target === '_blank' || e.metaKey || e.ctrlKey) {
       return;
     }
+
+    const curNavPath = window.location.pathname;
+    const isHomePage = curNavPath === '/' || curNavPath.endsWith('/') || curNavPath.endsWith('/index.html') || curNavPath.endsWith('index.html');
 
     // Direct click on N/P brand logo / Home link
     const isBrandHomeClick = link.classList.contains('hero-nav-brand') ||
@@ -619,15 +714,12 @@ document.addEventListener('DOMContentLoaded', () => {
       link.querySelector('.nav-brand-logo');
 
     if (isBrandHomeClick) {
-      e.preventDefault();
       if (typeof closeNavDropdown === 'function') {
         closeNavDropdown();
       }
 
-      const curNavPath = window.location.pathname;
-      const isHomePage = curNavPath === '/' || curNavPath.endsWith('/') || curNavPath.endsWith('/index.html') || curNavPath.endsWith('index.html');
-
       if (isHomePage) {
+        e.preventDefault();
         if (window.location.hash) {
           if (window.history.pushState) {
             window.history.pushState(null, '', window.location.pathname);
@@ -642,42 +734,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return;
       } else {
+        // When on a subpage (e.g. project.html), smoothly cross-fade to index.html
+        e.preventDefault();
         navigateTo('index.html');
         return;
       }
     }
 
-    // Direct click on Works / #f3-portfolio
-    if (href === '#f3-portfolio' || href === 'index.html#f3-portfolio' || href === '/#f3-portfolio') {
-      if (isHomePage) {
+    // In-page hash anchor clicks on the home page (e.g. #f3-portfolio, #f3-intro, #f3-footer)
+    if (href.startsWith('#') || (isHomePage && (href.startsWith('index.html#') || href.startsWith('/#')))) {
+      const hash = href.includes('#') ? '#' + href.split('#')[1] : href;
+      const targetElem = document.querySelector(hash);
+      if (targetElem) {
         e.preventDefault();
-        scrollToPortfolioSection(true);
-        if (window.history.pushState) {
-          window.history.pushState(null, '', '#f3-portfolio');
+        if (typeof closeNavDropdown === 'function') {
+          closeNavDropdown();
         }
-        return;
-      } else {
-        e.preventDefault();
-        navigateTo('index.html#f3-portfolio');
+        if (window.motionStack && window.motionStack.lenis) {
+          window.motionStack.lenis.scrollTo(targetElem, { offset: -20, duration: 1.0 });
+        } else if (window.lenis) {
+          window.lenis.scrollTo(targetElem, { offset: -20, duration: 1.0 });
+        } else {
+          targetElem.scrollIntoView({ behavior: 'smooth' });
+        }
+        if (window.history.pushState) {
+          window.history.pushState(null, '', hash);
+        }
         return;
       }
     }
-
-    if (href.startsWith('#')) {
-      return;
-    }
-
-    e.preventDefault();
-    navigateTo(href);
   });
 
-  // Handle browser back/forward buttons seamlessly
-  window.addEventListener('popstate', (e) => {
-    if (window.location.hash === '#f3-portfolio') {
-      scrollToPortfolioSection(true);
-      return;
+  // Handle browser back/forward buttons smoothly
+  window.addEventListener('popstate', () => {
+    if (window.location.hash) {
+      const targetElem = document.querySelector(window.location.hash);
+      if (targetElem) {
+        if (window.motionStack && window.motionStack.lenis) {
+          window.motionStack.lenis.scrollTo(targetElem, { offset: -20, duration: 0.8 });
+        } else {
+          targetElem.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     }
-    navigateTo(window.location.href, false);
   });
 
 

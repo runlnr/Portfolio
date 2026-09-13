@@ -37,8 +37,11 @@ window.initWorksPage = function() {
 
   // 1. Render Grid View (Image only with Top-Left Name & Top-Right Date on Hover)
   if (gridContainer && projects.length) {
-    gridContainer.innerHTML = projects.map(p => `
-      <a href="project.html?id=${p.id}" class="work-grid-card" aria-label="${p.title} (${p.year})">
+    gridContainer.innerHTML = projects.map(p => {
+      const isAudi = p.id.includes('audi') || p.title.toLowerCase().includes('audi');
+      const cursorText = isAudi ? '/coming soon/' : '/view/';
+      return `
+      <a href="project.html?id=${p.id}" class="work-grid-card" aria-label="${p.title} (${p.year})" data-cursor="${cursorText}">
         <div class="work-card-header">
           <span class="work-card-title">${p.title}</span>
           <span class="work-card-date">${p.year}</span>
@@ -47,7 +50,7 @@ window.initWorksPage = function() {
           <img src="${p.image}" alt="${p.title}" loading="lazy" width="4000" height="3200" decoding="async" />
         </div>
       </a>
-    `).join('');
+    `}).join('');
 
     // Floating /view/ Cursor Tag Follower for Grid Cards
     const gridCards = gridContainer.querySelectorAll('.work-grid-card');
@@ -57,10 +60,12 @@ window.initWorksPage = function() {
 
     gridCards.forEach(card => {
       card.addEventListener('mouseenter', (e) => {
-        const href = card.getAttribute('href') || '';
-        const cardText = card.textContent || '';
-        const isAudi = href.includes('audi') || cardText.includes('Audi');
-        cursorTag.textContent = isAudi ? '/coming soon/' : '/view/';
+        const href = (card.getAttribute('href') || '').toLowerCase();
+        const cardText = (card.textContent || '').toLowerCase();
+        const ariaLabel = (card.getAttribute('aria-label') || '').toLowerCase();
+        const customCursor = card.getAttribute('data-cursor');
+        const isAudi = href.includes('audi') || cardText.includes('audi') || ariaLabel.includes('audi') || cardText.includes('revolut');
+        cursorTag.textContent = customCursor || (isAudi ? '/coming soon/' : '/view/');
         cursorTag.classList.add('visible');
         isHoveringGrid = true;
         if (currentX === -9999) {

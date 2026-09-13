@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
-  <script>if (sessionStorage.getItem('np_has_seen_intro')) { document.documentElement.classList.add('skip-intro'); }</script>
+  <script>
+    if (sessionStorage.getItem('np_has_seen_intro')) { document.documentElement.classList.add('skip-intro'); }
+    if (sessionStorage.getItem('np_is_navigating')) { document.documentElement.classList.add('is-navigating-in'); }
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nam Pham</title>
@@ -41,7 +44,7 @@
       --loader-counter-font-size: 13px;
       /* Center 0-100% counter font size */
 
-      /* Manifesto & Featured Works */
+      /* Manifesto & Recent Works */
       --manifesto-gap: 210px;
       --manifesto-font-family: var(--type-aero-a-font);
       --manifesto-font-size: var(--type-aero-a-size, 43px);
@@ -56,9 +59,12 @@
       --manifesto-btn-gap: 20px;
       --manifesto-btn-margin-bottom: 0px;
 
-      /* Featured (inherits from Type B) */
-      --featured-tag-font-size: var(--type-aero-b-size);
-      --featured-tag-font-weight: var(--type-aero-b-weight);
+      /* Featured Tag */
+      --featured-tag-font-family: var(--font-primary, 'AT Aero', sans-serif);
+      --featured-tag-font-size: 25px;
+      --featured-tag-font-weight: 400;
+      --featured-tag-letter-spacing: -1.2px;
+      --featured-tag-line-height: 27.5px;
       --featured-tag-color: #faf9fc;
       --featured-tag-margin-top: 0px;
       --featured-tag-margin-bottom: 0px;
@@ -158,9 +164,9 @@
 
       /* Dropdown Menu Controls */
       --nav-dropdown-bg: #101010;
-      --nav-dropdown-padding-top: 6px;
-      --nav-dropdown-padding-bottom: 20px;
-      --nav-dropdown-padding-x: 20px;
+      --nav-dropdown-padding-top: 24px;
+      --nav-dropdown-padding-bottom: 22px;
+      --nav-dropdown-padding-x: 22px;
       --nav-dropdown-item-padding-y: 20px;
       --nav-dropdown-item-padding-x: 4px;
       --nav-dropdown-deck-margin-top: 18px;
@@ -260,6 +266,9 @@
 
 <body>
 
+  <!-- Fullscreen Page Transition Curtain (Slide-Up matching Site Loader) -->
+  <div class="page-transition-curtain" id="page-transition-curtain" aria-hidden="true"></div>
+
   <!-- Fullscreen Cinematic Intro Loading Screen: Centered Logo Fill -->
   <div class="site-loader-overlay" id="site-loader">
     <div class="loader-logo-center" id="loader-logo-center">
@@ -337,7 +346,6 @@
                   <span class="nav-row-text">Projects</span>
                 </span>
               </span>
-              <span class="nav-row-count">(06)</span>
             </a>
 
             <a href="javascript:void(0)" class="nav-dropdown-row-link">
@@ -519,7 +527,7 @@
           <!-- Section Header Row: 2 Columns matching Manifesto and Works Grid -->
           <div class="f3-featured-tag-row">
             <div class="f3-featured-col-left">
-              <span class="f3-featured-tag type-aero-b">Featured works</span>
+              <span class="f3-featured-tag">Recent works</span>
             </div>
             <div class="f3-featured-col-right">
               <div class="f3-view-switcher" role="radiogroup" aria-label="Portfolio View Switcher">
@@ -554,7 +562,7 @@
               <!-- Column 1 (Left): Memphis Grizzlies, NK Hoops -->
               <div class="f3-works-col f3-works-col-left">
                 <!-- Project 1: Memphis Grizzlies -->
-                <a href="javascript:void(0)" class="f3-work-card" aria-label="Memphis Grizzlies">
+                <a href="project.html?id=memphis-grizzlies" class="f3-work-card" aria-label="Memphis Grizzlies">
                   <div class="f3-work-card-media">
                     <img src="assets/thumbnails/Memphis.webp" alt="Memphis Grizzlies" class="f3-card-img-primary"
                       loading="lazy" width="4000" height="3200" decoding="async" />
@@ -582,7 +590,7 @@
                 </a>
 
                 <!-- Project 3: NK Hoops -->
-                <a href="javascript:void(0)" class="f3-work-card" aria-label="NK Hoops">
+                <a href="project.html?id=nk-hoops" class="f3-work-card" aria-label="NK Hoops">
                   <div class="f3-work-card-media">
                     <img src="assets/thumbnails/NK Hoops.webp?v=2" alt="NK Hoops" class="f3-card-img-primary"
                       loading="lazy" width="4000" height="3200" decoding="async" />
@@ -613,7 +621,7 @@
               <!-- Column 2 (Right): U.S. Ski & Snowboard | OWG Milano Cortina, Audi Revolut F1 -->
               <div class="f3-works-col f3-works-col-right">
                 <!-- Project 2: U.S. Ski & Snowboard | OWG Milano Cortina -->
-                <a href="javascript:void(0)" class="f3-work-card"
+                <a href="project.html?id=us-ski-snowboard" class="f3-work-card"
                   aria-label="U.S. Ski & Snowboard | OWG Milano Cortina">
                   <div class="f3-work-card-media">
                     <img src="assets/thumbnails/US S&S.webp" alt="U.S. Ski & Snowboard | OWG Milano Cortina"
@@ -642,7 +650,7 @@
                 </a>
 
                 <!-- Project 4: Audi Revolut F1 -->
-                <a href="javascript:void(0)" class="f3-work-card" aria-label="Audi Revolut F1">
+                <a href="project.html?id=audi-revolut-f1" class="f3-work-card" aria-label="Audi Revolut F1" data-cursor="/coming soon/">
                   <div class="f3-work-card-media">
                     <img src="assets/thumbnails/Audi Revolut.webp?v=3" alt="Audi Revolut F1" class="f3-card-img-primary"
                       loading="lazy" width="4000" height="3200" decoding="async" />
@@ -681,7 +689,7 @@
                 <span class="f3-list-col-arrow"></span>
               </div>
               <div class="f3-list-items-wrap" id="f3-works-list-items">
-                <a href="javascript:void(0)" class="f3-list-item-row" data-image="assets/thumbnails/Memphis.webp">
+                <a href="project.html?id=memphis-grizzlies" class="f3-list-item-row" data-image="assets/thumbnails/Memphis.webp">
                   <span class="f3-list-col-num">01</span>
                   <span class="f3-list-col-title">Memphis Grizzlies</span>
                   <span class="f3-list-col-field">Branding, Social, Sport</span>
@@ -689,7 +697,7 @@
                   <span class="f3-list-col-year">2024</span>
                   <span class="f3-list-col-arrow">↗</span>
                 </a>
-                <a href="javascript:void(0)" class="f3-list-item-row" data-image="assets/thumbnails/US S&S.webp">
+                <a href="project.html?id=us-ski-snowboard" class="f3-list-item-row" data-image="assets/thumbnails/US S&S.webp">
                   <span class="f3-list-col-num">02</span>
                   <span class="f3-list-col-title">U.S. Ski & Snowboard | OWG Milano Cortina</span>
                   <span class="f3-list-col-field">Branding, Social, Sport</span>
@@ -697,7 +705,7 @@
                   <span class="f3-list-col-year">2026</span>
                   <span class="f3-list-col-arrow">↗</span>
                 </a>
-                <a href="javascript:void(0)" class="f3-list-item-row" data-image="assets/thumbnails/NK Hoops.webp?v=2">
+                <a href="project.html?id=nk-hoops" class="f3-list-item-row" data-image="assets/thumbnails/NK Hoops.webp?v=2">
                   <span class="f3-list-col-num">03</span>
                   <span class="f3-list-col-title">NK Hoops</span>
                   <span class="f3-list-col-field">Branding, Social, Sport</span>
@@ -705,7 +713,7 @@
                   <span class="f3-list-col-year">2025</span>
                   <span class="f3-list-col-arrow">↗</span>
                 </a>
-                <a href="javascript:void(0)" class="f3-list-item-row"
+                <a href="project.html?id=audi-revolut-f1" class="f3-list-item-row"
                   data-image="assets/thumbnails/Audi Revolut.webp?v=3">
                   <span class="f3-list-col-num">04</span>
                   <span class="f3-list-col-title">Audi Revolut F1</span>

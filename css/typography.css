@@ -367,9 +367,16 @@
   /* At Aero Type E */
   --type-aero-e-font: var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif);
   --type-aero-e-weight: 450;
-  --type-aero-e-size: 17px;
-  --type-aero-e-line: 20px;
-  --type-aero-e-spacing: -0.7px;
+  --type-aero-e-size: 16px;
+  --type-aero-e-line: 22px;
+  --type-aero-e-spacing: -0.2px;
+
+  /* At Aero Type F */
+  --type-aero-f-font: var(--font-primary, 'AT Aero', sans-serif);
+  --type-aero-f-weight: 400;
+  --type-aero-f-size: 16px;
+  --type-aero-f-line: 22px;
+  --type-aero-f-spacing: -0.3px;
 
   /* Sometype Mono Type A */
   --type-mono-a-font: var(--font-mono, 'Sometype Mono', monospace);
@@ -435,6 +442,14 @@
   font-size: var(--type-aero-e-size);
   line-height: var(--type-aero-e-line);
   letter-spacing: var(--type-aero-e-spacing);
+}
+
+.type-aero-f {
+  font-family: var(--type-aero-f-font);
+  font-weight: var(--type-aero-f-weight);
+  font-size: var(--type-aero-f-size);
+  line-height: var(--type-aero-f-line);
+  letter-spacing: var(--type-aero-f-spacing);
 }
 
 .type-mono-a {

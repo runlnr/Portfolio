@@ -32,6 +32,8 @@ Quick-reference typography tokens and CSS utility classes defined in [`css/typog
 | **At Aero Type B** | `AT Aero Regular` (`var(--font-primary)`) | `400` | `25px` | `27.5px` | `-1.5px` | `var(--type-aero-b-*)` / `.type-aero-b` |
 | **At Aero Type C** | `AT Aero Regular` (`var(--font-primary)`) | `400` | `20px` | `27.5px` | `-1.5px` | `var(--type-aero-c-*)` / `.type-aero-c` |
 | **At Aero Type D** | `AT Aero SemiBold` (`var(--font-primary)`) | `600` | `200px` | `230px` | `-10px` | `var(--type-aero-d-*)` / `.type-aero-d` |
+| **At Aero Type E** | `AT Aero Retina` (`var(--font-retina)`) | `450` | `17px` | `22px` | `-0.2px` | `var(--type-aero-e-*)` / `.type-aero-e` |
+| **At Aero Type F** | `AT Aero Regular` (`var(--font-primary)`) | `400` | `17px` | `22px` | `-0.2px` | `var(--type-aero-f-*)` / `.type-aero-f` |
 | **Sometype Mono Type A** | `Sometype Mono` (`var(--font-mono)`) | `400` | `11px` | `13px` | `-0.2px` | `var(--type-mono-a-*)` / `.type-mono-a` |
 
 ---
@@ -65,8 +67,8 @@ File: [`css/futurethree-scroll.css`](file:///c:/Users/haina/OneDrive/Documents/A
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Editorial Wrapper** (`.f3-editorial-wrapper`) | [`L140-148`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/futurethree-scroll.css#L140-L148) | `var(--font-sans)` | inherited | inherited | inherited |
 | **Manifesto Statement** | [`L211-222`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/futurethree-scroll.css#L211-L222) | `var(--font-retina, 'AT Aero Retina')` | `--manifesto-font-size: 43px` | `--manifesto-font-weight: 400` | `--manifesto-letter-spacing: -1.8px` |
-| **Manifesto "About ↗" Link** | [`L281-296`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/futurethree-scroll.css#L281-L296) | `var(--font-retina, 'AT Aero Retina')` | `16px` | `var(--manifesto-font-weight: 400)` | `calc(var(--manifesto-letter-spacing, -1.8px) * 16 / 43 - 0.7px)` |
-| **Featured Works Tag** (`"Featured works"`) | [`L368-375`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/futurethree-scroll.css#L368-L375) | `var(--font-sans)` | `--featured-tag-font-size: 25px` | `--featured-tag-font-weight: 400` | `-1.5px` |
+| **Manifesto "About" Label** | [`L307-323`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/futurethree-scroll.css#L307-L323) | `var(--font-primary, 'AT Aero')` | `25px` | `400` | `-1.2px` |
+| **Recent Works Tag** (`"Recent works"`) | [`L402-409`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/futurethree-scroll.css#L402-L409) | `var(--font-primary, 'AT Aero')` | `--featured-tag-font-size: 25px` | `--featured-tag-font-weight: 400` | `--featured-tag-letter-spacing: -1.2px` |
 | **"View more" Link** | [`L421-432`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/futurethree-scroll.css#L421-L432) | `var(--font-sans)` | `14px` | `400` | `-0.8px` |
 | **Work Card Titles (Grid View)** | [`L747-756`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/futurethree-scroll.css#L747-L756) | `var(--font-sans)` | `--work-card-title-size: 20px` | `400` | `-1.2px` |
 | **Work Card Year (Grid View)** | [`L865-873`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/futurethree-scroll.css#L865-L873) | `var(--font-sans)` | `--work-card-title-size: 20px` | `400` | `-1.2px` |
@@ -85,7 +87,7 @@ File: [`css/futurethree-scroll.css`](file:///c:/Users/haina/OneDrive/Documents/A
 
 ---
 
-### C. Standalone Subpages (Works, About, Contact)
+### C. Standalone Subpages (Works, About, Contact, Project Case Studies)
 File: [`css/pages.css`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css)
 
 | Element / Selector | Exact Line | Font Family | Size Token | Tracking (Letter-Spacing) Token |
@@ -99,6 +101,12 @@ File: [`css/pages.css`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pa
 | **About Hero Statement** | [`L688-693`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L688-L693) | inherited (`body`) | `clamp(2.2rem, 5vw, 4.5rem)` | `calc(-0.04em - 0.7px)` |
 | **Case Study Narrative Body** | [`L906-911`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L906-L911) | inherited (`body`) | `clamp(1.25rem, 2.5vw, 2rem)` | `calc(-0.03em - 0.7px)` |
 | **Next Project Title** | [`L984-990`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L984-L990) | inherited (`body`) | `clamp(2rem, 6vw, 5rem)` | `-1.9px` |
+| **Project Case Study Title** (`.project-main-title`) | [`L1028-1036`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L1028-L1036) | `var(--font-retina, 'AT Aero Retina')` | `48px` (Hero Properties) | `calc(-0.02em - 0.7px)` |
+| **Project "View on Behance" Button** (`.project-behance-btn`) | [`L1038-1065`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L1038-L1065) | `Sometype Mono` (`var(--type-mono-a-font)`) | `11px` (`Type Mono A`) | `-0.2px` |
+| **Project Subtitles / Field Labels** (`.project-label`) | [`L1086-1096`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L1086-L1096) | `AT Aero Regular` (`var(--type-aero-f-font)`) | `16px` / `400 weight` (`Type F`) | `-0.2px` |
+| **Project Context Values** (`.project-value`) | [`L1098-1110`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L1098-L1110) | `AT Aero Regular` (`var(--type-aero-f-font)`) | `16px` / `400 weight` (`Type F`) | `-0.2px` |
+| **Project Credits Items** (`.project-credit-item`) | [`L1149-1159`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L1149-L1159) | `AT Aero Regular` (`var(--type-aero-f-font)`) | `16px` / `400 weight` (`Type F`) | `-0.2px` |
+| **Project Description Body** (`.project-desc-text`) | [`L1186-1199`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L1186-L1199) | `var(--font-sans, 'AT Aero')` | `16px` / `300 weight (Light)` / `24px line-height` | `-0.2px` |
 
 ---
 
