@@ -293,6 +293,27 @@
 }
 
 :root {
+  /* ==========================================================================
+     MANUAL FOOTER GAP CONTROLS: Adjust distance between socials and @_phnm._
+     Edit the values below to change the spacing directly in code:
+     ========================================================================== */
+  --f3-footer-signature-margin-top: clamp(90px, 13vh, 160px);
+  /* <-- TWEAK THIS: Gap above @_phnm._ (e.g. 50px, 80px, 120px) */
+  --f3-footer-signature-margin-bottom: clamp(24px, 4vh, 48px);
+  /* Gap below @_phnm._ before bottom colophon line */
+  --f3-footer-signature-offset-y: -4px;
+  /* Micro vertical alignment offset */
+
+  /* ==========================================================================
+     MANUAL PROJECT MODAL CONTROLS: Context box width & sizing
+     Edit the value below to change the box width directly in code:
+     ========================================================================== */
+  --pm-context-box-width: 360px;
+  /* <-- TWEAK THIS: Width of project metadata/context box (e.g. 300px, 340px, 360px, 400px, 440px) */
+  --project-box-width: var(--pm-context-box-width);
+  --pm-indicator-right: 25px;
+  /* <-- TWEAK THIS: Right margin of modal scroller indicator (e.g. 25px) */
+
   /* Standard Easing Curves & Transitions */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.15, 1);
@@ -367,8 +388,8 @@
   /* At Aero Type E */
   --type-aero-e-font: var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif);
   --type-aero-e-weight: 450;
-  --type-aero-e-size: 16px;
-  --type-aero-e-line: 22px;
+  --type-aero-e-size: 14 px;
+  --type-aero-e-line: 20px;
   --type-aero-e-spacing: -0.2px;
 
   /* At Aero Type F */

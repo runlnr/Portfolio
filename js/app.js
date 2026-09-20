@@ -353,6 +353,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // Ignore hash-only anchors or JS actions
       if (href.startsWith('#') || href.startsWith('javascript:')) return;
 
+      // Ignore project modal triggers and in-situ overlay links
+      if (link.closest('.f3-work-card, .f3-list-item-row') || link.hasAttribute('data-project-id') || link.closest('#pm-modal-overlay')) {
+        return;
+      }
+
       // Ignore new tab links, downloads, mailto, tel
       if (link.target === '_blank' || link.hasAttribute('download')) return;
       if (href.startsWith('mailto:') || href.startsWith('tel:')) return;
@@ -857,8 +862,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.updateNavbarTheme = updateNavbarTheme;
 
-  // 3b. Smart Taskbar Hide on Scroll Down / Reveal on Scroll Up
-  let lastScrollY = window.scrollY || 0;
+  // 3b. Permanent Navigation Bar Visibility on Scroll (Never hides on scroll down)
   const navElements = document.querySelectorAll('.hero-top-nav, .site-nav-top');
   let heroBottomCache = 0;
 
@@ -874,29 +878,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function handleNavScroll(currentY) {
     updateNavbarTheme();
-
-    // In the hero viewport or near the top of the page, keep nav visible and never hide it
-    const inHero = heroBottomCache > 0 ? (heroBottomCache - currentY > 80 || currentY <= 40) : currentY <= 40;
-
-    if (inHero) {
-      navElements.forEach(el => el.classList.remove('nav-hidden'));
-      lastScrollY = currentY;
-      return;
-    }
-
-    const delta = currentY - lastScrollY;
-    // Smoother hysteresis threshold to avoid micro-twitching
-    if (Math.abs(delta) < 8) return;
-
-    if (delta > 0) {
-      // Scrolling down -> Hide taskbar smoothly
-      navElements.forEach(el => el.classList.add('nav-hidden'));
-    } else {
-      // Scrolling up -> Reveal taskbar smoothly
-      navElements.forEach(el => el.classList.remove('nav-hidden'));
-    }
-
-    lastScrollY = currentY;
+    // Navbar stays permanently visible across all scroll positions
+    navElements.forEach(el => el.classList.remove('nav-hidden'));
   }
 
   let lenisNavHooked = false;

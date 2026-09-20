@@ -993,7 +993,39 @@
 }
 
 /* ==========================================================================
+   USER SPACING CONTROLS — PROJECT CASE STUDY (project.html)
+   Adjust manual spacing, top clearances, and sticky positions below:
+   ========================================================================== */
+:root {
+  --project-box-width: var(--pm-context-box-width, 360px);
+  /* Sticky Top Pins & Vertical Centering (Moved down additional 10px) */
+  --project-content-top: max(110px, calc(50vh - 270px));   /* Vertically centered left content (+10px down) */
+  --project-image-top: var(--project-content-top);          /* Picture brought along with text block */
+
+  /* Page Outer Spacing & Clearance to Top */
+  --project-page-padding-top: var(--project-content-top);   /* Content & picture start aligned at this level */
+  --project-page-padding-bottom: 120px;   /* Distance at the bottom of the page */
+  --project-page-padding-x: 25px;         /* Left & right side margins (25px) */
+
+  /* Internal Spacing Between Content Blocks */
+  --project-title-margin-bottom: 24px;    /* Gap between Title and Metadata Grid */
+  --project-meta-margin-top: 24px;        /* Gap above metadata grid */
+  --project-meta-gap-y: 20px;             /* Vertical gap between metadata rows */
+  --project-meta-gap-x: 24px;             /* Horizontal gap between metadata columns */
+  --project-accordion-margin-top: 28px;   /* Gap between metadata grid and Accordion */
+  --project-accordion-gap: 8px;           /* Gap between individual accordion tabs */
+  --project-tab-padding-y: 18px;          /* Vertical padding inside tab header */
+  --project-tab-padding-x: 20px;          /* Horizontal padding inside tab header */
+  --project-action-margin-top: 24px;      /* Gap above action link at bottom */
+
+  /* Columns & Image Stack Gap */
+  --project-columns-gap: 60px;            /* Horizontal gap between Left Content and Right Images */
+  --project-image-gap: 48px;              /* Vertical gap between stacking image cards */
+}
+
+/* ==========================================================================
    DEDICATED PROJECT CASE STUDY VIEW (project.html)
+   Split 4:3 Stacking Layout & Sticky Editorial Info
    ========================================================================== */
 .project-page-body {
   background-color: #080808;
@@ -1004,367 +1036,495 @@
   overflow-x: hidden;
 }
 
-/* Main Project Container (160px Top Clearance below modular floating nav) */
+/* Main Container */
 .project-main-wrap {
-  padding-top: 220px;
-  padding-bottom: 60px;
-  width: 100%;
-}
-
-.project-text-container {
-  padding: 0 25px;
+  padding-top: var(--project-page-padding-top, 150px);
+  padding-bottom: var(--project-page-padding-bottom, 120px);
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Project Main Title Row (Title Left, Behance Button Right) */
-.project-title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin: 0 0 35px 0;
-}
-
-.project-main-title {
-  margin: 0;
-  font-family: var(--font-retina, 'AT Aero Retina', 'AT Aero', var(--font-sans), sans-serif);
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: calc(-0.02em - 0.7px);
-  color: #faf9fc;
-}
-
-.project-behance-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background-color: #161616;
-  border: none;
-  color: #faf9fc;
-  font-family: var(--type-mono-a-font, var(--font-mono, 'Sometype Mono', monospace));
-  font-size: var(--type-mono-a-size, 11px);
-  font-weight: var(--type-mono-a-weight, 400);
-  line-height: var(--type-mono-a-line, 13px);
-  letter-spacing: var(--type-mono-a-spacing, -0.2px);
-  text-transform: uppercase;
-  padding: 4px 8px;
-  border-radius: 2px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color var(--transition-fast, 0.2s ease), color var(--transition-fast, 0.2s ease);
-  cursor: pointer;
-}
-
-.project-behance-btn:hover {
-  background-color: #242424;
-  transform: translateY(-2px);
-  color: #faf9fc;
-}
-
-.project-behance-btn .btn-arrow {
-  font-size: 12px;
-  line-height: 1;
-  transition: transform var(--transition-fast, 0.2s ease);
-}
-
-.project-behance-btn:hover .btn-arrow {
-  transform: translate(2px, -2px);
-}
-
-/* Hold project page context hidden during page navigation fade until reveal */
-html.is-navigating-in .project-title-row,
-html.is-navigating-in .project-meta-col,
-html.is-navigating-in .project-credits-col,
-html.is-navigating-in .project-desc-col {
-  opacity: 0 !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html.is-navigating-in .project-title-row,
-  html.is-navigating-in .project-meta-col,
-  html.is-navigating-in .project-credits-col,
-  html.is-navigating-in .project-desc-col {
-    opacity: 1 !important;
+@media (min-width: 961px) {
+  .project-main-wrap {
+    height: 100vh;
+    overflow: hidden;
+    padding-bottom: 0;
   }
 }
 
-/* 3-Column Editorial Grid: Column 3 aligned precisely to Nav Bar Right Edge, Column 2 equidistant in the center */
-.project-context-grid {
+/* 2-Column Split Grid (Content Left, Images Right, 25px Margins to Sides) */
+.project-split-container {
+  width: 100%;
+  margin: 0;
+  padding: 0 var(--project-page-padding-x, 25px);
   display: grid;
-  grid-template-columns: calc(25% + (var(--nav-box-width, 480px) / 4)) calc(25% + (var(--nav-box-width, 480px) / 4)) 1fr;
-  width: 100%;
-  gap: 0;
-  align-items: stretch;
-}
-
-/* Subtitles / Field Labels (6d6d6d, AT Aero Type F) */
-.project-label {
-  display: block;
-  color: #6d6d6d;
-  font-family: var(--type-aero-f-font, var(--font-primary, 'AT Aero', sans-serif));
-  font-size: var(--type-aero-f-size, 16px);
-  font-weight: var(--type-aero-f-weight, 400);
-  line-height: var(--type-aero-f-line, 22px);
-  letter-spacing: var(--type-aero-f-spacing, -0.2px);
-  margin: 0 0 4px 0;
-  padding: 0;
-}
-
-/* Context Values (faf9fc, AT Aero Type F) */
-.project-value {
-  display: block;
-  color: #faf9fc;
-  font-family: var(--type-aero-f-font, var(--font-primary, 'AT Aero', sans-serif));
-  font-size: var(--type-aero-f-size, 16px);
-  font-weight: var(--type-aero-f-weight, 400);
-  line-height: var(--type-aero-f-line, 22px);
-  letter-spacing: var(--type-aero-f-spacing, -0.2px);
-  margin: 0;
-  padding: 0;
-}
-
-/* Column 1: Metadata Stack (Stretches spacing between the 3 blocks to match description height) */
-.project-meta-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100%;
-  gap: 20px;
-  padding-right: 25px;
-  box-sizing: border-box;
-}
-
-.project-meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin: 0;
-  padding: 0;
-}
-
-/* Column 2: Credits (Credits title at top, credits list block aligned to bottom of Col 1) */
-.project-credits-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100%;
-  padding-right: 25px;
-  box-sizing: border-box;
-}
-
-.project-credits-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-}
-
-.project-credit-item {
-  font-family: var(--type-aero-f-font, var(--font-primary, 'AT Aero', sans-serif));
-  font-size: var(--type-aero-f-size, 16px);
-  font-weight: var(--type-aero-f-weight, 400);
-  line-height: var(--type-aero-f-line, 22px);
-  letter-spacing: var(--type-aero-f-spacing, -0.2px);
-  margin: 0;
-  padding: 0;
-  text-align: left;
-}
-
-.project-credit-role {
-  color: #6d6d6d;
-  margin-right: 6px;
-}
-
-.project-credit-name {
-  color: #faf9fc;
-}
-
-/* Column 3: Project Description (AT Aero Light 300, 16px size, 24px line height, 16px paragraph gap) */
-.project-desc-col {
-  display: flex;
-  flex-direction: column;
-  align-self: start;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.project-desc-body {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.project-desc-text,
-.project-desc-body p {
-  margin: 0;
-  padding: 0;
-  color: #faf9fc;
-  font-family: var(--font-sans, 'AT Aero', -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 24px;
-  letter-spacing: -0.2px;
-  width: 100%;
-  max-width: 100%;
+  grid-template-columns: minmax(var(--project-box-width, var(--pm-context-box-width, 360px)), 0.85fr) minmax(0, 1.15fr);
+  gap: var(--project-columns-gap, 60px);
+  align-items: start;
   box-sizing: border-box;
 }
 
 /* ==========================================================================
-   Project Image Gallery (Seamless vertical rows, 25px horizontal grid gap)
+   LEFT COLUMN: Sticky Project Details (Content)
    ========================================================================== */
-.project-gallery-wrap {
-  margin-top: 25px;
-  padding: 0 25px 60px 25px;
+.project-info-col {
+  position: relative;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   box-sizing: border-box;
+  z-index: 5;
+}
+
+.project-info-sticky {
   display: flex;
   flex-direction: column;
   gap: 0;
-}
-
-/* Row Type 1: Full Bleed (1 image spanning full width between 25px site margins) */
-.project-gallery-row.type-full {
   width: 100%;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
 }
 
-.project-gallery-row.type-full img {
+/* 1. Top: Title Wrap */
+.project-title-wrap {
   width: 100%;
-  height: auto;
-  display: block;
-  margin: 0;
-  padding: 0;
-  border-radius: 0;
+  margin-bottom: var(--project-title-margin-bottom, 24px);
 }
 
-/* Row Type 2: Grid of 2 (2 images separated by 25px, equal height via proportional flex) */
-.project-gallery-row.type-grid-2 {
+.project-info-title {
+  margin: 0;
+  font-family: var(--type-aero-e-font, var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif));
+  font-size: var(--type-aero-e-size, 16px);
+  font-weight: var(--type-aero-e-weight, 450);
+  line-height: var(--type-aero-e-line, 20px);
+  letter-spacing: var(--type-aero-e-spacing, -0.2px);
+  color: #ffffff;
+}
+
+/* 2. Middle: Metadata Container */
+.project-meta-wrap {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.project-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--project-meta-gap-y, 20px) var(--project-meta-gap-x, 24px);
+  padding-top: 0;
+  border-top: none;
+  box-sizing: border-box;
+}
+
+.project-meta-cell {
   display: flex;
-  gap: 25px;
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.project-gallery-row.type-grid-2 .gallery-col {
-  flex: 1 1 0%;
-  min-width: 0;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
+.project-meta-label {
+  font-family: var(--type-mono-a-font, var(--font-mono, 'Sometype Mono', monospace));
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
 }
 
-.project-gallery-row.type-grid-2 .gallery-col img {
+.project-meta-value {
+  font-family: var(--type-aero-e-font, var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif));
+  font-size: var(--type-aero-e-size, 16px);
+  font-weight: var(--type-aero-e-weight, 450);
+  line-height: var(--type-aero-e-line, 22px);
+  letter-spacing: var(--type-aero-e-spacing, -0.2px);
+  color: #faf9fc;
+}
+
+/* ==========================================================================
+   3. Lower: 5-Tab Dropdown Accordion Component
+   Deliverables, Context, Challenge, Solution, Credits
+   ========================================================================== */
+.project-accordion-wrap {
   width: 100%;
-  height: auto;
-  display: block;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box;
+  margin-top: var(--project-accordion-margin-top, 28px);
+}
+
+.project-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--project-accordion-gap, 8px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.project-tab-item {
+  background-color: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 0;
+  overflow: hidden;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
 }
 
-/* Fallback Full-Width Hero Image Placeholder (16:9, 25px margin to site edges, 0 radius) */
-.project-hero-wrap {
-  margin-top: 25px;
-  margin-left: 25px;
-  margin-right: 25px;
-  width: calc(100% - 50px);
+.project-tab-item:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.project-tab-item.is-open {
+  background-color: #131313;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.project-tab-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--project-tab-padding-y, 18px) var(--project-tab-padding-x, 20px);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+.project-tab-title {
+  font-family: var(--type-aero-e-font, 'AT Aero Retina', 'AT Aero', sans-serif);
+  font-size: var(--type-aero-e-size, 16px);
+  font-weight: 500;
+  line-height: var(--type-aero-e-line, 22px);
+  letter-spacing: var(--type-aero-e-spacing, -0.2px);
+  color: #ffffff;
+}
+
+.project-tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  transform-origin: center;
+  transition: color 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.project-tab-header:hover .project-tab-icon {
+  color: #ffffff;
+}
+
+.project-tab-item.is-open .project-tab-icon {
+  transform: rotate(45deg);
+  color: #ffffff;
+}
+
+.project-tab-body {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+.project-tab-item.is-open .project-tab-body {
+  opacity: 1;
+}
+
+.project-tab-content {
+  padding: 0 var(--project-tab-padding-x, 20px) var(--project-tab-padding-y, 20px) var(--project-tab-padding-x, 20px);
   box-sizing: border-box;
 }
 
+.project-tab-text {
+  margin: 0;
+  padding: 0;
+  font-family: var(--type-aero-e-font, 'AT Aero Retina', 'AT Aero', sans-serif);
+  font-size: var(--type-aero-e-size, 16px);
+  font-weight: var(--type-aero-e-weight, 450);
+  line-height: var(--type-aero-e-line, 22px);
+  letter-spacing: var(--type-aero-e-spacing, -0.2px);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.project-tab-text + .project-tab-text {
+  margin-top: 14px;
+}
+
+/* 4. Bottom: Action Link */
+.project-action-row {
+  margin-top: var(--project-action-margin-top, 24px);
+  width: 100%;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: Linear Gallery Image Cards (GSAP Scrubbed)
+   ========================================================================== */
+.project-stack-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--project-image-gap, 48px);
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  will-change: transform;
+}
+
+/* Individual 4:3 Linear Image Card */
+.project-stack-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #121212;
+  border-radius: 0; /* Strict Swiss brutalist sharp corners */
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+/* Media inside card */
+.project-stack-card img,
+.project-stack-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 0;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Fallback / Loading hero placeholder */
 .project-hero-placeholder {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   border-radius: 0;
-  background-color: #1a1a1a;
+  background-color: #161616;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  position: relative;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .project-context-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
+/* External Action Link (Visit Site → / View on Behance ↗) */
+.project-action-row {
+  padding-top: 6px;
+}
 
-  .project-meta-col {
-    justify-content: flex-start;
-    min-height: auto;
-    gap: 20px;
-  }
+.project-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-primary, 'AT Aero', sans-serif);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  padding-bottom: 2px;
+}
 
-  .project-credits-col {
-    justify-content: flex-start;
-    min-height: auto;
-    gap: 20px;
-  }
+.project-action-link:hover {
+  border-bottom-color: #ffffff;
+  transform: translateX(4px);
+}
 
-  .project-desc-col {
-    grid-column: span 2;
+.project-action-link .action-arrow {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-action-link:hover .action-arrow {
+  transform: translateX(4px);
+}
+
+/* Hold project page context hidden during page navigation fade until reveal */
+html.is-navigating-in .project-info-title,
+html.is-navigating-in .project-meta-grid,
+html.is-navigating-in .project-accordion-wrap,
+html.is-navigating-in .project-action-row {
+  opacity: 0 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.is-navigating-in .project-info-title,
+  html.is-navigating-in .project-meta-grid,
+  html.is-navigating-in .project-accordion-wrap,
+  html.is-navigating-in .project-action-row {
+    opacity: 1 !important;
   }
 }
 
-@media (max-width: 640px) {
-  .project-title-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
+/* ==========================================================================
+   NEXT PROJECT TRANSITION: Minimalist Text Anchor
+   "NEXT PROJECT: [Title] ↗"
+   ========================================================================== */
+.project-next-wrap {
+  width: 100%;
+  padding: 100px var(--project-page-padding-x, 25px) 60px var(--project-page-padding-x, 25px);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
 
-  .project-main-title {
-    font-size: clamp(28px, 8vw, 36px);
-    line-height: 1.05;
-    letter-spacing: calc(-0.02em - 0.7px);
-  }
+.project-next-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.project-next-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  text-decoration: none;
+  color: #faf9fc;
+  padding: 18px 32px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  box-sizing: border-box;
+}
+
+.project-next-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.38);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.project-next-prefix {
+  font-family: var(--type-mono-a-font, var(--font-mono, 'Sometype Mono', monospace));
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.project-next-title {
+  font-family: var(--type-aero-b-font, var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif));
+  font-size: clamp(1.2rem, 2.2vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: -0.8px;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.project-next-arrow {
+  font-family: var(--font-primary, 'AT Aero', sans-serif);
+  font-size: 1.25em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.project-next-link:hover .project-next-arrow {
+  transform: translate(3px, -3px);
+  color: #ffffff;
+}
+
+/* Footer spacing and horizontal padding on project page */
+.project-page-body .f3-editorial-footer {
+  margin-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT
+   ========================================================================== */
+@media (max-width: 960px) {
   .project-main-wrap {
-    padding-top: 140px;
+    padding-top: 130px;
+    padding-bottom: 80px;
   }
 
-  .project-text-container {
-    padding: 0 16px;
+  .project-split-container {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    padding: 0 20px;
   }
 
-  .project-context-grid {
-    grid-template-columns: 1fr;
+  /* Unbox right info column and sticky wrap on mobile to interleave sections */
+  .project-info-col,
+  .project-info-sticky {
+    display: contents;
+    position: static;
+  }
+
+  /* Order: 1. Title on top */
+  .project-title-wrap {
+    order: 1;
+    width: 100%;
+  }
+
+  .project-info-title {
+    font-size: clamp(32px, 8vw, 44px);
+    line-height: 1.05;
+  }
+
+  /* Order: 2. Metadata Grid (Moved UP under title) */
+  .project-meta-wrap {
+    order: 2;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .project-meta-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 20px;
+  }
+
+  /* Order: 3. 4:3 Image Cards in the middle */
+  .project-stack-col {
+    order: 3;
     gap: 24px;
+    width: 100%;
+    margin-top: 10px;
   }
 
-  .project-desc-col {
-    grid-column: span 1;
+  .project-stack-card {
+    position: relative;
+    top: 0;
+    transform: none !important;
+    filter: none !important;
   }
 
-  .project-label,
-  .project-value,
-  .project-credit-item,
-  .project-desc-text {
-    font-size: 15px;
-    line-height: 20px;
-    letter-spacing: -0.6px;
+  /* Order: 4. 5-Tab Accordion below images */
+  .project-accordion-wrap {
+    order: 4;
+    width: 100%;
+    margin-top: 12px;
   }
 
-  .project-hero-wrap {
-    margin-top: 20px;
-    margin-left: 16px;
-    margin-right: 16px;
-    width: calc(100% - 32px);
+  /* Order: 5. Action link at the bottom */
+  .project-action-row {
+    order: 5;
+    width: 100%;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-split-container {
+    padding: 0 16px;
+    gap: 28px;
+  }
+
+  .project-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }

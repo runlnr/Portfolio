@@ -1,0 +1,411 @@
+/* ==========================================================================
+   Project In-Situ Modal Overlay (Smooth Continuous Physics Edition)
+   - Heavy Frosted Glass Backdrop Blur over Homepage
+   - Top-Left: Sharp Rectangular Glassy Metadata Card (25px Margin, 0px Radius)
+   - Center: Continuous Smooth Infinite Artwork Reel (No Snapping, Silk-Smooth)
+   - Right: Capsule Scroll Indicator Positioned at Right Edge (25px Margin)
+   - Main Context Font: AT Aero Type E (Sentence Case)
+   ========================================================================== */
+
+:root {
+  --pm-z-index: 99999;
+  --pm-backdrop-bg: rgba(6, 6, 8, 0.72);
+  --pm-backdrop-blur: 30px;
+  --pm-card-bg: rgba(14, 14, 18, 0.65);
+  --pm-card-border: 1px solid rgba(255, 255, 255, 0.14);
+  --pm-card-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  /* Context box width: Adjustable here or in css/typography.css (--pm-context-box-width) */
+  --pm-card-width: var(--pm-context-box-width, 360px);
+  --pm-canvas-bg: transparent;
+  --pm-canvas-padding: 5px;
+  --pm-canvas-gap: 5px;
+  --pm-img-radius: 2px;
+}
+
+/* Lock background site scrolling when project modal is active */
+html.pm-modal-active,
+body.pm-modal-active {
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+  touch-action: none !important;
+}
+
+/* Modal Root Container */
+.pm-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--pm-z-index);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--pm-backdrop-bg);
+  backdrop-filter: blur(var(--pm-backdrop-blur)) saturate(150%) brightness(0.65);
+  -webkit-backdrop-filter: blur(var(--pm-backdrop-blur)) saturate(150%) brightness(0.65);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+}
+
+.pm-modal-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Fullscreen Layout Stage */
+.pm-layout-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   1. Left Column: Floating Glassy Metadata Card
+      - 25px Margin to Top & Left Edge
+      - 0px Sharp Corners
+      - AT Aero Type E Context Font
+      - AT Aero Type C Title Font
+   -------------------------------------------------------------------------- */
+.pm-meta-card {
+  position: fixed;
+  top: var(--pm-card-top, 25px);
+  left: var(--pm-card-left, 25px);
+  width: var(--pm-context-box-width, var(--pm-card-width, 360px));
+  max-width: min(var(--pm-context-box-width, var(--pm-card-width, 360px)), calc(50vw - 25px));
+  max-height: calc(100vh - var(--pm-card-top, 25px) - 65px);
+  background: transparent;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  color: #faf9fc;
+  z-index: 10;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  transform: translateX(-16px);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.pm-meta-card::-webkit-scrollbar {
+  display: none;
+}
+
+.pm-modal-overlay.is-active .pm-meta-card {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Header Area */
+.pm-meta-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+/* Title: AT Aero Type E */
+.pm-meta-title {
+  font-family: var(--type-aero-e-font, 'AT Aero Retina', sans-serif);
+  font-size: var(--type-aero-e-size, 16px);
+  font-weight: var(--type-aero-e-weight, 450);
+  line-height: var(--type-aero-e-line, 20px);
+  letter-spacing: var(--type-aero-e-spacing, -0.2px);
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Vertically Centered Close Button at Left Edge (top: 50%, left: 10px) */
+.pm-close-btn {
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  border-radius: 0px;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  padding: 6px 4px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+  z-index: 25;
+  user-select: none;
+}
+
+.pm-close-btn:hover {
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.15);
+}
+
+.pm-close-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.pm-close-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Sub-header: Year badge */
+.pm-meta-subrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.pm-meta-label {
+  font-family: 'Sometype Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.pm-meta-year-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0px;
+  font-family: 'Sometype Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+/* Divider Hidden for Pure Typographic Flow */
+.pm-meta-divider {
+  display: none !important;
+}
+
+/* Meta Data Grid (Client, Discipline, Role) - Hidden */
+.pm-meta-specs {
+  display: none !important;
+}
+
+/* Body / Editorial Context: AT AERO TYPE E */
+.pm-meta-content {
+  font-family: var(--type-aero-e-font, 'AT Aero Retina', 'AT Aero', sans-serif);
+  font-weight: var(--type-aero-e-weight, 450);
+  font-size: var(--type-aero-e-size, 14px);
+  line-height: var(--type-aero-e-line, 20px);
+  letter-spacing: var(--type-aero-e-spacing, -0.2px);
+  color: rgba(255, 255, 255, 0.88);
+  text-transform: none; /* Natural editorial sentence case */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+.pm-meta-content p {
+  margin: 0;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+/* Fixed Bottom-Left Action Button Container */
+.pm-meta-action {
+  position: fixed;
+  bottom: var(--pm-action-bottom, 25px);
+  left: var(--pm-action-left, 25px);
+  z-index: 25;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Action Link Styled Exactly as .f3-pill-btn from About Section */
+.pm-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #161616;
+  border: none;
+  color: #faf9fc;
+  font-family: var(--font-mono, 'Sometype Mono', monospace);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color var(--transition-fast, 0.2s ease);
+}
+
+.pm-pill-btn:hover {
+  background-color: #242424;
+  transform: translateY(-2px);
+  color: #faf9fc;
+}
+
+.pm-pill-btn .btn-arrow {
+  font-size: 12px;
+  transition: transform var(--transition-fast, 0.2s ease);
+}
+
+.pm-pill-btn:hover .btn-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* --------------------------------------------------------------------------
+   2. Right Column: 50% Split Editorial Visual Canvas
+      - Full-height right split pane (50vw, 100vh)
+      - Tone: Transparent, resting directly on blurred site
+      - Spacing: 5px padding to edges, 5px gap between images
+      - Images: 2px corner radius, mixed full-width & 2-column grid
+      - Endless continuous smooth physics scroll & drag
+   -------------------------------------------------------------------------- */
+.pm-right-canvas {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50vw;
+  height: 100vh;
+  background-color: var(--pm-canvas-bg, transparent);
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: var(--pm-canvas-padding, 5px);
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  z-index: 8;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-shadow: none;
+}
+
+.pm-right-canvas:active {
+  cursor: grabbing;
+}
+
+/* Continuous Physics Track */
+.pm-canvas-track {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--pm-canvas-gap, 5px);
+  will-change: transform;
+  pointer-events: auto;
+}
+
+/* Individual Duplicate Cycle Set */
+.pm-canvas-set {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--pm-canvas-gap, 5px);
+}
+
+/* Full Width Image Row */
+.pm-row-full {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--pm-img-radius, 2px);
+  background: transparent;
+}
+
+.pm-row-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--pm-img-radius, 2px);
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 2-Column Balanced Image Row */
+.pm-row-grid2 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--pm-canvas-gap, 5px);
+}
+
+.pm-grid-item {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--pm-img-radius, 2px);
+  background: transparent;
+}
+
+.pm-grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--pm-img-radius, 2px);
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Scroll Indicator (Hidden per user request)
+   -------------------------------------------------------------------------- */
+.pm-indicator-wrap {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile & Tablet Responsiveness (@media <= 960px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .pm-meta-card {
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    width: auto;
+    max-width: none;
+    max-height: 38vh;
+    padding: 16px 14px;
+  }
+
+  .pm-right-canvas {
+    width: 100vw;
+    height: 58vh;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .pm-meta-title {
+    font-size: 17px;
+  }
+}

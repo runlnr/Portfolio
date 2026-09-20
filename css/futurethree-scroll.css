@@ -1405,7 +1405,6 @@
   color: var(--f3-text);
   margin: 0;
   white-space: nowrap;
-  user-select: none;
 }
 
 /* ==========================================================================
@@ -1607,21 +1606,59 @@
 }
 
 /* ==========================================================================
-   EDITORIAL FOOTER & CONTACT SECTION
+   CURTAIN REVEAL ARCHITECTURE & EDITORIAL FOOTER (#e5e5e6)
    ========================================================================== */
+.homepage-main,
+.project-main-curtain {
+  position: relative;
+  z-index: 2;
+  background: #000000;
+}
+
+.f3-footer-reveal-wrap {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background: #e5e5e6;
+  box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+  .f3-footer-reveal-wrap {
+    position: static;
+    z-index: auto;
+  }
+
+  .f3-editorial-footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
 .f3-editorial-footer {
   position: relative;
   width: 100%;
-  margin-top: var(--f3-footer-margin-top, 80px);
-  padding-top: var(--f3-footer-padding-top, 32px);
+  margin-top: 0;
+  padding-top: var(--f3-footer-padding-top, 40px);
   padding-bottom: 0px;
-  color: #faf9fc;
+  background: #e5e5e6;
+  color: #0a0a0a;
+  box-sizing: border-box;
 }
 
 /* 2-Column Separation Lines Above Footer */
 .f3-footer-divider-row {
   margin-top: 0px;
   margin-bottom: 25px;
+}
+
+.f3-footer-divider-row .f3-intro-divider-col-left,
+.f3-footer-divider-row .f3-intro-divider-col-right {
+  height: 0px;
+  background: none;
+  border-top: 1px solid #0a0a0a;
 }
 
 /* Top Row Layout (2-Column Synchronized with Site Grid & Separation Lines) */
@@ -1660,7 +1697,7 @@
   font-weight: var(--type-aero-b-weight);
   letter-spacing: var(--type-aero-b-spacing);
   line-height: var(--type-aero-b-line);
-  color: #faf9fc;
+  color: #0a0a0a;
   text-decoration: none;
   transition: opacity 0.2s ease, color 0.2s ease;
   display: block;
@@ -1671,7 +1708,15 @@
 }
 
 .f3-footer-email-link:hover {
-  opacity: 0.7;
+  opacity: 0.55;
+  color: #0a0a0a;
+}
+
+@media (max-width: 480px) {
+  .f3-footer-email-link {
+    font-size: clamp(16px, 5.2vw, 22px);
+    white-space: nowrap;
+  }
 }
 
 .f3-footer-location {
@@ -1685,7 +1730,7 @@
   font-weight: var(--type-aero-b-weight);
   letter-spacing: var(--type-aero-b-spacing);
   line-height: var(--type-aero-b-line);
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(10, 10, 10, 0.55);
 }
 
 .f3-footer-location span {
@@ -1718,47 +1763,46 @@
   font-weight: var(--type-aero-b-weight);
   letter-spacing: var(--type-aero-b-spacing);
   line-height: var(--type-aero-b-line);
-  color: #faf9fc;
+  color: #0a0a0a;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
   width: fit-content;
-  user-select: none;
 }
 
 .f3-footer-social-link.is-inactive {
   cursor: default;
-  color: #faf9fc;
+  color: #0a0a0a;
 }
 
 .f3-footer-badge {
   font-family: var(--font-retina, 'AT Aero Retina', sans-serif);
   font-size: clamp(11px, 1.1vw, 15px);
   font-weight: 400;
-  color: rgba(250, 249, 252, 0.45);
+  color: rgba(10, 10, 10, 0.45);
   margin-left: 8px;
   letter-spacing: -0.3px;
   vertical-align: baseline;
   transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
 }
 
-/* Socials Focus Dimming: When any social is hovered, turn other socials to #6d6d6d */
+/* Socials Focus Dimming: When any social is hovered, dim others */
 .f3-footer-socials-list:hover .f3-footer-social-link {
-  color: #6d6d6d;
+  color: rgba(10, 10, 10, 0.3);
 }
 
 .f3-footer-socials-list:hover .f3-footer-badge {
-  color: #6d6d6d;
+  color: rgba(10, 10, 10, 0.3);
 }
 
 .f3-footer-socials-list .f3-footer-social-link:hover {
-  color: #faf9fc;
+  color: #0a0a0a;
   opacity: 1;
 }
 
 .f3-footer-socials-list .f3-footer-social-link:hover .f3-footer-badge {
-  color: #faf9fc;
+  color: rgba(10, 10, 10, 0.55);
 }
 
 /* Right Studio Brand Mark */
@@ -1772,7 +1816,7 @@
   width: var(--f3-footer-logo-size, 60px);
   height: var(--f3-footer-logo-size, 60px);
   transform: translate(var(--f3-footer-logo-offset-x, 0px), var(--f3-footer-logo-offset-y, 0px));
-  color: #ffffff;
+  color: #0a0a0a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1789,7 +1833,7 @@
 .f3-footer-brand-signature {
   width: 100%;
   margin-top: var(--f3-footer-signature-margin-top, clamp(90px, 13vh, 160px));
-  margin-bottom: clamp(24px, 4vh, 48px);
+  margin-bottom: var(--f3-footer-signature-margin-bottom, clamp(24px, 4vh, 48px));
   transform: translateY(var(--f3-footer-signature-offset-y, -4px));
   font-size: clamp(52px, 14vw, var(--type-aero-d-size, 260px));
   height: 1em;
@@ -1797,7 +1841,6 @@
   display: flex;
   align-items: flex-start;
   overflow: visible;
-  user-select: none;
   transition: margin-top 0.2s ease, transform 0.2s ease;
 }
 
@@ -1816,7 +1859,7 @@
   font-weight: var(--type-aero-d-weight, 500);
   letter-spacing: clamp(-10px, -0.7vw, -3px);
   line-height: 1;
-  color: #ffffff;
+  color: #0a0a0a;
   white-space: nowrap;
   width: 100%;
   text-align: left;
@@ -1839,6 +1882,7 @@
   display: inline-block;
   vertical-align: baseline;
   line-height: inherit;
+  color: #0a0a0a;
   margin-left: var(--f3-footer-underscore-margin-left, 0px);
   margin-right: var(--f3-footer-underscore-margin-right, 0px);
   transform: scaleY(var(--f3-footer-underscore-scale-y, 1.0)) translateY(var(--f3-footer-underscore-offset-y, 0px));
@@ -1864,14 +1908,14 @@
   align-items: center;
   padding-top: 24px;
   margin-bottom: var(--f3-footer-colophon-margin-bottom, 25px);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid #0a0a0a;
   font-family: var(--font-mono, 'Sometype Mono', monospace);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: -0.2px;
   line-height: 1;
   text-transform: uppercase;
-  color: var(--f3-text-dim, rgba(255, 255, 255, 0.4));
+  color: rgba(10, 10, 10, 0.55);
 }
 
 .f3-colophon-col-left {
@@ -1890,22 +1934,24 @@
   align-items: center;
 }
 
-.f3-colophon-start-project {
+.f3-colophon-start-project,
+.f3-colophon-privacy-link {
   font-family: var(--type-mono-a-font, var(--font-mono, 'Sometype Mono', monospace));
   font-size: var(--type-mono-a-size, 11px);
   font-weight: var(--type-mono-a-weight, 400);
   letter-spacing: var(--type-mono-a-spacing, -0.2px);
   line-height: var(--type-mono-a-line, 13px);
-  color: var(--f3-text-dim, rgba(255, 255, 255, 0.4));
+  color: #0a0a0a;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.2s ease, opacity 0.2s ease;
   cursor: pointer;
 }
 
-.f3-colophon-start-project:hover {
-  color: #faf9fc;
-  opacity: 1;
+.f3-colophon-start-project:hover,
+.f3-colophon-privacy-link:hover {
+  color: #0a0a0a;
+  opacity: 0.55;
 }
 
 .f3-colophon-left,

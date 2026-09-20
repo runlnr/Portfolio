@@ -53,7 +53,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  overflow-x: clip;
   cursor: none !important;
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
@@ -138,9 +138,22 @@ ul, ol {
   list-style: none;
 }
 
+/* Ensure every text element on this site is copy-able */
+html, body, main, article, section, aside, header, footer, div, p, span, h1, h2, h3, h4, h5, h6, a, label, li, td, th, blockquote, code, pre, em, strong, b, i {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
 ::selection {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+::-moz-selection {
+  background-color: #ffffff !important;
+  color: #000000 !important;
 }
 
 .site-container {

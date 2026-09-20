@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="css/hero-3d.css?v=1.0.0">
   <link rel="stylesheet" href="css/glassmorphism.css?v=1.0.0">
   <link rel="stylesheet" href="css/pages.css?v=1.0.0">
+  <link rel="stylesheet" href="css/futurethree-scroll.css?v=1.0.0">
   <link rel="stylesheet" href="css/responsive.css?v=1.0.0">
 </head>
 
@@ -177,63 +178,175 @@
     <span class="floating-cta-text">Start a project</span>
   </a>
 
-  <!-- Main Case Study Content -->
+  <!-- Main Case Study Content Curtain: Split 4:3 Stacking Layout (Content Left, Images Right) -->
+  <div class="project-main-curtain">
   <main class="project-main-wrap" id="main-content">
-    <div class="project-text-container">
-      <!-- Project Title Header Row (Title Left in 48px Hero Typography, Behance Button Right in Type Mono A) -->
-      <div class="project-title-row">
-        <h1 class="project-main-title" id="project-title">Memphis Grizzlies</h1>
-        <a href="https://www.behance.net/pxly" target="_blank" rel="noopener noreferrer" class="project-behance-btn type-mono-a" id="project-behance-btn" aria-label="View on Behance">
-          <span>View on behance</span>
-          <span class="btn-arrow" aria-hidden="true">↗</span>
-        </a>
-      </div>
+    <div class="project-split-container">
+      <!-- Left Column: Sticky Project Details (Title, About, Metadata, Action Link) -->
+      <aside class="project-info-col" id="project-info-col" aria-label="Project Information">
+        <div class="project-info-sticky" id="project-info-sticky">
+          <!-- 1. Top: Project Main Title -->
+          <div class="project-title-wrap">
+            <h1 class="project-info-title type-aero-e" id="project-title">Memphis Grizzlies</h1>
+          </div>
 
-      <!-- 3-Column Context Grid (AT Aero Type F) -->
-      <div class="project-context-grid">
-        <!-- Column 1: Medium, Year, Type -->
-        <div class="project-meta-col">
-          <div class="project-meta-item">
-            <span class="project-label type-aero-f">Medium</span>
-            <span class="project-value type-aero-f" id="project-medium">Social Media Identity</span>
+          <!-- 2. Middle: 2-Column Metadata Grid (Moved UP under Title) -->
+          <div class="project-meta-wrap">
+            <div class="project-meta-grid" id="project-meta-grid">
+              <!-- Dynamic 2-Column Metadata Injected by project.js -->
+            </div>
           </div>
-          <div class="project-meta-item">
-            <span class="project-label type-aero-f">Year</span>
-            <span class="project-value type-aero-f" id="project-year">2024</span>
+
+          <!-- 3. Lower: 5-Tab Dropdown Accordion (Replacing 'About', Moved DOWN) -->
+          <div class="project-accordion-wrap">
+            <div class="project-accordion" id="project-accordion" role="region" aria-label="Project Details Accordion">
+              <!-- Dynamic 5 Tabs (Deliverables, Context, Challenge, Solution, Credits) Injected by project.js -->
+            </div>
           </div>
-          <div class="project-meta-item">
-            <span class="project-label type-aero-f">Type</span>
-            <span class="project-value type-aero-f" id="project-type">Art Direction</span>
+
+          <!-- 4. Bottom: External Action Link (Visit Site / View on Behance) -->
+          <div class="project-action-row">
+            <a href="https://www.behance.net/pxly" target="_blank" rel="noopener noreferrer"
+              class="project-action-link" id="project-action-link" aria-label="Visit Site">
+              <span class="action-label" id="project-action-label">Visit Site</span>
+              <span class="action-arrow" aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
+      </aside>
 
-        <!-- Column 2: Credits List -->
-        <div class="project-credits-col">
-          <span class="project-label type-aero-f">Credits</span>
-          <div class="project-credits-list" id="project-credits-list">
-            <!-- Dynamic Credits Injected by project.js -->
-          </div>
+      <!-- Right Column: 4:3 Stacking Image Cards -->
+      <section class="project-stack-col" id="project-stack-col" aria-label="Project Gallery Stack">
+        <!-- Dynamically injected 4:3 image cards by project.js -->
+        <div class="project-hero-placeholder" id="project-hero-placeholder" role="img"
+          aria-label="Project Hero Image Placeholder">
         </div>
-
-        <!-- Column 3: Project Description (AT Aero Light 300) -->
-        <div class="project-desc-col">
-          <span class="project-label type-aero-f">Project Description</span>
-          <div class="project-desc-body" id="project-description">
-            <!-- Dynamic Description Paragraphs Injected by project.js -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project Gallery Container (Dynamic 1-column full bleed & 2-column grids separated by 25px) -->
-    <div class="project-gallery-wrap" id="project-gallery-wrap">
-      <div class="project-hero-placeholder" id="project-hero-placeholder" role="img"
-        aria-label="Project Hero Image Placeholder">
-      </div>
+      </section>
     </div>
   </main>
 
+  <!-- Next Project Transition Section -->
+  <section class="project-next-wrap" id="project-next-wrap" aria-label="Next Project">
+    <div class="project-next-container">
+      <a href="project.html" class="project-next-link" id="project-next-link" aria-label="Next Project">
+        <span class="project-next-prefix type-mono-a">NEXT PROJECT:</span>
+        <span class="project-next-title" id="project-next-title">Loading...</span>
+        <span class="project-next-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+  </div>
+
+  <!-- White Architectural Curtain Reveal Footer -->
+  <div class="f3-footer-reveal-wrap" id="f3-footer-curtain">
+    <footer class="f3-editorial-footer" id="f3-footer" aria-label="Studio Contact and Socials">
+      <div class="f3-container">
+        <!-- 2-Column Separation Lines Above Footer -->
+        <div class="f3-intro-divider-row f3-footer-divider-row" aria-hidden="true">
+          <div class="f3-intro-divider-col-left"></div>
+          <div class="f3-intro-divider-col-right"></div>
+        </div>
+
+        <!-- Top Row: 2-Column Layout Synchronized with Grid & Separation Lines -->
+        <div class="f3-footer-top-row">
+          <!-- Left Column: Direct Email & Location -->
+          <div class="f3-footer-col-left">
+            <div class="f3-footer-contact-block">
+              <a href="mailto:hainampham08@outlook.com" class="f3-footer-email-link"
+                aria-label="Email hainampham08@outlook.com">
+                hainampham08@outlook.com
+              </a>
+              <div class="f3-footer-location">
+                <span>Temporarily located in</span>
+                <span>Ho Chi Minh City, Vietnam</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Socials Stack + Brand Logo on Far Right -->
+          <div class="f3-footer-col-right">
+            <div class="f3-footer-socials-block">
+              <ul class="f3-footer-socials-list" role="list">
+                <li class="f3-footer-social-item">
+                  <a href="https://www.behance.net/pxly" target="_blank" rel="noopener noreferrer"
+                    class="f3-footer-social-link" data-handle="@pxly" aria-label="Behance">
+                    <span>Behance</span>
+                  </a>
+                </li>
+                <li class="f3-footer-social-item">
+                  <a href="https://www.linkedin.com/in/phnm08/" target="_blank" rel="noopener noreferrer"
+                    class="f3-footer-social-link" data-handle="@phnm08" aria-label="LinkedIn">
+                    <span>LinkedIn</span>
+                  </a>
+                </li>
+                <li class="f3-footer-social-item">
+                  <a href="https://www.instagram.com/_phnm._" target="_blank" rel="noopener noreferrer"
+                    class="f3-footer-social-link" data-handle="@_phnm._" aria-label="Instagram">
+                    <span>Instagram</span>
+                  </a>
+                </li>
+                <li class="f3-footer-social-item">
+                  <span class="f3-footer-social-link is-inactive" aria-disabled="true">
+                    <span>Pinterest</span>
+                    <span class="f3-footer-badge">(coming soon)</span>
+                  </span>
+                </li>
+                <li class="f3-footer-social-item">
+                  <span class="f3-footer-social-link is-inactive" aria-disabled="true">
+                    <span>Awwwards</span>
+                    <span class="f3-footer-badge">(coming soon)</span>
+                  </span>
+                </li>
+                <li class="f3-footer-social-item">
+                  <span class="f3-footer-social-link is-inactive" aria-disabled="true">
+                    <span>VSCO</span>
+                    <span class="f3-footer-badge">(coming soon)</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Right: Static Nam Pham Brand Logo Mark -->
+            <div class="f3-footer-emblem-block">
+              <div class="f3-footer-brand-mark" aria-label="Nam Pham Studio Logo">
+                <svg class="f3-footer-brand-svg" viewBox="0 0 351.33 384.87" fill="currentColor" aria-hidden="true">
+                  <path class="logo-stroke logo-stroke-1"
+                    d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
+                    transform="translate(211.63, 128.18) rotate(-158.12) scale(1.02, 1)" />
+                  <path class="logo-stroke logo-stroke-2"
+                    d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
+                    transform="translate(139.7, 256.69) rotate(21.88) scale(1.02, 1)" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Giant Signature Handle: @pxly (At Aero Type D) -->
+        <div class="f3-footer-brand-signature" aria-label="@pxly">
+          <span class="f3-signature-text type-aero-d">@pxly</span>
+        </div>
+
+        <!-- Bottom Colophon Bar -->
+        <div class="f3-footer-colophon-bar">
+          <div class="f3-colophon-col-left">
+            <div class="f3-colophon-privacy">ALL RIGHTS RESERVED</div>
+            <div class="f3-colophon-left">©2026</div>
+          </div>
+          <div class="f3-colophon-col-right">
+            <a href="#" class="f3-colophon-privacy-link f3-colophon-start-project type-mono-a">Privacy Policy</a>
+            <div class="f3-colophon-right">
+              <span class="f3-footer-clock live-clock">--:--:-- ICT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
   <!-- Project Scripts -->
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
   <script src="js/vendor/motion.min.js?v=1.0.0"></script>
   <script src="js/text-flip.js?v=1.0.0" defer></script>
   <script src="js/projects-data.js?v=1.0.0"></script>

@@ -639,9 +639,10 @@ html.is-navigating-in .page-transition-curtain.is-revealing {
   will-change: transform, opacity;
 }
 
+/* Permanent navbar visibility (neutralized nav-hidden) */
 .hero-top-nav.nav-hidden,
 .site-nav-top.nav-hidden {
-  transform: translateY(-110%) scale(0.98) !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }

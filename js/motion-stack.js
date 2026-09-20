@@ -27,6 +27,7 @@ class MotionStack {
         touchMultiplier: 1.8,
         infinite: false
       });
+      window.lenis = this.lenis;
 
       // 2. Synchronize Lenis with GSAP ScrollTrigger & Ticker
       if (window.gsap && window.ScrollTrigger) {

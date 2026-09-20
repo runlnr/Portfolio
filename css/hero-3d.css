@@ -226,7 +226,6 @@
   display: inline-flex;
   align-items: center;
   pointer-events: auto;
-  user-select: none;
   will-change: transform;
   z-index: 2;
   line-height: 1;
@@ -396,20 +395,21 @@
   will-change: transform, opacity;
 }
 
+/* Permanent navbar visibility (neutralized nav-hidden) */
 .hero-top-nav.nav-hidden,
 .site-nav-top.nav-hidden {
-  transform: translateY(-110%) scale(0.98) !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .hero-top-nav.nav-hidden .nav-modular-box {
-  transform: translate(-50%, -65%) scale(0.95) !important;
-  opacity: 0 !important;
+  transform: translate(-50%, 0) scale(1) !important;
+  opacity: 1 !important;
 }
 
 .hero-top-nav.nav-hidden .nav-pinned-item {
-  opacity: 0 !important;
+  opacity: 1 !important;
 }
 
 .site-nav-top a,
@@ -448,7 +448,6 @@
   border-radius: var(--nav-box-radius, 4px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   box-sizing: border-box;
-  user-select: none;
   position: relative;
   opacity: var(--nav-box-opacity, 1);
 }
@@ -462,7 +461,6 @@
   color: var(--nav-status-color, rgba(255, 255, 255, 0.65));
   white-space: nowrap;
   pointer-events: none;
-  user-select: none;
   text-align: center;
 }
 
@@ -623,7 +621,6 @@
   font-size: var(--nav-dropdown-item-font-size, 16.5px);
   font-weight: var(--nav-dropdown-item-font-weight, 400);
   letter-spacing: calc(-0.02em - 0.7px);
-  user-select: none !important;
   text-transform: none !important;
   opacity: 1;
   transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
@@ -678,7 +675,6 @@
   text-align: left;
   color: inherit;
   white-space: nowrap;
-  user-select: none !important;
   text-transform: none !important;
   transition: color 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -972,7 +968,6 @@
   z-index: 1001;
   opacity: 0;
   pointer-events: none;
-  user-select: none !important;
   text-transform: none !important;
   transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
               transform 1.1s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1395,7 +1390,6 @@ body.nav-dropdown-active .nav-floating-cta,
   align-items: flex-end;
   gap: 8px;
   pointer-events: auto;
-  user-select: none;
 }
 
 .hero-cta-btn {
@@ -1410,7 +1404,6 @@ body.nav-dropdown-active .nav-floating-cta,
   border-radius: var(--cta-btn-radius, 999px);
   text-decoration: none;
   border: 1px solid #ffffff;
-  user-select: none !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1491,7 +1484,6 @@ body.nav-dropdown-active .nav-floating-cta,
   bottom: var(--hero-bottom-text-bottom, var(--hero-margin, 25px));
   z-index: 10;
   pointer-events: auto;
-  user-select: none;
   font-family: "AT Aero Retina", "At Aero Retina", "AT Aero", var(--font-sans), -apple-system, sans-serif;
   font-size: var(--hero-bottom-text-size, var(--headline-font-size, 48px));
   font-weight: var(--hero-bottom-text-weight, 400);
@@ -1539,7 +1531,6 @@ body.is-loading .hero-bottom-text {
   left: var(--headline-left, var(--hero-margin, 25px));
   z-index: 10;
   pointer-events: auto;
-  user-select: none;
   text-align: left;
   max-width: var(--headline-max-width, 520px);
   opacity: var(--headline-opacity, 1);
@@ -1577,7 +1568,6 @@ body.is-loading .hero-bottom-text {
   left: var(--tagline-left, calc(50% + 24px));
   z-index: 10;
   pointer-events: none;
-  user-select: none;
   max-width: var(--tagline-max-width, 290px);
   text-align: left;
   opacity: var(--tagline-opacity, 1);
@@ -1602,7 +1592,6 @@ body.is-loading .hero-bottom-text {
   right: var(--hero-margin, 25px);
   z-index: 10;
   pointer-events: auto;
-  user-select: none;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -1663,7 +1652,6 @@ body.is-loading .hero-bottom-text {
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
-  user-select: none;
   opacity: var(--meta-bar-opacity, 1);
 }
 
@@ -1771,7 +1759,6 @@ html.skip-intro .brand-r {
 .nav-roll-static {
   display: inline-block;
   line-height: var(--nav-line-height, 14.5px);
-  user-select: none;
   font-weight: 600;
 }
 
@@ -1849,7 +1836,6 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  user-select: none;
   opacity: var(--hero-viewport-opacity, 1);
 }
 
@@ -2050,7 +2036,6 @@ html, body {
   justify-content: space-between;
   align-items: center;
   pointer-events: auto;
-  user-select: none;
 }
 
 .hero-location-left,

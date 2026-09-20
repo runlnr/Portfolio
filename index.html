@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="css/pages.css?v=1.0.0">
   <link rel="stylesheet" href="css/hero-3d.css?v=1.0.0">
   <link rel="stylesheet" href="css/futurethree-scroll.css?v=1.0.0">
+  <link rel="stylesheet" href="css/project-modal.css?v=1.0.0">
   <link rel="stylesheet" href="css/glassmorphism.css?v=1.0.0">
   <link rel="stylesheet" href="css/responsive.css?v=1.0.0">
   <!-- MANUAL HERO CONTROLS: Calibrated tokens -->
@@ -43,6 +44,23 @@
       --loader-edge-offset: 20px;
       --loader-counter-font-size: 13px;
       /* Center 0-100% counter font size */
+
+      /* ==========================================================================
+         PROJECT MODAL / METADATA BOX: Adjust box width manually right here
+         ========================================================================== */
+      --pm-context-box-width: 300px;
+      /* <-- TWEAK THIS: Width of project metadata/context box (e.g. 300px, 360px, 400px, 450px) */
+      --project-box-width: var(--pm-context-box-width);
+      --pm-card-top: 25px;
+      /* <-- TWEAK THIS: Top padding from site edge for project text block (25px) */
+      --pm-card-left: 25px;
+      /* <-- TWEAK THIS: Left padding from site edge for project text block (25px) */
+      --pm-action-left: 25px;
+      /* <-- TWEAK THIS: Left padding from site edge for View on Behance button (25px) */
+      --pm-action-bottom: 25px;
+      /* <-- TWEAK THIS: Bottom padding from site edge for View on Behance button (25px) */
+      --pm-indicator-right: 25px;
+      /* <-- TWEAK THIS: Right margin of modal scroller indicator (e.g. 25px) */
 
       /* Manifesto & Recent Works */
       --manifesto-gap: 210px;
@@ -562,7 +580,8 @@
               <!-- Column 1 (Left): Memphis Grizzlies, NK Hoops -->
               <div class="f3-works-col f3-works-col-left">
                 <!-- Project 1: Memphis Grizzlies -->
-                <a href="project.html?id=memphis-grizzlies" class="f3-work-card" aria-label="Memphis Grizzlies">
+                <a href="project.html?id=memphis-grizzlies" class="f3-work-card" aria-label="Memphis Grizzlies"
+                  data-project-id="memphis-grizzlies">
                   <div class="f3-work-card-media">
                     <img src="assets/thumbnails/Memphis.webp" alt="Memphis Grizzlies" class="f3-card-img-primary"
                       loading="lazy" width="4000" height="3200" decoding="async" />
@@ -590,7 +609,8 @@
                 </a>
 
                 <!-- Project 3: NK Hoops -->
-                <a href="project.html?id=nk-hoops" class="f3-work-card" aria-label="NK Hoops">
+                <a href="project.html?id=nk-hoops" class="f3-work-card" aria-label="NK Hoops"
+                  data-project-id="nk-hoops">
                   <div class="f3-work-card-media">
                     <img src="assets/thumbnails/NK Hoops.webp?v=2" alt="NK Hoops" class="f3-card-img-primary"
                       loading="lazy" width="4000" height="3200" decoding="async" />
@@ -622,12 +642,12 @@
               <div class="f3-works-col f3-works-col-right">
                 <!-- Project 2: U.S. Ski & Snowboard | OWG Milano Cortina -->
                 <a href="project.html?id=us-ski-snowboard" class="f3-work-card"
-                  aria-label="U.S. Ski & Snowboard | OWG Milano Cortina">
+                  aria-label="U.S. Ski & Snowboard | OWG Milano Cortina" data-project-id="us-ski-snowboard">
                   <div class="f3-work-card-media">
                     <img src="assets/thumbnails/US S&S.webp" alt="U.S. Ski & Snowboard | OWG Milano Cortina"
                       class="f3-card-img-primary" loading="lazy" width="4000" height="3200" decoding="async" />
                     <div class="f3-card-hover-box" aria-hidden="true">
-                      <img src="assets/thumbnails/US S&S 2.webp" alt="U.S. Ski & Snowboard Case Study"
+                      <img src="assets/thumbnails/U.S S&S 2.webp?v=3" alt="U.S. Ski & Snowboard Case Study"
                         class="f3-card-img-secondary" loading="lazy" width="4000" height="3200" decoding="async" />
                     </div>
                   </div>
@@ -650,7 +670,8 @@
                 </a>
 
                 <!-- Project 4: Audi Revolut F1 -->
-                <a href="project.html?id=audi-revolut-f1" class="f3-work-card" aria-label="Audi Revolut F1" data-cursor="/coming soon/">
+                <a href="project.html?id=audi-revolut-f1" class="f3-work-card" aria-label="Audi Revolut F1"
+                  data-project-id="audi-revolut-f1" data-cursor="/coming soon/">
                   <div class="f3-work-card-media">
                     <img src="assets/thumbnails/Audi Revolut.webp?v=3" alt="Audi Revolut F1" class="f3-card-img-primary"
                       loading="lazy" width="4000" height="3200" decoding="async" />
@@ -689,7 +710,8 @@
                 <span class="f3-list-col-arrow"></span>
               </div>
               <div class="f3-list-items-wrap" id="f3-works-list-items">
-                <a href="project.html?id=memphis-grizzlies" class="f3-list-item-row" data-image="assets/thumbnails/Memphis.webp">
+                <a href="project.html?id=memphis-grizzlies" class="f3-list-item-row"
+                  data-image="assets/thumbnails/Memphis.webp" data-project-id="memphis-grizzlies">
                   <span class="f3-list-col-num">01</span>
                   <span class="f3-list-col-title">Memphis Grizzlies</span>
                   <span class="f3-list-col-field">Branding, Social, Sport</span>
@@ -697,7 +719,8 @@
                   <span class="f3-list-col-year">2024</span>
                   <span class="f3-list-col-arrow">↗</span>
                 </a>
-                <a href="project.html?id=us-ski-snowboard" class="f3-list-item-row" data-image="assets/thumbnails/US S&S.webp">
+                <a href="project.html?id=us-ski-snowboard" class="f3-list-item-row"
+                  data-image="assets/thumbnails/US S&S.webp" data-project-id="us-ski-snowboard">
                   <span class="f3-list-col-num">02</span>
                   <span class="f3-list-col-title">U.S. Ski & Snowboard | OWG Milano Cortina</span>
                   <span class="f3-list-col-field">Branding, Social, Sport</span>
@@ -705,7 +728,8 @@
                   <span class="f3-list-col-year">2026</span>
                   <span class="f3-list-col-arrow">↗</span>
                 </a>
-                <a href="project.html?id=nk-hoops" class="f3-list-item-row" data-image="assets/thumbnails/NK Hoops.webp?v=2">
+                <a href="project.html?id=nk-hoops" class="f3-list-item-row"
+                  data-image="assets/thumbnails/NK Hoops.webp?v=2" data-project-id="nk-hoops">
                   <span class="f3-list-col-num">03</span>
                   <span class="f3-list-col-title">NK Hoops</span>
                   <span class="f3-list-col-field">Branding, Social, Sport</span>
@@ -714,7 +738,7 @@
                   <span class="f3-list-col-arrow">↗</span>
                 </a>
                 <a href="project.html?id=audi-revolut-f1" class="f3-list-item-row"
-                  data-image="assets/thumbnails/Audi Revolut.webp?v=3">
+                  data-image="assets/thumbnails/Audi Revolut.webp?v=3" data-project-id="audi-revolut-f1">
                   <span class="f3-list-col-num">04</span>
                   <span class="f3-list-col-title">Audi Revolut F1</span>
                   <span class="f3-list-col-field">Branding, Motion</span>
@@ -731,119 +755,120 @@
             </div>
 
             <!-- Floating /view/ Cursor Follower Tag for Work Cards -->
-            <div class="f3-cursor-view-tag" id="f3-cursor-view-tag" aria-hidden="true">/view/</div>
           </div>
-
-          <!-- Editorial Footer & Contact Section -->
-          <footer class="f3-editorial-footer" id="f3-footer" aria-label="Studio Contact and Socials">
-            <!-- 2-Column Separation Lines Above Footer -->
-            <div class="f3-intro-divider-row f3-footer-divider-row" aria-hidden="true">
-              <div class="f3-intro-divider-col-left"></div>
-              <div class="f3-intro-divider-col-right"></div>
-            </div>
-
-            <!-- Top Row: 2-Column Layout Synchronized with Grid & Separation Lines -->
-            <div class="f3-footer-top-row">
-              <!-- Left Column: Direct Email & Location (aligned with left works column & left line) -->
-              <div class="f3-footer-col-left">
-                <div class="f3-footer-contact-block">
-                  <a href="mailto:hainampham08@outlook.com" class="f3-footer-email-link"
-                    aria-label="Email hainampham08@outlook.com">
-                    hainampham08@outlook.com
-                  </a>
-                  <div class="f3-footer-location">
-                    <span>Temporarily located in</span>
-                    <span>Ho Chi Minh City, Vietnam</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Right Column: Socials Stack (aligned with Audi Revolut F1 & right line) + Brand Logo on Far Right -->
-              <div class="f3-footer-col-right">
-                <div class="f3-footer-socials-block">
-                  <ul class="f3-footer-socials-list" role="list">
-                    <li class="f3-footer-social-item">
-                      <a href="https://www.behance.net/pxly" target="_blank" rel="noopener noreferrer"
-                        class="f3-footer-social-link" data-handle="@pxly" aria-label="Behance">
-                        <span>Behance</span>
-                      </a>
-                    </li>
-                    <li class="f3-footer-social-item">
-                      <a href="https://www.linkedin.com/in/phnm08/" target="_blank" rel="noopener noreferrer"
-                        class="f3-footer-social-link" data-handle="@phnm08" aria-label="LinkedIn">
-                        <span>LinkedIn</span>
-                      </a>
-                    </li>
-                    <li class="f3-footer-social-item">
-                      <a href="https://www.instagram.com/_phnm._" target="_blank" rel="noopener noreferrer"
-                        class="f3-footer-social-link" data-handle="@_phnm._" aria-label="Instagram">
-                        <span>Instagram</span>
-                      </a>
-                    </li>
-                    <li class="f3-footer-social-item">
-                      <span class="f3-footer-social-link is-inactive" aria-disabled="true">
-                        <span>Pinterest</span>
-                        <span class="f3-footer-badge">(coming soon)</span>
-                      </span>
-                    </li>
-                    <li class="f3-footer-social-item">
-                      <span class="f3-footer-social-link is-inactive" aria-disabled="true">
-                        <span>Awwwards</span>
-                        <span class="f3-footer-badge">(coming soon)</span>
-                      </span>
-                    </li>
-                    <li class="f3-footer-social-item">
-                      <span class="f3-footer-social-link is-inactive" aria-disabled="true">
-                        <span>VSCO</span>
-                        <span class="f3-footer-badge">(coming soon)</span>
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                <!-- Right: Static Nam Pham Brand Logo Mark -->
-                <div class="f3-footer-emblem-block">
-                  <div class="f3-footer-brand-mark" aria-label="Nam Pham Studio Logo">
-                    <svg class="f3-footer-brand-svg" viewBox="0 0 351.33 384.87" fill="currentColor" aria-hidden="true">
-                      <path class="logo-stroke logo-stroke-1"
-                        d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
-                        transform="translate(211.63, 128.18) rotate(-158.12) scale(1.02, 1)" />
-                      <path class="logo-stroke logo-stroke-2"
-                        d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
-                        transform="translate(139.7, 256.69) rotate(21.88) scale(1.02, 1)" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Giant Signature Handle: @pxly (At Aero Type D) -->
-            <div class="f3-footer-brand-signature" aria-label="@pxly">
-              <span class="f3-signature-text type-aero-d">@pxly</span>
-            </div>
-
-            <!-- Bottom Colophon Bar -->
-            <div class="f3-footer-colophon-bar">
-              <div class="f3-colophon-col-left">
-                <div class="f3-colophon-privacy">ALL RIGHTS RESERVED</div>
-                <div class="f3-colophon-left">©2026</div>
-              </div>
-              <div class="f3-colophon-col-right">
-                <a href="mailto:hainampham08@outlook.com" class="f3-colophon-start-project type-mono-a">Start a
-                  project</a>
-                <div class="f3-colophon-right">
-                  <span class="f3-footer-clock live-clock">--:--:-- ICT</span>
-                </div>
-              </div>
-            </div>
-          </footer>
-
         </div>
       </section>
 
     </div>
 
   </main>
+
+  <!-- White Architectural Curtain Reveal Footer -->
+  <div class="f3-footer-reveal-wrap" id="f3-footer-curtain">
+    <footer class="f3-editorial-footer" id="f3-footer" aria-label="Studio Contact and Socials">
+      <div class="f3-container">
+        <!-- 2-Column Separation Lines Above Footer -->
+        <div class="f3-intro-divider-row f3-footer-divider-row" aria-hidden="true">
+          <div class="f3-intro-divider-col-left"></div>
+          <div class="f3-intro-divider-col-right"></div>
+        </div>
+
+        <!-- Top Row: 2-Column Layout Synchronized with Grid & Separation Lines -->
+        <div class="f3-footer-top-row">
+          <!-- Left Column: Direct Email & Location (aligned with left works column & left line) -->
+          <div class="f3-footer-col-left">
+            <div class="f3-footer-contact-block">
+              <a href="mailto:hainampham08@outlook.com" class="f3-footer-email-link"
+                aria-label="Email hainampham08@outlook.com">
+                hainampham08@outlook.com
+              </a>
+              <div class="f3-footer-location">
+                <span>Temporarily located in</span>
+                <span>Ho Chi Minh City, Vietnam</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Socials Stack (aligned with Audi Revolut F1 & right line) + Brand Logo on Far Right -->
+          <div class="f3-footer-col-right">
+            <div class="f3-footer-socials-block">
+              <ul class="f3-footer-socials-list" role="list">
+                <li class="f3-footer-social-item">
+                  <a href="https://www.behance.net/pxly" target="_blank" rel="noopener noreferrer"
+                    class="f3-footer-social-link" data-handle="@pxly" aria-label="Behance">
+                    <span>Behance</span>
+                  </a>
+                </li>
+                <li class="f3-footer-social-item">
+                  <a href="https://www.linkedin.com/in/phnm08/" target="_blank" rel="noopener noreferrer"
+                    class="f3-footer-social-link" data-handle="@phnm08" aria-label="LinkedIn">
+                    <span>LinkedIn</span>
+                  </a>
+                </li>
+                <li class="f3-footer-social-item">
+                  <a href="https://www.instagram.com/_phnm._" target="_blank" rel="noopener noreferrer"
+                    class="f3-footer-social-link" data-handle="@_phnm._" aria-label="Instagram">
+                    <span>Instagram</span>
+                  </a>
+                </li>
+                <li class="f3-footer-social-item">
+                  <span class="f3-footer-social-link is-inactive" aria-disabled="true">
+                    <span>Pinterest</span>
+                    <span class="f3-footer-badge">(coming soon)</span>
+                  </span>
+                </li>
+                <li class="f3-footer-social-item">
+                  <span class="f3-footer-social-link is-inactive" aria-disabled="true">
+                    <span>Awwwards</span>
+                    <span class="f3-footer-badge">(coming soon)</span>
+                  </span>
+                </li>
+                <li class="f3-footer-social-item">
+                  <span class="f3-footer-social-link is-inactive" aria-disabled="true">
+                    <span>VSCO</span>
+                    <span class="f3-footer-badge">(coming soon)</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Right: Static Nam Pham Brand Logo Mark -->
+            <div class="f3-footer-emblem-block">
+              <div class="f3-footer-brand-mark" aria-label="Nam Pham Studio Logo">
+                <svg class="f3-footer-brand-svg" viewBox="0 0 351.33 384.87" fill="currentColor" aria-hidden="true">
+                  <path class="logo-stroke logo-stroke-1"
+                    d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
+                    transform="translate(211.63, 128.18) rotate(-158.12) scale(1.02, 1)" />
+                  <path class="logo-stroke logo-stroke-2"
+                    d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
+                    transform="translate(139.7, 256.69) rotate(21.88) scale(1.02, 1)" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Giant Signature Handle: @pxly (At Aero Type D) -->
+        <div class="f3-footer-brand-signature" aria-label="@pxly">
+          <span class="f3-signature-text type-aero-d">@pxly</span>
+        </div>
+
+        <!-- Bottom Colophon Bar -->
+        <div class="f3-footer-colophon-bar">
+          <div class="f3-colophon-col-left">
+            <div class="f3-colophon-privacy">ALL RIGHTS RESERVED</div>
+            <div class="f3-colophon-left">©2026</div>
+          </div>
+          <div class="f3-colophon-col-right">
+            <a href="#" class="f3-colophon-privacy-link f3-colophon-start-project type-mono-a">Privacy Policy</a>
+            <div class="f3-colophon-right">
+              <span class="f3-footer-clock live-clock">--:--:-- ICT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <!-- Scripts -->
   <!-- Core vendor: must be synchronous so GSAP plugin registration works immediately -->
@@ -855,6 +880,7 @@
   <script src="js/vendor/motion.min.js" defer></script>
   <script src="js/text-flip.js?v=1.0.0" defer></script>
   <script src="js/projects-data.js?v=1.0.0" defer></script>
+  <script src="js/project-modal.js?v=1.0.0" defer></script>
   <script type="module" src="js/utils.js?v=1.0.0"></script>
   <script src="js/motion-stack.js?v=1.0.0" defer></script>
   <script src="js/futurethree-scroll.js?v=1.0.0" defer></script>
