@@ -57,8 +57,8 @@ NAM PHAM® PORTFOLIO — STANDARDIZED TYPOGRAPHY PRESETS
 
 --------------------------------------------------------------------------------
 
-6. SOMETYPE MONO TYPE A (Colophon / Status Tags / Metadata)
-   • Font Family    : Sometype Mono (var(--font-mono))
+6. PP SUPPLY MONO TYPE A (Colophon / Status Tags / Metadata)
+   • Font Family    : PP Supply Mono (var(--font-mono))
    • Font Weight    : 400 (Regular)
    • Font Size      : 11px
    • Line Spacing   : 13px (line-height: 13px)
@@ -106,7 +106,7 @@ QUICK CSS VARIABLE REFERENCE
   --type-aero-e-line: 20px;
   --type-aero-e-spacing: -0.7px;
 
-  /* Sometype Mono Type A */
+  /* PP Supply Mono Type A */
   --type-mono-a-font: var(--font-mono);
   --type-mono-a-weight: 400;
   --type-mono-a-size: 11px;

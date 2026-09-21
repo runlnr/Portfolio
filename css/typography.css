@@ -292,13 +292,81 @@
   font-display: swap;
 }
 
+/* PP Supply Mono — Local OTF/TTF/WOFF2 Webfonts & OS Local Lookups */
+@font-face {
+  font-family: "PP Supply Mono";
+  src: local("PP Supply Mono"),
+    local("PP Supply Mono Regular"),
+    local("PPSupplyMono-Regular"),
+    url("../assets/fonts/PPSupplyMono-Regular.otf") format("opentype"),
+    url("../assets/fonts/PP%20Supply%20Mono/PPSupplyMono-Regular.otf") format("opentype"),
+    url("../assets/fonts/PPSupplyMono-Regular.woff2") format("woff2"),
+    url("../assets/fonts/PPSupplyMono-Regular.ttf") format("truetype"),
+    url("../assets/fonts/PPSupplyMono-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Supply Mono";
+  src: local("PP Supply Mono Italic"),
+    local("PPSupplyMono-RegularItalic"),
+    local("PPSupplyMono-Italic"),
+    url("../assets/fonts/PPSupplyMono-RegularItalic.woff2") format("woff2"),
+    url("../assets/fonts/PPSupplyMono-RegularItalic.otf") format("opentype"),
+    url("../assets/fonts/PPSupplyMono-RegularItalic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Supply Mono";
+  src: local("PP Supply Mono Medium"),
+    local("PPSupplyMono-Medium"),
+    url("../assets/fonts/PPSupplyMono-Medium.woff2") format("woff2"),
+    url("../assets/fonts/PPSupplyMono-Medium.otf") format("opentype"),
+    url("../assets/fonts/PPSupplyMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Supply Mono";
+  src: local("PP Supply Mono Bold"),
+    local("PPSupplyMono-Bold"),
+    url("../assets/fonts/PPSupplyMono-Bold.woff2") format("woff2"),
+    url("../assets/fonts/PPSupplyMono-Bold.otf") format("opentype"),
+    url("../assets/fonts/PPSupplyMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PPSupplyMono-Regular";
+  src: local("PP Supply Mono"),
+    local("PP Supply Mono Regular"),
+    local("PPSupplyMono-Regular"),
+    url("../assets/fonts/PPSupplyMono-Regular.otf") format("opentype"),
+    url("../assets/fonts/PP%20Supply%20Mono/PPSupplyMono-Regular.otf") format("opentype"),
+    url("../assets/fonts/PPSupplyMono-Regular.woff2") format("woff2"),
+    url("../assets/fonts/PPSupplyMono-Regular.ttf") format("truetype"),
+    url("../assets/fonts/PPSupplyMono-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* ==========================================================================
      MANUAL FOOTER GAP CONTROLS: Adjust distance between socials and @_phnm._
      Edit the values below to change the spacing directly in code:
      ========================================================================== */
-  --f3-footer-signature-margin-top: clamp(90px, 13vh, 160px);
-  /* <-- TWEAK THIS: Gap above @_phnm._ (e.g. 50px, 80px, 120px) */
+  --f3-footer-signature-margin-top: 105px;
+  /* <-- TWEAK THIS: Distance/padding between socials and giant @_phnm._ (e.g. 50px, 80px, 130px, 180px) */
   --f3-footer-signature-margin-bottom: clamp(24px, 4vh, 48px);
   /* Gap below @_phnm._ before bottom colophon line */
   --f3-footer-signature-offset-y: -4px;
@@ -327,9 +395,9 @@
   --font-sans: 'AT Aero', 'At Aero', 'AtAero', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   --font-retina: 'AT Aero Retina', 'At Aero Retina', 'AtAero-Retina', 'AT Aero', 'At Aero', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   --font-serif-italic: 'Playfair Display', Georgia, serif;
-  --font-mono: 'Sometype Mono', 'Share Tech Mono', Menlo, Monaco, Consolas, monospace;
+  --font-mono: 'PP Supply Mono', 'PPSupplyMono-Regular', 'Sometype Mono', 'Share Tech Mono', Menlo, Monaco, Consolas, monospace;
   --mono-font-size: 11px;
-  --mono-font-weight: 500;
+  --mono-font-weight: 400;
   --mono-letter-spacing: -0.2px;
 
   /* Global Hero Layout Margins */
@@ -376,7 +444,7 @@
   --type-aero-c-weight: 400;
   --type-aero-c-size: 20px;
   --type-aero-c-line: 27.5px;
-  --type-aero-c-spacing: -1.5px;
+  --type-aero-c-spacing: -1.2px;
 
   /* At Aero Type D */
   --type-aero-d-font: var(--font-primary, 'AT Aero', sans-serif);
@@ -388,9 +456,9 @@
   /* At Aero Type E */
   --type-aero-e-font: var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif);
   --type-aero-e-weight: 450;
-  --type-aero-e-size: 14 px;
+  --type-aero-e-size: 14.5px;
   --type-aero-e-line: 20px;
-  --type-aero-e-spacing: -0.2px;
+  --type-aero-e-spacing: -0.3px;
 
   /* At Aero Type F */
   --type-aero-f-font: var(--font-primary, 'AT Aero', sans-serif);
@@ -399,12 +467,19 @@
   --type-aero-f-line: 22px;
   --type-aero-f-spacing: -0.3px;
 
-  /* Sometype Mono Type A */
-  --type-mono-a-font: var(--font-mono, 'Sometype Mono', monospace);
+  /* PP Supply Mono Type A */
+  --type-mono-a-font: var(--font-mono, 'PP Supply Mono', monospace);
   --type-mono-a-weight: 400;
-  --type-mono-a-size: 11px;
+  --type-mono-a-size: 10.5px;
   --type-mono-a-line: 13px;
-  --type-mono-a-spacing: -0.2px;
+  --type-mono-a-spacing: 0.5px;
+
+  /* Standardized Monospace Tag & Button Dimension Tokens */
+  --mono-tag-height: 20px;
+  --mono-pill-height: 24px;
+  --mono-cap-offset: -0.75px;
+  --mono-cap-padding-top: 1.5px;
+  --mono-cap-padding-bottom: 0px;
 }
 
 /* ==========================================================================

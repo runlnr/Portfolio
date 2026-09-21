@@ -23,7 +23,7 @@
     wobbleAmp: 16,     // Shimmer amplitude
 
     // Typography & Limits
-    fontFamily: '"Sometype Mono", "Share Tech Mono", Consolas, Menlo, monospace',
+    fontFamily: '"PP Supply Mono", "PPSupplyMono-Regular", "Sometype Mono", "Share Tech Mono", Consolas, Menlo, monospace',
     maxScrollProgress: 0.15, // Gracefully pauses as user scrolls away
   };
 

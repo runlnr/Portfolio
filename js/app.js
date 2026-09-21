@@ -1045,6 +1045,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Hide custom cursor over delicate icon buttons (phone CTA, modal close) if desired
+  document.addEventListener('mouseover', (e) => {
+    if (e.target && e.target.closest && e.target.closest('.nav-floating-cta, .pm-close-btn')) {
+      cursor.classList.add('is-hidden');
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    if (e.target && e.target.closest && e.target.closest('.nav-floating-cta, .pm-close-btn')) {
+      cursor.classList.remove('is-hidden');
+    }
+  });
+
   // 5. Mobile Navigation Menu
   const menuBtn = document.querySelector('.mobile-menu-btn');
   const mobileOverlay = document.querySelector('.mobile-nav-overlay');
@@ -1085,6 +1098,13 @@ document.addEventListener('DOMContentLoaded', () => {
       backdrop.setAttribute('aria-hidden', 'true');
     }
     document.body.classList.remove('nav-dropdown-active');
+    document.documentElement.classList.remove('nav-dropdown-active');
+
+    // Resume Lenis smooth scroll if not inside project modal
+    const lenis = (window.motionStack && window.motionStack.lenis) || window.lenis;
+    if (lenis && typeof lenis.start === 'function' && !document.body.classList.contains('pm-modal-active')) {
+      lenis.start();
+    }
   }
 
   function openNavDropdown() {
@@ -1103,6 +1123,13 @@ document.addEventListener('DOMContentLoaded', () => {
       backdrop.setAttribute('aria-hidden', 'false');
     }
     document.body.classList.add('nav-dropdown-active');
+    document.documentElement.classList.add('nav-dropdown-active');
+
+    // Pause Lenis smooth scroll while dropdown menu is active
+    const lenis = (window.motionStack && window.motionStack.lenis) || window.lenis;
+    if (lenis && typeof lenis.stop === 'function') {
+      lenis.stop();
+    }
   }
 
   function initModularDropdown() {
@@ -1206,15 +1233,22 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       const timeStr = new Intl.DateTimeFormat('en-GB', options).format(now);
       const formatted = `${timeStr} (GMT+7)`;
-      const formattedICT = `${timeStr} ICT`;
+      const formattedUTC7 = `${timeStr} UTC+7`;
 
       clockElements.forEach(el => {
         if (el.classList.contains('nav-dropdown-clock') || el.closest('.nav-dropdown-menu') || el.classList.contains('f3-footer-clock') || el.closest('.f3-footer-colophon-bar')) {
-          el.textContent = formattedICT;
+          el.textContent = formattedUTC7;
         } else {
           el.textContent = formatted;
         }
       });
+
+      const introTimeElements = document.querySelectorAll('.f3-intro-live-time');
+      if (introTimeElements.length) {
+        introTimeElements.forEach(el => {
+          el.textContent = timeStr;
+        });
+      }
     } catch (e) {
       const now = new Date();
       const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
@@ -1224,14 +1258,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const seconds = String(gmt7.getSeconds()).padStart(2, '0');
       const timeStr = `${hours}:${minutes}:${seconds}`;
       const formatted = `${timeStr} (GMT+7)`;
-      const formattedICT = `${timeStr} ICT`;
+      const formattedUTC7 = `${timeStr} UTC+7`;
       clockElements.forEach(el => {
         if (el.classList.contains('nav-dropdown-clock') || el.closest('.nav-dropdown-menu') || el.classList.contains('f3-footer-clock') || el.closest('.f3-footer-colophon-bar')) {
-          el.textContent = formattedICT;
+          el.textContent = formattedUTC7;
         } else {
           el.textContent = formatted;
         }
       });
+
+      const introTimeElements = document.querySelectorAll('.f3-intro-live-time');
+      if (introTimeElements.length) {
+        introTimeElements.forEach(el => {
+          el.textContent = timeStr;
+        });
+      }
     }
   }
 

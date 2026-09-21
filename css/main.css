@@ -83,6 +83,21 @@ body::-webkit-scrollbar,
   mix-blend-mode: difference;
   transform: translate(-50%, -50%);
   will-change: transform;
+  transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hide / scale down cursor when hovering over delicate icon buttons if desired */
+@supports selector(:has(*)) {
+  body:has(.nav-floating-cta:hover) .custom-cursor,
+  body:has(.pm-close-btn:hover) .custom-cursor {
+    opacity: 0 !important;
+    transform: translate(-50%, -50%) scale(0) !important;
+  }
+}
+
+.custom-cursor.is-hidden {
+  opacity: 0 !important;
+  transform: translate(-50%, -50%) scale(0) !important;
 }
 
 /* Lenis smooth scrolling support */
@@ -117,7 +132,9 @@ a:hover {
 .work-grid-card,
 .work-grid-card:hover,
 .nav-dropdown-row-link,
-.nav-dropdown-row-link:hover {
+.nav-dropdown-row-link:hover,
+.f3-list-item-row,
+.f3-list-item-row:hover {
   opacity: 1;
 }
 

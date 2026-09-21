@@ -34,7 +34,7 @@ Quick-reference typography tokens and CSS utility classes defined in [`css/typog
 | **At Aero Type D** | `AT Aero SemiBold` (`var(--font-primary)`) | `600` | `200px` | `230px` | `-10px` | `var(--type-aero-d-*)` / `.type-aero-d` |
 | **At Aero Type E** | `AT Aero Retina` (`var(--font-retina)`) | `450` | `17px` | `22px` | `-0.2px` | `var(--type-aero-e-*)` / `.type-aero-e` |
 | **At Aero Type F** | `AT Aero Regular` (`var(--font-primary)`) | `400` | `17px` | `22px` | `-0.2px` | `var(--type-aero-f-*)` / `.type-aero-f` |
-| **Sometype Mono Type A** | `Sometype Mono` (`var(--font-mono)`) | `400` | `11px` | `13px` | `-0.2px` | `var(--type-mono-a-*)` / `.type-mono-a` |
+| **PP Supply Mono Type A** | `PP Supply Mono` (`var(--font-mono)`) | `400` | `11px` | `13px` | `-0.2px` | `var(--type-mono-a-*)` / `.type-mono-a` |
 
 ---
 
@@ -102,7 +102,7 @@ File: [`css/pages.css`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pa
 | **Case Study Narrative Body** | [`L906-911`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L906-L911) | inherited (`body`) | `clamp(1.25rem, 2.5vw, 2rem)` | `calc(-0.03em - 0.7px)` |
 | **Next Project Title** | [`L984-990`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L984-L990) | inherited (`body`) | `clamp(2rem, 6vw, 5rem)` | `-1.9px` |
 | **Project Case Study Title** (`.project-main-title`) | [`L1028-1036`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L1028-L1036) | `var(--font-retina, 'AT Aero Retina')` | `48px` (Hero Properties) | `calc(-0.02em - 0.7px)` |
-| **Project "View on Behance" Button** (`.project-behance-btn`) | [`L1038-1065`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L1038-L1065) | `Sometype Mono` (`var(--type-mono-a-font)`) | `11px` (`Type Mono A`) | `-0.2px` |
+| **Project "View on Behance" Button** (`.project-behance-btn`) | [`L1038-1065`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L1038-L1065) | `PP Supply Mono` (`var(--type-mono-a-font)`) | `11px` (`Type Mono A`) | `-0.2px` |
 | **Project Subtitles / Field Labels** (`.project-label`) | [`L1086-1096`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L1086-L1096) | `AT Aero Regular` (`var(--type-aero-f-font)`) | `16px` / `400 weight` (`Type F`) | `-0.2px` |
 | **Project Context Values** (`.project-value`) | [`L1098-1110`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L1098-L1110) | `AT Aero Regular` (`var(--type-aero-f-font)`) | `16px` / `400 weight` (`Type F`) | `-0.2px` |
 | **Project Credits Items** (`.project-credit-item`) | [`L1149-1159`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/css/pages.css#L1149-L1159) | `AT Aero Regular` (`var(--type-aero-f-font)`) | `16px` / `400 weight` (`Type F`) | `-0.2px` |
@@ -122,7 +122,7 @@ File: [`css/components.css`](file:///c:/Users/haina/OneDrive/Documents/AI/4LOW/c
 
 ## 3. Which Fonts Are Intentionally NOT Main Font?
 Keep these unchanged when adjusting the main sans font:
-1. **Monospace / System Tags** (`var(--font-mono)`): Uses `'Sometype Mono', 'Share Tech Mono', Menlo, monospace`.
+1. **Monospace / System Tags** (`var(--font-mono)`): Uses `'PP Supply Mono', 'PPSupplyMono-Regular', 'Sometype Mono', 'Share Tech Mono', Menlo, monospace`.
    - Used for: Live studio clock, status line (`Looking sharp today`), coordinate badges (`[01]`), corner time, credit tables, legal footer bar.
 2. **Serif Italic Highlights** (`var(--font-serif-italic)` / `var(--font-serif)`): Uses `'Playfair Display', Georgia, serif`.
    - Used for: Editorial accent words, services subheadings, and italic tags.

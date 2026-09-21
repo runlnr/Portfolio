@@ -30,6 +30,7 @@ const endpoints = [
   '/assets/fonts/NeueHaasDisplayRoman.ttf',
   '/assets/fonts/AtAero-Regular.otf',
   '/assets/fonts/AtAero-Retina.otf',
+  '/assets/fonts/PPSupplyMono-Regular.otf',
   '/assets/logo/logo.svg',
   '/assets/logo/favicon.svg'
 ];

@@ -59,6 +59,14 @@
       /* <-- TWEAK THIS: Left padding from site edge for View on Behance button (25px) */
       --pm-action-bottom: 25px;
       /* <-- TWEAK THIS: Bottom padding from site edge for View on Behance button (25px) */
+      --pm-pill-height: 24px;
+      /* <-- TWEAK THIS: Height of modal buttons & badges (24px) */
+      --pm-year-badge-height: var(--pm-pill-height);
+      /* <-- TWEAK THIS: Height of modal year badge (matches View on Behance button) */
+      --pm-year-badge-padding: 4px 8px;
+      /* <-- TWEAK THIS: Padding of modal year badge (matches View on Behance button) */
+      --pm-year-badge-width: auto;
+      /* <-- TWEAK THIS: Width of modal year badge (auto or custom px) */
       --pm-indicator-right: 25px;
       /* <-- TWEAK THIS: Right margin of modal scroller indicator (e.g. 25px) */
 
@@ -114,8 +122,8 @@
       /* Adjust footer logo size (e.g. 56px, 60px, 64px, 72px) */
       --f3-footer-logo-offset-x: 0px;
       --f3-footer-logo-offset-y: -10px;
-      --f3-footer-signature-margin-top: 130px;
-      /* Move @pxly down/up */
+      /* <-- TWEAK THIS: Distance between socials and giant @_phnm._ signature is controlled by --f3-footer-signature-margin-top in css/typography.css (Line 300). Uncomment below if you want to override it directly in index.html: */
+      /* --f3-footer-signature-margin-top: 130px; */
       --f3-footer-signature-offset-y: -4px;
 
       /* Underscore Spacing & Alignment (Adjust manually here in px/em) */
@@ -155,7 +163,7 @@
       --nav-box-gap: 25px;
       --nav-box-radius: 4px;
       --nav-box-border-width: 1px;
-      --nav-box-bg: #101010;
+      --nav-box-bg: var(--nav-glass-bg, rgba(16, 16, 16, 0.60));
 
       /* Nav Inside */
       --nav-logo-size: 32px;
@@ -181,7 +189,7 @@
       /* Rotation angle into '//' slashes (between 45deg and 90deg) */
 
       /* Dropdown Menu Controls */
-      --nav-dropdown-bg: #101010;
+      --nav-dropdown-bg: var(--nav-glass-bg, rgba(16, 16, 16, 0.60));
       --nav-dropdown-padding-top: 24px;
       --nav-dropdown-padding-bottom: 22px;
       --nav-dropdown-padding-x: 22px;
@@ -402,7 +410,7 @@
             <!-- Top Right: Live Studio Clock -->
             <div class="nav-dropdown-clock-wrap">
               <span class="nav-clock-dot"></span>
-              <span class="nav-dropdown-clock live-clock">--:--:-- ICT</span>
+              <span class="nav-dropdown-clock live-clock">--:--:-- UTC+7</span>
             </div>
 
             <!-- Middle / Bottom Right Details: Ongoing Projects & Socials -->
@@ -518,9 +526,12 @@
         <div class="f3-container">
           <!-- Manifesto Statement with Coordinates & Ongoing Projects Left Column -->
           <div class="f3-intro-lockup">
-            <!-- Left Column: About Link -->
+            <!-- Left Column: Location, Time & Online Status -->
             <div class="f3-intro-left-col">
-              <a href="javascript:void(0)" class="f3-intro-about-link type-aero-e" aria-label="About">About</a>
+              <div class="f3-intro-status type-mono-a">
+                <span class="f3-intro-status-dot" aria-hidden="true"></span>
+                <span class="f3-intro-status-text">HO CHI MINH CITY <span class="f3-intro-live-time">17:45:26</span> (UTC+7)</span>
+              </div>
             </div>
 
             <!-- Right Column: Manifesto Statement & About Button -->
@@ -569,8 +580,8 @@
                 </button>
               </div>
 
-              <!-- View more Link on far right -->
-              <a href="javascript:void(0)" class="f3-featured-more-link type-aero-e">View more</a>
+              <!-- See all projects Link on far right -->
+              <a href="javascript:void(0)" class="f3-featured-more-link type-aero-e">See all projects <span class="f3-title-arrow">↗</span></a>
             </div>
           </div>
 
@@ -701,60 +712,174 @@
 
             <!-- List View (Hidden by default, shown when 'list' is selected) -->
             <div class="f3-works-list-view" id="f3-works-list" style="display: none;">
-              <div class="f3-list-header-row">
-                <span class="f3-list-col-num">#</span>
-                <span class="f3-list-col-title">Project</span>
-                <span class="f3-list-col-field">Discipline</span>
-                <span class="f3-list-col-client">Client</span>
-                <span class="f3-list-col-year">Year</span>
-                <span class="f3-list-col-arrow"></span>
-              </div>
               <div class="f3-list-items-wrap" id="f3-works-list-items">
-                <a href="project.html?id=memphis-grizzlies" class="f3-list-item-row"
-                  data-image="assets/thumbnails/Memphis.webp" data-project-id="memphis-grizzlies">
-                  <span class="f3-list-col-num">01</span>
-                  <span class="f3-list-col-title">Memphis Grizzlies</span>
-                  <span class="f3-list-col-field">Branding, Social, Sport</span>
-                  <span class="f3-list-col-client">Memphis Grizzlies / NBA</span>
-                  <span class="f3-list-col-year">2024</span>
-                  <span class="f3-list-col-arrow">↗</span>
+                <a href="project.html?id=memphis-grizzlies" class="f3-list-item-row" data-project-id="memphis-grizzlies" aria-label="Memphis Grizzlies">
+                  <!-- Left Column: Thumbnail Preview Slot -->
+                  <div class="f3-list-col-left">
+                    <div class="f3-list-thumb-slot" aria-hidden="true">
+                      <img src="assets/thumbnails/Memphis.webp" alt="Memphis Grizzlies preview" class="f3-list-thumb-img" loading="lazy" />
+                    </div>
+                  </div>
+                  <!-- Right Column (Aligned with Statement): Title, Tags, CTA -->
+                  <div class="f3-list-col-right">
+                    <div class="f3-list-title-row">
+                      <span class="f3-list-title type-aero-b">Memphis Grizzlies</span>
+                      <div class="f3-list-action-col">
+                        <span class="f3-list-cta-btn">
+                          <span>VIEW PROJECT</span>
+                          <span class="btn-arrow">↗</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="f3-list-tags" aria-hidden="true">
+                      <span>BRANDING</span>
+                      <span class="f3-list-tag-dot">•</span>
+                      <span>SOCIAL</span>
+                      <span class="f3-list-tag-dot">•</span>
+                      <span>SPORT</span>
+                    </div>
+                  </div>
                 </a>
-                <a href="project.html?id=us-ski-snowboard" class="f3-list-item-row"
-                  data-image="assets/thumbnails/US S&S.webp" data-project-id="us-ski-snowboard">
-                  <span class="f3-list-col-num">02</span>
-                  <span class="f3-list-col-title">U.S. Ski & Snowboard | OWG Milano Cortina</span>
-                  <span class="f3-list-col-field">Branding, Social, Sport</span>
-                  <span class="f3-list-col-client">U.S. Ski & Snowboard Team</span>
-                  <span class="f3-list-col-year">2026</span>
-                  <span class="f3-list-col-arrow">↗</span>
+
+                <a href="project.html?id=us-ski-snowboard" class="f3-list-item-row" data-project-id="us-ski-snowboard" aria-label="U.S. Ski & Snowboard | OWG Milano Cortina">
+                  <div class="f3-list-col-left">
+                    <div class="f3-list-thumb-slot" aria-hidden="true">
+                      <img src="assets/thumbnails/US S&S.webp" alt="U.S. Ski & Snowboard preview" class="f3-list-thumb-img" loading="lazy" />
+                    </div>
+                  </div>
+                  <div class="f3-list-col-right">
+                    <div class="f3-list-title-row">
+                      <span class="f3-list-title type-aero-b">U.S. Ski & Snowboard | OWG Milano Cortina</span>
+                      <div class="f3-list-action-col">
+                        <span class="f3-list-cta-btn">
+                          <span>VIEW PROJECT</span>
+                          <span class="btn-arrow">↗</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="f3-list-tags" aria-hidden="true">
+                      <span>BRANDING</span>
+                      <span class="f3-list-tag-dot">•</span>
+                      <span>SOCIAL</span>
+                      <span class="f3-list-tag-dot">•</span>
+                      <span>SPORT</span>
+                    </div>
+                  </div>
                 </a>
-                <a href="project.html?id=nk-hoops" class="f3-list-item-row"
-                  data-image="assets/thumbnails/NK Hoops.webp?v=2" data-project-id="nk-hoops">
-                  <span class="f3-list-col-num">03</span>
-                  <span class="f3-list-col-title">NK Hoops</span>
-                  <span class="f3-list-col-field">Branding, Social, Sport</span>
-                  <span class="f3-list-col-client">NK Basketball League</span>
-                  <span class="f3-list-col-year">2025</span>
-                  <span class="f3-list-col-arrow">↗</span>
+
+                <a href="project.html?id=nk-hoops" class="f3-list-item-row" data-project-id="nk-hoops" aria-label="NK Hoops">
+                  <div class="f3-list-col-left">
+                    <div class="f3-list-thumb-slot" aria-hidden="true">
+                      <img src="assets/thumbnails/NK Hoops.webp?v=2" alt="NK Hoops preview" class="f3-list-thumb-img" loading="lazy" />
+                    </div>
+                  </div>
+                  <div class="f3-list-col-right">
+                    <div class="f3-list-title-row">
+                      <span class="f3-list-title type-aero-b">NK Hoops</span>
+                      <div class="f3-list-action-col">
+                        <span class="f3-list-cta-btn">
+                          <span>VIEW PROJECT</span>
+                          <span class="btn-arrow">↗</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="f3-list-tags" aria-hidden="true">
+                      <span>BRANDING</span>
+                      <span class="f3-list-tag-dot">•</span>
+                      <span>SOCIAL</span>
+                      <span class="f3-list-tag-dot">•</span>
+                      <span>SPORT</span>
+                    </div>
+                  </div>
                 </a>
-                <a href="project.html?id=audi-revolut-f1" class="f3-list-item-row"
-                  data-image="assets/thumbnails/Audi Revolut.webp?v=3" data-project-id="audi-revolut-f1">
-                  <span class="f3-list-col-num">04</span>
-                  <span class="f3-list-col-title">Audi Revolut F1</span>
-                  <span class="f3-list-col-field">Branding, Motion</span>
-                  <span class="f3-list-col-client">Audi Revolut F1 Team</span>
-                  <span class="f3-list-col-year">coming soon</span>
-                  <span class="f3-list-col-arrow">↗</span>
+
+                <a href="project.html?id=audi-revolut-f1" class="f3-list-item-row" data-project-id="audi-revolut-f1" aria-label="Audi Revolut F1">
+                  <div class="f3-list-col-left">
+                    <div class="f3-list-thumb-slot" aria-hidden="true">
+                      <img src="assets/thumbnails/Audi Revolut.webp?v=3" alt="Audi Revolut F1 preview" class="f3-list-thumb-img" loading="lazy" />
+                    </div>
+                  </div>
+                  <div class="f3-list-col-right">
+                    <div class="f3-list-title-row">
+                      <span class="f3-list-title type-aero-b">Audi Revolut F1</span>
+                      <div class="f3-list-action-col">
+                        <span class="f3-list-cta-btn">
+                          <span>VIEW PROJECT</span>
+                          <span class="btn-arrow">↗</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="f3-list-tags" aria-hidden="true">
+                      <span>BRANDING</span>
+                      <span class="f3-list-tag-dot">•</span>
+                      <span>MOTION</span>
+                    </div>
+                  </div>
                 </a>
               </div>
-            </div>
-
-            <!-- Floating Image Preview for List Rows -->
-            <div class="f3-hover-preview" id="f3-list-hover-preview" aria-hidden="true">
-              <img src="" id="f3-list-hover-img" alt="Project preview" />
             </div>
 
             <!-- Floating /view/ Cursor Follower Tag for Work Cards -->
+          </div>
+        </div>
+      </section>
+
+      <!-- B. Section 2: Studio Bio & Services -->
+      <section class="f3-section-bio-services" id="f3-bio-services">
+        <div class="f3-container">
+          <!-- 2-Column Separation Lines Above Bio -->
+          <div class="f3-intro-divider-row" aria-hidden="true">
+            <div class="f3-intro-divider-col-left"></div>
+            <div class="f3-intro-divider-col-right"></div>
+          </div>
+
+          <!-- 1. Bio Block -->
+          <div class="f3-bio-block">
+            <div class="f3-bio-col-left">
+              <h2 class="f3-section-title">Bio</h2>
+            </div>
+            <div class="f3-bio-col-right">
+              <div class="f3-bio-content">
+                <p class="type-aero-c">
+                  Nam Pham is an independent brand and digital design practice working with ambitious teams and companies at a point of transition.
+                </p>
+                <p class="type-aero-c">
+                  We provide strategy-led brand systems and digital design that removes friction, sharpens positioning, and helps the business be understood instantly. The focus is on purposeful alignment between the reality of the brand today and where it is heading next.
+                </p>
+                <p class="type-aero-c">
+                  Built on the conviction that great design starts with understanding, the practice is dedicated to getting to know the business, the people behind it, and the cultural impact they strive to create.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2-Column Separation Lines Between Bio and Services -->
+          <div class="f3-intro-divider-row" aria-hidden="true">
+            <div class="f3-intro-divider-col-left"></div>
+            <div class="f3-intro-divider-col-right"></div>
+          </div>
+
+          <!-- 2. Services Block -->
+          <div class="f3-services-block">
+            <div class="f3-services-col-left">
+              <h2 class="f3-section-title">Services</h2>
+            </div>
+            <div class="f3-services-col-right">
+              <div class="f3-services-list-grid" role="list">
+                <div class="f3-services-col" role="list">
+                  <div class="f3-service-item type-aero-c" role="listitem">Art Direction</div>
+                  <div class="f3-service-item type-aero-c" role="listitem">Brand Identity</div>
+                  <div class="f3-service-item type-aero-c" role="listitem">UI/UX</div>
+                  <div class="f3-service-item type-aero-c" role="listitem">Website Design</div>
+                </div>
+                <div class="f3-services-col" role="list">
+                  <div class="f3-service-item type-aero-c" role="listitem">Motion</div>
+                  <div class="f3-service-item type-aero-c" role="listitem">Creative Direction</div>
+                  <div class="f3-service-item type-aero-c" role="listitem">Brand Strategy</div>
+                  <div class="f3-service-item type-aero-c" role="listitem">Digital Experience</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -862,7 +987,7 @@
           <div class="f3-colophon-col-right">
             <a href="#" class="f3-colophon-privacy-link f3-colophon-start-project type-mono-a">Privacy Policy</a>
             <div class="f3-colophon-right">
-              <span class="f3-footer-clock live-clock">--:--:-- ICT</span>
+              <span class="f3-footer-clock live-clock">--:--:-- UTC+7</span>
             </div>
           </div>
         </div>

@@ -176,7 +176,7 @@ body.pm-modal-active {
 }
 
 .pm-meta-label {
-  font-family: 'Sometype Mono', monospace;
+  font-family: var(--font-mono, 'PP Supply Mono', monospace);
   font-size: 11px;
   letter-spacing: 0.8px;
   color: rgba(255, 255, 255, 0.5);
@@ -186,15 +186,22 @@ body.pm-modal-active {
 .pm-meta-year-badge {
   display: inline-flex;
   align-items: center;
-  padding: 2px 8px;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0px;
-  font-family: 'Sometype Mono', monospace;
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: #ffffff;
+  justify-content: center;
+  height: var(--pm-year-badge-height, var(--mono-pill-height, 24px));
+  width: var(--pm-year-badge-width, auto);
+  min-height: 24px;
+  box-sizing: border-box;
+  padding: var(--mono-cap-padding-top, 1.5px) 8px var(--mono-cap-padding-bottom, 0px) 8px;
+  background-color: #161616;
+  border: none;
+  border-radius: 2px;
+  color: #faf9fc;
+  font-family: var(--font-mono, 'PP Supply Mono', monospace);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--type-mono-a-spacing, 0px);
+  text-transform: uppercase;
+  line-height: 1;
 }
 
 /* Divider Hidden for Pure Typographic Flow */
@@ -245,17 +252,21 @@ body.pm-modal-active {
 .pm-pill-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+  height: var(--mono-pill-height, 24px);
+  box-sizing: border-box;
   background-color: #161616;
   border: none;
   color: #faf9fc;
-  font-family: var(--font-mono, 'Sometype Mono', monospace);
+  font-family: var(--font-mono, 'PP Supply Mono', monospace);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: -0.2px;
+  letter-spacing: var(--type-mono-a-spacing, 0px);
   text-transform: uppercase;
-  padding: 4px 8px;
+  padding: var(--mono-cap-padding-top, 1.5px) 8px var(--mono-cap-padding-bottom, 0px) 8px;
   border-radius: 2px;
+  line-height: 1;
   text-decoration: none;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color var(--transition-fast, 0.2s ease);
 }
@@ -267,12 +278,16 @@ body.pm-modal-active {
 }
 
 .pm-pill-btn .btn-arrow {
-  font-size: 12px;
+  font-size: 11px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  transform: translateY(-0.5px);
   transition: transform var(--transition-fast, 0.2s ease);
 }
 
 .pm-pill-btn:hover .btn-arrow {
-  transform: translate(2px, -2px);
+  transform: translate(2px, -2.5px);
 }
 
 /* --------------------------------------------------------------------------

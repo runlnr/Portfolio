@@ -133,7 +133,17 @@
   --nav-box-pady: 10px;
   --nav-box-radius: 4px;
   --nav-box-border-width: 1px;
-  --nav-box-bg: #101010;
+  --nav-box-bg: var(--nav-glass-bg, rgba(16, 16, 16, 0.60));
+
+  /* Glassmorphism Design Tokens */
+  --nav-glass-bg: rgba(16, 16, 16, 0.60);
+  --nav-glass-blur: 16px;
+  --nav-glass-saturate: 140%;
+  --nav-glass-border: rgba(255, 255, 255, 0.10);
+  --nav-glass-highlight: rgba(255, 255, 255, 0.06);
+  --nav-glass-shadow-nav: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --nav-glass-shadow-menu: 0 24px 60px rgba(0, 0, 0, 0.75);
+  --nav-glass-fallback-bg: #101010;
 
   /* Nav Inside */
   --nav-logo-size: 32px;
@@ -163,7 +173,7 @@
   --nav-hamburger-active-rotate: -68deg;
 
   /* Dropdown Menu Controls */
-  --nav-dropdown-bg: #101010;
+  --nav-dropdown-bg: var(--nav-glass-bg, rgba(16, 16, 16, 0.60));
   --nav-dropdown-padding-top: 24px;
   --nav-dropdown-padding-bottom: 22px;
   --nav-dropdown-padding-x: 22px;
@@ -194,8 +204,8 @@
   align-items: center;
   pointer-events: none;
   transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
   box-sizing: border-box;
+  isolation: isolate;
 }
 
 .hero-top-nav .nav-modular-box {
@@ -208,17 +218,17 @@
   margin-left: var(--nav-box-margin-left, 0px);
   margin-right: var(--nav-box-margin-right, 0px);
   transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 
 .hero-top-nav .nav-pinned-item {
   transition: opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 
@@ -271,15 +281,19 @@
   animation: clockDotPulse 2s ease-in-out infinite;
   mix-blend-mode: normal !important;
   vertical-align: middle;
+  transform: translateY(-0.75px);
   flex-shrink: 0;
 }
 
 @keyframes clockDotPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
     box-shadow: 0 0 8px #00ff66;
   }
+
   50% {
     opacity: 0.65;
     transform: scale(0.85);
@@ -295,12 +309,11 @@
 .hero-top-nav,
 .site-nav-top {
   transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  will-change: transform, opacity;
+    opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .nav-pinned-item,
@@ -317,11 +330,11 @@
 .site-nav-top a,
 .site-nav-top span {
   transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* --- White Section Active: Text is Black --- */
@@ -332,6 +345,8 @@
 
 .hero-top-nav.nav-theme-light .nav-modular-box {
   background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(var(--nav-glass-blur, 16px)) saturate(var(--nav-glass-saturate, 140%)) !important;
+  -webkit-backdrop-filter: blur(var(--nav-glass-blur, 16px)) saturate(var(--nav-glass-saturate, 140%)) !important;
   border: 1px solid rgba(0, 0, 0, 0.12) !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
 }
@@ -441,27 +456,38 @@
   margin-bottom: var(--nav-box-margin-bottom, 0px);
   margin-left: var(--nav-box-margin-left, 0px);
   margin-right: var(--nav-box-margin-right, 0px);
-  background: var(--nav-box-bg, #101010);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: var(--nav-box-border-width, 1px) solid rgba(255, 255, 255, 0.12);
+  background: var(--nav-glass-bg, rgba(16, 16, 16, 0.60));
+  backdrop-filter: blur(var(--nav-glass-blur, 16px)) saturate(var(--nav-glass-saturate, 140%));
+  -webkit-backdrop-filter: blur(var(--nav-glass-blur, 16px)) saturate(var(--nav-glass-saturate, 140%));
+  border: var(--nav-box-border-width, 1px) solid var(--nav-glass-border, rgba(255, 255, 255, 0.10));
   border-radius: var(--nav-box-radius, 4px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: var(--nav-glass-shadow-nav, 0 12px 32px rgba(0, 0, 0, 0.45)), inset 0 1px 0 var(--nav-glass-highlight, rgba(255, 255, 255, 0.06));
   box-sizing: border-box;
   position: relative;
   opacity: var(--nav-box-opacity, 1);
+  isolation: isolate;
+  transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Center Status Line in Nav Box */
 .nav-status-line {
-  font-family: 'Sometype Mono', var(--font-mono), monospace;
+  font-family: var(--font-mono, 'PP Supply Mono', monospace);
   font-size: var(--nav-status-font-size, 12px);
   font-weight: var(--nav-status-font-weight, 500);
-  letter-spacing: var(--nav-status-letter-spacing, -0.01em);
+  letter-spacing: var(--nav-status-letter-spacing, 0px);
   color: var(--nav-status-color, rgba(255, 255, 255, 0.65));
   white-space: nowrap;
   pointer-events: none;
   text-align: center;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Right: Hamburger Button (2 lines of equal width) */
@@ -494,8 +520,8 @@
   background-color: #ffffff;
   border-radius: 1px;
   transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.2s ease,
-              opacity 0.2s ease;
+    background-color 0.2s ease,
+    opacity 0.2s ease;
   will-change: transform;
 }
 
@@ -523,20 +549,22 @@
   transform: translateY(calc(-1 * (var(--nav-hamburger-gap, 4.5px) + var(--nav-hamburger-line-height, 1.5px)) / 2));
 }
 
-/* Fullscreen Backdrop Blur Overlay when dropdown is active */
+/* Fullscreen Backdrop Scrim when dropdown is active: blurs the entire site in sync with navbar glass settings */
 .nav-dropdown-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(var(--nav-glass-blur, 16px)) saturate(var(--nav-glass-saturate, 140%));
+  -webkit-backdrop-filter: blur(var(--nav-glass-blur, 16px)) saturate(var(--nav-glass-saturate, 140%));
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.3s ease;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 990;
+  isolation: isolate;
+  transform: translateZ(0);
 }
 
 .nav-dropdown-backdrop.is-active {
@@ -544,7 +572,10 @@
   pointer-events: auto;
 }
 
-/* Full-Width 2-Column Split Dropdown Menu spanning width of the nav bar */
+/* Full-Width 2-Column Split Dropdown Menu spanning width of the nav bar:
+   Maintains identical glass styling (tint, border, highlight, shadow) without redundant
+   duplicate backdrop blur since the entire page is already blurred by .nav-dropdown-backdrop.
+   visibility: hidden when closed prevents compositor layer isolation on parent .nav-modular-box */
 .nav-dropdown-menu {
   position: absolute;
   top: calc(100% + 8px);
@@ -552,24 +583,80 @@
   right: 0;
   width: 100%;
   box-sizing: border-box;
-  background: var(--nav-dropdown-bg, #101010);
-  backdrop-filter: blur(32px) saturate(190%);
-  -webkit-backdrop-filter: blur(32px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--nav-glass-bg, rgba(16, 16, 16, 0.60));
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--nav-glass-border, rgba(255, 255, 255, 0.10));
   border-radius: var(--nav-box-radius, 4px);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: var(--nav-glass-shadow-menu, 0 24px 60px rgba(0, 0, 0, 0.75)), inset 0 1px 0 var(--nav-glass-highlight, rgba(255, 255, 255, 0.06));
   padding: var(--nav-dropdown-padding-top, 6px) var(--nav-dropdown-padding-x, 20px) var(--nav-dropdown-padding-bottom, 20px) var(--nav-dropdown-padding-x, 20px);
   display: flex;
   flex-direction: column;
   opacity: 1;
-  transform: translateZ(0);
-  contain: paint;
   clip-path: inset(0% 0% 100% 0% round var(--nav-box-radius, 4px));
+  visibility: hidden;
   pointer-events: none;
-  transition: clip-path 0.52s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: clip-path, transform;
+  transition: clip-path 0.52s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.52s ease;
+  will-change: clip-path;
   z-index: 1000;
+  isolation: isolate;
   text-transform: none !important;
+}
+
+/* When dropdown menu is open, disable individual navbar pill blur so the entire header
+   shares the single synchronized site-wide blur without double-blurring artifacts */
+body.nav-dropdown-active .nav-modular-box {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Prevent site scrolling when dropdown menu is active */
+html.nav-dropdown-active,
+body.nav-dropdown-active {
+  overflow: hidden !important;
+  touch-action: none !important;
+}
+
+.nav-dropdown-menu {
+  touch-action: auto;
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nav-modular-box {
+    background: var(--nav-glass-fallback-bg, #101010) !important;
+  }
+
+  .nav-dropdown-menu {
+    background: var(--nav-glass-fallback-bg, #101010) !important;
+  }
+
+  .nav-dropdown-backdrop {
+    background: rgba(0, 0, 0, 0.75) !important;
+  }
+}
+
+/* Accessibility: User preference for reduced transparency */
+@media (prefers-reduced-transparency: reduce) {
+  .nav-modular-box {
+    background: var(--nav-glass-fallback-bg, #101010) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  .nav-dropdown-menu {
+    background: var(--nav-glass-fallback-bg, #101010) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  .nav-dropdown-backdrop {
+    background: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
 }
 
 .nav-dropdown-menu * {
@@ -578,9 +665,10 @@
 
 .nav-dropdown-menu.is-open {
   opacity: 1;
+  visibility: visible;
   clip-path: inset(0% 0% 0% 0% round var(--nav-box-radius, 4px));
   pointer-events: auto;
-  transition: clip-path 0.52s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: clip-path 0.52s cubic-bezier(0.25, 1, 0.5, 1), visibility 0s linear;
 }
 
 /* 2-Column Grid Container - Centered 50/50 Split */
@@ -590,13 +678,12 @@
   align-items: stretch;
   gap: 0;
   width: 100%;
-  transform: translateY(-6px) translateZ(0);
+  transform: translateY(-6px);
   transition: transform 0.52s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform;
 }
 
 .nav-dropdown-menu.is-open .nav-dropdown-grid {
-  transform: translateY(0) translateZ(0);
+  transform: translateY(0);
 }
 
 /* Left Column: Navigation Links */
@@ -624,7 +711,7 @@
   text-transform: none !important;
   opacity: 1;
   transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    color 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Dim unhovered items when left column is hovered */
@@ -693,7 +780,7 @@
 
 /* Row Counter Badge (e.g. (06) at top right of Works) */
 .nav-dropdown-row-link .nav-row-count {
-  font-family: 'Sometype Mono', var(--font-mono), monospace;
+  font-family: var(--font-mono, 'PP Supply Mono', monospace);
   font-size: 10px;
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -719,6 +806,7 @@
 
 /* Modern :has precision: only grey out items when an actual link is hovered */
 @supports selector(:has(*)) {
+
   .nav-dropdown-col-left:has(.nav-dropdown-row-link:hover) .nav-dropdown-row-link:not(:hover),
   .nav-dropdown-col-left:has(.nav-dropdown-row-link:focus-visible) .nav-dropdown-row-link:not(:focus-visible) {
     color: #626262 !important;
@@ -751,38 +839,33 @@
 
 /* Top Right Clock - White at all times */
 .nav-dropdown-clock-wrap {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: 'Sometype Mono', var(--font-mono), monospace;
+  font-family: var(--font-mono, 'PP Supply Mono', monospace);
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 400;
   color: #faf9fc;
-  letter-spacing: -0.2px;
+  letter-spacing: var(--type-mono-a-spacing, 0px);
   line-height: 1;
   text-transform: none !important;
 }
 
 .nav-dropdown-clock {
-  letter-spacing: -0.2px;
+  letter-spacing: var(--type-mono-a-spacing, 0px);
+  line-height: 1;
+  display: inline-block;
 }
 
 .nav-dropdown-clock-wrap .nav-clock-dot {
   display: inline-block;
-  width: 5px;
-  height: 5px;
-  background-color: #00ff66;
-  border-radius: 50%;
-  box-shadow: 0 0 6px #00ff66;
+  width: 3px;
+  height: 3px;
+  background-color: #faf9fc;
+  border-radius: 0;
+  box-shadow: none;
   flex-shrink: 0;
-  /* Pulse from 0.85 → 1 → 0.85 to avoid scale(0) pop */
-  animation: clock-dot-pulse 2.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-  will-change: transform;
-}
-
-@keyframes clock-dot-pulse {
-  0%, 100% { transform: scale(0.85); opacity: 0.75; }
-  50%        { transform: scale(1);    opacity: 1;    }
+  transform: translateY(-0.75px);
 }
 
 /* Middle / Bottom Info Stack - White at all times */
@@ -827,11 +910,13 @@
   background-color: #161616;
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #faf9fc;
-  font-family: var(--font-mono, 'Sometype Mono', monospace);
+  font-family: var(--font-mono, 'PP Supply Mono', monospace);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: -0.2px;
-  padding: 2px 6px;
+  letter-spacing: var(--type-mono-a-spacing, 0px);
+  padding: var(--mono-cap-padding-top, 1.5px) 6px var(--mono-cap-padding-bottom, 0px) 6px;
+  height: 18px;
+  box-sizing: border-box;
   border-radius: 2px;
   line-height: 1;
 }
@@ -851,6 +936,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+
   .nav-info-email:hover,
   .nav-info-phone:hover,
   .nav-info-email:focus-visible,
@@ -887,6 +973,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+
   .nav-social-icon:hover,
   .nav-social-icon:focus-visible {
     opacity: 1 !important;
@@ -923,24 +1010,30 @@
     grid-template-columns: 1fr;
     gap: 16px;
   }
+
   .nav-dropdown-divider {
     display: none;
   }
+
   .nav-dropdown-col-left {
     padding-right: 0;
   }
+
   .nav-dropdown-col-right {
     padding-left: 0;
     align-items: flex-start;
     text-align: left;
   }
+
   .nav-dropdown-clock-wrap {
     justify-content: flex-start;
   }
+
   .nav-dropdown-info-stack {
     align-items: flex-start;
     padding-top: 10px;
   }
+
   .nav-dropdown-socials {
     justify-content: flex-start;
   }
@@ -970,10 +1063,10 @@
   pointer-events: none;
   text-transform: none !important;
   transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 1.1s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.4s ease,
-              box-shadow 0.4s ease,
-              padding 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    padding 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
 }
 
@@ -986,16 +1079,17 @@ body.nav-dropdown-active .nav-floating-cta,
 }
 
 @media (hover: hover) and (pointer: fine) {
+
   .nav-floating-cta:hover,
   .nav-floating-cta:focus-visible {
     background: #ffffff;
     box-shadow: 0 18px 48px rgba(0, 0, 0, 0.75), 0 4px 12px rgba(255, 255, 255, 0.15);
     padding: 0 18px 0 14px;
     transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 1.1s cubic-bezier(0.16, 1, 0.3, 1),
-                background 0.5s ease,
-                box-shadow 0.5s ease,
-                padding 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+      transform 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+      background 0.5s ease,
+      box-shadow 0.5s ease,
+      padding 1.2s cubic-bezier(0.25, 1, 0.5, 1);
   }
 }
 
@@ -1028,19 +1122,20 @@ body.nav-dropdown-active .nav-floating-cta,
   opacity: 0;
   margin-left: 0;
   transition: max-width 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              margin-left 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-left 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (hover: hover) and (pointer: fine) {
+
   .nav-floating-cta:hover .floating-cta-text,
   .nav-floating-cta:focus-visible .floating-cta-text {
     max-width: 140px;
     opacity: 1;
     margin-left: 8px;
     transition: max-width 1.2s cubic-bezier(0.25, 1, 0.5, 1),
-                margin-left 1.2s cubic-bezier(0.25, 1, 0.5, 1),
-                opacity 1.0s cubic-bezier(0.25, 1, 0.5, 1) 0.12s;
+      margin-left 1.2s cubic-bezier(0.25, 1, 0.5, 1),
+      opacity 1.0s cubic-bezier(0.25, 1, 0.5, 1) 0.12s;
   }
 }
 
@@ -1167,18 +1262,22 @@ body.nav-dropdown-active .nav-floating-cta,
 }
 
 @media (max-width: 768px) {
+
   .hero-top-nav,
   .site-nav-top {
     top: 14px;
   }
+
   .nav-modular-box {
     gap: 16px;
     padding: 10px 16px;
     max-width: calc(100vw - 28px);
   }
+
   .nav-modular-box .nav-box-link {
     font-size: 12px !important;
   }
+
   .nav-modular-box .nav-box-brand {
     font-size: 14px !important;
   }
@@ -1232,15 +1331,22 @@ body.nav-dropdown-active .nav-floating-cta,
 :root {
   --hero-margin: 25px;
   --grid-opacity: 0;
-  --hero-tv-width: 910px;          /* Width on desktop */
-  --hero-tv-height: 310px;         /* Height on desktop */
+  --hero-tv-width: 910px;
+  /* Width on desktop */
+  --hero-tv-height: 310px;
+  /* Height on desktop */
   --hero-tv-max-width: calc(100vw - (var(--hero-margin, 25px) * 2));
   --hero-tv-max-height: calc(100vh - (var(--hero-margin, 25px) * 2));
-  --hero-tv-top: 50%;              /* Vertical position */
-  --hero-tv-left: 50%;             /* Horizontal position */
-  --hero-tv-scale: 1;              /* Scale multiplier */
-  --hero-tv-rect-margin-x: 25px;   /* Margin on left and right sides when expanded */
-  --hero-tv-rect-margin-y: 25px;   /* Margin on top and bottom sides when expanded */
+  --hero-tv-top: 50%;
+  /* Vertical position */
+  --hero-tv-left: 50%;
+  /* Horizontal position */
+  --hero-tv-scale: 1;
+  /* Scale multiplier */
+  --hero-tv-rect-margin-x: 25px;
+  /* Margin on left and right sides when expanded */
+  --hero-tv-rect-margin-y: 25px;
+  /* Margin on top and bottom sides when expanded */
 
   /* Corner Squares Sizing & Offsets (7px squares) */
   --corner-square-size: 7px;
@@ -1393,14 +1499,16 @@ body.nav-dropdown-active .nav-floating-cta,
 }
 
 .hero-cta-btn {
-  font-family: 'Sometype Mono', var(--font-mono), monospace;
+  font-family: var(--font-mono, 'PP Supply Mono', monospace);
   font-size: var(--cta-btn-font-size, 11px);
   font-weight: var(--cta-btn-font-weight, 600);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #000000;
   background-color: #ffffff;
-  padding: var(--cta-btn-pady, 7px) var(--cta-btn-padx, 18px);
+  padding: 0 var(--cta-btn-padx, 18px);
+  height: 30px;
+  box-sizing: border-box;
   border-radius: var(--cta-btn-radius, 999px);
   text-decoration: none;
   border: 1px solid #ffffff;
@@ -1411,8 +1519,8 @@ body.nav-dropdown-active .nav-floating-cta,
   overflow: hidden;
   position: relative;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.2s ease,
-              opacity 0.2s ease;
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
   opacity: var(--cta-opacity, 1);
 }
 
@@ -1420,8 +1528,8 @@ body.nav-dropdown-active .nav-floating-cta,
   display: inline-flex;
   flex-direction: column;
   overflow: hidden;
-  height: 1.15em;
-  line-height: 1.15em;
+  height: 1.2em;
+  line-height: 1.2em;
   vertical-align: middle;
 }
 
@@ -1433,9 +1541,11 @@ body.nav-dropdown-active .nav-floating-cta,
 }
 
 .hero-cta-btn .cta-roll-inner span {
-  display: block;
-  height: 1.15em;
-  line-height: 1.15em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.2em;
+  line-height: 1.2em;
   text-align: center;
   color: #000000;
 }
@@ -1456,11 +1566,11 @@ body.nav-dropdown-active .nav-floating-cta,
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  font-family: 'Sometype Mono', var(--font-mono), monospace;
+  font-family: var(--font-mono, 'PP Supply Mono', monospace);
   font-size: 11px;
   font-weight: 500;
   color: #faf9fc;
-  letter-spacing: -0.2px;
+  letter-spacing: var(--type-mono-a-spacing, 0px);
   line-height: 1;
   opacity: var(--clock-opacity, 1);
 }
@@ -1516,6 +1626,7 @@ body.is-loading .hero-bottom-text {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   html.is-navigating-in .hero-bottom-text,
   body.is-loading .hero-bottom-text {
     opacity: 1 !important;
@@ -1537,7 +1648,7 @@ body.is-loading .hero-bottom-text {
 }
 
 .hero-eyebrow {
-  font-family: 'Sometype Mono', var(--font-mono), monospace;
+  font-family: var(--font-mono, 'PP Supply Mono', monospace);
   font-size: var(--eyebrow-font-size, 11px);
   font-weight: var(--eyebrow-font-weight, 500);
   letter-spacing: var(--eyebrow-letter-spacing, 0.1px);
@@ -1600,7 +1711,7 @@ body.is-loading .hero-bottom-text {
 }
 
 .hero-bottom-socials a {
-  font-family: 'Sometype Mono', var(--font-mono), monospace;
+  font-family: var(--font-mono, 'PP Supply Mono', monospace);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.1px;
@@ -1619,20 +1730,40 @@ body.is-loading .hero-bottom-text {
   .hero-center-visual {
     width: 90vw;
   }
+
   .hero-tv-wrapper {
     height: auto;
     aspect-ratio: 487.57 / 144.05;
   }
+
   .ascii-corner-slash {
     font-size: 22px;
   }
-  .ascii-corner-tl { top: -12px; left: -8px; }
-  .ascii-corner-tr { top: -12px; right: -8px; }
-  .ascii-corner-bl { bottom: -12px; left: -8px; }
-  .ascii-corner-br { bottom: -12px; right: -8px; }
+
+  .ascii-corner-tl {
+    top: -12px;
+    left: -8px;
+  }
+
+  .ascii-corner-tr {
+    top: -12px;
+    right: -8px;
+  }
+
+  .ascii-corner-bl {
+    bottom: -12px;
+    left: -8px;
+  }
+
+  .ascii-corner-br {
+    bottom: -12px;
+    right: -8px;
+  }
+
   .hero-bottom-headline {
     font-size: clamp(24px, 6.5vw, 32px);
   }
+
   .hero-center-tagline {
     display: none;
   }
@@ -1811,7 +1942,8 @@ html.skip-intro .brand-r {
 }
 
 /* Global Scrollbar Suppression */
-html, body {
+html,
+body {
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
 }
@@ -2079,6 +2211,8 @@ html, body {
   border-radius: 50%;
   box-shadow: 0 0 7px rgba(0, 255, 102, 0.85), 0 0 2px #00ff66;
   flex-shrink: 0;
+  vertical-align: middle;
+  transform: translateY(-0.75px);
   animation: pulse-online-dot 2.4s ease-in-out infinite;
 }
 
@@ -2196,6 +2330,7 @@ html, body {
    Kill non-essential animations; keep structural transitions minimal.
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
+
   /* Kill clock dot pulse */
   .nav-dropdown-clock-wrap .nav-clock-dot {
     animation: none;
