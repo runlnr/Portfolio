@@ -337,57 +337,52 @@
     box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --- White Section Active: Text is Black --- */
-.hero-top-nav.nav-theme-light .hero-location-text,
-.hero-top-nav.nav-theme-light .live-clock-gmt {
-  color: #000000 !important;
+/* --- Navigation Theme: Permanent Dark Glass Aesthetic (Never Turns White) --- */
+.hero-top-nav,
+.hero-top-nav.nav-theme-dark,
+.hero-top-nav.nav-theme-light {
+  color: #ffffff !important;
 }
 
+.hero-top-nav .nav-modular-box,
+.hero-top-nav.nav-theme-dark .nav-modular-box,
 .hero-top-nav.nav-theme-light .nav-modular-box {
-  background: rgba(255, 255, 255, 0.75) !important;
+  background: var(--nav-glass-bg, rgba(16, 16, 16, 0.60)) !important;
   backdrop-filter: blur(var(--nav-glass-blur, 16px)) saturate(var(--nav-glass-saturate, 140%)) !important;
   -webkit-backdrop-filter: blur(var(--nav-glass-blur, 16px)) saturate(var(--nav-glass-saturate, 140%)) !important;
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  border: var(--nav-box-border-width, 1px) solid var(--nav-glass-border, rgba(255, 255, 255, 0.10)) !important;
+  box-shadow: var(--nav-glass-shadow-nav, 0 12px 32px rgba(0, 0, 0, 0.45)), inset 0 1px 0 var(--nav-glass-highlight, rgba(255, 255, 255, 0.06)) !important;
 }
 
+.hero-top-nav .nav-modular-box .nav-box-link,
+.hero-top-nav.nav-theme-dark .nav-modular-box .nav-box-link,
 .hero-top-nav.nav-theme-light .nav-modular-box .nav-box-link {
-  color: rgba(0, 0, 0, 0.65) !important;
+  color: rgba(255, 255, 255, 0.65) !important;
 }
 
+.hero-top-nav .nav-modular-box .nav-box-link:hover,
+.hero-top-nav.nav-theme-dark .nav-modular-box .nav-box-link:hover,
 .hero-top-nav.nav-theme-light .nav-modular-box .nav-box-link:hover,
+.hero-top-nav .nav-modular-box .nav-box-link.active,
+.hero-top-nav.nav-theme-dark .nav-modular-box .nav-box-link.active,
 .hero-top-nav.nav-theme-light .nav-modular-box .nav-box-link.active {
-  color: #000000 !important;
+  color: #ffffff !important;
 }
 
+.hero-top-nav .nav-modular-box .nav-box-brand,
+.hero-top-nav.nav-theme-dark .nav-modular-box .nav-box-brand,
 .hero-top-nav.nav-theme-light .nav-modular-box .nav-box-brand,
-.hero-top-nav.nav-theme-light .nav-modular-box .brand-slash,
-.hero-top-nav.nav-theme-light .nav-modular-box .brand-r {
-  color: #000000 !important;
+.hero-top-nav .nav-modular-box .brand-slash,
+.hero-top-nav .nav-modular-box .brand-r {
+  color: #ffffff !important;
 }
 
-/* Subpage nav support */
-.site-nav-top.nav-theme-light a,
-.site-nav-top.nav-theme-light .hero-nav-brand,
-.site-nav-top.nav-theme-light .hero-nav-link,
-.site-nav-top.nav-theme-light .live-clock,
-.site-nav-top.nav-theme-light .brand-slash,
-.site-nav-top.nav-theme-light .brand-r {
-  color: #000000 !important;
-}
-
-.site-nav-top.nav-theme-light .nav-center-group span:not(.brand-slash):not(.brand-r) {
-  color: rgba(0, 0, 0, 0.60) !important;
-}
-
-/* --- Green Circle Clock Dot Stays Green At All Times Without Blending Mode Difference --- */
+.hero-top-nav .hero-clock-dot,
 .hero-top-nav.nav-theme-light .hero-clock-dot,
 .hero-top-nav.nav-theme-dark .hero-clock-dot,
-.hero-top-nav .hero-clock-dot,
-.site-nav-top.nav-theme-light .hero-clock-dot,
-.site-nav-top.nav-theme-dark .hero-clock-dot,
 .site-nav-top .hero-clock-dot,
-.nav-pinned-item .hero-clock-dot {
+.site-nav-top.nav-theme-light .hero-clock-dot,
+.site-nav-top.nav-theme-dark .hero-clock-dot {
   background-color: #00ff66 !important;
   box-shadow: 0 0 8px #00ff66 !important;
   mix-blend-mode: normal !important;
@@ -466,7 +461,7 @@
   position: relative;
   opacity: var(--nav-box-opacity, 1);
   isolation: isolate;
-  transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1),
+  transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
     color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
     background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
@@ -511,6 +506,11 @@
 
 .nav-hamburger-btn:hover {
   opacity: 1;
+}
+
+.nav-hamburger-btn:active {
+  transform: scale(0.92);
+  transition: transform 120ms ease-out;
 }
 
 .nav-hamburger-btn .hamburger-line {
@@ -561,7 +561,7 @@
   -webkit-backdrop-filter: blur(var(--nav-glass-blur, 16px)) saturate(var(--nav-glass-saturate, 140%));
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 990;
   isolation: isolate;
   transform: translateZ(0);
@@ -596,7 +596,7 @@
   clip-path: inset(0% 0% 100% 0% round var(--nav-box-radius, 4px));
   visibility: hidden;
   pointer-events: none;
-  transition: clip-path 0.52s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.52s ease;
+  transition: clip-path 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s ease;
   will-change: clip-path;
   z-index: 1000;
   isolation: isolate;
@@ -668,7 +668,7 @@ body.nav-dropdown-active {
   visibility: visible;
   clip-path: inset(0% 0% 0% 0% round var(--nav-box-radius, 4px));
   pointer-events: auto;
-  transition: clip-path 0.52s cubic-bezier(0.25, 1, 0.5, 1), visibility 0s linear;
+  transition: clip-path 0.48s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear;
 }
 
 /* 2-Column Grid Container - Centered 50/50 Split */
@@ -679,11 +679,12 @@ body.nav-dropdown-active {
   gap: 0;
   width: 100%;
   transform: translateY(-6px);
-  transition: transform 0.52s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-dropdown-menu.is-open .nav-dropdown-grid {
   transform: translateY(0);
+  transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Left Column: Navigation Links */
@@ -1560,6 +1561,11 @@ body.nav-dropdown-active .nav-floating-cta,
 
 .hero-cta-btn:hover .cta-roll-inner {
   transform: translateY(-50%);
+}
+
+.hero-cta-btn:active {
+  transform: translateY(0) scale(0.96);
+  transition: transform 120ms ease-out;
 }
 
 .hero-clock-row {

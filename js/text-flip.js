@@ -82,10 +82,10 @@
                       container.closest('[data-flip-trigger]') ||
                       container;
 
-      // Whole-block animation parameters (Smooth relaxed curve)
-      const hoverDuration = 0.45;
-      const unhoverDuration = 0.35;
-      const easeCurve = [0.22, 1, 0.36, 1];
+      // Whole-block animation parameters (Cinematic & Deliberate editorial curve)
+      const hoverDuration = 0.48;
+      const unhoverDuration = 0.38;
+      const easeCurve = [0.16, 1, 0.3, 1];
 
       let activeAnim = null;
 

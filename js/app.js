@@ -785,78 +785,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // 3. Dynamic Navbar Theme (Consistent Dark Theme across all sections)
+  // 3. Permanent Navbar Dark Theme (User specified: never turns white)
   function updateNavbarTheme() {
     const navs = document.querySelectorAll('.hero-top-nav, .site-nav-top');
     if (!navs.length) return;
 
-    // Resting viewport position of navbar (~52px from top)
-    const probeY = 52;
-    const probeX = Math.max(30, Math.min(window.innerWidth - 30, window.innerWidth / 2));
-
-    let detectedTheme = 'dark'; // All-black background site
-
-    // Generic element scanner for specific sections with explicit overrides
-    if (document.elementsFromPoint) {
-      const elements = document.elementsFromPoint(probeX, probeY);
-      for (const el of elements) {
-        // Skip fixed overlays, nav, loaders, curtains, and particles
-        if (
-          el.closest('.hero-top-nav, .site-nav-top, .site-loader-overlay, .page-transition-curtain, #hero-spark-canvas, .hero-spark-canvas')
-        ) {
-          continue;
-        }
-
-        // Section data-theme attribute has highest priority
-        const themeAttr = el.closest('[data-theme]')?.getAttribute('data-theme');
-        if (themeAttr === 'light' || themeAttr === 'dark') {
-          detectedTheme = themeAttr;
-          break;
-        }
-
-        // Specific class checks
-        if (el.closest('.theme-light, .light-section')) {
-          detectedTheme = 'light';
-          break;
-        }
-        if (el.closest('.theme-dark, .dark-section')) {
-          detectedTheme = 'dark';
-          break;
-        }
-
-        // Check if inside hero section
-        if (el.closest('#hero-viewport, .hero-center-viewport')) {
-          detectedTheme = 'dark';
-          break;
-        }
-
-        // Check computed background color luminance
-        const computedBg = window.getComputedStyle(el).backgroundColor;
-        if (computedBg && computedBg !== 'transparent' && computedBg !== 'rgba(0, 0, 0, 0)') {
-          const match = computedBg.match(/\d+/g);
-          if (match && match.length >= 3) {
-            const r = parseInt(match[0], 10);
-            const g = parseInt(match[1], 10);
-            const b = parseInt(match[2], 10);
-            const a = match[3] !== undefined ? parseFloat(match[3]) : 1;
-            if (a > 0.4) {
-              const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-              detectedTheme = brightness > 140 ? 'light' : 'dark';
-              break;
-            }
-          }
-        }
-      }
-    }
-
     navs.forEach(nav => {
-      if (detectedTheme === 'light') {
-        nav.classList.add('nav-theme-light');
-        nav.classList.remove('nav-theme-dark');
-      } else {
-        nav.classList.add('nav-theme-dark');
-        nav.classList.remove('nav-theme-light');
-      }
+      nav.classList.add('nav-theme-dark');
+      nav.classList.remove('nav-theme-light');
     });
   }
 

@@ -7,56 +7,46 @@
   'use strict';
 
   function initFutureThreeScroll() {
-    // 1. GSAP ScrollTrigger Motion
-
-    // 2. GSAP ScrollTrigger Motion
-    if (window.gsap && window.ScrollTrigger) {
-      window.ScrollTrigger.refresh();
+    // 1. Scroll-Driven Editorial Cascade Reveal System
+    function initScrollReveal() {
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion) { return; }
+      if (prefersReducedMotion) return;
 
-      // Intro text reveal
-      const introStatement = document.querySelector('.f3-intro-statement');
-      if (introStatement) {
-        window.gsap.from(
-          introStatement,
-          {
-            opacity: 0,
-            y: 25,
-            duration: 0.85,
-            ease: 'power3.out',
-            immediateRender: false,
-            scrollTrigger: {
-              trigger: '.f3-section-intro',
-              start: 'top 90%',
-              once: true
-            }
-          }
-        );
-      }
+      const targets = document.querySelectorAll(
+        '.f3-intro-lockup, .f3-intro-divider-row, .f3-featured-tag-row, .f3-work-card, .f3-service-showcase, .f3-showcase-footer-quote, .f3-single-divider-row, .f3-contact-col-left, .f3-contact-col-right, .f3-colophon-grid'
+      );
 
-      // Staggered Entrance Animation for 2-Column Works Grid (4 Projects)
-      const workCards = document.querySelectorAll('.f3-work-card');
-      if (workCards.length > 0) {
-        window.gsap.fromTo(
-          workCards,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.12,
-            ease: 'power3.out',
-            immediateRender: false,
-            scrollTrigger: {
-              trigger: '.f3-works-grid-container',
-              start: 'top 85%',
-              once: true
-            }
+      if (!targets.length) return;
+      if (!('IntersectionObserver' in window)) return;
+
+      targets.forEach(el => {
+        el.classList.add('f3-scroll-reveal');
+      });
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            obs.unobserve(entry.target);
           }
-        );
-      }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.08
+      });
+
+      targets.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
+          el.classList.add('is-revealed');
+        } else {
+          observer.observe(el);
+        }
+      });
     }
+
+    initScrollReveal();
 
     // 3. Language Selector Button Toggle
     const langSelector = document.getElementById('hero-lang-selector');

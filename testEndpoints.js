@@ -20,6 +20,7 @@ const endpoints = [
   '/js/hero-scroll-transition.js',
   '/js/hero-statement-scramble.js',
   '/js/works.js',
+  '/js/service-showcase.js',
   '/js/contact.js',
   '/js/project.js',
   '/js/projects-data.js',
