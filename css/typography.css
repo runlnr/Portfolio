@@ -360,6 +360,28 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "PP Supply Mono";
+  src: local("Supply-Light"),
+    local("PP Supply Mono Light"),
+    url("../assets/fonts/PP%20Supply%20Mono/Supply-Light.otf") format("opentype"),
+    url("../assets/fonts/Supply-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Supply-Light";
+  src: local("Supply-Light"),
+    local("PP Supply Mono Light"),
+    url("../assets/fonts/PP%20Supply%20Mono/Supply-Light.otf") format("opentype"),
+    url("../assets/fonts/Supply-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* ==========================================================================
      MANUAL FOOTER GAP CONTROLS: Adjust distance between socials and @_phnm._
@@ -398,7 +420,7 @@
   --font-mono: 'PP Supply Mono', 'PPSupplyMono-Regular', 'Sometype Mono', 'Share Tech Mono', Menlo, Monaco, Consolas, monospace;
   --mono-font-size: 11px;
   --mono-font-weight: 400;
-  --mono-letter-spacing: -0.2px;
+  --mono-letter-spacing: 0.5px;
 
   /* Global Hero Layout Margins */
   --hero-margin: 25px;
@@ -470,15 +492,29 @@
   /* PP Supply Mono Type A */
   --type-mono-a-font: var(--font-mono, 'PP Supply Mono', monospace);
   --type-mono-a-weight: 400;
-  --type-mono-a-size: 10.5px;
+  --type-mono-a-size: 11px;
   --type-mono-a-line: 13px;
   --type-mono-a-spacing: 0.5px;
 
-  /* Standardized Monospace Tag & Button Dimension Tokens */
-  --mono-tag-height: 20px;
-  --mono-pill-height: 24px;
-  --mono-cap-offset: -0.75px;
-  --mono-cap-padding-top: 1.5px;
+  /* PP Supply Mono Light (For Buttons, Badges, and Tags) */
+  --font-mono-light: 'Supply-Light', 'PP Supply Mono', 'PPSupplyMono-Regular', monospace;
+  --type-mono-light-font: var(--font-mono-light);
+  --type-mono-light-weight: 300;
+
+  /* ==========================================================================
+     UNIVERSAL RECTANGLE BUTTON & TAG DIMENSION CONTROLS
+     Change height, side padding, or min-width here to update the entire site
+     ========================================================================== */
+  --rect-btn-height: 22px;
+  --rect-btn-padx: 8px;
+  --rect-btn-min-width: auto;
+  --rect-btn-gap: 6px;
+
+  /* Standardized Monospace Tag & Button Dimension Tokens (Linked to Master) */
+  --mono-tag-height: var(--rect-btn-height, 22px);
+  --mono-pill-height: var(--rect-btn-height, 22px);
+  --mono-cap-offset: 0px;
+  --mono-cap-padding-top: 0px;
   --mono-cap-padding-bottom: 0px;
 }
 
@@ -554,6 +590,7 @@
   font-size: var(--type-mono-a-size);
   line-height: var(--type-mono-a-line);
   letter-spacing: var(--type-mono-a-spacing);
+  text-transform: uppercase;
 }
 
 body {

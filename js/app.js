@@ -1078,7 +1078,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navHamburgerBtn._hasDropdownInit = true;
 
     let isCooldown = false;
-    const COOLDOWN_DURATION_MS = 520;
+    const COOLDOWN_DURATION_MS = 280;
 
     navHamburgerBtn.addEventListener('click', (e) => {
       e.preventDefault();

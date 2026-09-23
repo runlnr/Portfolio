@@ -139,7 +139,7 @@
         '      </div>',
         '      <div class="pm-meta-subrow">',
         '        <span class="pm-meta-label">YEAR</span>',
-        '        <span class="pm-meta-year-badge" id="pm-meta-year">2024</span>',
+        '        <span class="pm-meta-year-badge" id="pm-meta-year"><span>2024</span></span>',
         '      </div>',
         '      <div class="pm-meta-content" id="pm-meta-content"></div>',
         '    </aside>',
@@ -589,7 +589,7 @@
     // Render metadata card contents
     renderMetadata: function (project) {
       this.metaTitleEl.textContent = project.title || 'PROJECT';
-      this.metaYearEl.textContent = project.year || '2024';
+      this.metaYearEl.innerHTML = '<span>' + (project.year || '2024') + '</span>';
 
       // Build editorial text content (in natural sentence case for AT Aero Type E)
       var contentHtml = [];

@@ -180,9 +180,9 @@ body.pm-modal-active {
 }
 
 .pm-meta-label {
-  font-family: var(--font-mono, 'PP Supply Mono', monospace);
-  font-size: 11px;
-  letter-spacing: 0.8px;
+  font-family: var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace));
+  font-size: var(--type-mono-a-size, 11px);
+  letter-spacing: var(--type-mono-a-spacing, 0.5px);
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
 }
@@ -191,19 +191,19 @@ body.pm-modal-active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: var(--pm-year-badge-height, var(--mono-pill-height, 24px));
-  width: var(--pm-year-badge-width, auto);
-  min-height: 24px;
+  height: var(--rect-btn-height, 22px);
+  min-height: var(--rect-btn-height, 22px);
+  min-width: var(--rect-btn-min-width, auto);
   box-sizing: border-box;
-  padding: var(--mono-cap-padding-top, 1.5px) 8px var(--mono-cap-padding-bottom, 0px) 8px;
+  padding: 0 var(--rect-btn-padx, 8px);
   background-color: #161616;
   border: none;
-  border-radius: 2px;
+  border-radius: 0;
   color: #faf9fc;
-  font-family: var(--font-mono, 'PP Supply Mono', monospace);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: var(--type-mono-a-spacing, 0px);
+  font-family: var(--type-mono-light-font, 'Supply-Light', 'PP Supply Mono', monospace);
+  font-size: var(--type-mono-a-size, 11px);
+  font-weight: var(--type-mono-light-weight, 300);
+  letter-spacing: var(--type-mono-a-spacing, 0.5px);
   text-transform: uppercase;
   line-height: 1;
 }
@@ -257,19 +257,20 @@ body.pm-modal-active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  height: var(--mono-pill-height, 24px);
+  gap: var(--rect-btn-gap, 6px);
+  height: var(--rect-btn-height, 22px);
+  min-width: var(--rect-btn-min-width, auto);
   box-sizing: border-box;
   background-color: #161616;
   border: none;
   color: #faf9fc;
-  font-family: var(--font-mono, 'PP Supply Mono', monospace);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: var(--type-mono-a-spacing, 0px);
+  font-family: var(--type-mono-light-font, 'Supply-Light', 'PP Supply Mono', monospace);
+  font-size: var(--type-mono-a-size, 11px);
+  font-weight: var(--type-mono-light-weight, 300);
+  letter-spacing: var(--type-mono-a-spacing, 0.5px);
   text-transform: uppercase;
-  padding: var(--mono-cap-padding-top, 1.5px) 8px var(--mono-cap-padding-bottom, 0px) 8px;
-  border-radius: 2px;
+  padding: 0 var(--rect-btn-padx, 8px);
+  border-radius: 0;
   line-height: 1;
   text-decoration: none;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color var(--transition-fast, 0.2s ease);
@@ -287,16 +288,16 @@ body.pm-modal-active {
 }
 
 .pm-pill-btn .btn-arrow {
-  font-size: 11px;
+  font-size: var(--type-mono-a-size, 11px);
   line-height: 1;
   display: inline-flex;
   align-items: center;
-  transform: translateY(-0.5px);
+  transform: none;
   transition: transform var(--transition-fast, 0.2s ease);
 }
 
 .pm-pill-btn:hover .btn-arrow {
-  transform: translate(2px, -2.5px);
+  transform: translate(2px, -2px);
 }
 
 /* --------------------------------------------------------------------------

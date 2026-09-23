@@ -16,14 +16,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://framerusercontent.com" crossorigin>
-  <link
+  <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sometype+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap"
-    rel="stylesheet">
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sometype+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet">
+  </noscript>
 
   <link rel="preload" href="assets/fonts/AtAero-Regular.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="assets/fonts/AtAero-Retina.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="assets/fonts/AtAero-Light.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="assets/fonts/NeueHaasDisplayRoman.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/PPSupplyMono-Regular.otf" as="font" type="font/otf" crossorigin>
   <link rel="stylesheet" href="css/typography.css?v=1.0.0">
   <link rel="stylesheet" href="css/main.css?v=1.0.0">
   <link rel="stylesheet" href="css/components.css?v=1.0.0">
@@ -59,8 +65,8 @@
       /* <-- TWEAK THIS: Left padding from site edge for View on Behance button (25px) */
       --pm-action-bottom: 25px;
       /* <-- TWEAK THIS: Bottom padding from site edge for View on Behance button (25px) */
-      --pm-pill-height: 24px;
-      /* <-- TWEAK THIS: Height of modal buttons & badges (24px) */
+      --pm-pill-height: 22px;
+      /* <-- TWEAK THIS: Height of modal buttons & badges (22px) */
       --pm-year-badge-height: var(--pm-pill-height);
       /* <-- TWEAK THIS: Height of modal year badge (matches View on Behance button) */
       --pm-year-badge-padding: 4px 8px;
@@ -416,7 +422,7 @@
             <!-- Middle / Bottom Right Details: Ongoing Projects & Socials -->
             <div class="nav-dropdown-info-stack">
               <div class="nav-dropdown-ongoing">
-                <span class="nav-ongoing-line"><span class="nav-ongoing-badge">01</span> Ongoing projects</span>
+                <span class="nav-ongoing-line"><span class="nav-ongoing-badge"><span>01</span></span><span class="nav-ongoing-text">Ongoing projects</span></span>
               </div>
 
               <!-- Social Links -->
@@ -594,12 +600,12 @@
                 <a href="project.html?id=memphis-grizzlies" class="f3-work-card" aria-label="Memphis Grizzlies"
                   data-project-id="memphis-grizzlies">
                   <div class="f3-work-card-media">
-                    <div class="f3-thumbnail-badge type-mono-a" aria-hidden="true">01</div>
+                    <div class="f3-thumbnail-badge type-mono-a" aria-hidden="true"><span>01</span></div>
                     <img src="assets/thumbnails/Memphis.webp" alt="Memphis Grizzlies" class="f3-card-img-primary"
-                      loading="lazy" width="4000" height="3200" decoding="async" />
+                      loading="lazy" width="1600" height="1280" decoding="async" />
                     <div class="f3-card-hover-box" aria-hidden="true">
                       <img src="assets/thumbnails/Memphis 2.webp?v=2" alt="Memphis Grizzlies Case Study"
-                        class="f3-card-img-secondary" loading="lazy" width="4000" height="3200" decoding="async" />
+                        class="f3-card-img-secondary" loading="lazy" width="1600" height="1280" decoding="async" />
                     </div>
                   </div>
                   <div class="f3-work-card-info">
@@ -624,12 +630,12 @@
                 <a href="project.html?id=nk-hoops" class="f3-work-card" aria-label="NK Hoops"
                   data-project-id="nk-hoops">
                   <div class="f3-work-card-media">
-                    <div class="f3-thumbnail-badge type-mono-a" aria-hidden="true">03</div>
+                    <div class="f3-thumbnail-badge type-mono-a" aria-hidden="true"><span>03</span></div>
                     <img src="assets/thumbnails/NK Hoops.webp?v=2" alt="NK Hoops" class="f3-card-img-primary"
-                      loading="lazy" width="4000" height="3200" decoding="async" />
+                      loading="lazy" width="1600" height="1280" decoding="async" />
                     <div class="f3-card-hover-box" aria-hidden="true">
                       <img src="assets/thumbnails/NK Hoops 3.webp" alt="NK Hoops Case Study"
-                        class="f3-card-img-secondary" loading="lazy" width="4000" height="3200" decoding="async" />
+                        class="f3-card-img-secondary" loading="lazy" width="1600" height="1280" decoding="async" />
                     </div>
                   </div>
                   <div class="f3-work-card-info">
@@ -657,12 +663,12 @@
                 <a href="project.html?id=us-ski-snowboard" class="f3-work-card"
                   aria-label="U.S. Ski & Snowboard | OWG Milano Cortina" data-project-id="us-ski-snowboard">
                   <div class="f3-work-card-media">
-                    <div class="f3-thumbnail-badge type-mono-a" aria-hidden="true">02</div>
+                    <div class="f3-thumbnail-badge type-mono-a" aria-hidden="true"><span>02</span></div>
                     <img src="assets/thumbnails/US S&S.webp" alt="U.S. Ski & Snowboard | OWG Milano Cortina"
-                      class="f3-card-img-primary" loading="lazy" width="4000" height="3200" decoding="async" />
+                      class="f3-card-img-primary" loading="lazy" width="1600" height="1280" decoding="async" />
                     <div class="f3-card-hover-box" aria-hidden="true">
                       <img src="assets/thumbnails/U.S S&S 2.webp?v=3" alt="U.S. Ski & Snowboard Case Study"
-                        class="f3-card-img-secondary" loading="lazy" width="4000" height="3200" decoding="async" />
+                        class="f3-card-img-secondary" loading="lazy" width="1600" height="1280" decoding="async" />
                     </div>
                   </div>
                   <div class="f3-work-card-info">
@@ -687,12 +693,12 @@
                 <a href="project.html?id=audi-revolut-f1" class="f3-work-card" aria-label="Audi Revolut F1"
                   data-project-id="audi-revolut-f1" data-cursor="/coming soon/">
                   <div class="f3-work-card-media">
-                    <div class="f3-thumbnail-badge type-mono-a" aria-hidden="true">04</div>
+                    <div class="f3-thumbnail-badge type-mono-a" aria-hidden="true"><span>04</span></div>
                     <img src="assets/thumbnails/Audi Revolut.webp?v=3" alt="Audi Revolut F1" class="f3-card-img-primary"
-                      loading="lazy" width="4000" height="3200" decoding="async" />
+                      loading="lazy" width="1600" height="1280" decoding="async" />
                     <div class="f3-card-hover-box" aria-hidden="true">
                       <img src="assets/thumbnails/Audi Revolut 2.webp" alt="Audi Revolut F1 Case Study"
-                        class="f3-card-img-secondary" loading="lazy" width="4000" height="3200" decoding="async" />
+                        class="f3-card-img-secondary" loading="lazy" width="1600" height="1280" decoding="async" />
                     </div>
                   </div>
                   <div class="f3-work-card-info">
@@ -721,7 +727,7 @@
                   <!-- Left Column: Thumbnail Preview Slot -->
                   <div class="f3-list-col-left">
                     <div class="f3-list-thumb-slot" aria-hidden="true">
-                      <div class="f3-thumbnail-badge type-mono-a">01</div>
+                      <div class="f3-thumbnail-badge type-mono-a"><span>01</span></div>
                       <img src="assets/thumbnails/Memphis.webp" alt="Memphis Grizzlies preview" class="f3-list-thumb-img" loading="lazy" />
                     </div>
                   </div>
@@ -749,7 +755,7 @@
                 <a href="project.html?id=us-ski-snowboard" class="f3-list-item-row" data-project-id="us-ski-snowboard" aria-label="U.S. Ski & Snowboard | OWG Milano Cortina">
                   <div class="f3-list-col-left">
                     <div class="f3-list-thumb-slot" aria-hidden="true">
-                      <div class="f3-thumbnail-badge type-mono-a">02</div>
+                      <div class="f3-thumbnail-badge type-mono-a"><span>02</span></div>
                       <img src="assets/thumbnails/US S&S.webp" alt="U.S. Ski & Snowboard preview" class="f3-list-thumb-img" loading="lazy" />
                     </div>
                   </div>
@@ -776,7 +782,7 @@
                 <a href="project.html?id=nk-hoops" class="f3-list-item-row" data-project-id="nk-hoops" aria-label="NK Hoops">
                   <div class="f3-list-col-left">
                     <div class="f3-list-thumb-slot" aria-hidden="true">
-                      <div class="f3-thumbnail-badge type-mono-a">03</div>
+                      <div class="f3-thumbnail-badge type-mono-a"><span>03</span></div>
                       <img src="assets/thumbnails/NK Hoops.webp?v=2" alt="NK Hoops preview" class="f3-list-thumb-img" loading="lazy" />
                     </div>
                   </div>
@@ -803,7 +809,7 @@
                 <a href="project.html?id=audi-revolut-f1" class="f3-list-item-row" data-project-id="audi-revolut-f1" aria-label="Audi Revolut F1">
                   <div class="f3-list-col-left">
                     <div class="f3-list-thumb-slot" aria-hidden="true">
-                      <div class="f3-thumbnail-badge type-mono-a">04</div>
+                      <div class="f3-thumbnail-badge type-mono-a"><span>04</span></div>
                       <img src="assets/thumbnails/Audi Revolut.webp?v=3" alt="Audi Revolut F1 preview" class="f3-list-thumb-img" loading="lazy" />
                     </div>
                   </div>
@@ -969,19 +975,19 @@
                   <input type="hidden" name="service" id="f3-selected-service" value="Brand Identity">
                   <div class="f3-pill-group" role="radiogroup" aria-labelledby="service-group-label">
                     <button type="button" class="f3-pill-btn type-mono-a" data-service="Art Direction" role="radio" aria-checked="false">
-                      ART DIRECTION
+                      <span>ART DIRECTION</span>
                     </button>
                     <button type="button" class="f3-pill-btn type-mono-a is-active" data-service="Brand Identity" role="radio" aria-checked="true">
-                      BRAND IDENTITY
+                      <span>BRAND IDENTITY</span>
                     </button>
                     <button type="button" class="f3-pill-btn type-mono-a" data-service="Website Design" role="radio" aria-checked="false">
-                      WEBSITE DESIGN
+                      <span>WEBSITE DESIGN</span>
                     </button>
                     <button type="button" class="f3-pill-btn type-mono-a" data-service="Social Media Design" role="radio" aria-checked="false">
-                      SOCIAL MEDIA
+                      <span>SOCIAL MEDIA</span>
                     </button>
                     <button type="button" class="f3-pill-btn type-mono-a" data-service="Comprehensive System" role="radio" aria-checked="false">
-                      FULL SYSTEM
+                      <span>FULL SYSTEM</span>
                     </button>
                   </div>
                 </div>
@@ -995,16 +1001,16 @@
                   <input type="hidden" name="budget" id="f3-selected-budget" value="$5K – $10K">
                   <div class="f3-pill-group" role="radiogroup" aria-labelledby="budget-group-label">
                     <button type="button" class="f3-pill-btn type-mono-a" data-budget="< $5K" role="radio" aria-checked="false">
-                      &lt; $5K
+                      <span>&lt; $5K</span>
                     </button>
                     <button type="button" class="f3-pill-btn type-mono-a is-active" data-budget="$5K – $10K" role="radio" aria-checked="true">
-                      $5K &ndash; $10K
+                      <span>$5K &ndash; $10K</span>
                     </button>
                     <button type="button" class="f3-pill-btn type-mono-a" data-budget="$10K – $25K" role="radio" aria-checked="false">
-                      $10K &ndash; $25K
+                      <span>$10K &ndash; $25K</span>
                     </button>
                     <button type="button" class="f3-pill-btn type-mono-a" data-budget="$25K+" role="radio" aria-checked="false">
-                      $25K+
+                      <span>$25K+</span>
                     </button>
                   </div>
                 </div>
@@ -1021,8 +1027,8 @@
 
                 <!-- Action Row: High-Contrast Submit Button & Live Feedback Status -->
                 <div class="f3-form-action-row">
-                  <button type="submit" class="f3-contact-submit-btn type-mono-a" id="f3-submit-btn">
-                    <span class="f3-btn-label">SEND MESSAGE ↗</span>
+                  <button type="submit" class="f3-contact-submit-btn" id="f3-submit-btn">
+                    <span class="f3-btn-label">Send message ↗</span>
                   </button>
                   <div class="f3-form-status-msg type-mono-a" id="f3-form-status" aria-live="polite"></div>
                 </div>

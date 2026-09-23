@@ -102,7 +102,7 @@
       if (submitBtn) {
         submitBtn.disabled = true;
         const btnLabel = submitBtn.querySelector('.f3-btn-label');
-        if (btnLabel) btnLabel.textContent = 'TRANSMITTING...';
+        if (btnLabel) btnLabel.textContent = 'Transmitting...';
       }
 
       if (statusMsg) {
@@ -119,7 +119,7 @@
 
         if (submitBtn) {
           const btnLabel = submitBtn.querySelector('.f3-btn-label');
-          if (btnLabel) btnLabel.textContent = 'SENT ✓';
+          if (btnLabel) btnLabel.textContent = 'Sent ✓';
         }
 
         // Reset form inputs (retain pill choices)
@@ -131,7 +131,7 @@
           if (submitBtn) {
             submitBtn.disabled = false;
             const btnLabel = submitBtn.querySelector('.f3-btn-label');
-            if (btnLabel) btnLabel.textContent = 'SEND MESSAGE ↗';
+            if (btnLabel) btnLabel.textContent = 'Send message ↗';
           }
           if (statusMsg) {
             statusMsg.style.opacity = '0';

@@ -14,14 +14,20 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
+  <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sometype+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap"
-    rel="stylesheet">
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sometype+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet">
+  </noscript>
 
   <link rel="preload" href="assets/fonts/AtAero-Regular.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="assets/fonts/AtAero-Retina.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="assets/fonts/AtAero-Light.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="assets/fonts/NeueHaasDisplayRoman.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/PPSupplyMono-Regular.otf" as="font" type="font/otf" crossorigin>
 
   <link rel="stylesheet" href="css/typography.css?v=1.0.0">
   <link rel="stylesheet" href="css/main.css?v=1.0.0">
@@ -131,7 +137,7 @@
             <!-- Middle / Bottom Right Details: Ongoing Projects & Socials -->
             <div class="nav-dropdown-info-stack">
               <div class="nav-dropdown-ongoing">
-                <span class="nav-ongoing-line"><span class="nav-ongoing-badge">01</span> Ongoing projects</span>
+                <span class="nav-ongoing-line"><span class="nav-ongoing-badge"><span>01</span></span><span class="nav-ongoing-text">Ongoing projects</span></span>
               </div>
 
               <!-- Social Links -->

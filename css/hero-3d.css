@@ -471,10 +471,10 @@
 
 /* Center Status Line in Nav Box */
 .nav-status-line {
-  font-family: var(--font-mono, 'PP Supply Mono', monospace);
-  font-size: var(--nav-status-font-size, 12px);
+  font-family: var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace));
+  font-size: var(--type-mono-a-size, 11px);
   font-weight: var(--nav-status-font-weight, 500);
-  letter-spacing: var(--nav-status-letter-spacing, 0px);
+  letter-spacing: var(--type-mono-a-spacing, 0.5px);
   color: var(--nav-status-color, rgba(255, 255, 255, 0.65));
   white-space: nowrap;
   pointer-events: none;
@@ -483,6 +483,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-transform: uppercase;
 }
 
 /* Right: Hamburger Button (2 lines of equal width) */
@@ -560,22 +561,26 @@
   backdrop-filter: blur(var(--nav-glass-blur, 16px)) saturate(var(--nav-glass-saturate, 140%));
   -webkit-backdrop-filter: blur(var(--nav-glass-blur, 16px)) saturate(var(--nav-glass-saturate, 140%));
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.26s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.26s ease;
   z-index: 990;
   isolation: isolate;
   transform: translateZ(0);
+  will-change: opacity;
 }
 
 .nav-dropdown-backdrop.is-active {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear;
 }
 
 /* Full-Width 2-Column Split Dropdown Menu spanning width of the nav bar:
    Maintains identical glass styling (tint, border, highlight, shadow) without redundant
    duplicate backdrop blur since the entire page is already blurred by .nav-dropdown-backdrop.
-   visibility: hidden when closed prevents compositor layer isolation on parent .nav-modular-box */
+   GPU-composited opacity and transform for locked 120fps performance. */
 .nav-dropdown-menu {
   position: absolute;
   top: calc(100% + 8px);
@@ -589,28 +594,33 @@
   border: 1px solid var(--nav-glass-border, rgba(255, 255, 255, 0.10));
   border-radius: var(--nav-box-radius, 4px);
   box-shadow: var(--nav-glass-shadow-menu, 0 24px 60px rgba(0, 0, 0, 0.75)), inset 0 1px 0 var(--nav-glass-highlight, rgba(255, 255, 255, 0.06));
-  padding: var(--nav-dropdown-padding-top, 6px) var(--nav-dropdown-padding-x, 20px) var(--nav-dropdown-padding-bottom, 20px) var(--nav-dropdown-padding-x, 20px);
+  padding: var(--nav-dropdown-padding-top, 24px) var(--nav-dropdown-padding-x, 22px) var(--nav-dropdown-padding-bottom, 22px) var(--nav-dropdown-padding-x, 22px);
   display: flex;
   flex-direction: column;
-  opacity: 1;
-  clip-path: inset(0% 0% 100% 0% round var(--nav-box-radius, 4px));
+  opacity: 0;
+  transform: translateY(-8px) scale(0.985);
+  transform-origin: top center;
   visibility: hidden;
   pointer-events: none;
-  transition: clip-path 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s ease;
-  will-change: clip-path;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.24s ease;
+  will-change: opacity, transform;
   z-index: 1000;
   isolation: isolate;
   text-transform: none !important;
 }
 
-/* When dropdown menu is open, disable individual navbar pill blur so the entire header
-   shares the single synchronized site-wide blur without double-blurring artifacts */
+/* Maintain navbar pill blur to avoid jarring flash or repaint stall on menu open/close */
 body.nav-dropdown-active .nav-modular-box {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+  /* Navbar pill keeps its natural blur without interference */
 }
 
-/* Prevent site scrolling when dropdown menu is active */
+/* Prevent site scrolling when dropdown menu is active, preserving layout scrollbar space */
+html {
+  scrollbar-gutter: stable;
+}
+
 html.nav-dropdown-active,
 body.nav-dropdown-active {
   overflow: hidden !important;
@@ -663,12 +673,22 @@ body.nav-dropdown-active {
   text-transform: none !important;
 }
 
+.nav-dropdown-menu .type-mono-a,
+.nav-dropdown-menu .nav-dropdown-clock-wrap,
+.nav-dropdown-menu .nav-dropdown-clock,
+.nav-dropdown-menu .nav-row-count,
+.nav-dropdown-menu .nav-ongoing-badge {
+  text-transform: uppercase !important;
+}
+
 .nav-dropdown-menu.is-open {
   opacity: 1;
   visibility: visible;
-  clip-path: inset(0% 0% 0% 0% round var(--nav-box-radius, 4px));
   pointer-events: auto;
-  transition: clip-path 0.48s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.26s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0s linear;
 }
 
 /* 2-Column Grid Container - Centered 50/50 Split */
@@ -678,13 +698,6 @@ body.nav-dropdown-active {
   align-items: stretch;
   gap: 0;
   width: 100%;
-  transform: translateY(-6px);
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.nav-dropdown-menu.is-open .nav-dropdown-grid {
-  transform: translateY(0);
-  transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Left Column: Navigation Links */
@@ -702,7 +715,7 @@ body.nav-dropdown-active {
   justify-content: flex-start;
   position: relative;
   text-align: left;
-  padding: 2px 0;
+  padding: 3px 0;
   text-decoration: none;
   color: #faf9fc;
   font-family: var(--font-display, "Neue Haas Grotesk Display Pro", "Inter", -apple-system, sans-serif);
@@ -711,8 +724,8 @@ body.nav-dropdown-active {
   letter-spacing: calc(-0.02em - 0.7px);
   text-transform: none !important;
   opacity: 1;
-  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-    color 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Dim unhovered items when left column is hovered */
@@ -729,14 +742,18 @@ body.nav-dropdown-active {
   opacity: 1 !important;
 }
 
-/* Rolling Text Flip Container */
+/* Rolling Text Flip Container: safe padding avoids font glyph overhang cropping */
 .nav-dropdown-row-link .nav-row-roll {
   display: inline-flex;
   flex-direction: column;
   overflow: hidden;
-  height: 1.25em;
-  line-height: 1.25em;
+  height: 1.35em;
+  line-height: 1.35em;
   vertical-align: middle;
+  padding-right: 8px;
+  padding-bottom: 2px;
+  margin-right: -8px;
+  margin-bottom: -2px;
 }
 
 .nav-dropdown-row-link .nav-row-roll-inner {
@@ -758,13 +775,14 @@ body.nav-dropdown-active {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  height: 1.25em;
-  line-height: 1.25em;
+  height: 1.35em;
+  line-height: 1.35em;
   text-align: left;
   color: inherit;
   white-space: nowrap;
+  padding-right: 8px;
   text-transform: none !important;
-  transition: color 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-dropdown-row-link:hover .nav-row-roll-inner .nav-row-text,
@@ -781,10 +799,11 @@ body.nav-dropdown-active {
 
 /* Row Counter Badge (e.g. (06) at top right of Works) */
 .nav-dropdown-row-link .nav-row-count {
-  font-family: var(--font-mono, 'PP Supply Mono', monospace);
-  font-size: 10px;
+  font-family: var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace));
+  font-size: var(--type-mono-a-size, 11px);
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--type-mono-a-spacing, 0.5px);
+  text-transform: uppercase !important;
   color: #faf9fc;
   display: inline-block;
   vertical-align: top;
@@ -843,13 +862,14 @@ body.nav-dropdown-active {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--font-mono, 'PP Supply Mono', monospace);
-  font-size: 11px;
+  font-family: var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace));
+  font-size: var(--type-mono-a-size, 11px);
   font-weight: 400;
   color: #faf9fc;
-  letter-spacing: var(--type-mono-a-spacing, 0px);
+  letter-spacing: var(--type-mono-a-spacing, 0.5px);
   line-height: 1;
-  text-transform: none !important;
+  text-transform: uppercase !important;
+  padding-right: 2px;
 }
 
 .nav-dropdown-clock {
@@ -891,16 +911,23 @@ body.nav-dropdown-active {
   display: inline-flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 6px;
+  gap: 7px;
   font-family: var(--font-sans, "Inter", -apple-system, sans-serif);
   font-size: var(--nav-dropdown-info-font-size, 14px);
   font-weight: 400;
   color: #faf9fc;
   letter-spacing: calc(-0.01em - 0.7px);
-  line-height: 1.35;
+  line-height: 1;
   text-transform: none !important;
   opacity: 1;
   white-space: nowrap;
+  padding-right: 2px;
+}
+
+.nav-ongoing-text {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 /* The old box badge for "01" */
@@ -909,17 +936,19 @@ body.nav-dropdown-active {
   align-items: center;
   justify-content: center;
   background-color: #161616;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: none;
   color: #faf9fc;
-  font-family: var(--font-mono, 'PP Supply Mono', monospace);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: var(--type-mono-a-spacing, 0px);
-  padding: var(--mono-cap-padding-top, 1.5px) 6px var(--mono-cap-padding-bottom, 0px) 6px;
-  height: 18px;
+  font-family: var(--type-mono-light-font, 'Supply-Light', 'PP Supply Mono', monospace);
+  font-size: var(--type-mono-a-size, 11px);
+  font-weight: var(--type-mono-light-weight, 300);
+  letter-spacing: var(--type-mono-a-spacing, 0.5px);
+  padding: 0 var(--rect-btn-padx, 8px);
+  height: calc(var(--rect-btn-height, 22px) + 1px);
+  min-width: var(--rect-btn-min-width, auto);
   box-sizing: border-box;
-  border-radius: 2px;
+  border-radius: 0;
   line-height: 1;
+  text-transform: uppercase !important;
 }
 
 .nav-info-email,
@@ -1063,11 +1092,10 @@ body.nav-dropdown-active {
   opacity: 0;
   pointer-events: none;
   text-transform: none !important;
-  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 1.1s cubic-bezier(0.16, 1, 0.3, 1),
-    background 0.4s ease,
-    box-shadow 0.4s ease,
-    padding 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease;
+  will-change: opacity, transform;
   box-sizing: border-box;
 }
 
@@ -1500,10 +1528,10 @@ body.nav-dropdown-active .nav-floating-cta,
 }
 
 .hero-cta-btn {
-  font-family: var(--font-mono, 'PP Supply Mono', monospace);
-  font-size: var(--cta-btn-font-size, 11px);
+  font-family: var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace));
+  font-size: var(--type-mono-a-size, 11px);
   font-weight: var(--cta-btn-font-weight, 600);
-  letter-spacing: 0.06em;
+  letter-spacing: var(--type-mono-a-spacing, 0.5px);
   text-transform: uppercase;
   color: #000000;
   background-color: #ffffff;
@@ -1572,12 +1600,13 @@ body.nav-dropdown-active .nav-floating-cta,
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  font-family: var(--font-mono, 'PP Supply Mono', monospace);
-  font-size: 11px;
+  font-family: var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace));
+  font-size: var(--type-mono-a-size, 11px);
   font-weight: 500;
   color: #faf9fc;
-  letter-spacing: var(--type-mono-a-spacing, 0px);
+  letter-spacing: var(--type-mono-a-spacing, 0.5px);
   line-height: 1;
+  text-transform: uppercase;
   opacity: var(--clock-opacity, 1);
 }
 
@@ -1654,10 +1683,10 @@ body.is-loading .hero-bottom-text {
 }
 
 .hero-eyebrow {
-  font-family: var(--font-mono, 'PP Supply Mono', monospace);
-  font-size: var(--eyebrow-font-size, 11px);
+  font-family: var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace));
+  font-size: var(--type-mono-a-size, 11px);
   font-weight: var(--eyebrow-font-weight, 500);
-  letter-spacing: var(--eyebrow-letter-spacing, 0.1px);
+  letter-spacing: var(--type-mono-a-spacing, 0.5px);
   text-transform: uppercase;
   color: var(--eyebrow-color, rgba(255, 255, 255, 0.45));
   margin-bottom: var(--eyebrow-margin-bottom, 8px);
@@ -1717,10 +1746,10 @@ body.is-loading .hero-bottom-text {
 }
 
 .hero-bottom-socials a {
-  font-family: var(--font-mono, 'PP Supply Mono', monospace);
-  font-size: 11px;
+  font-family: var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace));
+  font-size: var(--type-mono-a-size, 11px);
   font-weight: 500;
-  letter-spacing: 0.1px;
+  letter-spacing: var(--type-mono-a-spacing, 0.5px);
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.45);
   text-decoration: none;

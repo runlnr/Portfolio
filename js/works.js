@@ -47,7 +47,7 @@ window.initWorksPage = function() {
           <span class="work-card-date">${p.year}</span>
         </div>
         <div class="work-card-media">
-          <img src="${p.image}" alt="${p.title}" loading="lazy" width="4000" height="3200" decoding="async" />
+          <img src="${p.image}" alt="${p.title}" loading="lazy" width="1600" height="1280" decoding="async" />
         </div>
       </a>
     `}).join('');

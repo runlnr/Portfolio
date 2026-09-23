@@ -373,6 +373,12 @@
     gl.uniform1f(uCell, cellUniform);
 
     function render() {
+      // Pause heavy WebGL rendering when occluded by dropdown menu or tab is hidden
+      if (document.hidden || document.body.classList.contains('nav-dropdown-active')) {
+        currentAnimId = requestAnimationFrame(render);
+        return;
+      }
+
       resize(); // no-op unless canvas dimensions changed
 
       if (video.readyState >= 2) {
