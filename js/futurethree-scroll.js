@@ -13,7 +13,7 @@
       if (prefersReducedMotion) return;
 
       const targets = document.querySelectorAll(
-        '.f3-intro-lockup, .f3-intro-divider-row, .f3-featured-tag-row, .f3-work-card, .f3-service-showcase, .f3-showcase-footer-quote, .f3-single-divider-row, .f3-contact-col-left, .f3-contact-col-right, .f3-colophon-grid'
+        '.f3-intro-lockup, .f3-intro-divider-row, .f3-featured-tag-row, .f3-work-card, .f3-service-showcase, .f3-showcase-footer-quote, .f3-single-divider-row, .f3-contact-hero-stage, .f3-contact-corners-bar, .f3-colophon-grid'
       );
 
       if (!targets.length) return;
@@ -325,6 +325,90 @@
     }
 
     initFooterSignatureHandleSwitcher();
+
+    // 4. Interactive Hover Letter Shuffle on Ho Chi Minh City Status Text
+    function initCityLetterShuffle() {
+      const cityElements = document.querySelectorAll('.f3-intro-city');
+      if (!cityElements.length) return;
+
+      const MONO_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+      function getRandomMonoChar() {
+        return MONO_CHARS[Math.floor(Math.random() * MONO_CHARS.length)];
+      }
+
+      cityElements.forEach(cityEl => {
+        if (cityEl.dataset.shuffleInit === 'true') return;
+        cityEl.dataset.shuffleInit = 'true';
+
+        const originalText = cityEl.textContent;
+        const fragment = document.createDocumentFragment();
+
+        for (let i = 0; i < originalText.length; i++) {
+          const char = originalText[i];
+          if (/\s/.test(char)) {
+            fragment.appendChild(document.createTextNode(char));
+          } else {
+            const span = document.createElement('span');
+            span.className = 'f3-mono-shuffle-letter';
+            span.textContent = char;
+            span.dataset.original = char;
+            fragment.appendChild(span);
+          }
+        }
+
+        cityEl.innerHTML = '';
+        cityEl.appendChild(fragment);
+
+        const letters = cityEl.querySelectorAll('.f3-mono-shuffle-letter');
+        letters.forEach(letter => {
+          const originalChar = letter.dataset.original;
+          let intervalId = null;
+          let timeoutId = null;
+          let isHovered = false;
+
+          function startShuffling() {
+            if (!intervalId) {
+              intervalId = setInterval(() => {
+                letter.textContent = getRandomMonoChar();
+              }, 35);
+            }
+          }
+
+          function stopShuffling() {
+            if (intervalId) {
+              clearInterval(intervalId);
+              intervalId = null;
+            }
+            letter.textContent = originalChar;
+          }
+
+          letter.addEventListener('pointerenter', () => {
+            isHovered = true;
+            if (timeoutId) {
+              clearTimeout(timeoutId);
+              timeoutId = null;
+            }
+            startShuffling();
+          });
+
+          letter.addEventListener('pointerleave', () => {
+            isHovered = false;
+            if (timeoutId) {
+              clearTimeout(timeoutId);
+            }
+            timeoutId = setTimeout(() => {
+              if (!isHovered) {
+                stopShuffling();
+              }
+              timeoutId = null;
+            }, 2000);
+          });
+        });
+      });
+    }
+
+    initCityLetterShuffle();
   }
 
   window.initFutureThreeScroll = initFutureThreeScroll;

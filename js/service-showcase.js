@@ -54,6 +54,13 @@
       let isHovered = false;
       let time = Math.random() * 100;
 
+      // Offscreen buffer for rasterizing vector geometry into ASCII matrix
+      const offscreen = document.createElement('canvas');
+      const offCtx = offscreen.getContext('2d', { willReadFrequently: true });
+
+      // Exact Hero ASCII Glyph Ramp (from dark/sparse to dense/bright)
+      const HERO_DENSE_RAMP = [' ', '.', ':', '-', '=', '+', '*', 'a', 'b', '?', '0', '8', 'W', '#', '@'];
+
       function resize() {
         const rect = box.getBoundingClientRect();
         const dpr = window.devicePixelRatio || 1;
@@ -61,284 +68,254 @@
         height = rect.height;
         canvas.width = width * dpr;
         canvas.height = height * dpr;
-        ctx.scale(dpr, dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        // Calculate ASCII grid cells (cell size ~7.5px for ultra-dense high-fidelity terminal look)
+        const targetCellSize = 7.5;
+        const cols = Math.max(24, Math.floor(width / targetCellSize));
+        const rows = Math.max(24, Math.floor(height / targetCellSize));
+        offscreen.width = cols;
+        offscreen.height = rows;
+
+        draw();
       }
 
       window.addEventListener('resize', resize);
-      resize();
 
-      box.addEventListener('mouseenter', () => { isHovered = true; });
-      box.addEventListener('mouseleave', () => { isHovered = false; });
+      box.addEventListener('mouseenter', () => {
+        isHovered = true;
+        draw();
+      });
 
-      // Procedural Draw routines for each icon index (0: Art Direction, 1: Brand Identity, 2: Website Design, 3: Social Media Design)
+      box.addEventListener('mouseleave', () => {
+        isHovered = false;
+        draw();
+      });
+
+      // Static ASCII Rasterization Render Routine
       function draw() {
-        ctx.clearRect(0, 0, width, height);
-        time += isHovered ? 0.04 : 0.015;
+        if (!width || !height || !offscreen.width || !offscreen.height) {
+          return;
+        }
 
-        const cx = width / 2;
-        const cy = height / 2;
-        const baseScale = Math.min(width, height) / 220;
+        const cols = offscreen.width;
+        const rows = offscreen.height;
+        const cellW = width / cols;
+        const cellH = height / rows;
 
-        ctx.fillStyle = '#faf9fc';
-        ctx.strokeStyle = '#faf9fc';
+        // 1. Clear offscreen vector buffer (black background)
+        offCtx.fillStyle = '#000000';
+        offCtx.fillRect(0, 0, cols, rows);
 
+        const cx = cols / 2;
+        const cy = rows / 2;
+        // Emil Design Engineering: Generous optical margin and breathing room (scale 0.65)
+        const fitScale = (Math.min(cols, rows) / 48) * 0.65;
+        const mapX = (x) => cx + (x - 24) * fitScale;
+        const mapY = (y) => cy + (y - 24) * fitScale;
+
+        offCtx.strokeStyle = '#ffffff';
+        offCtx.fillStyle = '#ffffff';
+        offCtx.lineCap = 'round';
+        offCtx.lineJoin = 'round';
+
+        // 2. Render Exact User Icon SVG Geometry onto Offscreen Buffer (Static)
         if (index === 0) {
-          // --- 1. ART DIRECTION: Concentric Stippled Halo + Ascending Arrow ---
-          const haloRadius1 = 52 * baseScale;
-          const haloRadius2 = 36 * baseScale;
-          const haloRadius3 = 20 * baseScale;
+          // --- 1. ART DIRECTION: Viewfinder Corners & Center Focal Dot ---
+          // SVG: <path d="M6,18 L6,10 L14,10"/> <path d="M34,10 L42,10 L42,18"/>
+          //      <path d="M6,30 L6,38 L14,38"/> <path d="M34,38 L42,38 L42,30"/>
+          //      <circle cx="24" cy="24" r="2"/>
+          offCtx.lineWidth = 1.6 * fitScale;
 
-          // Outer ASCII dotted rings
-          const dotCount1 = 24;
-          for (let i = 0; i < dotCount1; i++) {
-            const angle = (i / dotCount1) * Math.PI * 2 + (isHovered ? time * 0.2 : 0);
-            const r = haloRadius1 + (isHovered ? Math.sin(time * 3 + i) * 2 : 0);
-            const x = cx + Math.cos(angle) * r;
-            const y = (cy - 12 * baseScale) + Math.sin(angle) * r;
+          // Top-Left Corner ⌜
+          offCtx.beginPath();
+          offCtx.moveTo(mapX(6), mapY(18));
+          offCtx.lineTo(mapX(6), mapY(10));
+          offCtx.lineTo(mapX(14), mapY(10));
+          offCtx.stroke();
 
-            ctx.font = `${Math.round(8 * baseScale)}px monospace`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillStyle = isHovered && i % 4 === 0 ? '#ffffff' : 'rgba(250, 249, 252, 0.55)';
-            ctx.fillText(isHovered && Math.random() < 0.1 ? getRandomGlyph() : '·', x, y);
-          }
+          // Top-Right Corner ⌝
+          offCtx.beginPath();
+          offCtx.moveTo(mapX(34), mapY(10));
+          offCtx.lineTo(mapX(42), mapY(10));
+          offCtx.lineTo(mapX(42), mapY(18));
+          offCtx.stroke();
 
-          const dotCount2 = 16;
-          for (let i = 0; i < dotCount2; i++) {
-            const angle = (i / dotCount2) * Math.PI * 2 - (isHovered ? time * 0.15 : 0);
-            const r = haloRadius2;
-            const x = cx + Math.cos(angle) * r;
-            const y = (cy - 12 * baseScale) + Math.sin(angle) * r;
+          // Bottom-Left Corner ⌞
+          offCtx.beginPath();
+          offCtx.moveTo(mapX(6), mapY(30));
+          offCtx.lineTo(mapX(6), mapY(38));
+          offCtx.lineTo(mapX(14), mapY(38));
+          offCtx.stroke();
 
-            ctx.font = `${Math.round(8 * baseScale)}px monospace`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillStyle = 'rgba(250, 249, 252, 0.75)';
-            ctx.fillText(isHovered && Math.random() < 0.08 ? getRandomGlyph() : ':', x, y);
-          }
+          // Bottom-Right Corner ⌟
+          offCtx.beginPath();
+          offCtx.moveTo(mapX(34), mapY(38));
+          offCtx.lineTo(mapX(42), mapY(38));
+          offCtx.lineTo(mapX(42), mapY(30));
+          offCtx.stroke();
 
-          // Inner dashed circle
-          ctx.beginPath();
-          ctx.arc(cx, cy - 12 * baseScale, haloRadius3, 0, Math.PI * 2);
-          ctx.setLineDash([2 * baseScale, 3 * baseScale]);
-          ctx.lineWidth = 1 * baseScale;
-          ctx.strokeStyle = 'rgba(250, 249, 252, 0.85)';
-          ctx.stroke();
-          ctx.setLineDash([]);
-
-          // Ascending arrow stem
-          const arrowBottomY = cy + 54 * baseScale;
-          const arrowTopY = cy - 2 * baseScale;
-          ctx.beginPath();
-          ctx.moveTo(cx, arrowBottomY);
-          ctx.lineTo(cx, arrowTopY);
-          ctx.lineWidth = 1 * baseScale;
-          ctx.strokeStyle = '#faf9fc';
-          ctx.stroke();
-
-          // Arrow tip
-          ctx.beginPath();
-          ctx.moveTo(cx - 3.5 * baseScale, arrowTopY + 4 * baseScale);
-          ctx.lineTo(cx, arrowTopY);
-          ctx.lineTo(cx + 3.5 * baseScale, arrowTopY + 4 * baseScale);
-          ctx.lineWidth = 1 * baseScale;
-          ctx.strokeStyle = '#faf9fc';
-          ctx.stroke();
-
-          // Bottom anchor circle
-          ctx.beginPath();
-          ctx.arc(cx, arrowBottomY + 2 * baseScale, 5 * baseScale, 0, Math.PI * 2);
-          ctx.fillStyle = '#faf9fc';
-          ctx.fill();
+          // Center Focal Dot
+          offCtx.beginPath();
+          offCtx.arc(cx, cy, 2.0 * fitScale, 0, Math.PI * 2);
+          offCtx.fill();
 
         } else if (index === 1) {
-          // --- 2. BRAND IDENTITY: Hypnotic Vortex Spiral + Anchor Core ---
-          const spiralTopY = cy - 42 * baseScale;
-          const spiralBottomY = cy + 30 * baseScale;
-          const turns = 4.2;
+          // --- 2. BRAND IDENTITY: Hexagonal Shield & Inner Concentric Seal ---
+          // SVG: <path d="M24,4 L41.3,14 L41.3,34 L24,44 L6.7,34 L6.7,14 Z"/>
+          //      <circle cx="24" cy="24" r="6"/>
+          offCtx.lineWidth = 1.6 * fitScale;
 
-          ctx.beginPath();
-          const steps = 140;
-          for (let i = 0; i <= steps; i++) {
-            const t = i / steps;
-            const angle = t * Math.PI * 2 * turns + (isHovered ? time * 0.8 : time * 0.15);
-            // Inverted cone radius: wider at top, narrow at bottom
-            const r = (50 * (1 - t) + 2) * baseScale;
-            const y = spiralTopY + t * (spiralBottomY - spiralTopY) * 0.72;
-            const x = cx + Math.cos(angle) * r;
-            const yElliptical = y + Math.sin(angle) * (r * 0.28);
+          const hexPoints = [
+            { x: 24, y: 4 },
+            { x: 41.3, y: 14 },
+            { x: 41.3, y: 34 },
+            { x: 24, y: 44 },
+            { x: 6.7, y: 34 },
+            { x: 6.7, y: 14 }
+          ];
 
-            if (i === 0) ctx.moveTo(x, yElliptical);
-            else ctx.lineTo(x, yElliptical);
-          }
-          ctx.lineWidth = 1 * baseScale;
-          ctx.strokeStyle = 'rgba(250, 249, 252, 0.85)';
-          ctx.stroke();
+          // Outer Hexagon
+          offCtx.beginPath();
+          hexPoints.forEach((pt, i) => {
+            const px = mapX(pt.x);
+            const py = mapY(pt.y);
+            if (i === 0) offCtx.moveTo(px, py);
+            else offCtx.lineTo(px, py);
+          });
+          offCtx.closePath();
+          offCtx.stroke();
 
-          // Vertical tail stem
-          const tailStartY = spiralTopY + (spiralBottomY - spiralTopY) * 0.72;
-          const tailEndY = cy + 54 * baseScale;
-          ctx.beginPath();
-          ctx.moveTo(cx, tailStartY);
-          ctx.lineTo(cx, tailEndY);
-          ctx.lineWidth = 1 * baseScale;
-          ctx.strokeStyle = '#faf9fc';
-          ctx.stroke();
-
-          // Ascii shimmer dots alongside spiral
-          if (isHovered) {
-            for (let j = 0; j < 6; j++) {
-              const jt = (j / 6 + (time * 0.2)) % 1;
-              const jangle = jt * Math.PI * 2 * turns;
-              const jr = 48 * (1 - jt) * baseScale;
-              const jx = cx + Math.cos(jangle) * jr;
-              const jy = spiralTopY + jt * (spiralBottomY - spiralTopY) * 0.72 + Math.sin(jangle) * (jr * 0.28);
-              ctx.font = `${Math.round(8 * baseScale)}px monospace`;
-              ctx.fillStyle = 'rgba(250, 249, 252, 0.7)';
-              ctx.fillText(getRandomGlyph(), jx, jy);
-            }
-          }
-
-          // Bottom anchor circle
-          ctx.beginPath();
-          ctx.arc(cx, tailEndY + 2 * baseScale, 5 * baseScale, 0, Math.PI * 2);
-          ctx.fillStyle = '#faf9fc';
-          ctx.fill();
+          // Center Circle
+          offCtx.beginPath();
+          offCtx.arc(cx, cy, 6.0 * fitScale, 0, Math.PI * 2);
+          offCtx.stroke();
 
         } else if (index === 2) {
-          // --- 3. WEBSITE DESIGN: Apex Master Node + Branching 5-Way System ---
-          const apexY = cy - 28 * baseScale;
-          const apexR = 6 * baseScale;
-          const auraR = 15 * baseScale;
+          // --- 3. WEBSITE DESIGN: Browser Viewport Window with Split Sidebar ---
+          // SVG: <rect x="4" y="8" width="40" height="32" rx="3"/>
+          //      <path d="M4,16 L44,16"/>
+          //      <path d="M18,16 L18,40"/>
+          //      <circle cx="9" cy="12" r="1"/> <circle cx="13" cy="12" r="1"/> <circle cx="17" cy="12" r="1"/>
+          offCtx.lineWidth = 1.5 * fitScale;
 
-          // Outer aura dashed circle
-          ctx.beginPath();
-          ctx.arc(cx, apexY, auraR, 0, Math.PI * 2);
-          ctx.setLineDash([2 * baseScale, 2.5 * baseScale]);
-          ctx.lineWidth = 1 * baseScale;
-          ctx.strokeStyle = 'rgba(250, 249, 252, 0.75)';
-          ctx.stroke();
-          ctx.setLineDash([]);
+          const rx = mapX(4);
+          const ry = mapY(8);
+          const rw = 40 * fitScale;
+          const rh = 32 * fitScale;
+          const cornerRad = 3 * fitScale;
 
-          // Apex solid circle
-          ctx.beginPath();
-          ctx.arc(cx, apexY, apexR, 0, Math.PI * 2);
-          ctx.fillStyle = '#faf9fc';
-          ctx.fill();
+          // Outer Rounded Rect
+          offCtx.beginPath();
+          offCtx.roundRect(rx, ry, rw, rh, cornerRad);
+          offCtx.stroke();
 
-          // Center spine down to branching point
-          const branchY = cy + 18 * baseScale;
-          ctx.beginPath();
-          ctx.moveTo(cx, apexY + apexR);
-          ctx.lineTo(cx, branchY);
-          ctx.lineWidth = 1 * baseScale;
-          ctx.strokeStyle = '#faf9fc';
-          ctx.stroke();
+          // Top Header Line
+          offCtx.beginPath();
+          offCtx.moveTo(mapX(4), mapY(16));
+          offCtx.lineTo(mapX(44), mapY(16));
+          offCtx.stroke();
 
-          // 5 Bottom Terminals
-          const terminalY = cy + 54 * baseScale;
-          const terminalCount = 5;
-          const span = 68 * baseScale;
-          for (let k = 0; k < terminalCount; k++) {
-            const tx = cx - span / 2 + (k / (terminalCount - 1)) * span;
-            // Line from branch point to terminal
-            ctx.beginPath();
-            ctx.moveTo(cx, branchY);
-            ctx.lineTo(tx, terminalY);
-            ctx.lineWidth = 1 * baseScale;
-            ctx.strokeStyle = 'rgba(250, 249, 252, 0.85)';
-            ctx.stroke();
+          // Left Sidebar Divider
+          offCtx.beginPath();
+          offCtx.moveTo(mapX(18), mapY(16));
+          offCtx.lineTo(mapX(18), mapY(40));
+          offCtx.stroke();
 
-            // Terminal hollow circle
-            ctx.beginPath();
-            ctx.arc(tx, terminalY, 4 * baseScale, 0, Math.PI * 2);
-            ctx.lineWidth = 1 * baseScale;
-            ctx.strokeStyle = '#faf9fc';
-            ctx.stroke();
-
-            // Shimmer ASCII pulse along paths on hover
-            if (isHovered && Math.random() < 0.25) {
-              const lerpT = (Math.sin(time * 4 + k) + 1) / 2;
-              const px = cx + (tx - cx) * lerpT;
-              const py = branchY + (terminalY - branchY) * lerpT;
-              ctx.font = `${Math.round(8 * baseScale)}px monospace`;
-              ctx.fillStyle = '#ffffff';
-              ctx.fillText(getRandomGlyph(), px, py);
-            }
-          }
+          // 3 Header Dots
+          const dotRadius = 1.2 * fitScale;
+          [9, 13, 17].forEach((dx) => {
+            offCtx.beginPath();
+            offCtx.arc(mapX(dx), mapY(12), dotRadius, 0, Math.PI * 2);
+            offCtx.fill();
+          });
 
         } else if (index === 3) {
-          // --- 4. SOCIAL MEDIA DESIGN: Target Orb + Pulsing Frequency Array ---
-          const targetY = cy - 20 * baseScale;
-          const targetR1 = 19 * baseScale;
-          const targetR2 = 9 * baseScale;
-          const centerDotR = 4 * baseScale;
+          // --- 4. SOCIAL MEDIA DESIGN: Network Share Node Cluster ---
+          // SVG: <path d="M10,24 L38,10"/>
+          //      <path d="M10,24 L38,38"/>
+          //      <circle cx="10" cy="24" r="4" fill="white"/>
+          //      <circle cx="38" cy="10" r="4" fill="white"/>
+          //      <circle cx="38" cy="38" r="4" fill="white"/>
+          offCtx.lineWidth = 1.6 * fitScale;
 
-          // Outer target circle
-          ctx.beginPath();
-          ctx.arc(cx, targetY, targetR1, 0, Math.PI * 2);
-          ctx.lineWidth = 1 * baseScale;
-          ctx.strokeStyle = 'rgba(250, 249, 252, 0.85)';
-          ctx.stroke();
+          // 2 Branch Connection Lines
+          offCtx.beginPath();
+          offCtx.moveTo(mapX(10), mapY(24));
+          offCtx.lineTo(mapX(38), mapY(10));
+          offCtx.moveTo(mapX(10), mapY(24));
+          offCtx.lineTo(mapX(38), mapY(38));
+          offCtx.stroke();
 
-          // Middle solid ring
-          ctx.beginPath();
-          ctx.arc(cx, targetY, targetR2, 0, Math.PI * 2);
-          ctx.fillStyle = '#faf9fc';
-          ctx.fill();
+          // 3 Filled Circle Nodes
+          const nodes = [
+            { x: 10, y: 24 },
+            { x: 38, y: 10 },
+            { x: 38, y: 38 }
+          ];
 
-          // Center cut-out dot
-          ctx.beginPath();
-          ctx.arc(cx, targetY, centerDotR, 0, Math.PI * 2);
-          ctx.fillStyle = '#080808';
-          ctx.fill();
+          nodes.forEach((nd) => {
+            offCtx.beginPath();
+            offCtx.arc(mapX(nd.x), mapY(nd.y), 4.0 * fitScale, 0, Math.PI * 2);
+            offCtx.fill();
+          });
+        }
 
-          // Pulsing dashed frequency line downward
-          const arrayY = cy + 54 * baseScale;
-          ctx.beginPath();
-          ctx.moveTo(cx, targetY + targetR1);
-          ctx.lineTo(cx, arrayY);
-          ctx.setLineDash([2 * baseScale, 2 * baseScale]);
-          ctx.lineWidth = 1 * baseScale;
-          ctx.strokeStyle = 'rgba(250, 249, 252, 0.7)';
-          ctx.stroke();
-          ctx.setLineDash([]);
+        // 3. Sample Offscreen Buffer & Render Static ASCII Terminal Matrix
+        const imgData = offCtx.getImageData(0, 0, cols, rows).data;
+        ctx.clearRect(0, 0, width, height);
 
-          // 5 Horizontal Baseline Nodes
-          const nodeCount = 5;
-          const nodeSpan = 64 * baseScale;
-          for (let m = 0; m < nodeCount; m++) {
-            const nx = cx - nodeSpan / 2 + (m / (nodeCount - 1)) * nodeSpan;
-            ctx.beginPath();
-            ctx.arc(nx, arrayY, 3.5 * baseScale, 0, Math.PI * 2);
-            if (m === 2) {
-              // Center node solid
-              ctx.fillStyle = '#faf9fc';
-              ctx.fill();
+        const fontSize = Math.max(7, Math.floor(cellH * 0.95));
+        ctx.font = `${fontSize}px 'PP Supply Mono', 'PPSupplyMono-Regular', Menlo, Monaco, "Courier New", monospace`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        const ramp = HERO_DENSE_RAMP;
+        const rampMax = ramp.length - 1;
+
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            const idx = (r * cols + c) * 4;
+            const rVal = imgData[idx];
+            const gVal = imgData[idx + 1];
+            const bVal = imgData[idx + 2];
+            const luma = (rVal * 0.299 + gVal * 0.587 + bVal * 0.114) / 255.0;
+
+            const posX = c * cellW + cellW / 2;
+            const posY = r * cellH + cellH / 2;
+
+            if (luma > 0.05) {
+              const gIdx = Math.floor(luma * rampMax);
+              const glyph = ramp[gIdx];
+              const alpha = Math.min(1.0, isHovered ? (luma * 0.95 + 0.15) : (luma * 0.85 + 0.1));
+
+              if (luma > 0.78 && isHovered) {
+                ctx.fillStyle = '#ffffff';
+                ctx.shadowColor = 'rgba(250, 249, 252, 0.6)';
+                ctx.shadowBlur = 3;
+              } else {
+                ctx.fillStyle = `rgba(250, 249, 252, ${alpha.toFixed(2)})`;
+                ctx.shadowBlur = 0;
+              }
+
+              ctx.fillText(glyph, posX, posY);
+
             } else {
-              // Outer nodes hollow
-              ctx.lineWidth = 1 * baseScale;
-              ctx.strokeStyle = '#faf9fc';
-              ctx.stroke();
-            }
-
-            if (isHovered && Math.random() < 0.2) {
-              ctx.font = `${Math.round(8 * baseScale)}px monospace`;
-              ctx.fillStyle = 'rgba(250, 249, 252, 0.8)';
-              ctx.fillText(getRandomGlyph(), nx, arrayY - 10 * baseScale);
+              // Subtle fixed static grid points (no random blinking)
+              if (r % 6 === 0 && c % 6 === 0) {
+                ctx.fillStyle = isHovered ? 'rgba(250, 249, 252, 0.08)' : 'rgba(250, 249, 252, 0.03)';
+                ctx.shadowBlur = 0;
+                ctx.fillText('·', posX, posY);
+              }
             }
           }
         }
 
-        animationFrameId = requestAnimationFrame(draw);
+        // Reset shadow
+        ctx.shadowBlur = 0;
       }
 
-      draw();
-
-      // Clean up if page navigates
-      window.addEventListener('beforeunload', () => {
-        if (animationFrameId) cancelAnimationFrame(animationFrameId);
-      });
+      resize();
     });
   }
 

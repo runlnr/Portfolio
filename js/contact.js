@@ -1,5 +1,6 @@
 /**
  * Contact Page & FutureThree Editorial Contact Brief Logic
+ * Revamped Modal Dialog & Live Clocks
  */
 
 (function() {
@@ -7,6 +8,101 @@
 
   function initFutureThreeContact() {
     const form = document.getElementById('f3-contact-form');
+    const modal = document.getElementById('f3-contact-modal');
+    const openBtn = document.getElementById('f3-open-contact-modal');
+    const closeBtn = document.getElementById('f3-close-contact-modal');
+    const backdrop = document.getElementById('f3-modal-backdrop');
+
+    // 1. Modal Trigger & Management
+    let isModalOpen = false;
+
+    function openModal() {
+      if (!modal) return;
+      isModalOpen = true;
+      modal.removeAttribute('hidden');
+      if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('f3-contact-modal-open');
+
+      // Request next frame to trigger CSS transitions
+      requestAnimationFrame(() => {
+        modal.classList.add('is-open');
+        const firstInput = document.getElementById('f3-form-name');
+        if (firstInput) {
+          setTimeout(() => firstInput.focus(), 120);
+        }
+      });
+    }
+
+    function closeModal() {
+      if (!modal || !isModalOpen) return;
+      isModalOpen = false;
+      modal.classList.remove('is-open');
+      if (openBtn) {
+        openBtn.setAttribute('aria-expanded', 'false');
+        openBtn.focus();
+      }
+      document.body.classList.remove('f3-contact-modal-open');
+
+      // Wait for exit transition to finish before hiding from accessibility tree
+      setTimeout(() => {
+        if (!isModalOpen) {
+          modal.setAttribute('hidden', '');
+        }
+      }, 240);
+    }
+
+    window.openContactModal = openModal;
+    window.closeContactModal = closeModal;
+
+    const triggerSelectors = [
+      '#f3-open-contact-modal',
+      '#nav-floating-cta'
+    ];
+
+    triggerSelectors.forEach(sel => {
+      const el = document.querySelector(sel);
+      if (el) {
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          // If navigation dropdown is open, close it seamlessly
+          const navDropdown = document.getElementById('nav-dropdown-menu');
+          if (navDropdown && navDropdown.classList.contains('is-open')) {
+            const btn = document.getElementById('nav-hamburger-btn');
+            navDropdown.classList.remove('is-open');
+            if (btn) {
+              btn.classList.remove('is-active');
+              btn.setAttribute('aria-expanded', 'false');
+            }
+            navDropdown.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('nav-dropdown-active');
+            document.documentElement.classList.remove('nav-dropdown-active');
+          }
+          openModal();
+        });
+      }
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal();
+      });
+    }
+
+    if (backdrop) {
+      backdrop.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal();
+      });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isModalOpen) {
+        e.preventDefault();
+        closeModal();
+      }
+    });
+
     if (!form) return;
 
     const submitBtn = document.getElementById('f3-submit-btn');
@@ -17,7 +113,7 @@
     const emailInput = document.getElementById('f3-form-email');
     const messageInput = document.getElementById('f3-form-message');
 
-    // 1. Interactive Monospace Pill Selector Handling
+    // 2. Interactive Monospace Pill Selector Handling
     const pillGroups = form.querySelectorAll('.f3-pill-group');
     pillGroups.forEach(group => {
       const pills = group.querySelectorAll('.f3-pill-btn');
@@ -67,7 +163,7 @@
       });
     });
 
-    // 2. Form Submission Handling with Feedback Animation
+    // 3. Form Submission Handling with Feedback Animation
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
@@ -145,57 +241,8 @@
       }, 950);
     });
 
-    // 3. Initialize Live Dual Clocks
+    // 4. Initialize Live Dual Clocks
     initDualClocks();
-
-    // 4. Align Direct Inquiry with Line Underneath Project Brief
-    initDirectInquiryAlignment();
-  }
-
-  // Align bottom of direct inquiry email with the bottom border line of the project brief textarea
-  function initDirectInquiryAlignment() {
-    const directWrap = document.querySelector('.f3-contact-direct-wrap');
-    const briefTextarea = document.getElementById('f3-form-message');
-    const emailLink = document.querySelector('.f3-contact-email');
-    if (!directWrap || !briefTextarea || !emailLink) return;
-
-    function updateAlignment() {
-      if (window.innerWidth <= 768) {
-        directWrap.style.transform = '';
-        return;
-      }
-
-      // Reset transform to accurately measure natural unshifted positions
-      directWrap.style.transform = '';
-
-      const textareaRect = briefTextarea.getBoundingClientRect();
-      const emailRect = emailLink.getBoundingClientRect();
-      const delta = textareaRect.bottom - emailRect.bottom;
-
-      if (Math.abs(delta) > 0.5) {
-        directWrap.style.transform = `translateY(${delta}px)`;
-      }
-    }
-
-    updateAlignment();
-    window.addEventListener('resize', updateAlignment, { passive: true });
-
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(updateAlignment);
-    }
-
-    setTimeout(updateAlignment, 80);
-    setTimeout(updateAlignment, 350);
-
-    if (window.ResizeObserver) {
-      const contactSection = document.getElementById('f3-contact');
-      const ro = new ResizeObserver(() => {
-        updateAlignment();
-      });
-      if (contactSection) ro.observe(contactSection);
-      const form = document.getElementById('f3-contact-form');
-      if (form) ro.observe(form);
-    }
   }
 
   // Live Dual Studio & Visitor Time Clocks
@@ -205,7 +252,7 @@
     const clientTzEl = document.getElementById('f3-clock-client-tz');
     if (!studioClockEl && !clientClockEl) return;
 
-    // Detect client timezone label
+    // Detect client timezone label (UTC offset only, e.g. (UTC+7), (UTC-5))
     let clientTzLabel = '(LOCAL)';
     try {
       const now = new Date();
@@ -215,18 +262,7 @@
       const absH = Math.floor(absM / 60);
       const remM = absM % 60;
       const offsetStr = remM > 0 ? `UTC${sign}${absH}:${String(remM).padStart(2, '0')}` : `UTC${sign}${absH}`;
-
-      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      if (tz) {
-        const city = tz.split('/').pop().replace(/_/g, ' ').toUpperCase();
-        if (city && city !== 'UTC') {
-          clientTzLabel = `(${offsetStr} / ${city})`;
-        } else {
-          clientTzLabel = `(${offsetStr})`;
-        }
-      } else {
-        clientTzLabel = `(${offsetStr})`;
-      }
+      clientTzLabel = `(${offsetStr})`;
     } catch (e) {
       clientTzLabel = '(LOCAL)';
     }

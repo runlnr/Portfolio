@@ -77,7 +77,7 @@
       /* <-- TWEAK THIS: Right margin of modal scroller indicator (e.g. 25px) */
 
       /* Manifesto & Recent Works */
-      --manifesto-gap: 210px;
+      --manifesto-gap: 260px;
       --manifesto-font-family: var(--type-aero-a-font);
       --manifesto-font-size: var(--type-aero-a-size, 43px);
       --manifesto-font-weight: var(--type-aero-a-weight, 450);
@@ -536,7 +536,7 @@
             <div class="f3-intro-left-col">
               <div class="f3-intro-status type-mono-a">
                 <span class="f3-intro-status-dot" aria-hidden="true"></span>
-                <span class="f3-intro-status-text">HO CHI MINH CITY <span class="f3-intro-live-time">17:45:26</span> (UTC+7)</span>
+                <span class="f3-intro-status-text"><span class="f3-intro-city">HO CHI MINH CITY</span> <span class="f3-intro-live-time">17:45:26</span> (UTC+7)</span>
               </div>
             </div>
 
@@ -906,133 +906,41 @@
 
       <!-- C. Section 3: Get In Touch (Editorial Contact Brief) -->
       <section class="f3-section-contact" id="f3-contact" aria-label="Get In Touch">
-        <div class="f3-container">
+        <div class="f3-container f3-contact-container">
           <!-- Single Continuous Hairline Divider with Architectural Corner Squares -->
           <div class="f3-single-divider-row" aria-hidden="true">
             <div class="f3-single-divider-line"></div>
           </div>
 
-          <!-- 2-Column Editorial Contact Grid -->
-          <div class="f3-contact-grid">
-            <!-- Left Column: Editorial Headline, Dual Clocks & Direct Email -->
-            <div class="f3-contact-col-left">
-              <div class="f3-contact-headline-wrap">
-                <h2 class="f3-contact-title type-aero-a">
-                  Let's build<br>together.
-                </h2>
-                <!-- Dual Studio & Visitor Live Clocks -->
-                <div class="f3-contact-clocks type-mono-a" aria-label="Studio and Visitor Local Time Clocks">
-                  <div class="f3-contact-clock-item">
-                    <span>MY TIME</span>
-                    <span class="f3-clock-val" id="f3-clock-studio">[--:--:--]</span>
-                    <span class="f3-clock-tz">(UTC+7)</span>
-                  </div>
-                  <div class="f3-contact-clock-item">
-                    <span>YOUR TIME</span>
-                    <span class="f3-clock-val" id="f3-clock-client">[--:--:--]</span>
-                    <span class="f3-clock-tz" id="f3-clock-client-tz">(LOCAL)</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="f3-contact-direct-wrap">
-                <span class="f3-contact-direct-label type-aero-f">Direct inquiry</span>
-                <a href="mailto:hainampham08@outlook.com" class="f3-contact-email type-aero-e" aria-label="Email studio directly">
-                  hainampham08@outlook.com ↗
-                </a>
+          <!-- Centered CTA Hero Stage -->
+          <div class="f3-contact-hero-stage">
+            <div class="f3-contact-hook-wrap">
+              <h2 class="f3-contact-hook-title type-aero-a">
+                Let's build<br>together.
+              </h2>
+              <div class="f3-contact-cta-action">
+                <button type="button" class="f3-contact-pill-trigger" id="f3-open-contact-modal" aria-haspopup="dialog" aria-expanded="false" aria-controls="f3-contact-modal">
+                  <span class="f3-pill-label">Start a project</span>
+                  <span class="f3-pill-arrow" aria-hidden="true">↗</span>
+                </button>
               </div>
             </div>
+          </div>
 
-            <!-- Right Column: Minimalist Architectural Contact Brief Form -->
-            <div class="f3-contact-col-right">
-              <form class="f3-contact-form" id="f3-contact-form" novalidate>
-                <!-- Field 1: Name -->
-                <div class="f3-form-group">
-                  <label for="f3-form-name" class="f3-form-label type-aero-f">
-                    <span class="f3-label-num">[01]</span>
-                    <span class="f3-label-text">Name</span>
-                  </label>
-                  <input type="text" id="f3-form-name" name="name" class="f3-form-input type-mono-a"
-                    placeholder="Your name or company" autocomplete="name" required>
-                </div>
+          <!-- Bottom Corner dual clocks -->
+          <div class="f3-contact-corners-bar">
+            <!-- Left Corner: Studio Clock (UTC+7) -->
+            <div class="f3-contact-corner f3-contact-corner-left type-mono-a" aria-label="Studio Local Time">
+              <span class="f3-corner-label">MY TIME</span>
+              <span class="f3-clock-val" id="f3-clock-studio">[--:--:--]</span>
+              <span class="f3-clock-tz">(UTC+7)</span>
+            </div>
 
-                <!-- Field 2: Email -->
-                <div class="f3-form-group">
-                  <label for="f3-form-email" class="f3-form-label type-aero-f">
-                    <span class="f3-label-num">[02]</span>
-                    <span class="f3-label-text">Email address</span>
-                  </label>
-                  <input type="email" id="f3-form-email" name="email" class="f3-form-input type-mono-a"
-                    placeholder="name@domain.com" autocomplete="email" required>
-                </div>
-
-                <!-- Field 3: Service Selection (Interactive Pills) -->
-                <div class="f3-form-group">
-                  <label class="f3-form-label type-aero-f" id="service-group-label">
-                    <span class="f3-label-num">[03]</span>
-                    <span class="f3-label-text">Discipline of interest</span>
-                  </label>
-                  <input type="hidden" name="service" id="f3-selected-service" value="Brand Identity">
-                  <div class="f3-pill-group" role="radiogroup" aria-labelledby="service-group-label">
-                    <button type="button" class="f3-pill-btn type-mono-a" data-service="Art Direction" role="radio" aria-checked="false">
-                      <span>ART DIRECTION</span>
-                    </button>
-                    <button type="button" class="f3-pill-btn type-mono-a is-active" data-service="Brand Identity" role="radio" aria-checked="true">
-                      <span>BRAND IDENTITY</span>
-                    </button>
-                    <button type="button" class="f3-pill-btn type-mono-a" data-service="Website Design" role="radio" aria-checked="false">
-                      <span>WEBSITE DESIGN</span>
-                    </button>
-                    <button type="button" class="f3-pill-btn type-mono-a" data-service="Social Media Design" role="radio" aria-checked="false">
-                      <span>SOCIAL MEDIA</span>
-                    </button>
-                    <button type="button" class="f3-pill-btn type-mono-a" data-service="Comprehensive System" role="radio" aria-checked="false">
-                      <span>FULL SYSTEM</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Field 4: Budget / Scope (Interactive Pills) -->
-                <div class="f3-form-group">
-                  <label class="f3-form-label type-aero-f" id="budget-group-label">
-                    <span class="f3-label-num">[04]</span>
-                    <span class="f3-label-text">Project budget</span>
-                  </label>
-                  <input type="hidden" name="budget" id="f3-selected-budget" value="$5K – $10K">
-                  <div class="f3-pill-group" role="radiogroup" aria-labelledby="budget-group-label">
-                    <button type="button" class="f3-pill-btn type-mono-a" data-budget="< $5K" role="radio" aria-checked="false">
-                      <span>&lt; $5K</span>
-                    </button>
-                    <button type="button" class="f3-pill-btn type-mono-a is-active" data-budget="$5K – $10K" role="radio" aria-checked="true">
-                      <span>$5K &ndash; $10K</span>
-                    </button>
-                    <button type="button" class="f3-pill-btn type-mono-a" data-budget="$10K – $25K" role="radio" aria-checked="false">
-                      <span>$10K &ndash; $25K</span>
-                    </button>
-                    <button type="button" class="f3-pill-btn type-mono-a" data-budget="$25K+" role="radio" aria-checked="false">
-                      <span>$25K+</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Field 5: Project Brief -->
-                <div class="f3-form-group">
-                  <label for="f3-form-message" class="f3-form-label type-aero-f">
-                    <span class="f3-label-num">[05]</span>
-                    <span class="f3-label-text">Project brief</span>
-                  </label>
-                  <textarea id="f3-form-message" name="message" class="f3-form-textarea type-mono-a" rows="3"
-                    placeholder="Tell us about the product, vision, and timeline..." required></textarea>
-                </div>
-
-                <!-- Action Row: High-Contrast Submit Button & Live Feedback Status -->
-                <div class="f3-form-action-row">
-                  <button type="submit" class="f3-contact-submit-btn" id="f3-submit-btn">
-                    <span class="f3-btn-label">Send message ↗</span>
-                  </button>
-                  <div class="f3-form-status-msg type-mono-a" id="f3-form-status" aria-live="polite"></div>
-                </div>
-              </form>
+            <!-- Right Corner: Visitor Local Clock -->
+            <div class="f3-contact-corner f3-contact-corner-right type-mono-a" aria-label="Visitor Local Time">
+              <span class="f3-corner-label">YOUR TIME</span>
+              <span class="f3-clock-val" id="f3-clock-client">[--:--:--]</span>
+              <span class="f3-clock-tz" id="f3-clock-client-tz">(LOCAL)</span>
             </div>
           </div>
         </div>
@@ -1041,6 +949,124 @@
     </div>
 
   </main>
+
+  <!-- Centered Frameless Contact Form Modal with Background Blur -->
+  <div class="f3-contact-modal-scrim" id="f3-contact-modal" role="dialog" aria-modal="true" aria-labelledby="f3-modal-title" hidden>
+    <div class="f3-contact-modal-backdrop" id="f3-modal-backdrop" aria-hidden="true"></div>
+
+    <!-- Floating Top Right Close Button -->
+    <button type="button" class="f3-contact-modal-close type-mono-a" id="f3-close-contact-modal" aria-label="Close contact form">
+      <span class="f3-close-text">CLOSE [ESC]</span>
+      <span class="f3-close-icon" aria-hidden="true">✕</span>
+    </button>
+
+    <div class="f3-contact-modal-content-wrap">
+      <div class="f3-contact-modal-dialog">
+        <!-- Modal Header / Title & Direct Inquiry -->
+        <div class="f3-modal-header">
+          <h2 class="f3-modal-title type-aero-a" id="f3-modal-title">
+            Let's build together.
+          </h2>
+          <div class="f3-modal-direct-inquiry">
+            <span class="f3-modal-direct-label type-aero-f">Direct inquiry:</span>
+            <a href="mailto:hainampham08@outlook.com" class="f3-contact-email type-aero-e" aria-label="Email studio directly">
+              hainampham08@outlook.com ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Frameless Centered Form (All original fields preserved) -->
+        <form class="f3-contact-form f3-modal-form" id="f3-contact-form" novalidate>
+          <!-- Field 1: Name -->
+          <div class="f3-form-group">
+            <label for="f3-form-name" class="f3-form-label type-aero-f">
+              <span class="f3-label-num">[01]</span>
+              <span class="f3-label-text">Name</span>
+            </label>
+            <input type="text" id="f3-form-name" name="name" class="f3-form-input type-mono-a"
+              placeholder="Your name or company" autocomplete="name" required>
+          </div>
+
+          <!-- Field 2: Email -->
+          <div class="f3-form-group">
+            <label for="f3-form-email" class="f3-form-label type-aero-f">
+              <span class="f3-label-num">[02]</span>
+              <span class="f3-label-text">Email address</span>
+            </label>
+            <input type="email" id="f3-form-email" name="email" class="f3-form-input type-mono-a"
+              placeholder="name@domain.com" autocomplete="email" required>
+          </div>
+
+          <!-- Field 3: Service Selection (Interactive Pills) -->
+          <div class="f3-form-group">
+            <label class="f3-form-label type-aero-f" id="service-group-label">
+              <span class="f3-label-num">[03]</span>
+              <span class="f3-label-text">Discipline of interest</span>
+            </label>
+            <input type="hidden" name="service" id="f3-selected-service" value="Brand Identity">
+            <div class="f3-pill-group" role="radiogroup" aria-labelledby="service-group-label">
+              <button type="button" class="f3-pill-btn type-mono-a" data-service="Art Direction" role="radio" aria-checked="false">
+                <span>ART DIRECTION</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a is-active" data-service="Brand Identity" role="radio" aria-checked="true">
+                <span>BRAND IDENTITY</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a" data-service="Website Design" role="radio" aria-checked="false">
+                <span>WEBSITE DESIGN</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a" data-service="Social Media Design" role="radio" aria-checked="false">
+                <span>SOCIAL MEDIA</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a" data-service="Comprehensive System" role="radio" aria-checked="false">
+                <span>FULL SYSTEM</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Field 4: Budget / Scope (Interactive Pills) -->
+          <div class="f3-form-group">
+            <label class="f3-form-label type-aero-f" id="budget-group-label">
+              <span class="f3-label-num">[04]</span>
+              <span class="f3-label-text">Project budget</span>
+            </label>
+            <input type="hidden" name="budget" id="f3-selected-budget" value="$5K – $10K">
+            <div class="f3-pill-group" role="radiogroup" aria-labelledby="budget-group-label">
+              <button type="button" class="f3-pill-btn type-mono-a" data-budget="< $5K" role="radio" aria-checked="false">
+                <span>&lt; $5K</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a is-active" data-budget="$5K – $10K" role="radio" aria-checked="true">
+                <span>$5K &ndash; $10K</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a" data-budget="$10K – $25K" role="radio" aria-checked="false">
+                <span>$10K &ndash; $25K</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a" data-budget="$25K+" role="radio" aria-checked="false">
+                <span>$25K+</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Field 5: Project Brief -->
+          <div class="f3-form-group">
+            <label for="f3-form-message" class="f3-form-label type-aero-f">
+              <span class="f3-label-num">[05]</span>
+              <span class="f3-label-text">Project brief</span>
+            </label>
+            <textarea id="f3-form-message" name="message" class="f3-form-textarea type-mono-a" rows="3"
+              placeholder="Tell us about the product, vision, and timeline..." required></textarea>
+          </div>
+
+          <!-- Action Row: High-Contrast Submit Button & Live Feedback Status -->
+          <div class="f3-form-action-row">
+            <button type="submit" class="f3-contact-submit-btn" id="f3-submit-btn">
+              <span class="f3-btn-label">Send message ↗</span>
+            </button>
+            <div class="f3-form-status-msg type-mono-a" id="f3-form-status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- White Architectural Curtain Reveal Footer -->
   <div class="f3-footer-reveal-wrap" id="f3-footer-curtain">
