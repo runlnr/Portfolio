@@ -7,7 +7,7 @@
     "start": "node serve.js",
     "dev": "node serve.js",
     "test": "node testEndpoints.js",
-    "typecheck": "npx -y typescript --noEmit",
+    "typecheck": "tsc --noEmit",
     "build": "node testEndpoints.js"
   },
   "keywords": [],
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@playwright/test": "^1.62.1",
     "playwright": "^1.62.1",
+    "sharp": "^0.35.5",
     "typescript": "^5.8.2"
   }
 }

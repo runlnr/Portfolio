@@ -40,7 +40,7 @@ My work centered on rebuilding "Grit and Grind," the franchise's own decade-old 
       { src: 'assets/thumbnails/Memphis.webp', alt: 'Memphis Grizzlies Brand Identity Showcase' },
       { src: 'assets/thumbnails/Memphis 2.webp', alt: 'Memphis Grizzlies In-Game Visual System' },
       { src: 'assets/images/memphis-preview.jpg', alt: 'Memphis Grizzlies Typographic Architecture' },
-      { src: 'assets/images/memphis-grizzlies.png', alt: 'Memphis Grizzlies Social Collateral' }
+      { src: 'assets/images/memphis-grizzlies.webp', alt: 'Memphis Grizzlies Social Collateral' }
     ]
   },
   {
@@ -82,7 +82,7 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
     gallery: [
       {
         type: 'full',
-        src: 'assets/projects/us%20ski%20%26%20snowboard/1%20(first).png',
+        src: 'assets/projects/us%20ski%20%26%20snowboard/1(first).webp',
         alt: 'U.S. Ski & Snowboard Milano Cortina Visual Identity Hero',
         width: 4920,
         height: 2372,
@@ -90,7 +90,7 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
       },
       {
         type: 'full',
-        src: 'assets/projects/us%20ski%20%26%20snowboard/2%20(first).png',
+        src: 'assets/projects/us%20ski%20%26%20snowboard/2%20(first).webp',
         alt: 'U.S. Ski & Snowboard Milano Cortina Brand Graphics',
         width: 2250,
         height: 1500,
@@ -98,7 +98,7 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
       },
       {
         type: 'full',
-        src: 'assets/projects/us%20ski%20%26%20snowboard/3%20(first).png',
+        src: 'assets/projects/us%20ski%20%26%20snowboard/3%20(first).webp',
         alt: 'U.S. Ski & Snowboard Graphic Layout',
         width: 2400,
         height: 1433,
@@ -108,14 +108,14 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
         type: 'grid-2',
         items: [
           {
-            src: 'assets/projects/us%20ski%20%26%20snowboard/4%20(second%201).png',
+            src: 'assets/projects/us%20ski%20%26%20snowboard/4%20(second%201).webp',
             alt: 'U.S. Ski & Snowboard Poster 1',
             width: 1024,
             height: 1536,
             aspectRatio: 1024 / 1536
           },
           {
-            src: 'assets/projects/us%20ski%20%26%20snowboard/5%20(second%202).png',
+            src: 'assets/projects/us%20ski%20%26%20snowboard/5%20(second%202).webp',
             alt: 'U.S. Ski & Snowboard Poster 2',
             width: 2100,
             height: 2500,
@@ -127,14 +127,14 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
         type: 'grid-2',
         items: [
           {
-            src: 'assets/projects/us%20ski%20%26%20snowboard/6%20(second%201).png',
+            src: 'assets/projects/us%20ski%20%26%20snowboard/6%20(second%201).webp',
             alt: 'U.S. Ski & Snowboard Layout 1',
             width: 1620,
             height: 2025,
             aspectRatio: 0.8
           },
           {
-            src: 'assets/projects/us%20ski%20%26%20snowboard/7%20(second%202).png',
+            src: 'assets/projects/us%20ski%20%26%20snowboard/7%20(second%202).webp',
             alt: 'U.S. Ski & Snowboard Layout 2',
             width: 1620,
             height: 2025,
@@ -146,14 +146,14 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
         type: 'grid-2',
         items: [
           {
-            src: 'assets/projects/us%20ski%20%26%20snowboard/8%20(second%201).png',
+            src: 'assets/projects/us%20ski%20%26%20snowboard/8%20(second%201).webp',
             alt: 'U.S. Ski & Snowboard Detail 1',
             width: 1620,
             height: 2025,
             aspectRatio: 0.8
           },
           {
-            src: 'assets/projects/us%20ski%20%26%20snowboard/9%20(second%202).png',
+            src: 'assets/projects/us%20ski%20%26%20snowboard/9%20(second%202).webp',
             alt: 'U.S. Ski & Snowboard Detail 2',
             width: 1620,
             height: 2025,
@@ -171,7 +171,7 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
       },
       {
         type: 'full',
-        src: 'assets/projects/us%20ski%20%26%20snowboard/11%20(first).png',
+        src: 'assets/projects/us%20ski%20%26%20snowboard/11(first).webp',
         alt: 'U.S. Ski & Snowboard Campaign Showcase',
         width: 2400,
         height: 1495,
@@ -188,7 +188,7 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
             aspectRatio: 0.8
           },
           {
-            src: 'assets/projects/us%20ski%20%26%20snowboard/13%20(second%202).png',
+            src: 'assets/projects/us%20ski%20%26%20snowboard/13%20(second%202).webp',
             alt: 'U.S. Ski & Snowboard Graphic 2',
             width: 1620,
             height: 2025,
@@ -198,7 +198,7 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
       },
       {
         type: 'full',
-        src: 'assets/projects/us%20ski%20%26%20snowboard/14%20(first).png',
+        src: 'assets/projects/us%20ski%20%26%20snowboard/14%20(first).webp',
         alt: 'U.S. Ski & Snowboard Editorial Spread',
         width: 2600,
         height: 1650,
@@ -206,7 +206,7 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
       },
       {
         type: 'full',
-        src: 'assets/projects/us%20ski%20%26%20snowboard/15%20(first).png',
+        src: 'assets/projects/us%20ski%20%26%20snowboard/15%20(first).webp',
         alt: 'U.S. Ski & Snowboard Broadcast Banner',
         width: 2700,
         height: 2025,
@@ -216,14 +216,14 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
         type: 'grid-2',
         items: [
           {
-            src: 'assets/projects/us%20ski%20%26%20snowboard/16%20(second%201).png',
+            src: 'assets/projects/us%20ski%20%26%20snowboard/16%20(second%201).webp',
             alt: 'U.S. Ski & Snowboard Social Story 1',
             width: 1620,
             height: 2025,
             aspectRatio: 0.8
           },
           {
-            src: 'assets/projects/us%20ski%20%26%20snowboard/17%20(second%202).png',
+            src: 'assets/projects/us%20ski%20%26%20snowboard/17%20(second%202).webp',
             alt: 'U.S. Ski & Snowboard Social Story 2',
             width: 1620,
             height: 2025,
@@ -233,7 +233,7 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
       },
       {
         type: 'full',
-        src: 'assets/projects/us%20ski%20%26%20snowboard/18%20(first).png',
+        src: 'assets/projects/us%20ski%20%26%20snowboard/18%20(first).webp',
         alt: 'U.S. Ski & Snowboard Typography System',
         width: 2600,
         height: 1650,
@@ -241,7 +241,7 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
       },
       {
         type: 'full',
-        src: 'assets/projects/us%20ski%20%26%20snowboard/19%20(first).png',
+        src: 'assets/projects/us%20ski%20%26%20snowboard/19%20(first).webp',
         alt: 'U.S. Ski & Snowboard Closing Showcase',
         width: 2600,
         height: 1650,
@@ -249,7 +249,7 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
       },
       {
         type: 'full',
-        src: 'assets/projects/us%20ski%20%26%20snowboard/20%20(first).png',
+        src: 'assets/projects/us%20ski%20%26%20snowboard/20%20(first).webp',
         alt: 'U.S. Ski & Snowboard Identity Signature',
         width: 2048,
         height: 356,
