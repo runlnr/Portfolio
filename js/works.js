@@ -43,8 +43,8 @@ window.initWorksPage = function() {
       return `
       <a href="project.html?id=${p.id}" class="work-grid-card" aria-label="${p.title} (${p.year})" data-cursor="${cursorText}">
         <div class="work-card-header">
-          <span class="work-card-title">${p.title}</span>
-          <span class="work-card-date">${p.year}</span>
+          <span class="work-card-title type-aero-c">${p.title}</span>
+          <span class="work-card-date type-mono-a">${p.year}</span>
         </div>
         <div class="work-card-media">
           <img src="${p.image}" alt="${p.title}" loading="lazy" width="1600" height="1280" decoding="async" />
@@ -106,12 +106,12 @@ window.initWorksPage = function() {
   if (targetListElement && projects.length) {
     targetListElement.innerHTML = projects.map(p => `
       <a href="project.html?id=${p.id}" class="work-list-item-row" data-image="${p.image}" data-title="${p.title}">
-        <span class="list-col-num">${p.number}</span>
-        <span class="list-col-title">${p.title}</span>
-        <span class="list-col-field">${p.field || (p.disciplines ? p.disciplines.join(', ') : 'Graphic Design')}</span>
-        <span class="list-col-client">${p.client || 'Studio'}</span>
-        <span class="list-col-year">${p.year}</span>
-        <span class="list-col-arrow">↗</span>
+        <span class="list-col-num type-mono-a">${p.number}</span>
+        <span class="list-col-title type-aero-b">${p.title}</span>
+        <span class="list-col-field type-mono-a">${p.field || (p.disciplines ? p.disciplines.join(', ') : 'Graphic Design')}</span>
+        <span class="list-col-client type-mono-a">${p.client || 'Studio'}</span>
+        <span class="list-col-year type-mono-a">${p.year}</span>
+        <span class="list-col-arrow type-mono-a">↗</span>
       </a>
     `).join('');
 

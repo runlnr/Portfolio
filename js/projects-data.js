@@ -1,5 +1,8 @@
-// Projects Dataset for N/P® Portfolio & Case Studies
-window.SWAG_PROJECTS = [
+/**
+ * Projects Dataset for N/P® Portfolio & Case Studies
+ * @type {import('../types/project').Project[]}
+ */
+const SWAG_PROJECTS = [
   {
     id: 'memphis-grizzlies',
     number: '01',
@@ -335,3 +338,11 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
     ]
   }
 ];
+
+if (typeof window !== 'undefined') {
+  window.SWAG_PROJECTS = SWAG_PROJECTS;
+}
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = SWAG_PROJECTS;
+}
+

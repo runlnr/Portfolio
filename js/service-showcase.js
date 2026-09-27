@@ -384,11 +384,9 @@
   // DOM ready initialization
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-      initBoxCanvases();
       initHoverReveal();
     });
   } else {
-    initBoxCanvases();
     initHoverReveal();
   }
 })();

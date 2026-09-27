@@ -35,8 +35,8 @@ window.initProjectPage = function() {
 
     metaGridEl.innerHTML = metaItems.map(item => `
       <div class="project-meta-cell">
-        <span class="project-meta-label">${item.label}</span>
-        <span class="project-meta-value">${item.value}</span>
+        <span class="project-meta-label type-mono-a">${item.label}</span>
+        <span class="project-meta-value type-aero-e">${item.value}</span>
       </div>
     `).join('');
   }

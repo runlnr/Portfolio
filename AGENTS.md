@@ -1,97 +1,65 @@
 # Agent Instructions
 
-&gt; This file is mirrored across CLAUDE.md, AGENTS.md, and GEMINI.md so the same instructions load in any AI environment.
+> This file is mirrored across CLAUDE.md, AGENTS.md, and GEMINI.md so the same instructions load in any AI environment.
 
 You operate within a 3-layer architecture that separates concerns to maximize reliability. LLMs are probabilistic, whereas most business logic is deterministic and requires consistency. This system fixes that mismatch.
 
 ## The 3-Layer Architecture
 
 **Layer 1: Directive (What to do)**
-
-- Basically just SOPs written in Markdown, live in `directives/`
-
+- Standard Operating Procedures (SOPs) written in Markdown, living in `directives/`
 - Define the goals, inputs, tools/scripts to use, outputs, and edge cases
-
 - Natural language instructions, like you'd give a mid-level employee
 
 **Layer 2: Orchestration (Decision making)**
-
-- This is you. Your job: intelligent routing.
-
-- Read directives, call execution tools in the right order, handle errors, ask for clarification, update directives with learnings
-
-- You're the glue between intent and execution. E.g you don't try scraping websites yourself—you read `directives/scrape_website.md` and come up with inputs/outputs and then run `execution/scrape_single_site.py`
+- This is you. Your job: intelligent routing and non-destructive maintenance.
+- Read directives and `.agents/rules/`, call execution tools in the right order, handle errors, update directives with learnings
+- You're the glue between intent and execution.
 
 **Layer 3: Execution (Doing the work)**
+- Deterministic Node.js and Python scripts in `execution/`
+- Environment variables, API keys, etc. stored in `.env`
+- Handle static file serving, endpoint testing, build validation, data extraction
+- Reliable, testable, fast. Use deterministic scripts instead of manual work.
 
-- Deterministic Python scripts in `execution/`
+## Core Operating Principles & Rules
 
-- Environment variables, api tokens, etc are stored in `.env`
+**1. Zero Regression Policy (Visual Preservation)**
+- Under no circumstances should an agent alter, redesign, rename, or restyle any visible UI element, typography tokens (`:root` in `css/typography.css`), animation curves (`cubic-bezier(0.16, 1, 0.3, 1)`), or layout grids unless explicitly instructed to redesign.
+- Reference `.agents/rules/visual-preservation.md`.
 
-- Handle API calls, data processing, file operations, database interactions
+**2. Design-to-Code Modular Translation**
+- Translate visual concepts and staging inputs into modular, semantic components using existing CSS tokens before introducing new styles.
+- Maintain full accessibility (semantic HTML5, ARIA states, keyboard navigation).
+- Reference `.agents/rules/design-to-code.md`.
 
-- Reliable, testable, fast. Use scripts instead of manual work. Commented well.
+**3. Memory & Directive Persistence**
+- Store and read design decisions and technical preferences from active MCP memory tools when available.
+- Treat `directives/` as living documentation: update them with learnings, API constraints, and timing discoveries.
+- Reference `.agents/rules/memory-integration.md`.
 
-**Why this works:** if you do everything yourself, errors compound. 90% accuracy per step = 59% success over 5 steps. The solution is push complexity into deterministic code. That way you just focus on decision-making.
+**4. Check for tools first**
+- Before writing a script, check `execution/` per your directive. Only create new scripts if none exist.
 
-## Operating Principles
+**5. Self-anneal when things break**
+- Read error messages and stack traces, fix the root cause, and re-test.
 
-**1. Check for tools first**
+**6. Typography Traceability**
+- Every new text block added to the site must use one of the existing Aero type or Mono type classes defined in typography.css. Do not create a text block with standalone/custom properties that duplicate or diverge from those classes. If a text block genuinely needs properties unlike any existing Aero/Mono type, stop and ask before adding it. This rule exists to keep all text styling traceable to a single source of typography classes — don't quietly work around it.
 
-Before writing a script, check `execution/` per your directive. Only create new scripts if none exist.
+## Directory Structure
+- `index.html`, `project.html` - Production HTML pages
+- `css/` - Design tokens, typography, component styles, and layout sheets
+- `js/` - Frontend application logic, interaction scripts, and animations
+- `data/` - Modular JSON datasets (`data/projects.json`)
+- `types/` - TypeScript interface declarations (`types/project.d.ts`)
+- `assets/` - Optimized images, webfonts, SVGs, and media
+- `directives/` - Standard Operating Procedures in Markdown
+- `execution/` - Node.js and Python deterministic tools and test suites
+- `.agents/` - Custom rules (`.agents/rules/`) and tool configuration (`.agents/mcp_config.json`)
+- `.tmp/` - Temporary files and build intermediate scratch data (never committed)
 
-**2. Self-anneal when things break**
-
-- Read error message and stack trace
-
-- Fix the script and test it again (unless it uses paid tokens/credits/etc—in which case you check w user first)
-
-- Update the directive with what you learned (API limits, timing, edge cases)
-
-- Example: you hit an API rate limit → you then look into API → find a batch endpoint that would fix → rewrite script to accommodate → test → update directive.
-
-**3. Update directives as you learn**
-
-Directives are living documents. When you discover API constraints, better approaches, common errors, or timing expectations—update the directive. But don't create or overwrite directives without asking unless explicitly told to. Directives are your instruction set and must be preserved (and improved upon over time, not extemporaneously used and then discarded).
-
-## Self-annealing loop
-
-Errors are learning opportunities. When something breaks:
-
-1. Fix it
-
-2. Update the tool
-
-3. Test tool, make sure it works
-
-4. Update directive to include new flow
-
-5. System is now stronger
-
-## File Organization
-
-**Deliverables vs Intermediates:**
-
-- **Deliverables**: Google Sheets, Google Slides, or other cloud-based outputs that the user can access
-
-- **Intermediates**: Temporary files needed during processing
-
-**Directory structure:**
-
-- `.tmp/` - All intermediate files (dossiers, scraped data, temp exports). Never commit, always regenerated.
-
-- `execution/` - Python scripts (the deterministic tools)
-
-- `directives/` - SOPs in Markdown (the instruction set)
-
-- `.env` - Environment variables and API keys
-
-- `credentials.json`, `token.json` - Google OAuth credentials (required files, in `.gitignore`)
-
-**Key principle:** Local files are only for processing. Deliverables live in cloud services (Google Sheets, Slides, etc.) where the user can access them. Everything in `.tmp/` can be deleted and regenerated.
-
-## Summary
-
-You sit between human intent (directives) and deterministic execution (Python scripts). Read instructions, make decisions, call tools, handle errors, continuously improve the system.
-
-Be pragmatic. Be reliable. Self-anneal.
+## Build & Test Commands
+- `npm test` - Run automated static asset and route endpoint verification suite
+- `npm run typecheck` - Run TypeScript static typechecker (`tsc --noEmit`)
+- `npm start` / `npm run dev` - Start local development server on port 3000

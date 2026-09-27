@@ -55,9 +55,26 @@ window.triggerViewportTextReveal = function () {
   hasRevealedViewportText = true;
 
   const isProjectPage = !!document.querySelector('.project-main-wrap');
+  const isAboutPage = !!document.querySelector('.about-main-wrap');
 
-  if (isProjectPage) {
-    // 1. Project Page: Simultaneous Terminal Matrix ASCII appear across all context content
+  if (isAboutPage) {
+    // 1. About Page: Simultaneous Terminal Matrix ASCII decode appear across statement headline
+    if (typeof window.triggerAboutAsciiAppear === 'function') {
+      window.triggerAboutAsciiAppear();
+    } else {
+      let retries = 0;
+      const checkAboutAscii = setInterval(() => {
+        retries++;
+        if (typeof window.triggerAboutAsciiAppear === 'function' || retries > 12) {
+          clearInterval(checkAboutAscii);
+          if (typeof window.triggerAboutAsciiAppear === 'function') {
+            window.triggerAboutAsciiAppear();
+          }
+        }
+      }, 25);
+    }
+  } else if (isProjectPage) {
+    // 2. Project Page: Simultaneous Terminal Matrix ASCII appear across all context content
     if (typeof window.triggerProjectAsciiAppear === 'function') {
       window.triggerProjectAsciiAppear();
     } else {
@@ -73,7 +90,7 @@ window.triggerViewportTextReveal = function () {
       }, 25);
     }
   } else {
-    // 2. Hero Page: Authentic ASCII appear animation on "Nothing here/" and "/by accident."
+    // 3. Hero Page: Authentic ASCII appear animation on "Nothing here/" and "/by accident."
     if (typeof window.triggerHeroAsciiAppear === 'function') {
       window.triggerHeroAsciiAppear();
     } else {
@@ -91,7 +108,6 @@ window.triggerViewportTextReveal = function () {
   }
 };
 
-/**
 /**
  * Developer Helpers to inspect & calibrate loading screen logo:
  * - previewLoader('grey')   : Freezes loader in initial grey state

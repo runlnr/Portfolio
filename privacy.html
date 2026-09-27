@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    if (sessionStorage.getItem('np_is_navigating')) { document.documentElement.classList.add('is-navigating-in'); }
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy • Nam Pham</title>
+  <meta name="description"
+    content="Privacy Policy and personal data protection principles for Nam Pham graphic design practice based in Ho Chi Minh City, Vietnam.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sometype+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sometype+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet">
+  </noscript>
+
+  <link rel="preload" href="assets/fonts/AtAero-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/fonts/AtAero-Retina.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/fonts/AtAero-Light.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/fonts/NeueHaasDisplayRoman.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/PPSupplyMono-Regular.otf" as="font" type="font/otf" crossorigin>
+
+  <link rel="stylesheet" href="css/typography.css?v=1.0.0">
+  <link rel="stylesheet" href="css/main.css?v=1.0.0">
+  <link rel="stylesheet" href="css/components.css?v=1.0.0">
+  <link rel="stylesheet" href="css/hero-3d.css?v=1.0.0">
+  <link rel="stylesheet" href="css/glassmorphism.css?v=1.0.0">
+  <link rel="stylesheet" href="css/pages.css?v=1.0.0">
+  <link rel="stylesheet" href="css/futurethree-scroll.css?v=1.0.0">
+  <link rel="stylesheet" href="css/responsive.css?v=1.0.0">
+</head>
+
+<body class="privacy-page-body">
+
+  <!-- Fullscreen Page Transition Curtain -->
+  <div class="page-transition-curtain" id="page-transition-curtain" aria-hidden="true"></div>
+
+  <!-- Fullscreen Backdrop Blur Overlay when navigation dropdown is active -->
+  <div class="nav-dropdown-backdrop" id="nav-dropdown-backdrop" aria-hidden="true"></div>
+
+  <!-- Top Navigation: Centered Modular Navigation Box with Logo on Left, Status in Center, Hamburger on Right -->
+  <header class="hero-top-nav" id="hero-top-nav">
+    <nav class="nav-modular-box" aria-label="Main Navigation">
+      <!-- Left: Nam Pham Brand Mark -->
+      <a href="index.html" class="nav-box-brand hero-nav-brand" aria-label="Nam Pham Home">
+        <svg class="nav-brand-logo" viewBox="0 0 351.33 384.87" fill="currentColor" aria-hidden="true">
+          <path class="logo-stroke logo-stroke-1"
+            d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
+            transform="translate(211.63, 128.18) rotate(-158.12) scale(1.02, 1)" />
+          <path class="logo-stroke logo-stroke-2"
+            d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
+            transform="translate(139.7, 256.69) rotate(21.88) scale(1.02, 1)" />
+        </svg>
+      </a>
+
+      <!-- Center: Status Line -->
+      <div class="nav-status-line type-mono-a" id="nav-status-line">Looking sharp today</div>
+
+      <!-- Right: Hamburger Menu Button (2 lines) -->
+      <button class="nav-hamburger-btn" id="nav-hamburger-btn" aria-label="Toggle Navigation Menu"
+        aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Full-Width 2-Column Split Dropdown Menu -->
+      <div class="nav-dropdown-menu" id="nav-dropdown-menu" aria-hidden="true">
+        <div class="nav-dropdown-grid">
+          <!-- Left Column: Navigation Links -->
+          <div class="nav-dropdown-col-left">
+            <a href="index.html" class="nav-dropdown-row-link" id="nav-home-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">Home</span>
+                  <span class="nav-row-text">Home</span>
+                </span>
+              </span>
+            </a>
+
+            <a href="index.html#f3-portfolio" class="nav-dropdown-row-link" id="nav-works-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">Projects</span>
+                  <span class="nav-row-text">Projects</span>
+                </span>
+              </span>
+            </a>
+
+            <a href="about.html" class="nav-dropdown-row-link" id="nav-about-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">About</span>
+                  <span class="nav-row-text">About</span>
+                </span>
+              </span>
+            </a>
+
+            <a href="index.html#f3-contact" class="nav-dropdown-row-link" id="nav-contact-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">Contact</span>
+                  <span class="nav-row-text">Contact</span>
+                </span>
+              </span>
+            </a>
+
+            <a href="index.html#f3-portfolio" class="nav-dropdown-row-link" id="nav-archive-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">Archive</span>
+                  <span class="nav-row-text">Archive</span>
+                </span>
+              </span>
+            </a>
+          </div>
+
+          <!-- Vertical Dashed Divider -->
+          <div class="nav-dropdown-divider" aria-hidden="true"></div>
+
+          <!-- Right Column: Live Clock, Studio Details & Socials -->
+          <div class="nav-dropdown-col-right">
+            <!-- Top Right: Live Studio Clock -->
+            <div class="nav-dropdown-clock-wrap">
+              <span class="nav-clock-dot"></span>
+              <span class="nav-dropdown-clock live-clock type-mono-a">--:--:-- UTC+7</span>
+            </div>
+
+            <!-- Middle / Bottom Right Details: Ongoing Projects & Socials -->
+            <div class="nav-dropdown-info-stack">
+              <div class="nav-dropdown-ongoing">
+                <span class="nav-ongoing-line"><span class="nav-ongoing-badge"><span>01</span></span><span class="nav-ongoing-text">Ongoing projects</span></span>
+              </div>
+
+              <!-- Social Links -->
+              <div class="nav-dropdown-socials">
+                <a href="https://www.behance.net/pxly" target="_blank" rel="noopener noreferrer" class="nav-social-icon"
+                  aria-label="Behance">
+                  <span class="social-icon-txt">Bē</span>
+                </a>
+                <a href="https://www.instagram.com/_phnm._" target="_blank" rel="noopener noreferrer"
+                  class="nav-social-icon" aria-label="Instagram">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                  </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/phnm08/" target="_blank" rel="noopener noreferrer"
+                  class="nav-social-icon" aria-label="LinkedIn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect width="4" height="12" x="2" y="9" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Bottom-Centered Floating 'Start a project' Call CTA -->
+  <a href="index.html#f3-contact" class="nav-floating-cta" id="nav-floating-cta" aria-label="Start a project">
+    <span class="floating-cta-icon" aria-hidden="true">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+      </svg>
+    </span>
+    <span class="floating-cta-text type-aero-f">Start a project</span>
+  </a>
+
+  <!-- Main Editorial Reading Content Curtain -->
+  <div class="privacy-main-curtain">
+  <main class="privacy-main-wrap" id="main-content">
+    <div class="privacy-container">
+
+      <!-- Page Header -->
+      <header class="privacy-header">
+        <h1 class="privacy-title type-aero-b">Privacy Policy</h1>
+        <p class="privacy-lead type-aero-e">
+          This Privacy Policy outlines how I handle personal data, the compliance standards I follow, and the data protection measures in place on this website. I'm committed to transparency, data minimization, and honoring the privacy rights of every visitor and prospective collaborator.
+        </p>
+        <div class="privacy-date-note type-mono-a">Last updated: 27 September 2026</div>
+      </header>
+
+      <!-- Policy Sections -->
+      <div class="privacy-content">
+
+        <!-- Section 1: Controller & Contact -->
+        <section class="privacy-section">
+          <h2 class="privacy-section-heading type-aero-c">Data Controller &amp; Contact Details</h2>
+          <p class="privacy-text type-aero-e">
+            The data controller responsible for the processing of personal data collected through this website is:
+          </p>
+          <div class="privacy-contact-box">
+            <p class="privacy-text type-aero-e"><strong>Name:</strong> Nam Pham</p>
+            <p class="privacy-text type-aero-e"><strong>Location:</strong> Ho Chi Minh City, Vietnam</p>
+            <p class="privacy-text type-aero-e"><strong>Direct Privacy Inquiries:</strong> <a href="mailto:hainampham08@outlook.com" class="privacy-email-link">hainampham08@outlook.com</a></p>
+          </div>
+        </section>
+
+        <!-- Section 2: Information I Collect -->
+        <section class="privacy-section">
+          <h2 class="privacy-section-heading type-aero-c">Information I Collect</h2>
+          <p class="privacy-text type-aero-e">
+            I adhere strictly to the principle of data minimization. I only collect information that is strictly necessary to evaluate project inquiries and maintain technical reliability:
+          </p>
+          <ul class="privacy-list">
+            <li class="privacy-list-item type-aero-e">
+              <strong>Voluntary Project Inquiries:</strong> When you submit an inquiry through my contact form, I collect your name or company identifier, email address, selected discipline of interest, estimated budget range, and your project brief message.
+            </li>
+            <li class="privacy-list-item type-aero-e">
+              <strong>Automated Server Logs:</strong> Standard automated HTTP request headers (including browser user-agent, operating system, requested page URL, and access timestamps) are processed transiently to ensure reliable routing, security defense, and server health.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Section 3: Legal Basis for Processing -->
+        <section class="privacy-section">
+          <h2 class="privacy-section-heading type-aero-c">Legal Basis for Processing</h2>
+          <p class="privacy-text type-aero-e">
+            I process your personal data on the following legal bases:
+          </p>
+          <ul class="privacy-list">
+            <li class="privacy-list-item type-aero-e">
+              <strong>Consent:</strong> For project inquiries submitted voluntarily through the contact form, and for non-essential analytics cookies (see below).
+            </li>
+            <li class="privacy-list-item type-aero-e">
+              <strong>Legitimate Interest:</strong> For automated server logs, to maintain the security, integrity, and technical reliability of the website.
+            </li>
+            <li class="privacy-list-item type-aero-e">
+              <strong>Pre-contractual Steps:</strong> Where you contact me regarding a potential project, to take steps at your request prior to entering into a service agreement.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Section 4: Data Retention -->
+        <section class="privacy-section">
+          <h2 class="privacy-section-heading type-aero-c">Data Retention</h2>
+          <p class="privacy-text type-aero-e">
+            Project inquiry data (contact details and brief messages) is retained for up to 24 months from the date of your last communication with me, or until you request erasure, whichever comes first. Automated server logs are retained transiently and are not kept longer than 90 days except where required for security investigation.
+          </p>
+        </section>
+
+        <!-- Section 5: Cookie Policy -->
+        <section class="privacy-section">
+          <h2 class="privacy-section-heading type-aero-c">Cookie Policy</h2>
+          <p class="privacy-text type-aero-e">
+            This website uses cookies and similar storage technologies to enable core functionality and, where you consent, to measure site performance. A cookie is a small text file placed on your device by your browser.
+          </p>
+          <ul class="privacy-list">
+            <li class="privacy-list-item type-aero-e">
+              <strong>Strictly Necessary Storage (no consent required):</strong> Used solely for essential functional UI state — this site does not currently set any strictly necessary cookies, but does use equivalent browser storage (see &ldquo;Cookies &amp; Local Storage&rdquo; below).
+            </li>
+            <li class="privacy-list-item type-aero-e">
+              <strong>Analytics Cookies (consent required):</strong> Set by Google Analytics to measure aggregate site usage. These are only activated after you accept analytics cookies via the cookie notice shown on your first visit.
+            </li>
+          </ul>
+          <p class="privacy-text type-aero-e">
+            You can withdraw or change your cookie consent at any time by revisiting the cookie notice (typically accessible via a &ldquo;Cookie Preferences&rdquo; link in the site footer) or by adjusting your browser settings to block or delete cookies. Blocking analytics cookies does not affect your ability to browse or use the site.
+          </p>
+        </section>
+
+        <!-- Section 6: Web Analytics & Measurement -->
+        <section class="privacy-section">
+          <h2 class="privacy-section-heading type-aero-c">Web Analytics &amp; Measurement</h2>
+          <p class="privacy-text type-aero-e">
+            To evaluate site performance, understand aggregate engagement, and optimize reader experience, I use Google Analytics with strict IP anonymization enabled (<code>anonymize_ip: true</code>).
+          </p>
+          <p class="privacy-text type-aero-e">
+            Your full IP address is truncated before storage and is never associated with any other personally identifiable data. Analytics data is analyzed purely in aggregate and is never used for behavioral advertising or profiling.
+          </p>
+          <p class="privacy-text type-aero-e">
+            Google Analytics is a non-essential cookie and is only activated after you provide consent via my cookie notice. You may withdraw this consent at any time by adjusting your cookie preferences or browser settings.
+          </p>
+          <p class="privacy-text type-aero-e">
+            Because Google Analytics is operated by Google LLC (United States), use of this service involves an international transfer of data outside Vietnam and the European Economic Area. This transfer is safeguarded by Google's Standard Contractual Clauses and Google's own data processing terms.
+          </p>
+        </section>
+
+        <!-- Section 7: Cookies & Local Storage -->
+        <section class="privacy-section">
+          <h2 class="privacy-section-heading type-aero-c">Cookies &amp; Local Storage</h2>
+          <p class="privacy-text type-aero-e">
+            Separate from cookies, this website uses client-side <code>sessionStorage</code> and <code>localStorage</code> for functional UI state management. These are not cookies, are not sent to any server, and do not require consent, but are disclosed here for transparency:
+          </p>
+          <ul class="privacy-list">
+            <li class="privacy-list-item type-aero-e">
+              <strong>Session Intro State (<code>np_has_seen_intro</code>):</strong> Tracks whether the initial entry animation has already played during your browsing session to prevent repetitive interruptions.
+            </li>
+            <li class="privacy-list-item type-aero-e">
+              <strong>Smooth Page Navigation (<code>np_is_navigating</code>):</strong> Manages the seamless cross-fade page transition curtain between case studies.
+            </li>
+          </ul>
+          <p class="privacy-text type-aero-e">
+            This website does not deploy third-party advertising cookies or cross-site tracking trackers.
+          </p>
+        </section>
+
+        <!-- Section 8: Legal Compliance & Regulatory Framework -->
+        <section class="privacy-section">
+          <h2 class="privacy-section-heading type-aero-c">Legal Compliance &amp; Regulatory Framework</h2>
+          <p class="privacy-text type-aero-e">
+            My data protection practices are governed by and comply with:
+          </p>
+          <ul class="privacy-list">
+            <li class="privacy-list-item type-aero-e">
+              <strong>Decree No. 13/2023/NĐ-CP (Vietnam):</strong> Full compliance with the Personal Data Protection Decree of the Socialist Republic of Vietnam concerning legitimate data collection, user consent, and storage protection.
+            </li>
+            <li class="privacy-list-item type-aero-e">
+              <strong>General Data Protection Regulation (GDPR):</strong> Alignment with international standards on lawful processing, data portability, and user sovereignty for international visitors.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Section 9: Your Rights as a Data Subject -->
+        <section class="privacy-section">
+          <h2 class="privacy-section-heading type-aero-c">Your Rights as a Data Subject</h2>
+          <p class="privacy-text type-aero-e">
+            Under applicable data protection laws, you retain full ownership and control over your personal data:
+          </p>
+          <ul class="privacy-list">
+            <li class="privacy-list-item type-aero-e">
+              <strong>Right of Access &amp; Portability:</strong> You may request a verified copy of all project inquiry records associated with your email address.
+            </li>
+            <li class="privacy-list-item type-aero-e">
+              <strong>Right to Rectification:</strong> You may request corrections or updates to any previously submitted contact details.
+            </li>
+            <li class="privacy-list-item type-aero-e">
+              <strong>Right to Erasure (Right to Be Forgotten):</strong> You may request the immediate, permanent deletion of your inquiry data and email communication logs from my records.
+            </li>
+            <li class="privacy-list-item type-aero-e">
+              <strong>Right to Restrict Processing:</strong> You may request that I limit how your data is used while a rectification or objection request is being resolved.
+            </li>
+            <li class="privacy-list-item type-aero-e">
+              <strong>Right to Object:</strong> You may object to processing based on legitimate interest, including analytics measurement.
+            </li>
+            <li class="privacy-list-item type-aero-e">
+              <strong>Right to Lodge a Complaint:</strong> You have the right to lodge a complaint with the relevant supervisory authority — the Ministry of Public Security in Vietnam, or your local data protection authority if you are located in the EEA.
+            </li>
+          </ul>
+          <p class="privacy-text type-aero-e">
+            To exercise any of these rights, email me at <a href="mailto:hainampham08@outlook.com" class="privacy-email-link">hainampham08@outlook.com</a>. I will fulfill verified requests within 7 business days without charge.
+          </p>
+        </section>
+
+        <!-- Section 10: Children's Privacy -->
+        <section class="privacy-section">
+          <h2 class="privacy-section-heading type-aero-c">Children's Privacy</h2>
+          <p class="privacy-text type-aero-e">
+            This website is not directed at individuals under the age of 16, and I do not knowingly collect personal data from minors. If you believe a minor has provided me with personal data, please contact me so I can promptly delete it.
+          </p>
+        </section>
+
+        <!-- Section 11: Intellectual Property & Proprietary Notice -->
+        <section class="privacy-section">
+          <h2 class="privacy-section-heading type-aero-c">Intellectual Property &amp; Proprietary Notice</h2>
+          <p class="privacy-text type-aero-e">
+            All featured case studies, visual design assets, motion systems, 3D renderings, bespoke typography implementations, art direction artifacts, and underlying frontend source code displayed on this website are my proprietary intellectual property and that of respective partnering clients.
+          </p>
+          <p class="privacy-text type-aero-e">
+            Reproduction, scraping, public redistribution, or commercial reuse of any portfolio material without my prior explicit written permission is strictly prohibited.
+          </p>
+        </section>
+
+        <!-- Section 12: Updates to this Policy -->
+        <section class="privacy-section">
+          <h2 class="privacy-section-heading type-aero-c">Updates to this Policy</h2>
+          <p class="privacy-text type-aero-e">
+            I reserve the right to amend this Privacy Policy as necessary to reflect operational updates or evolving legal frameworks. Any revisions will be published directly on this page with an updated revision date.
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/vendor/lucide.min.js" defer></script>
+  <script src="js/vendor/motion.min.js" defer></script>
+  <script src="js/text-flip.js?v=1.0.0" defer></script>
+  <script src="js/projects-data.js?v=1.0.0" defer></script>
+  <script src="js/utils.js?v=1.0.0" defer></script>
+  <script src="js/motion-stack.js?v=1.0.0" defer></script>
+  <script src="js/futurethree-scroll.js?v=1.0.0" defer></script>
+  <script src="js/app.js?v=1.0.0" defer></script>
+</body>
+
+</html>

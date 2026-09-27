@@ -1,0 +1,3278 @@
+{
+  "similarCount": 20,
+  "differentCount": 67,
+  "similarList": [
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "span.nav-row-text",
+        "classes": [
+          "nav-row-text"
+        ],
+        "textSnippet": "Home",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "22.275px",
+          "letterSpacing": "-1.03px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 778,
+            "selector": ".nav-dropdown-row-link .nav-row-roll-inner .nav-row-text",
+            "props": {
+              "line-height": "1.35em",
+              "text-transform": "none !important"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-f",
+        "name": "AT Aero Type F",
+        "font": "aero",
+        "size": 16,
+        "line": 22,
+        "spacing": -0.3,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Letter spacing is -1.03px (preset has -0.3px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "span.f3-featured-tag",
+        "classes": [
+          "f3-featured-tag"
+        ],
+        "textSnippet": "Recent works",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "25px",
+          "fontWeight": "400",
+          "lineHeight": "27.5px",
+          "letterSpacing": "-1.2px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 478,
+            "selector": ".f3-featured-tag",
+            "props": {
+              "font-family": "var(--featured-tag-font-family, var(--font-primary, 'AT Aero', sans-serif))",
+              "font-size": "var(--featured-tag-font-size, 25px)",
+              "font-weight": "var(--featured-tag-font-weight, 400)",
+              "letter-spacing": "var(--featured-tag-letter-spacing, -1.2px)",
+              "line-height": "var(--featured-tag-line-height, 27.5px)"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-c",
+        "name": "AT Aero Type C",
+        "font": "aero",
+        "size": 20,
+        "line": 27.5,
+        "spacing": -1.2,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font size is 25px (preset has 20px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "span.f3-title-arrow",
+        "classes": [
+          "f3-title-arrow"
+        ],
+        "textSnippet": "↗",
+        "styles": {
+          "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "11.89px",
+          "fontWeight": "350",
+          "lineHeight": "20px",
+          "letterSpacing": "-0.3px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 1225,
+            "selector": ".f3-title-arrow",
+            "props": {
+              "font-size": "0.82em"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font size is 11.89px (preset has 14.5px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "input#f3-selected-service.",
+        "classes": [],
+        "textSnippet": "Brand Identity",
+        "styles": {
+          "fontFam": "Arial",
+          "fontSize": "13.3333px",
+          "fontWeight": "400",
+          "lineHeight": "normal",
+          "letterSpacing": "normal",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-a",
+        "name": "AT Aero Type A",
+        "font": "aero",
+        "size": 43,
+        "line": 49,
+        "spacing": -2,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font size is 13.3333px (preset has 43px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "input#f3-selected-budget.",
+        "classes": [],
+        "textSnippet": "$5K – $10K",
+        "styles": {
+          "fontFam": "Arial",
+          "fontSize": "13.3333px",
+          "fontWeight": "400",
+          "lineHeight": "normal",
+          "letterSpacing": "normal",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-a",
+        "name": "AT Aero Type A",
+        "font": "aero",
+        "size": 43,
+        "line": 49,
+        "spacing": -2,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font size is 13.3333px (preset has 43px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "span.f3-footer-badge",
+        "classes": [
+          "f3-footer-badge"
+        ],
+        "textSnippet": "(coming soon)",
+        "styles": {
+          "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "35px",
+          "letterSpacing": "-0.3px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 3107,
+            "selector": ".f3-footer-badge",
+            "props": {
+              "font-family": "var(--font-retina, 'AT Aero Retina', sans-serif)",
+              "font-size": "clamp(11px, 1.1vw, 15px)",
+              "font-weight": "400",
+              "letter-spacing": "-0.3px"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Line height is 35px (preset has 20px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "span.nav-row-text",
+        "classes": [
+          "nav-row-text"
+        ],
+        "textSnippet": "Home",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "22.275px",
+          "letterSpacing": "-1.03px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 778,
+            "selector": ".nav-dropdown-row-link .nav-row-roll-inner .nav-row-text",
+            "props": {
+              "line-height": "1.35em",
+              "text-transform": "none !important"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-f",
+        "name": "AT Aero Type F",
+        "font": "aero",
+        "size": 16,
+        "line": 22,
+        "spacing": -0.3,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Letter spacing is -1.03px (preset has -0.3px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "input#f3-selected-service.",
+        "classes": [],
+        "textSnippet": "Brand Identity",
+        "styles": {
+          "fontFam": "Arial",
+          "fontSize": "13.3333px",
+          "fontWeight": "400",
+          "lineHeight": "normal",
+          "letterSpacing": "normal",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-a",
+        "name": "AT Aero Type A",
+        "font": "aero",
+        "size": 43,
+        "line": 49,
+        "spacing": -2,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font size is 13.3333px (preset has 43px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "input#f3-selected-budget.",
+        "classes": [],
+        "textSnippet": "$5K – $10K",
+        "styles": {
+          "fontFam": "Arial",
+          "fontSize": "13.3333px",
+          "fontWeight": "400",
+          "lineHeight": "normal",
+          "letterSpacing": "normal",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-a",
+        "name": "AT Aero Type A",
+        "font": "aero",
+        "size": 43,
+        "line": 49,
+        "spacing": -2,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font size is 13.3333px (preset has 43px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "span.f3-footer-badge",
+        "classes": [
+          "f3-footer-badge"
+        ],
+        "textSnippet": "(coming soon)",
+        "styles": {
+          "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "35px",
+          "letterSpacing": "-0.3px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 3107,
+            "selector": ".f3-footer-badge",
+            "props": {
+              "font-family": "var(--font-retina, 'AT Aero Retina', sans-serif)",
+              "font-size": "clamp(11px, 1.1vw, 15px)",
+              "font-weight": "400",
+              "letter-spacing": "-0.3px"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Line height is 35px (preset has 20px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "span.nav-row-text",
+        "classes": [
+          "nav-row-text"
+        ],
+        "textSnippet": "Home",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "22.275px",
+          "letterSpacing": "-1.03px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 778,
+            "selector": ".nav-dropdown-row-link .nav-row-roll-inner .nav-row-text",
+            "props": {
+              "line-height": "1.35em",
+              "text-transform": "none !important"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-f",
+        "name": "AT Aero Type F",
+        "font": "aero",
+        "size": 16,
+        "line": 22,
+        "spacing": -0.3,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Letter spacing is -1.03px (preset has -0.3px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "button#project-tab-header-deliverables.project-tab-header",
+        "classes": [
+          "project-tab-header"
+        ],
+        "textSnippet": "Deliverables",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "normal",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font size is 13px (preset has 14.5px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "button#project-tab-header-context.project-tab-header",
+        "classes": [
+          "project-tab-header"
+        ],
+        "textSnippet": "Context",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "normal",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font size is 13px (preset has 14.5px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "button#project-tab-header-challengeSolution.project-tab-header",
+        "classes": [
+          "project-tab-header"
+        ],
+        "textSnippet": "Challenge & Solution",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "normal",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font size is 13px (preset has 14.5px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "button#project-tab-header-credits.project-tab-header",
+        "classes": [
+          "project-tab-header"
+        ],
+        "textSnippet": "Credits",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "normal",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font size is 13px (preset has 14.5px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "a#project-action-link.project-action-link",
+        "classes": [
+          "project-action-link"
+        ],
+        "textSnippet": "View on Behance ↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "500",
+          "lineHeight": "20.25px",
+          "letterSpacing": "-0.2px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/pages.css",
+            "line": 1326,
+            "selector": ".project-action-link",
+            "props": {
+              "font-family": "var(--font-primary, 'AT Aero', sans-serif)",
+              "font-size": "15px",
+              "font-weight": "500",
+              "letter-spacing": "-0.2px"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font weight is 500 (preset has 350)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "span#project-action-label.action-label",
+        "classes": [
+          "action-label"
+        ],
+        "textSnippet": "View on Behance",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "500",
+          "lineHeight": "20.25px",
+          "letterSpacing": "-0.2px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font weight is 500 (preset has 350)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "span.action-arrow",
+        "classes": [
+          "action-arrow"
+        ],
+        "textSnippet": "↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "500",
+          "lineHeight": "20.25px",
+          "letterSpacing": "-0.2px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font weight is 500 (preset has 350)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "span#project-next-title.project-next-title",
+        "classes": [
+          "project-next-title"
+        ],
+        "textSnippet": "U.S. Ski & Snowboard | OWG Milano Cortin...",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "29.6px",
+          "fontWeight": "500",
+          "lineHeight": "34.04px",
+          "letterSpacing": "-0.8px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/pages.css",
+            "line": 1426,
+            "selector": ".project-next-title",
+            "props": {
+              "font-family": "var(--type-aero-b-font, var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif))",
+              "font-size": "clamp(1.2rem, 2.2vw, 1.85rem)",
+              "font-weight": "500",
+              "letter-spacing": "-0.8px",
+              "line-height": "1.15"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font weight is 500 (preset has 400)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "span.f3-footer-badge",
+        "classes": [
+          "f3-footer-badge"
+        ],
+        "textSnippet": "(coming soon)",
+        "styles": {
+          "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "35px",
+          "letterSpacing": "-0.3px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 3107,
+            "selector": ".f3-footer-badge",
+            "props": {
+              "font-family": "var(--font-retina, 'AT Aero Retina', sans-serif)",
+              "font-size": "clamp(11px, 1.1vw, 15px)",
+              "font-weight": "400",
+              "letter-spacing": "-0.3px"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Line height is 35px (preset has 20px)"
+      ],
+      "isSimilar": true
+    }
+  ],
+  "differentList": [
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "header#hero-top-nav.hero-top-nav.nav-theme-dark",
+        "classes": [
+          "hero-top-nav",
+          "nav-theme-dark"
+        ],
+        "textSnippet": "WHAT STOOD OUT",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "lineHeight": "16px",
+          "letterSpacing": "-0.8px",
+          "textTransform": "uppercase"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 3,
+      "diffDetails": [
+        "Font size is 14px (preset has 30px)",
+        "Line height is 16px (preset has 35px)",
+        "Font weight is 500 (preset has 400)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "span.nav-ongoing-text",
+        "classes": [
+          "nav-ongoing-text"
+        ],
+        "textSnippet": "Ongoing projects",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "14px",
+          "letterSpacing": "-0.84px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 931,
+            "selector": ".nav-ongoing-text",
+            "props": {
+              "line-height": "1"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 14px (preset has 30px)",
+        "Line height is 14px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "span.social-icon-txt",
+        "classes": [
+          "social-icon-txt"
+        ],
+        "textSnippet": "Bē",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "700",
+          "lineHeight": "13px",
+          "letterSpacing": "-0.96px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 1033,
+            "selector": ".nav-social-icon .social-icon-txt",
+            "props": {
+              "font-family": "var(--font-display, \"Neue Haas Grotesk Display Pro\", \"Inter\", sans-serif)",
+              "font-weight": "700",
+              "font-size": "13px",
+              "letter-spacing": "calc(-0.02em - 0.7px)",
+              "line-height": "1"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 3,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 13px (preset has 35px)",
+        "Font weight is 700 (preset has 400)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "a#nav-floating-cta.nav-floating-cta",
+        "classes": [
+          "nav-floating-cta"
+        ],
+        "textSnippet": "Start a project",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 1077,
+            "selector": ".nav-floating-cta",
+            "props": {
+              "text-transform": "none !important"
+            }
+          },
+          {
+            "file": "css/hero-3d.css",
+            "line": 1164,
+            "selector": ".nav-floating-cta .floating-cta-text",
+            "props": {
+              "font-family": "var(--type-aero-f-font, var(--font-primary, 'AT Aero', sans-serif))",
+              "font-size": "var(--type-aero-f-size, 16px)",
+              "font-weight": "var(--type-aero-f-weight, 400)",
+              "letter-spacing": "var(--type-aero-f-spacing, -0.3px)",
+              "text-transform": "none !important"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "main#homepage-main.homepage-main",
+        "classes": [
+          "homepage-main"
+        ],
+        "textSnippet": "/ \\ \\ / HO CHI MINH CITY 18:08:02 (UTC+7...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "section#f3-intro.f3-section-intro",
+        "classes": [
+          "f3-section-intro"
+        ],
+        "textSnippet": "HO CHI MINH CITY 18:08:02 (UTC+7) Nam Ph...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-intro-lockup.f3-scroll-reveal",
+        "classes": [
+          "f3-intro-lockup",
+          "f3-scroll-reveal"
+        ],
+        "textSnippet": "HO CHI MINH CITY 18:08:02 (UTC+7) Nam Ph...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div#f3-portfolio.f3-works-grid-container",
+        "classes": [
+          "f3-works-grid-container"
+        ],
+        "textSnippet": "01 Memphis Grizzlies Memphis Grizzlies ↗...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div#f3-works-grid.f3-works-staggered-grid",
+        "classes": [
+          "f3-works-staggered-grid"
+        ],
+        "textSnippet": "01 Memphis Grizzlies Memphis Grizzlies ↗...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "a.f3-work-card.f3-scroll-reveal",
+        "classes": [
+          "f3-work-card",
+          "f3-scroll-reveal"
+        ],
+        "textSnippet": "01 Memphis Grizzlies Memphis Grizzlies ↗...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 1153,
+            "selector": ".f3-work-card-title",
+            "props": {
+              "font-family": "var(--font-sans)",
+              "font-size": "var(--work-card-title-size, 20px)",
+              "font-weight": "400",
+              "letter-spacing": "-1.2px",
+              "line-height": "1.18",
+              "text-transform": "none"
+            }
+          },
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 1236,
+            "selector": ".f3-work-card-year",
+            "props": {
+              "font-family": "var(--font-sans)",
+              "font-size": "var(--work-card-title-size, 20px)",
+              "font-weight": "400",
+              "letter-spacing": "-1.2px",
+              "line-height": "1.18"
+            }
+          },
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 1360,
+            "selector": ".f3-work-card-year",
+            "props": {
+              "font-size": "clamp(20px, 5.5vw, 25px)"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-work-card-info",
+        "classes": [
+          "f3-work-card-info"
+        ],
+        "textSnippet": "Memphis Grizzlies Memphis Grizzlies ↗ BR...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-work-card-title-row",
+        "classes": [
+          "f3-work-card-title-row"
+        ],
+        "textSnippet": "Memphis Grizzlies Memphis Grizzlies ↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-work-card-tags",
+        "classes": [
+          "f3-work-card-tags"
+        ],
+        "textSnippet": "BRANDING MOTION",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div#f3-works-list.f3-works-list-view",
+        "classes": [
+          "f3-works-list-view"
+        ],
+        "textSnippet": "01 Memphis Grizzlies VIEW PROJECT ↗ BRAN...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "a.f3-list-item-row",
+        "classes": [
+          "f3-list-item-row"
+        ],
+        "textSnippet": "01 Memphis Grizzlies VIEW PROJECT ↗ BRAN...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-list-col-left",
+        "classes": [
+          "f3-list-col-left"
+        ],
+        "textSnippet": "01",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-list-thumb-slot",
+        "classes": [
+          "f3-list-thumb-slot"
+        ],
+        "textSnippet": "01",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-list-col-right",
+        "classes": [
+          "f3-list-col-right"
+        ],
+        "textSnippet": "Memphis Grizzlies VIEW PROJECT ↗ BRANDIN...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-list-title-row",
+        "classes": [
+          "f3-list-title-row"
+        ],
+        "textSnippet": "Memphis Grizzlies VIEW PROJECT ↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-list-action-col",
+        "classes": [
+          "f3-list-action-col"
+        ],
+        "textSnippet": "VIEW PROJECT ↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "span.f3-list-tag-dot",
+        "classes": [
+          "f3-list-tag-dot"
+        ],
+        "textSnippet": "•",
+        "styles": {
+          "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+          "fontSize": "8px",
+          "fontWeight": "500",
+          "lineHeight": "13px",
+          "letterSpacing": "0.5px",
+          "textTransform": "uppercase"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 755,
+            "selector": ".f3-list-tag-dot",
+            "props": {
+              "font-size": "8px"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-mono-a",
+        "name": "PP Supply Mono Type A",
+        "font": "mono",
+        "size": 11,
+        "line": 13,
+        "spacing": 0.5,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 8px (preset has 11px)",
+        "Font weight is 500 (preset has 400)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "section#f3-bio-services.f3-section-bio-services.f3-showcase-section",
+        "classes": [
+          "f3-section-bio-services",
+          "f3-showcase-section"
+        ],
+        "textSnippet": "Everything your product needs to be take...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-container",
+        "classes": [
+          "f3-container"
+        ],
+        "textSnippet": "Everything your product needs to be take...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-showcase-header",
+        "classes": [
+          "f3-showcase-header"
+        ],
+        "textSnippet": "Everything your product needs to be take...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-showcase-wrap",
+        "classes": [
+          "f3-showcase-wrap"
+        ],
+        "textSnippet": "ART DIRECTION Visual language crafted to...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "section#f3-contact.f3-section-contact",
+        "classes": [
+          "f3-section-contact"
+        ],
+        "textSnippet": "Let's build together. Start a project ↗ ...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-contact-hero-stage.f3-scroll-reveal.is-revealed",
+        "classes": [
+          "f3-contact-hero-stage",
+          "f3-scroll-reveal",
+          "is-revealed"
+        ],
+        "textSnippet": "Let's build together. Start a project ↗ ...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-contact-hook-wrap",
+        "classes": [
+          "f3-contact-hook-wrap"
+        ],
+        "textSnippet": "Let's build together. Start a project ↗ ...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div.f3-contact-cta-action",
+        "classes": [
+          "f3-contact-cta-action"
+        ],
+        "textSnippet": "Start a project ↗ hainampham08@outlook.c...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "span.f3-btn-label",
+        "classes": [
+          "f3-btn-label"
+        ],
+        "textSnippet": "Send message ↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13.5px",
+          "fontWeight": "400",
+          "lineHeight": "13.5px",
+          "letterSpacing": "-0.835px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 2851,
+            "selector": ".f3-contact-submit-btn .f3-btn-label",
+            "props": {
+              "font-family": "inherit",
+              "font-size": "inherit",
+              "font-weight": "inherit",
+              "letter-spacing": "inherit",
+              "text-transform": "inherit",
+              "line-height": "inherit"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13.5px (preset has 30px)",
+        "Line height is 13.5px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "div#f3-footer-curtain.f3-footer-reveal-wrap",
+        "classes": [
+          "f3-footer-reveal-wrap"
+        ],
+        "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "footer#f3-footer.f3-editorial-footer",
+        "classes": [
+          "f3-editorial-footer"
+        ],
+        "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Homepage",
+        "selector": "li.f3-footer-social-item",
+        "classes": [
+          "f3-footer-social-item"
+        ],
+        "textSnippet": "Behance",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "header#hero-top-nav.hero-top-nav.nav-theme-dark",
+        "classes": [
+          "hero-top-nav",
+          "nav-theme-dark"
+        ],
+        "textSnippet": "LOOKING SHARP TODAY",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "lineHeight": "16px",
+          "letterSpacing": "-0.8px",
+          "textTransform": "uppercase"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 3,
+      "diffDetails": [
+        "Font size is 14px (preset has 30px)",
+        "Line height is 16px (preset has 35px)",
+        "Font weight is 500 (preset has 400)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "span.nav-ongoing-text",
+        "classes": [
+          "nav-ongoing-text"
+        ],
+        "textSnippet": "Ongoing projects",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "14px",
+          "letterSpacing": "-0.84px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 931,
+            "selector": ".nav-ongoing-text",
+            "props": {
+              "line-height": "1"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 14px (preset has 30px)",
+        "Line height is 14px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "span.social-icon-txt",
+        "classes": [
+          "social-icon-txt"
+        ],
+        "textSnippet": "Bē",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "700",
+          "lineHeight": "13px",
+          "letterSpacing": "-0.96px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 1033,
+            "selector": ".nav-social-icon .social-icon-txt",
+            "props": {
+              "font-family": "var(--font-display, \"Neue Haas Grotesk Display Pro\", \"Inter\", sans-serif)",
+              "font-weight": "700",
+              "font-size": "13px",
+              "letter-spacing": "calc(-0.02em - 0.7px)",
+              "line-height": "1"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 3,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 13px (preset has 35px)",
+        "Font weight is 700 (preset has 400)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "a#nav-floating-cta.nav-floating-cta",
+        "classes": [
+          "nav-floating-cta"
+        ],
+        "textSnippet": "Start a project",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 1077,
+            "selector": ".nav-floating-cta",
+            "props": {
+              "text-transform": "none !important"
+            }
+          },
+          {
+            "file": "css/hero-3d.css",
+            "line": 1164,
+            "selector": ".nav-floating-cta .floating-cta-text",
+            "props": {
+              "font-family": "var(--type-aero-f-font, var(--font-primary, 'AT Aero', sans-serif))",
+              "font-size": "var(--type-aero-f-size, 16px)",
+              "font-weight": "var(--type-aero-f-weight, 400)",
+              "letter-spacing": "var(--type-aero-f-spacing, -0.3px)",
+              "text-transform": "none !important"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "div.about-main-curtain",
+        "classes": [
+          "about-main-curtain"
+        ],
+        "textSnippet": "About Nam Pham is an independent graphic...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "main#main-content.about-main-wrap",
+        "classes": [
+          "about-main-wrap"
+        ],
+        "textSnippet": "About Nam Pham is an independent graphic...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "div.about-split-row.about-bio-split",
+        "classes": [
+          "about-split-row",
+          "about-bio-split"
+        ],
+        "textSnippet": "About Nam Pham is an independent graphic...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "div.about-col-left",
+        "classes": [
+          "about-col-left"
+        ],
+        "textSnippet": "About",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "div.about-label-lockup",
+        "classes": [
+          "about-label-lockup"
+        ],
+        "textSnippet": "About",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "div.about-col-right",
+        "classes": [
+          "about-col-right"
+        ],
+        "textSnippet": "Nam Pham is an independent graphic desig...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "span.f3-btn-label",
+        "classes": [
+          "f3-btn-label"
+        ],
+        "textSnippet": "Send message ↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13.5px",
+          "fontWeight": "400",
+          "lineHeight": "13.5px",
+          "letterSpacing": "-0.835px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 2851,
+            "selector": ".f3-contact-submit-btn .f3-btn-label",
+            "props": {
+              "font-family": "inherit",
+              "font-size": "inherit",
+              "font-weight": "inherit",
+              "letter-spacing": "inherit",
+              "text-transform": "inherit",
+              "line-height": "inherit"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13.5px (preset has 30px)",
+        "Line height is 13.5px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "div#f3-footer-curtain.f3-footer-reveal-wrap",
+        "classes": [
+          "f3-footer-reveal-wrap"
+        ],
+        "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "footer#f3-footer.f3-editorial-footer",
+        "classes": [
+          "f3-editorial-footer"
+        ],
+        "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "About",
+        "selector": "li.f3-footer-social-item",
+        "classes": [
+          "f3-footer-social-item"
+        ],
+        "textSnippet": "Behance",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "header#hero-top-nav.hero-top-nav.nav-theme-dark",
+        "classes": [
+          "hero-top-nav",
+          "nav-theme-dark"
+        ],
+        "textSnippet": "LOOKING SHARP TODAY",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "lineHeight": "16px",
+          "letterSpacing": "-0.8px",
+          "textTransform": "uppercase"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 3,
+      "diffDetails": [
+        "Font size is 14px (preset has 30px)",
+        "Line height is 16px (preset has 35px)",
+        "Font weight is 500 (preset has 400)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "span.nav-ongoing-text",
+        "classes": [
+          "nav-ongoing-text"
+        ],
+        "textSnippet": "Ongoing projects",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "14px",
+          "letterSpacing": "-0.84px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 931,
+            "selector": ".nav-ongoing-text",
+            "props": {
+              "line-height": "1"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 14px (preset has 30px)",
+        "Line height is 14px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "span.social-icon-txt",
+        "classes": [
+          "social-icon-txt"
+        ],
+        "textSnippet": "Bē",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "700",
+          "lineHeight": "13px",
+          "letterSpacing": "-0.96px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 1033,
+            "selector": ".nav-social-icon .social-icon-txt",
+            "props": {
+              "font-family": "var(--font-display, \"Neue Haas Grotesk Display Pro\", \"Inter\", sans-serif)",
+              "font-weight": "700",
+              "font-size": "13px",
+              "letter-spacing": "calc(-0.02em - 0.7px)",
+              "line-height": "1"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 3,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 13px (preset has 35px)",
+        "Font weight is 700 (preset has 400)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "a#nav-floating-cta.nav-floating-cta",
+        "classes": [
+          "nav-floating-cta"
+        ],
+        "textSnippet": "Start a project",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 1077,
+            "selector": ".nav-floating-cta",
+            "props": {
+              "text-transform": "none !important"
+            }
+          },
+          {
+            "file": "css/hero-3d.css",
+            "line": 1164,
+            "selector": ".nav-floating-cta .floating-cta-text",
+            "props": {
+              "font-family": "var(--type-aero-f-font, var(--font-primary, 'AT Aero', sans-serif))",
+              "font-size": "var(--type-aero-f-size, 16px)",
+              "font-weight": "var(--type-aero-f-weight, 400)",
+              "letter-spacing": "var(--type-aero-f-spacing, -0.3px)",
+              "text-transform": "none !important"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "main#main-content.project-main-wrap",
+        "classes": [
+          "project-main-wrap"
+        ],
+        "textSnippet": "Memphis Grizzlies TYPE Art Direction DAT...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "aside#project-info-col.project-info-col",
+        "classes": [
+          "project-info-col"
+        ],
+        "textSnippet": "Memphis Grizzlies TYPE Art Direction DAT...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "div.project-meta-cell",
+        "classes": [
+          "project-meta-cell"
+        ],
+        "textSnippet": "TYPE Art Direction",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "div.project-tab-item.is-open",
+        "classes": [
+          "project-tab-item",
+          "is-open"
+        ],
+        "textSnippet": "Deliverables Brand Workshop, Brand Strat...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "div#project-tab-deliverables.project-tab-body",
+        "classes": [
+          "project-tab-body"
+        ],
+        "textSnippet": "Brand Workshop, Brand Strategy, Position...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "div.project-tab-content",
+        "classes": [
+          "project-tab-content"
+        ],
+        "textSnippet": "Brand Workshop, Brand Strategy, Position...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "div.project-tab-item.",
+        "classes": [
+          "project-tab-item"
+        ],
+        "textSnippet": "Context The Memphis Grizzlies needed a c...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "div#project-tab-context.project-tab-body",
+        "classes": [
+          "project-tab-body"
+        ],
+        "textSnippet": "The Memphis Grizzlies needed a comprehen...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "div#project-tab-challengeSolution.project-tab-body",
+        "classes": [
+          "project-tab-body"
+        ],
+        "textSnippet": "Rapid turnaround times during live games...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "div#project-tab-credits.project-tab-body",
+        "classes": [
+          "project-tab-body"
+        ],
+        "textSnippet": "Art Direction: Nam Pham · Design & Motio...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "section#project-next-wrap.project-next-wrap",
+        "classes": [
+          "project-next-wrap"
+        ],
+        "textSnippet": "NEXT PROJECT: U.S. Ski & Snowboard | OWG...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "a#project-next-link.project-next-link",
+        "classes": [
+          "project-next-link"
+        ],
+        "textSnippet": "NEXT PROJECT: U.S. Ski & Snowboard | OWG...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "span.project-next-arrow",
+        "classes": [
+          "project-next-arrow"
+        ],
+        "textSnippet": "↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "16.25px",
+          "fontWeight": "400",
+          "lineHeight": "16.25px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/pages.css",
+            "line": 1435,
+            "selector": ".project-next-arrow",
+            "props": {
+              "font-family": "var(--font-primary, 'AT Aero', sans-serif)",
+              "font-size": "1.25em",
+              "line-height": "1"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 16.25px (preset has 30px)",
+        "Line height is 16.25px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "div#f3-footer-curtain.f3-footer-reveal-wrap",
+        "classes": [
+          "f3-footer-reveal-wrap"
+        ],
+        "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "footer#f3-footer.f3-editorial-footer",
+        "classes": [
+          "f3-editorial-footer"
+        ],
+        "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "page": "Project",
+        "selector": "li.f3-footer-social-item",
+        "classes": [
+          "f3-footer-social-item"
+        ],
+        "textSnippet": "Behance",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font size is 13px (preset has 30px)",
+        "Line height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    }
+  ]
+}

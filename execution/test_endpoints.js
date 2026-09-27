@@ -9,19 +9,20 @@ const endpoints = [
   '/',
   '/works',
   '/works.html',
-  '/about',
-  '/contact',
-  '/project?id=wide-angle',
-  '/policies',
+  '/project.html',
+  '/project.html?id=memphis-grizzlies',
+  '/project.html?id=us-ski-snowboard',
+  '/project.html?id=nk-hoops',
+  '/project.html?id=audi-revolut-f1',
   '/css/main.css',
   '/css/typography.css',
   '/css/components.css',
   '/css/glassmorphism.css',
   '/css/hero-3d.css',
   '/css/futurethree-scroll.css',
+  '/css/project-modal.css',
   '/css/pages.css',
   '/css/responsive.css',
-  '/css/visual-designer.css',
   '/js/motion-stack.js',
   '/js/futurethree-scroll.js',
   '/js/vendor/motion.min.js',
@@ -29,15 +30,22 @@ const endpoints = [
   '/js/hero-ascii-tv.js',
   '/js/hero-scroll-transition.js',
   '/js/hero-statement-scramble.js',
-  '/js/visual-designer.js',
   '/js/works.js',
+  '/js/service-showcase.js',
   '/js/contact.js',
   '/js/project.js',
   '/js/projects-data.js',
+  '/js/project-modal.js',
   '/js/utils.js',
   '/js/app.js',
+  '/data/projects.json',
   '/assets/videos/Static.mp4',
-  '/assets/fonts/NeueHaasDisplayRoman.ttf'
+  '/assets/fonts/NeueHaasDisplayRoman.ttf',
+  '/assets/fonts/AtAero-Regular.otf',
+  '/assets/fonts/AtAero-Retina.otf',
+  '/assets/fonts/PPSupplyMono-Regular.otf',
+  '/assets/logo/logo.svg',
+  '/assets/logo/favicon.svg'
 ];
 
 async function checkEndpoint(urlPath) {
@@ -73,7 +81,7 @@ async function run() {
     }
   }
   console.log('\nAll endpoints operational:', allOk);
-  process.exit(allOk ? 0 : 1);
+  if (!allOk) process.exit(1);
 }
 
 run();

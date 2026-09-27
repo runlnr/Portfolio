@@ -104,6 +104,10 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/ (Root: ${ROOT_DIR})`);
-});
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/ (Root: ${ROOT_DIR})`);
+  });
+}
+
+module.exports = server;

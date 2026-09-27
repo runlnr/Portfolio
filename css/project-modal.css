@@ -9,8 +9,9 @@
 
 :root {
   --pm-z-index: 99999;
-  --pm-backdrop-bg: rgba(6, 6, 8, 0.72);
-  --pm-backdrop-blur: 30px;
+  /* Project Modal Backdrop Controls - Adjust overlay darkness & blur here */
+  --pm-backdrop-bg: rgba(4, 4, 6, 0.80);
+  --pm-backdrop-blur: 26px;
   --pm-card-bg: rgba(14, 14, 18, 0.65);
   --pm-card-border: 1px solid rgba(255, 255, 255, 0.14);
   --pm-card-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
@@ -39,8 +40,8 @@ body.pm-modal-active {
   align-items: center;
   justify-content: center;
   background-color: var(--pm-backdrop-bg);
-  backdrop-filter: blur(var(--pm-backdrop-blur)) saturate(150%) brightness(0.65);
-  -webkit-backdrop-filter: blur(var(--pm-backdrop-blur)) saturate(150%) brightness(0.65);
+  backdrop-filter: blur(var(--pm-backdrop-blur)) saturate(150%);
+  -webkit-backdrop-filter: blur(var(--pm-backdrop-blur)) saturate(150%);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

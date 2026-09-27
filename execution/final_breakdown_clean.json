@@ -1,0 +1,1473 @@
+{
+  "similarCount": 23,
+  "differentCount": 10,
+  "similarList": [
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.nav-row-text",
+        "classes": [
+          "nav-row-text"
+        ],
+        "key": "span.nav-row-text",
+        "page": "Homepage",
+        "textSnippet": "Home",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "16.5px",
+          "fontWeight": "400",
+          "lineHeight": "22.275px",
+          "letterSpacing": "-1.03px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 778,
+            "selector": ".nav-dropdown-row-link .nav-row-roll-inner .nav-row-text",
+            "props": {
+              "line-height": "1.35em",
+              "text-transform": "none !important"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-f",
+        "name": "AT Aero Type F (Body / Form Input)",
+        "font": "aero",
+        "size": 16,
+        "line": 22,
+        "spacing": -0.3,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Letter-spacing is -1.03px (preset has -0.3px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.",
+        "classes": [],
+        "key": "spanspan",
+        "page": "Homepage",
+        "textSnippet": "01",
+        "styles": {
+          "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+          "fontSize": "11px",
+          "fontWeight": "300",
+          "lineHeight": "11px",
+          "letterSpacing": "0.5px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-mono-a",
+        "name": "PP Supply Mono Type A (Tags / Clocks / Status)",
+        "font": "mono",
+        "size": 11,
+        "line": 13,
+        "spacing": 0.5,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Weight is 300 (preset has 400)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-intro-status-text",
+        "classes": [
+          "f3-intro-status-text"
+        ],
+        "key": "span.f3-intro-status-text",
+        "page": "Homepage",
+        "textSnippet": "HO CHI MINH CITY 18:08:02 (UTC+7)",
+        "styles": {
+          "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+          "fontSize": "11px",
+          "fontWeight": "400",
+          "lineHeight": "11px",
+          "letterSpacing": "0.5px",
+          "textTransform": "uppercase"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 349,
+            "selector": ".f3-intro-status-text",
+            "props": {
+              "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+              "font-size": "var(--type-mono-a-size, 11px)",
+              "font-weight": "var(--type-mono-a-weight, 400)",
+              "line-height": "1",
+              "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+              "text-transform": "uppercase"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-mono-a",
+        "name": "PP Supply Mono Type A (Tags / Clocks / Status)",
+        "font": "mono",
+        "size": 11,
+        "line": 13,
+        "spacing": 0.5,
+        "weight": 400
+      },
+      "diffCount": 0,
+      "diffDetails": [
+        "Directly matches preset properties (inherited)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-intro-city",
+        "classes": [
+          "f3-intro-city"
+        ],
+        "key": "span.f3-intro-city",
+        "page": "Homepage",
+        "textSnippet": "HO CHI MINH CITY",
+        "styles": {
+          "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+          "fontSize": "11px",
+          "fontWeight": "400",
+          "lineHeight": "11px",
+          "letterSpacing": "0.5px",
+          "textTransform": "uppercase"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-mono-a",
+        "name": "PP Supply Mono Type A (Tags / Clocks / Status)",
+        "font": "mono",
+        "size": 11,
+        "line": 13,
+        "spacing": 0.5,
+        "weight": 400
+      },
+      "diffCount": 0,
+      "diffDetails": [
+        "Directly matches preset properties (inherited)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-mono-shuffle-letter",
+        "classes": [
+          "f3-mono-shuffle-letter"
+        ],
+        "key": "span.f3-mono-shuffle-letter",
+        "page": "Homepage",
+        "textSnippet": "H",
+        "styles": {
+          "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+          "fontSize": "11px",
+          "fontWeight": "400",
+          "lineHeight": "11px",
+          "letterSpacing": "0.5px",
+          "textTransform": "uppercase"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 363,
+            "selector": ".f3-mono-shuffle-letter",
+            "props": {
+              "font-family": "inherit",
+              "font-size": "inherit",
+              "font-weight": "inherit",
+              "line-height": "inherit",
+              "letter-spacing": "inherit"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-mono-a",
+        "name": "PP Supply Mono Type A (Tags / Clocks / Status)",
+        "font": "mono",
+        "size": 11,
+        "line": 13,
+        "spacing": 0.5,
+        "weight": 400
+      },
+      "diffCount": 0,
+      "diffDetails": [
+        "Directly matches preset properties (inherited)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-intro-live-time",
+        "classes": [
+          "f3-intro-live-time"
+        ],
+        "key": "span.f3-intro-live-time",
+        "page": "Homepage",
+        "textSnippet": "18:08:02",
+        "styles": {
+          "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+          "fontSize": "11px",
+          "fontWeight": "400",
+          "lineHeight": "11px",
+          "letterSpacing": "0.5px",
+          "textTransform": "uppercase"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-mono-a",
+        "name": "PP Supply Mono Type A (Tags / Clocks / Status)",
+        "font": "mono",
+        "size": 11,
+        "line": 13,
+        "spacing": 0.5,
+        "weight": 400
+      },
+      "diffCount": 0,
+      "diffDetails": [
+        "Directly matches preset properties (inherited)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.btn-arrow",
+        "classes": [
+          "btn-arrow"
+        ],
+        "key": "span.btn-arrow",
+        "page": "Homepage",
+        "textSnippet": "↗",
+        "styles": {
+          "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+          "fontSize": "11px",
+          "fontWeight": "300",
+          "lineHeight": "11px",
+          "letterSpacing": "0.5px",
+          "textTransform": "uppercase"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 293,
+            "selector": ".f3-intro-right-col .f3-pill-btn .btn-arrow",
+            "props": {
+              "font-size": "var(--type-mono-a-size, 11px)",
+              "line-height": "1"
+            }
+          },
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 810,
+            "selector": ".f3-list-cta-btn .btn-arrow",
+            "props": {
+              "font-size": "var(--type-mono-a-size, 11px)",
+              "line-height": "1"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-mono-a",
+        "name": "PP Supply Mono Type A (Tags / Clocks / Status)",
+        "font": "mono",
+        "size": 11,
+        "line": 13,
+        "spacing": 0.5,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Weight is 300 (preset has 400)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-featured-tag",
+        "classes": [
+          "f3-featured-tag"
+        ],
+        "key": "span.f3-featured-tag",
+        "page": "Homepage",
+        "textSnippet": "Recent works",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "25px",
+          "fontWeight": "400",
+          "lineHeight": "27.5px",
+          "letterSpacing": "-1.2px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 478,
+            "selector": ".f3-featured-tag",
+            "props": {
+              "font-family": "var(--featured-tag-font-family, var(--font-primary, 'AT Aero', sans-serif))",
+              "font-size": "var(--featured-tag-font-size, 25px)",
+              "font-weight": "var(--featured-tag-font-weight, 400)",
+              "letter-spacing": "var(--featured-tag-letter-spacing, -1.2px)",
+              "line-height": "var(--featured-tag-line-height, 27.5px)"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-c",
+        "name": "AT Aero Type C (Card Title / Body)",
+        "font": "aero",
+        "size": 20,
+        "line": 27.5,
+        "spacing": -1.2,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font-size is 25px (preset has 20px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-title-arrow",
+        "classes": [
+          "f3-title-arrow"
+        ],
+        "key": "span.f3-title-arrow",
+        "page": "Homepage",
+        "textSnippet": "↗",
+        "styles": {
+          "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "11.89px",
+          "fontWeight": "350",
+          "lineHeight": "20px",
+          "letterSpacing": "-0.3px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 1225,
+            "selector": ".f3-title-arrow",
+            "props": {
+              "font-size": "0.82em"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E (Metadata / Action Links)",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Font-size is 11.89px (preset has 14.5px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-title-flip",
+        "classes": [
+          "f3-title-flip"
+        ],
+        "key": "span.f3-title-flip",
+        "page": "Homepage",
+        "textSnippet": "Memphis Grizzlies Memphis Grizzlies ↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "20px",
+          "fontWeight": "400",
+          "lineHeight": "23.6px",
+          "letterSpacing": "-1.2px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 1169,
+            "selector": ".f3-title-flip",
+            "props": {
+              "line-height": "1.18em"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-c",
+        "name": "AT Aero Type C (Card Title / Body)",
+        "font": "aero",
+        "size": 20,
+        "line": 27.5,
+        "spacing": -1.2,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Line-height is 23.6px (preset has 27.5px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.text-flip-inner",
+        "classes": [
+          "text-flip-inner"
+        ],
+        "key": "span.text-flip-inner",
+        "page": "Homepage",
+        "textSnippet": "Memphis Grizzlies Memphis Grizzlies ↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "20px",
+          "fontWeight": "400",
+          "lineHeight": "23.6px",
+          "letterSpacing": "-1.2px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-c",
+        "name": "AT Aero Type C (Card Title / Body)",
+        "font": "aero",
+        "size": 20,
+        "line": 27.5,
+        "spacing": -1.2,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Line-height is 23.6px (preset has 27.5px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-title-face.f3-title-front",
+        "classes": [
+          "f3-title-face",
+          "f3-title-front"
+        ],
+        "key": "span.f3-title-face.f3-title-front",
+        "page": "Homepage",
+        "textSnippet": "Memphis Grizzlies",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "20px",
+          "fontWeight": "400",
+          "lineHeight": "23.6px",
+          "letterSpacing": "-1.2px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 1208,
+            "selector": ".f3-title-face",
+            "props": {
+              "line-height": "1.18em"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-c",
+        "name": "AT Aero Type C (Card Title / Body)",
+        "font": "aero",
+        "size": 20,
+        "line": 27.5,
+        "spacing": -1.2,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Line-height is 23.6px (preset has 27.5px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-title-face.f3-title-back",
+        "classes": [
+          "f3-title-face",
+          "f3-title-back"
+        ],
+        "key": "span.f3-title-face.f3-title-back",
+        "page": "Homepage",
+        "textSnippet": "Memphis Grizzlies ↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "20px",
+          "fontWeight": "400",
+          "lineHeight": "23.6px",
+          "letterSpacing": "-1.2px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 1208,
+            "selector": ".f3-title-face",
+            "props": {
+              "line-height": "1.18em"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-c",
+        "name": "AT Aero Type C (Card Title / Body)",
+        "font": "aero",
+        "size": 20,
+        "line": 27.5,
+        "spacing": -1.2,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Line-height is 23.6px (preset has 27.5px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-pill-label",
+        "classes": [
+          "f3-pill-label"
+        ],
+        "key": "span.f3-pill-label",
+        "page": "Homepage",
+        "textSnippet": "Start a project",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "16px",
+          "letterSpacing": "-0.3px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 2458,
+            "selector": ".f3-pill-label",
+            "props": {
+              "font-family": "inherit",
+              "font-size": "inherit",
+              "font-weight": "inherit",
+              "letter-spacing": "inherit",
+              "text-transform": "none"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-f",
+        "name": "AT Aero Type F (Body / Form Input)",
+        "font": "aero",
+        "size": 16,
+        "line": 22,
+        "spacing": -0.3,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Line-height is 16px (preset has 22px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-pill-arrow",
+        "classes": [
+          "f3-pill-arrow"
+        ],
+        "key": "span.f3-pill-arrow",
+        "page": "Homepage",
+        "textSnippet": "↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "16px",
+          "letterSpacing": "-0.3px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 2466,
+            "selector": ".f3-pill-arrow",
+            "props": {
+              "font-size": "16px",
+              "line-height": "1"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-f",
+        "name": "AT Aero Type F (Body / Form Input)",
+        "font": "aero",
+        "size": 16,
+        "line": 22,
+        "spacing": -0.3,
+        "weight": 400
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Line-height is 16px (preset has 22px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-corner-label",
+        "classes": [
+          "f3-corner-label"
+        ],
+        "key": "span.f3-corner-label",
+        "page": "Homepage",
+        "textSnippet": "MY TIME",
+        "styles": {
+          "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+          "fontSize": "11px",
+          "fontWeight": "400",
+          "lineHeight": "13px",
+          "letterSpacing": "0.5px",
+          "textTransform": "uppercase"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-mono-a",
+        "name": "PP Supply Mono Type A (Tags / Clocks / Status)",
+        "font": "mono",
+        "size": 11,
+        "line": 13,
+        "spacing": 0.5,
+        "weight": 400
+      },
+      "diffCount": 0,
+      "diffDetails": [
+        "Directly matches preset properties (inherited)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-clock-tz",
+        "classes": [
+          "f3-clock-tz"
+        ],
+        "key": "span.f3-clock-tz",
+        "page": "Homepage",
+        "textSnippet": "(UTC+7)",
+        "styles": {
+          "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+          "fontSize": "11px",
+          "fontWeight": "400",
+          "lineHeight": "13px",
+          "letterSpacing": "0.5px",
+          "textTransform": "uppercase"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-mono-a",
+        "name": "PP Supply Mono Type A (Tags / Clocks / Status)",
+        "font": "mono",
+        "size": 11,
+        "line": 13,
+        "spacing": 0.5,
+        "weight": 400
+      },
+      "diffCount": 0,
+      "diffDetails": [
+        "Directly matches preset properties (inherited)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-label-num",
+        "classes": [
+          "f3-label-num"
+        ],
+        "key": "span.f3-label-num",
+        "page": "Homepage",
+        "textSnippet": "[01]",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "22px",
+          "letterSpacing": "-0.3px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 2685,
+            "selector": ".f3-form-label .f3-label-num",
+            "props": {
+              "font-feature-settings": "\"tnum\""
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-f",
+        "name": "AT Aero Type F (Body / Form Input)",
+        "font": "aero",
+        "size": 16,
+        "line": 22,
+        "spacing": -0.3,
+        "weight": 400
+      },
+      "diffCount": 0,
+      "diffDetails": [
+        "Directly matches preset properties (inherited)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-label-text",
+        "classes": [
+          "f3-label-text"
+        ],
+        "key": "span.f3-label-text",
+        "page": "Homepage",
+        "textSnippet": "Name",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "22px",
+          "letterSpacing": "-0.3px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-f",
+        "name": "AT Aero Type F (Body / Form Input)",
+        "font": "aero",
+        "size": 16,
+        "line": 22,
+        "spacing": -0.3,
+        "weight": 400
+      },
+      "diffCount": 0,
+      "diffDetails": [
+        "Directly matches preset properties (inherited)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-footer-badge",
+        "classes": [
+          "f3-footer-badge"
+        ],
+        "key": "span.f3-footer-badge",
+        "page": "Homepage",
+        "textSnippet": "(coming soon)",
+        "styles": {
+          "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "400",
+          "lineHeight": "35px",
+          "letterSpacing": "-0.3px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 3107,
+            "selector": ".f3-footer-badge",
+            "props": {
+              "font-family": "var(--font-retina, 'AT Aero Retina', sans-serif)",
+              "font-size": "clamp(11px, 1.1vw, 15px)",
+              "font-weight": "400",
+              "letter-spacing": "-0.3px"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E (Metadata / Action Links)",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Line-height is 35px (preset has 20px)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.pm-meta-label",
+        "classes": [
+          "pm-meta-label"
+        ],
+        "key": "span.pm-meta-label",
+        "page": "Homepage",
+        "textSnippet": "YEAR",
+        "styles": {
+          "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+          "fontSize": "11px",
+          "fontWeight": "400",
+          "lineHeight": "14.85px",
+          "letterSpacing": "0.5px",
+          "textTransform": "uppercase"
+        },
+        "sources": [
+          {
+            "file": "css/project-modal.css",
+            "line": 183,
+            "selector": ".pm-meta-label",
+            "props": {
+              "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+              "font-size": "var(--type-mono-a-size, 11px)",
+              "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+              "text-transform": "uppercase"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-mono-a",
+        "name": "PP Supply Mono Type A (Tags / Clocks / Status)",
+        "font": "mono",
+        "size": 11,
+        "line": 13,
+        "spacing": 0.5,
+        "weight": 400
+      },
+      "diffCount": 0,
+      "diffDetails": [
+        "Directly matches preset properties (inherited)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "p",
+        "selector": "p.",
+        "classes": [],
+        "key": "pp",
+        "page": "About",
+        "textSnippet": "Nam Pham is an independent graphic desig...",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "30px",
+          "fontWeight": "400",
+          "lineHeight": "35px",
+          "letterSpacing": "-1px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B (Subheading / List Title)",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 0,
+      "diffDetails": [
+        "Directly matches preset properties (inherited)"
+      ],
+      "isSimilar": true
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.action-arrow",
+        "classes": [
+          "action-arrow"
+        ],
+        "key": "span.action-arrow",
+        "page": "Project",
+        "textSnippet": "↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "500",
+          "lineHeight": "20.25px",
+          "letterSpacing": "-0.2px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-e",
+        "name": "AT Aero Type E (Metadata / Action Links)",
+        "font": "aero",
+        "size": 14.5,
+        "line": 20,
+        "spacing": -0.3,
+        "weight": 350
+      },
+      "diffCount": 1,
+      "diffDetails": [
+        "Weight is 500 (preset has 350)"
+      ],
+      "isSimilar": true
+    }
+  ],
+  "differentList": [
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.nav-ongoing-text",
+        "classes": [
+          "nav-ongoing-text"
+        ],
+        "key": "span.nav-ongoing-text",
+        "page": "Homepage",
+        "textSnippet": "Ongoing projects",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "14px",
+          "letterSpacing": "-0.84px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 931,
+            "selector": ".nav-ongoing-text",
+            "props": {
+              "line-height": "1"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B (Subheading / List Title)",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font-size is 14px (preset has 30px)",
+        "Line-height is 14px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.social-icon-txt",
+        "classes": [
+          "social-icon-txt"
+        ],
+        "key": "span.social-icon-txt",
+        "page": "Homepage",
+        "textSnippet": "Bē",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "700",
+          "lineHeight": "13px",
+          "letterSpacing": "-0.96px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 1033,
+            "selector": ".nav-social-icon .social-icon-txt",
+            "props": {
+              "font-family": "var(--font-display, \"Neue Haas Grotesk Display Pro\", \"Inter\", sans-serif)",
+              "font-weight": "700",
+              "font-size": "13px",
+              "letter-spacing": "calc(-0.02em - 0.7px)",
+              "line-height": "1"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B (Subheading / List Title)",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 3,
+      "diffDetails": [
+        "Font-size is 13px (preset has 30px)",
+        "Line-height is 13px (preset has 35px)",
+        "Weight is 700 (preset has 400)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.ascii-corner-slash.ascii-corner-tl",
+        "classes": [
+          "ascii-corner-slash",
+          "ascii-corner-tl"
+        ],
+        "key": "span.ascii-corner-slash.ascii-corner-tl",
+        "page": "Homepage",
+        "textSnippet": "/",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif, sans-serif",
+          "fontSize": "20px",
+          "fontWeight": "900",
+          "lineHeight": "20px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 1500,
+            "selector": ".ascii-corner-slash",
+            "props": {
+              "font-family": "'AT Aero', var(--font-sans), sans-serif",
+              "font-size": "var(--corner-slashes-size, 20px)",
+              "font-weight": "var(--corner-slashes-weight, 900)",
+              "line-height": "1"
+            }
+          },
+          {
+            "file": "css/hero-3d.css",
+            "line": 1797,
+            "selector": ".ascii-corner-slash",
+            "props": {
+              "font-size": "22px"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-c",
+        "name": "AT Aero Type C (Card Title / Body)",
+        "font": "aero",
+        "size": 20,
+        "line": 27.5,
+        "spacing": -1.2,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Line-height is 20px (preset has 27.5px)",
+        "Weight is 900 (preset has 400)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.ascii-corner-slash.ascii-corner-tr",
+        "classes": [
+          "ascii-corner-slash",
+          "ascii-corner-tr"
+        ],
+        "key": "span.ascii-corner-slash.ascii-corner-tr",
+        "page": "Homepage",
+        "textSnippet": "\\",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif, sans-serif",
+          "fontSize": "20px",
+          "fontWeight": "900",
+          "lineHeight": "20px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 1500,
+            "selector": ".ascii-corner-slash",
+            "props": {
+              "font-family": "'AT Aero', var(--font-sans), sans-serif",
+              "font-size": "var(--corner-slashes-size, 20px)",
+              "font-weight": "var(--corner-slashes-weight, 900)",
+              "line-height": "1"
+            }
+          },
+          {
+            "file": "css/hero-3d.css",
+            "line": 1797,
+            "selector": ".ascii-corner-slash",
+            "props": {
+              "font-size": "22px"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-c",
+        "name": "AT Aero Type C (Card Title / Body)",
+        "font": "aero",
+        "size": 20,
+        "line": 27.5,
+        "spacing": -1.2,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Line-height is 20px (preset has 27.5px)",
+        "Weight is 900 (preset has 400)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.ascii-corner-slash.ascii-corner-bl",
+        "classes": [
+          "ascii-corner-slash",
+          "ascii-corner-bl"
+        ],
+        "key": "span.ascii-corner-slash.ascii-corner-bl",
+        "page": "Homepage",
+        "textSnippet": "\\",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif, sans-serif",
+          "fontSize": "20px",
+          "fontWeight": "900",
+          "lineHeight": "20px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 1500,
+            "selector": ".ascii-corner-slash",
+            "props": {
+              "font-family": "'AT Aero', var(--font-sans), sans-serif",
+              "font-size": "var(--corner-slashes-size, 20px)",
+              "font-weight": "var(--corner-slashes-weight, 900)",
+              "line-height": "1"
+            }
+          },
+          {
+            "file": "css/hero-3d.css",
+            "line": 1797,
+            "selector": ".ascii-corner-slash",
+            "props": {
+              "font-size": "22px"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-c",
+        "name": "AT Aero Type C (Card Title / Body)",
+        "font": "aero",
+        "size": 20,
+        "line": 27.5,
+        "spacing": -1.2,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Line-height is 20px (preset has 27.5px)",
+        "Weight is 900 (preset has 400)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.ascii-corner-slash.ascii-corner-br",
+        "classes": [
+          "ascii-corner-slash",
+          "ascii-corner-br"
+        ],
+        "key": "span.ascii-corner-slash.ascii-corner-br",
+        "page": "Homepage",
+        "textSnippet": "/",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif, sans-serif",
+          "fontSize": "20px",
+          "fontWeight": "900",
+          "lineHeight": "20px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/hero-3d.css",
+            "line": 1500,
+            "selector": ".ascii-corner-slash",
+            "props": {
+              "font-family": "'AT Aero', var(--font-sans), sans-serif",
+              "font-size": "var(--corner-slashes-size, 20px)",
+              "font-weight": "var(--corner-slashes-weight, 900)",
+              "line-height": "1"
+            }
+          },
+          {
+            "file": "css/hero-3d.css",
+            "line": 1797,
+            "selector": ".ascii-corner-slash",
+            "props": {
+              "font-size": "22px"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-c",
+        "name": "AT Aero Type C (Card Title / Body)",
+        "font": "aero",
+        "size": 20,
+        "line": 27.5,
+        "spacing": -1.2,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Line-height is 20px (preset has 27.5px)",
+        "Weight is 900 (preset has 400)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-list-tag-dot",
+        "classes": [
+          "f3-list-tag-dot"
+        ],
+        "key": "span.f3-list-tag-dot",
+        "page": "Homepage",
+        "textSnippet": "•",
+        "styles": {
+          "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+          "fontSize": "8px",
+          "fontWeight": "500",
+          "lineHeight": "13px",
+          "letterSpacing": "0.5px",
+          "textTransform": "uppercase"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 755,
+            "selector": ".f3-list-tag-dot",
+            "props": {
+              "font-size": "8px"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-mono-a",
+        "name": "PP Supply Mono Type A (Tags / Clocks / Status)",
+        "font": "mono",
+        "size": 11,
+        "line": 13,
+        "spacing": 0.5,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font-size is 8px (preset has 11px)",
+        "Weight is 500 (preset has 400)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.f3-btn-label",
+        "classes": [
+          "f3-btn-label"
+        ],
+        "key": "span.f3-btn-label",
+        "page": "Homepage",
+        "textSnippet": "Send message ↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13.5px",
+          "fontWeight": "400",
+          "lineHeight": "13.5px",
+          "letterSpacing": "-0.835px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/futurethree-scroll.css",
+            "line": 2851,
+            "selector": ".f3-contact-submit-btn .f3-btn-label",
+            "props": {
+              "font-family": "inherit",
+              "font-size": "inherit",
+              "font-weight": "inherit",
+              "letter-spacing": "inherit",
+              "text-transform": "inherit",
+              "line-height": "inherit"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B (Subheading / List Title)",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font-size is 13.5px (preset has 30px)",
+        "Line-height is 13.5px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "tag": "li",
+        "selector": "li.f3-footer-social-item",
+        "classes": [
+          "f3-footer-social-item"
+        ],
+        "key": "li.f3-footer-social-item",
+        "page": "Homepage",
+        "textSnippet": "Behance",
+        "styles": {
+          "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "17.55px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": []
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B (Subheading / List Title)",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font-size is 13px (preset has 30px)",
+        "Line-height is 17.55px (preset has 35px)"
+      ],
+      "isSimilar": false
+    },
+    {
+      "item": {
+        "tag": "span",
+        "selector": "span.project-next-arrow",
+        "classes": [
+          "project-next-arrow"
+        ],
+        "key": "span.project-next-arrow",
+        "page": "Project",
+        "textSnippet": "↗",
+        "styles": {
+          "fontFam": "\"AT Aero\", sans-serif",
+          "fontSize": "16.25px",
+          "fontWeight": "400",
+          "lineHeight": "16.25px",
+          "letterSpacing": "-0.895px",
+          "textTransform": "none"
+        },
+        "sources": [
+          {
+            "file": "css/pages.css",
+            "line": 1435,
+            "selector": ".project-next-arrow",
+            "props": {
+              "font-family": "var(--font-primary, 'AT Aero', sans-serif)",
+              "font-size": "1.25em",
+              "line-height": "1"
+            }
+          }
+        ]
+      },
+      "bestMatch": {
+        "id": "type-aero-b",
+        "name": "AT Aero Type B (Subheading / List Title)",
+        "font": "aero",
+        "size": 30,
+        "line": 35,
+        "spacing": -1,
+        "weight": 400
+      },
+      "diffCount": 2,
+      "diffDetails": [
+        "Font-size is 16.25px (preset has 30px)",
+        "Line-height is 16.25px (preset has 35px)"
+      ],
+      "isSimilar": false
+    }
+  ]
+}

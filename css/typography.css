@@ -68,7 +68,7 @@
 @font-face {
   font-family: "AT Aero";
   src: local("At Aero Retina"), local("AtAero-Retina"), url("../assets/fonts/AtAero-Retina.otf") format("opentype");
-  font-weight: 450;
+  font-weight: 350;
   font-style: normal;
   font-display: swap;
 }
@@ -76,7 +76,7 @@
 @font-face {
   font-family: "AT Aero";
   src: local("At Aero Retina Italic"), local("AtAero-RetinaItalic"), url("../assets/fonts/AtAero-RetinaItalic.otf") format("opentype");
-  font-weight: 450;
+  font-weight: 350;
   font-style: italic;
   font-display: swap;
 }
@@ -292,17 +292,13 @@
   font-display: swap;
 }
 
-/* PP Supply Mono — Local OTF/TTF/WOFF2 Webfonts & OS Local Lookups */
+/* PP Supply Mono — Local OTF Webfonts & OS Local Lookups */
 @font-face {
   font-family: "PP Supply Mono";
   src: local("PP Supply Mono"),
     local("PP Supply Mono Regular"),
     local("PPSupplyMono-Regular"),
-    url("../assets/fonts/PPSupplyMono-Regular.otf") format("opentype"),
-    url("../assets/fonts/PP%20Supply%20Mono/PPSupplyMono-Regular.otf") format("opentype"),
-    url("../assets/fonts/PPSupplyMono-Regular.woff2") format("woff2"),
-    url("../assets/fonts/PPSupplyMono-Regular.ttf") format("truetype"),
-    url("../assets/fonts/PPSupplyMono-Regular.woff") format("woff");
+    url("../assets/fonts/PPSupplyMono-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -313,9 +309,7 @@
   src: local("PP Supply Mono Italic"),
     local("PPSupplyMono-RegularItalic"),
     local("PPSupplyMono-Italic"),
-    url("../assets/fonts/PPSupplyMono-RegularItalic.woff2") format("woff2"),
-    url("../assets/fonts/PPSupplyMono-RegularItalic.otf") format("opentype"),
-    url("../assets/fonts/PPSupplyMono-RegularItalic.ttf") format("truetype");
+    url("../assets/fonts/PPSupplyMono-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -325,9 +319,7 @@
   font-family: "PP Supply Mono";
   src: local("PP Supply Mono Medium"),
     local("PPSupplyMono-Medium"),
-    url("../assets/fonts/PPSupplyMono-Medium.woff2") format("woff2"),
-    url("../assets/fonts/PPSupplyMono-Medium.otf") format("opentype"),
-    url("../assets/fonts/PPSupplyMono-Medium.ttf") format("truetype");
+    url("../assets/fonts/PPSupplyMono-Regular.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -337,9 +329,7 @@
   font-family: "PP Supply Mono";
   src: local("PP Supply Mono Bold"),
     local("PPSupplyMono-Bold"),
-    url("../assets/fonts/PPSupplyMono-Bold.woff2") format("woff2"),
-    url("../assets/fonts/PPSupplyMono-Bold.otf") format("opentype"),
-    url("../assets/fonts/PPSupplyMono-Bold.ttf") format("truetype");
+    url("../assets/fonts/PPSupplyMono-Regular.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -350,11 +340,7 @@
   src: local("PP Supply Mono"),
     local("PP Supply Mono Regular"),
     local("PPSupplyMono-Regular"),
-    url("../assets/fonts/PPSupplyMono-Regular.otf") format("opentype"),
-    url("../assets/fonts/PP%20Supply%20Mono/PPSupplyMono-Regular.otf") format("opentype"),
-    url("../assets/fonts/PPSupplyMono-Regular.woff2") format("woff2"),
-    url("../assets/fonts/PPSupplyMono-Regular.ttf") format("truetype"),
-    url("../assets/fonts/PPSupplyMono-Regular.woff") format("woff");
+    url("../assets/fonts/PPSupplyMono-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -364,7 +350,6 @@
   font-family: "PP Supply Mono";
   src: local("Supply-Light"),
     local("PP Supply Mono Light"),
-    url("../assets/fonts/PP%20Supply%20Mono/Supply-Light.otf") format("opentype"),
     url("../assets/fonts/Supply-Light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
@@ -375,7 +360,6 @@
   font-family: "Supply-Light";
   src: local("Supply-Light"),
     local("PP Supply Mono Light"),
-    url("../assets/fonts/PP%20Supply%20Mono/Supply-Light.otf") format("opentype"),
     url("../assets/fonts/Supply-Light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
@@ -449,7 +433,7 @@
      ========================================================================== */
   /* At Aero Type A */
   --type-aero-a-font: var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif);
-  --type-aero-a-weight: 450;
+  --type-aero-a-weight: 350;
   --type-aero-a-size: 43px;
   --type-aero-a-line: 49px;
   --type-aero-a-spacing: -2px;
@@ -477,7 +461,7 @@
 
   /* At Aero Type E */
   --type-aero-e-font: var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif);
-  --type-aero-e-weight: 450;
+  --type-aero-e-weight: 350;
   --type-aero-e-size: 14.5px;
   --type-aero-e-line: 20px;
   --type-aero-e-spacing: -0.3px;

@@ -1,0 +1,4389 @@
+{
+  "linked": [
+    {
+      "element": "Homepage > div.f3-intro-status.type-mono-a",
+      "typeClass": "type-mono-a",
+      "textSnippet": "HO CHI MINH CITY 17:55:45 (UTC+7)",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > a.f3-featured-more-link.type-aero-e",
+      "typeClass": "type-aero-e",
+      "textSnippet": "See all projects ↗",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14.5px",
+        "fontWeight": "450",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-list-title.type-aero-b",
+      "typeClass": "type-aero-b",
+      "textSnippet": "Memphis Grizzlies",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > h2.f3-showcase-title.type-aero-a",
+      "typeClass": "type-aero-a",
+      "textSnippet": "Everything your product needs to be take...",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "43px",
+        "fontWeight": "450",
+        "lineHeight": "49px",
+        "letterSpacing": "-2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-showcase-label.type-mono-a",
+      "typeClass": "type-mono-a",
+      "textSnippet": "ART DIRECTION",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "13px",
+        "letterSpacing": "0.8px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > p.f3-showcase-desc.f3-desc-right.type-aero-c",
+      "typeClass": "type-aero-c",
+      "textSnippet": "Visual language crafted to captivate. Se...",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "lineHeight": "27.5px",
+        "letterSpacing": "-1.2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > p.f3-showcase-desc.f3-desc-left.type-aero-c",
+      "typeClass": "type-aero-c",
+      "textSnippet": "Editorial aesthetics fused with flawless...",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "lineHeight": "27.5px",
+        "letterSpacing": "-1.2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > p.f3-showcase-footer-quote.type-aero-e.f3-scroll-reveal",
+      "typeClass": "type-aero-e",
+      "textSnippet": "I don't really separate these four thing...",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14.5px",
+        "fontWeight": "450",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > h2.f3-contact-hook-title.type-aero-a",
+      "typeClass": "type-aero-a",
+      "textSnippet": "Let's build together.",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "76px",
+        "fontWeight": "500",
+        "lineHeight": "71.44px",
+        "letterSpacing": "-2.2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > a.about-email-link.f3-contact-email-link.type-aero-e",
+      "typeClass": "type-aero-e",
+      "textSnippet": "hainampham08@outlook.com ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "17px",
+        "fontWeight": "450",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.4px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > label.f3-form-label.type-aero-f",
+      "typeClass": "type-aero-f",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > label#service-group-label.f3-form-label.type-aero-f",
+      "typeClass": "type-aero-f",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > button.f3-pill-btn.type-mono-a",
+      "typeClass": "type-mono-a",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+        "fontSize": "11px",
+        "fontWeight": "300",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > button.f3-pill-btn.type-mono-a.is-active",
+      "typeClass": "type-mono-a",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+        "fontSize": "11px",
+        "fontWeight": "300",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > label#budget-group-label.f3-form-label.type-aero-f",
+      "typeClass": "type-aero-f",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-signature-text.type-aero-d",
+      "typeClass": "type-aero-d",
+      "textSnippet": "@pxly",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "230px",
+        "fontWeight": "500",
+        "lineHeight": "230px",
+        "letterSpacing": "-17px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > a.f3-colophon-privacy-link.f3-colophon-start-project.type-mono-a",
+      "typeClass": "type-mono-a",
+      "textSnippet": "PRIVACY POLICY",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "13px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > h2#pm-meta-title.pm-meta-title.type-aero-e",
+      "typeClass": "type-aero-e",
+      "textSnippet": "MEMPHIS GRIZZLIES",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14.5px",
+        "fontWeight": "450",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > span.about-bio-label.type-aero-b",
+      "typeClass": "type-aero-b",
+      "textSnippet": "About",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.about-paragraphs.type-aero-b",
+      "typeClass": "type-aero-b",
+      "textSnippet": "Nam Pham is an independent graphic desig...",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > label.f3-form-label.type-aero-f",
+      "typeClass": "type-aero-f",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > label#service-group-label.f3-form-label.type-aero-f",
+      "typeClass": "type-aero-f",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > button.f3-pill-btn.type-mono-a",
+      "typeClass": "type-mono-a",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+        "fontSize": "11px",
+        "fontWeight": "300",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > button.f3-pill-btn.type-mono-a.is-active",
+      "typeClass": "type-mono-a",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+        "fontSize": "11px",
+        "fontWeight": "300",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > label#budget-group-label.f3-form-label.type-aero-f",
+      "typeClass": "type-aero-f",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > span.f3-signature-text.type-aero-d",
+      "typeClass": "type-aero-d",
+      "textSnippet": "@pxly",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "230px",
+        "fontWeight": "500",
+        "lineHeight": "230px",
+        "letterSpacing": "-17px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > a.f3-colophon-privacy-link.f3-colophon-start-project.type-mono-a",
+      "typeClass": "type-mono-a",
+      "textSnippet": "PRIVACY POLICY",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "13px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > h1#project-title.project-info-title.type-aero-e",
+      "typeClass": "type-aero-e",
+      "textSnippet": "Memphis Grizzlies",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14.5px",
+        "fontWeight": "450",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.project-tab-title.type-aero-e",
+      "typeClass": "type-aero-e",
+      "textSnippet": "Deliverables",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14.5px",
+        "fontWeight": "500",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > p.project-tab-text.type-aero-e",
+      "typeClass": "type-aero-e",
+      "textSnippet": "Brand Workshop, Brand Strategy, Position...",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14.5px",
+        "fontWeight": "450",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.project-next-prefix.type-mono-a",
+      "typeClass": "type-mono-a",
+      "textSnippet": "NEXT PROJECT:",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "13px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > span.f3-signature-text.type-aero-d",
+      "typeClass": "type-aero-d",
+      "textSnippet": "@pxly",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "230px",
+        "fontWeight": "500",
+        "lineHeight": "230px",
+        "letterSpacing": "-17px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > a.f3-colophon-privacy-link.f3-colophon-start-project.type-mono-a",
+      "typeClass": "type-mono-a",
+      "textSnippet": "PRIVACY POLICY",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "13px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    }
+  ],
+  "matchingUnlinked": [
+    {
+      "element": "Homepage > script.",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "if (sessionStorage.getItem('np_has_seen_...",
+      "styles": {
+        "fontFam": "\"Times New Roman\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > title.",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "Nam Pham",
+      "styles": {
+        "fontFam": "\"Times New Roman\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > noscript.",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "<link href=\"https://fonts.googleapis.com...",
+      "styles": {
+        "fontFam": "\"Times New Roman\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > style#hero-tv-manual-controls.",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": ":root { /* =============================...",
+      "styles": {
+        "fontFam": "\"Times New Roman\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div#nav-status-line.nav-status-line",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "WHAT STOOD OUT",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > div.nav-dropdown-clock-wrap",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span.nav-dropdown-clock.live-clock",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "17:55:45 UTC+7",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span.",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "01",
+      "styles": {
+        "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+        "fontSize": "11px",
+        "fontWeight": "300",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.floating-cta-text",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "Start a project",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "21.6px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.ascii-corner-slash.ascii-corner-tl",
+      "matchedPreset": "type-aero-c",
+      "textSnippet": "/",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif, sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "900",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.ascii-corner-slash.ascii-corner-tr",
+      "matchedPreset": "type-aero-c",
+      "textSnippet": "\\",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif, sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "900",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.ascii-corner-slash.ascii-corner-bl",
+      "matchedPreset": "type-aero-c",
+      "textSnippet": "\\",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif, sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "900",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.ascii-corner-slash.ascii-corner-br",
+      "matchedPreset": "type-aero-c",
+      "textSnippet": "/",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif, sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "900",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-intro-status-text",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "HO CHI MINH CITY 17:55:45 (UTC+7)",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-intro-city",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "HO CHI MINH CITY",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-mono-shuffle-letter",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "H",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-intro-live-time",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "17:55:45",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > h2.f3-intro-statement",
+      "matchedPreset": "type-aero-a",
+      "textSnippet": "Nam Pham is an independent designer work...",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "43px",
+        "fontWeight": "450",
+        "lineHeight": "49px",
+        "letterSpacing": "-2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > a.f3-statement-btn",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "BACKGROUND ↗",
+      "styles": {
+        "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+        "fontSize": "11px",
+        "fontWeight": "300",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span.btn-arrow",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "↗",
+      "styles": {
+        "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+        "fontSize": "11px",
+        "fontWeight": "300",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > h3.f3-work-card-title",
+      "matchedPreset": "type-aero-c",
+      "textSnippet": "Memphis Grizzlies Memphis Grizzlies ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "lineHeight": "23.6px",
+        "letterSpacing": "-1.2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-title-flip",
+      "matchedPreset": "type-aero-c",
+      "textSnippet": "Memphis Grizzlies Memphis Grizzlies ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "lineHeight": "23.6px",
+        "letterSpacing": "-1.2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.text-flip-inner",
+      "matchedPreset": "type-aero-c",
+      "textSnippet": "Memphis Grizzlies Memphis Grizzlies ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "lineHeight": "23.6px",
+        "letterSpacing": "-1.2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-title-face.f3-title-front",
+      "matchedPreset": "type-aero-c",
+      "textSnippet": "Memphis Grizzlies",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "lineHeight": "23.6px",
+        "letterSpacing": "-1.2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-title-face.f3-title-back",
+      "matchedPreset": "type-aero-c",
+      "textSnippet": "Memphis Grizzlies ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "lineHeight": "23.6px",
+        "letterSpacing": "-1.2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-work-tag",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "BRANDING",
+      "styles": {
+        "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+        "fontSize": "11px",
+        "fontWeight": "300",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-list-cta-btn",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "VIEW PROJECT ↗",
+      "styles": {
+        "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+        "fontSize": "11px",
+        "fontWeight": "300",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > button#f3-open-contact-modal.f3-contact-pill-trigger",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "Start a project ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-pill-label",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "Start a project",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-pill-arrow",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-contact-corners-bar.f3-scroll-reveal.is-revealed",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "MY TIME 17:55:45 (UTC+7) YOUR TIME 17:55...",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "14.85px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-corner-label",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "MY TIME",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "13px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span#f3-clock-studio.f3-clock-val",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "17:55:45",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "13px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-clock-tz",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "(UTC+7)",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "13px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span#f3-clock-client.f3-clock-val",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "17:55:45",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "13px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span#f3-clock-client-tz.f3-clock-tz",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "(UTC+7)",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "13px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-label-num",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "[01]",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-label-text",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "Name",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > a.f3-footer-email-link",
+      "matchedPreset": "type-aero-b",
+      "textSnippet": "hainampham08@outlook.com",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-footer-location",
+      "matchedPreset": "type-aero-b",
+      "textSnippet": "Temporarily located in Ho Chi Minh City,...",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > a.f3-footer-social-link",
+      "matchedPreset": "type-aero-b",
+      "textSnippet": "Behance",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-footer-social-link.is-inactive",
+      "matchedPreset": "type-aero-b",
+      "textSnippet": "Pinterest (coming soon)",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-footer-brand-signature",
+      "matchedPreset": "type-aero-d",
+      "textSnippet": "@pxly",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "230px",
+        "fontWeight": "400",
+        "lineHeight": "310.5px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-footer-colophon-bar",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "ALL RIGHTS RESERVED ©2026 PRIVACY POLICY...",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-colophon-col-left",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "ALL RIGHTS RESERVED ©2026",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-colophon-privacy",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "ALL RIGHTS RESERVED",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-colophon-left",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "©2026",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-colophon-col-right",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "PRIVACY POLICY 17:55:45 UTC+7",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-colophon-right",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "17:55:45 UTC+7",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-footer-clock.live-clock",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "17:55:45 UTC+7",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span.pm-meta-label",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "YEAR",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "14.85px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > a#pm-action-link.f3-pill-btn.pm-pill-btn",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+        "fontSize": "11px",
+        "fontWeight": "300",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > span#pm-action-label.",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "VIEW ON BEHANCE",
+      "styles": {
+        "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+        "fontSize": "11px",
+        "fontWeight": "300",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > div#f3-cursor-view-tag.f3-cursor-view-tag",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "/view/",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > script.",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "if (sessionStorage.getItem('np_is_naviga...",
+      "styles": {
+        "fontFam": "\"Times New Roman\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > title.",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "About • Nam Pham",
+      "styles": {
+        "fontFam": "\"Times New Roman\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > noscript.",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "<link href=\"https://fonts.googleapis.com...",
+      "styles": {
+        "fontFam": "\"Times New Roman\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div#nav-status-line.nav-status-line",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "LOOKING SHARP TODAY",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > div.nav-dropdown-clock-wrap",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > span.nav-dropdown-clock.live-clock",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "17:55:48 UTC+7",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > span.",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "01",
+      "styles": {
+        "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+        "fontSize": "11px",
+        "fontWeight": "300",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > span.floating-cta-text",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "Start a project",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "21.6px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > p.",
+      "matchedPreset": "type-aero-b",
+      "textSnippet": "Nam Pham is an independent graphic desig...",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > span.f3-label-num",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "[01]",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > span.f3-label-text",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "Name",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "22px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > a.f3-footer-email-link",
+      "matchedPreset": "type-aero-b",
+      "textSnippet": "hainampham08@outlook.com",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-footer-location",
+      "matchedPreset": "type-aero-b",
+      "textSnippet": "Temporarily located in Ho Chi Minh City,...",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > a.f3-footer-social-link",
+      "matchedPreset": "type-aero-b",
+      "textSnippet": "Behance",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > span.f3-footer-social-link.is-inactive",
+      "matchedPreset": "type-aero-b",
+      "textSnippet": "Pinterest (coming soon)",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-footer-brand-signature",
+      "matchedPreset": "type-aero-d",
+      "textSnippet": "@pxly",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "230px",
+        "fontWeight": "400",
+        "lineHeight": "310.5px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-footer-colophon-bar",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "ALL RIGHTS RESERVED ©2026 PRIVACY POLICY...",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > div.f3-colophon-col-left",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "ALL RIGHTS RESERVED ©2026",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > div.f3-colophon-privacy",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "ALL RIGHTS RESERVED",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > div.f3-colophon-left",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "©2026",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > div.f3-colophon-col-right",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "PRIVACY POLICY 17:55:48 UTC+7",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > div.f3-colophon-right",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "17:55:48 UTC+7",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > span.f3-footer-clock.live-clock",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "17:55:48 UTC+7",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > div#f3-cursor-view-tag.f3-cursor-view-tag",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "/view/",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > script.",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "if (sessionStorage.getItem('np_is_naviga...",
+      "styles": {
+        "fontFam": "\"Times New Roman\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > title.",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "Memphis Grizzlies • Nam Pham",
+      "styles": {
+        "fontFam": "\"Times New Roman\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > noscript.",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "<link href=\"https://fonts.googleapis.com...",
+      "styles": {
+        "fontFam": "\"Times New Roman\"",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div#nav-status-line.nav-status-line",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "LOOKING SHARP TODAY",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > div.nav-dropdown-clock-wrap",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > span.nav-dropdown-clock.live-clock",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "17:55:50 UTC+7",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > span.",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "01",
+      "styles": {
+        "fontFam": "Supply-Light, \"PP Supply Mono\", PPSupplyMono-Regular, monospace",
+        "fontSize": "11px",
+        "fontWeight": "300",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.floating-cta-text",
+      "matchedPreset": "type-aero-f",
+      "textSnippet": "Start a project",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "21.6px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.project-meta-label",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "TYPE",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > span.project-meta-value",
+      "matchedPreset": "type-aero-e",
+      "textSnippet": "Art Direction",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14.5px",
+        "fontWeight": "450",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > a.f3-footer-email-link",
+      "matchedPreset": "type-aero-b",
+      "textSnippet": "hainampham08@outlook.com",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.f3-footer-location",
+      "matchedPreset": "type-aero-b",
+      "textSnippet": "Temporarily located in Ho Chi Minh City,...",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > a.f3-footer-social-link",
+      "matchedPreset": "type-aero-b",
+      "textSnippet": "Behance",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.f3-footer-social-link.is-inactive",
+      "matchedPreset": "type-aero-b",
+      "textSnippet": "Pinterest (coming soon)",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-1px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.f3-footer-brand-signature",
+      "matchedPreset": "type-aero-d",
+      "textSnippet": "@pxly",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "230px",
+        "fontWeight": "400",
+        "lineHeight": "310.5px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.f3-footer-colophon-bar",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "ALL RIGHTS RESERVED ©2026 PRIVACY POLICY...",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > div.f3-colophon-col-left",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "ALL RIGHTS RESERVED ©2026",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > div.f3-colophon-privacy",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "ALL RIGHTS RESERVED",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > div.f3-colophon-left",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "©2026",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > div.f3-colophon-col-right",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "PRIVACY POLICY 17:55:50 UTC+7",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > div.f3-colophon-right",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "17:55:50 UTC+7",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > span.f3-footer-clock.live-clock",
+      "matchedPreset": "type-mono-a",
+      "textSnippet": "17:55:50 UTC+7",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "11px",
+        "fontWeight": "500",
+        "lineHeight": "11px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    }
+  ],
+  "customDivergent": [
+    {
+      "element": "Homepage > svg",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > header#hero-top-nav.hero-top-nav.nav-theme-dark",
+      "textSnippet": "WHAT STOOD OUT",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > a.nav-box-brand.hero-nav-brand",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > button#nav-hamburger-btn.nav-hamburger-btn",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div#nav-dropdown-menu.nav-dropdown-menu",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > a#nav-home-link.nav-dropdown-row-link",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.nav-row-roll.roll-up",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "22.275px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.nav-row-roll-inner",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "22.275px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.nav-row-text",
+      "textSnippet": "Home",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "22.275px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > a#nav-works-link.nav-dropdown-row-link",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > a#nav-about-link.nav-dropdown-row-link",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > a.nav-dropdown-row-link",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.nav-dropdown-col-right",
+      "textSnippet": "    ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.nav-dropdown-info-stack",
+      "textSnippet": "   ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.nav-dropdown-ongoing",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.nav-ongoing-text",
+      "textSnippet": "Ongoing projects",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "14px",
+        "letterSpacing": "-0.84px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > a.nav-social-icon",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.social-icon-txt",
+      "textSnippet": "Bē",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "lineHeight": "13px",
+        "letterSpacing": "-0.96px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > a#nav-floating-cta.nav-floating-cta",
+      "textSnippet": "Start a project",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.floating-cta-icon",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > main#homepage-main.homepage-main",
+      "textSnippet": "/ \\ \\ / HO CHI MINH CITY 17:55:45 (UTC+7...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.hero-backdrop-container",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > defs",
+      "textSnippet": "   ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > filter#crt-edge-blur-filter",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > clippath#hero-shape-clip",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > mask#hero-shape-mask",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div#hero-tv-wrapper.hero-tv-wrapper",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div#hero-text-left.hero-bottom-text.hero-text-left",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", \"AT Aero\", \"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif, -apple-system, sans-serif",
+        "fontSize": "48px",
+        "fontWeight": "400",
+        "lineHeight": "48px",
+        "letterSpacing": "-1.66px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div#hero-text-right.hero-bottom-text.hero-text-right",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", \"AT Aero\", \"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif, -apple-system, sans-serif",
+        "fontSize": "48px",
+        "fontWeight": "400",
+        "lineHeight": "48px",
+        "letterSpacing": "-1.66px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > section#f3-intro.f3-section-intro",
+      "textSnippet": "HO CHI MINH CITY 17:55:45 (UTC+7) Nam Ph...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-intro-lockup.f3-scroll-reveal",
+      "textSnippet": "HO CHI MINH CITY 17:55:45 (UTC+7) Nam Ph...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-intro-left-col",
+      "textSnippet": "HO CHI MINH CITY 17:55:45 (UTC+7)",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-intro-right-col",
+      "textSnippet": "Nam Pham is an independent designer work...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-intro-divider-row.f3-scroll-reveal",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-featured-tag-row.f3-scroll-reveal",
+      "textSnippet": "Recent works See all projects ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-featured-col-left",
+      "textSnippet": "Recent works",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-featured-tag",
+      "textSnippet": "Recent works",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "25px",
+        "fontWeight": "400",
+        "lineHeight": "27.5px",
+        "letterSpacing": "-1.2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-featured-col-right",
+      "textSnippet": "See all projects ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-view-switcher",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > button#f3-view-list.f3-view-btn",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "13px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > button#f3-view-grid.f3-view-btn.is-active",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "13px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-title-arrow",
+      "textSnippet": "↗",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "11.89px",
+        "fontWeight": "450",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div#f3-portfolio.f3-works-grid-container",
+      "textSnippet": "01 Memphis Grizzlies Memphis Grizzlies ↗...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div#f3-works-grid.f3-works-staggered-grid",
+      "textSnippet": "01 Memphis Grizzlies Memphis Grizzlies ↗...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-works-col.f3-works-col-left",
+      "textSnippet": "01 Memphis Grizzlies Memphis Grizzlies ↗...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > a.f3-work-card.f3-scroll-reveal",
+      "textSnippet": "01 Memphis Grizzlies Memphis Grizzlies ↗...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-card-hover-box",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-work-card-info",
+      "textSnippet": "Memphis Grizzlies Memphis Grizzlies ↗ BR...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-work-card-title-row",
+      "textSnippet": "Memphis Grizzlies Memphis Grizzlies ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-works-col.f3-works-col-right",
+      "textSnippet": "02 U.S. Ski & Snowboard | OWG Milano Cor...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-work-card-tags",
+      "textSnippet": "BRANDING MOTION",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div#f3-works-list.f3-works-list-view",
+      "textSnippet": "01 Memphis Grizzlies VIEW PROJECT ↗ BRAN...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > a.f3-list-item-row",
+      "textSnippet": "01 Memphis Grizzlies VIEW PROJECT ↗ BRAN...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-list-col-left",
+      "textSnippet": "01",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-list-thumb-slot",
+      "textSnippet": "01",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-list-col-right",
+      "textSnippet": "Memphis Grizzlies VIEW PROJECT ↗ BRANDIN...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-list-title-row",
+      "textSnippet": "Memphis Grizzlies VIEW PROJECT ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-list-action-col",
+      "textSnippet": "VIEW PROJECT ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-list-tag-dot",
+      "textSnippet": "•",
+      "styles": {
+        "fontFam": "\"PP Supply Mono\", PPSupplyMono-Regular, \"Sometype Mono\", \"Share Tech Mono\", Menlo, Monaco, Consolas, monospace",
+        "fontSize": "8px",
+        "fontWeight": "500",
+        "lineHeight": "10.8px",
+        "letterSpacing": "0.5px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Homepage > section#f3-bio-services.f3-section-bio-services.f3-showcase-section",
+      "textSnippet": "Everything your product needs to be take...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-container",
+      "textSnippet": "Everything your product needs to be take...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-showcase-header",
+      "textSnippet": "Everything your product needs to be take...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-showcase-wrap",
+      "textSnippet": "ART DIRECTION Visual language crafted to...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > section#f3-contact.f3-section-contact",
+      "textSnippet": "Let's build together. Start a project ↗ ...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-single-divider-row.f3-scroll-reveal",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-contact-hero-stage.f3-scroll-reveal.is-revealed",
+      "textSnippet": "Let's build together. Start a project ↗ ...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-contact-hook-wrap",
+      "textSnippet": "Let's build together. Start a project ↗ ...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-contact-cta-action",
+      "textSnippet": "Start a project ↗ hainampham08@outlook.c...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > button#f3-close-contact-modal.f3-contact-modal-close",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "13px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-contact-modal-content-wrap",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-contact-modal-dialog",
+      "textSnippet": "    ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-modal-header",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-modal-brand-wrap",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > form#f3-contact-form.f3-contact-form.f3-modal-form",
+      "textSnippet": "            ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-form-group",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > input#f3-selected-service.",
+      "textSnippet": "Brand Identity",
+      "styles": {
+        "fontFam": "Arial",
+        "fontSize": "13.3333px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > input#f3-selected-budget.",
+      "textSnippet": "$5K – $10K",
+      "styles": {
+        "fontFam": "Arial",
+        "fontSize": "13.3333px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-form-action-row",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > button#f3-submit-btn.f3-contact-submit-btn",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13.5px",
+        "fontWeight": "400",
+        "lineHeight": "13.5px",
+        "letterSpacing": "-0.835px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-btn-label",
+      "textSnippet": "Send message ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13.5px",
+        "fontWeight": "400",
+        "lineHeight": "13.5px",
+        "letterSpacing": "-0.835px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div#f3-footer-curtain.f3-footer-reveal-wrap",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > footer#f3-footer.f3-editorial-footer",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-intro-divider-row.f3-footer-divider-row.f3-scroll-reveal",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-footer-top-row",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-footer-col-left",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-footer-contact-block",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-footer-col-right",
+      "textSnippet": "Behance LinkedIn Instagram Pinterest (co...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-footer-socials-block",
+      "textSnippet": "Behance LinkedIn Instagram Pinterest (co...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > ul.f3-footer-socials-list",
+      "textSnippet": "Behance LinkedIn Instagram Pinterest (co...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > li.f3-footer-social-item",
+      "textSnippet": "Behance",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > span.f3-footer-badge",
+      "textSnippet": "(coming soon)",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-footer-emblem-block",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.f3-footer-brand-mark",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div#pm-modal-overlay.pm-modal-overlay",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > aside#pm-meta-card.pm-meta-card",
+      "textSnippet": "   ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.pm-meta-header",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div.pm-meta-subrow",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > button#pm-close-btn.pm-close-btn",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "13px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div#pm-meta-action.pm-meta-action",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Homepage > div#pm-right-canvas.pm-right-canvas",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > header#hero-top-nav.hero-top-nav.nav-theme-dark",
+      "textSnippet": "LOOKING SHARP TODAY",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > a.nav-box-brand.hero-nav-brand",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > svg",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "About > button#nav-hamburger-btn.nav-hamburger-btn",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div#nav-dropdown-menu.nav-dropdown-menu",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > a#nav-home-link.nav-dropdown-row-link",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > span.nav-row-roll.roll-up",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "22.275px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > span.nav-row-roll-inner",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "22.275px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > span.nav-row-text",
+      "textSnippet": "Home",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "22.275px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > a#nav-works-link.nav-dropdown-row-link",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > a#nav-about-link.nav-dropdown-row-link.is-active",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > a#nav-contact-link.nav-dropdown-row-link",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > a#nav-archive-link.nav-dropdown-row-link",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.nav-dropdown-col-right",
+      "textSnippet": "    ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.nav-dropdown-info-stack",
+      "textSnippet": "   ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.nav-dropdown-ongoing",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > span.nav-ongoing-text",
+      "textSnippet": "Ongoing projects",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "14px",
+        "letterSpacing": "-0.84px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > a.nav-social-icon",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > span.social-icon-txt",
+      "textSnippet": "Bē",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "lineHeight": "13px",
+        "letterSpacing": "-0.96px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > a#nav-floating-cta.nav-floating-cta",
+      "textSnippet": "Start a project",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > span.floating-cta-icon",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.about-main-curtain",
+      "textSnippet": "About Nam Pham is an independent graphic...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > main#main-content.about-main-wrap",
+      "textSnippet": "About Nam Pham is an independent graphic...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-container.about-container",
+      "textSnippet": "About Nam Pham is an independent graphic...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.about-portrait-row",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.about-portrait-wrap",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-intro-divider-row.about-divider-row.f3-scroll-reveal",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.about-split-row.about-bio-split",
+      "textSnippet": "About Nam Pham is an independent graphic...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.about-col-left",
+      "textSnippet": "About",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.about-label-lockup",
+      "textSnippet": "About",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.about-col-right",
+      "textSnippet": "Nam Pham is an independent graphic desig...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > section.about-fullbleed-visual",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "0px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.about-fullbleed-wrap",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "0px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > button#f3-close-contact-modal.f3-contact-modal-close",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "13px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-contact-modal-content-wrap",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-contact-modal-dialog",
+      "textSnippet": "    ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-modal-header",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-modal-brand-wrap",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > form#f3-contact-form.f3-contact-form.f3-modal-form",
+      "textSnippet": "            ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-form-group",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > input#f3-selected-service.",
+      "textSnippet": "Brand Identity",
+      "styles": {
+        "fontFam": "Arial",
+        "fontSize": "13.3333px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > input#f3-selected-budget.",
+      "textSnippet": "$5K – $10K",
+      "styles": {
+        "fontFam": "Arial",
+        "fontSize": "13.3333px",
+        "fontWeight": "400",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-form-action-row",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > button#f3-submit-btn.f3-contact-submit-btn",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13.5px",
+        "fontWeight": "400",
+        "lineHeight": "13.5px",
+        "letterSpacing": "-0.835px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > span.f3-btn-label",
+      "textSnippet": "Send message ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13.5px",
+        "fontWeight": "400",
+        "lineHeight": "13.5px",
+        "letterSpacing": "-0.835px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div#f3-footer-curtain.f3-footer-reveal-wrap",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > footer#f3-footer.f3-editorial-footer",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-intro-divider-row.f3-footer-divider-row.f3-scroll-reveal",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-footer-top-row",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-footer-col-left",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-footer-contact-block",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-footer-col-right",
+      "textSnippet": "Behance LinkedIn Instagram Pinterest (co...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-footer-socials-block",
+      "textSnippet": "Behance LinkedIn Instagram Pinterest (co...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > ul.f3-footer-socials-list",
+      "textSnippet": "Behance LinkedIn Instagram Pinterest (co...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > li.f3-footer-social-item",
+      "textSnippet": "Behance",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > span.f3-footer-badge",
+      "textSnippet": "(coming soon)",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-footer-emblem-block",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "About > div.f3-footer-brand-mark",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > header#hero-top-nav.hero-top-nav.nav-theme-dark",
+      "textSnippet": "LOOKING SHARP TODAY",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > a.nav-box-brand.hero-nav-brand",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > svg",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "element": "Project > button#nav-hamburger-btn.nav-hamburger-btn",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div#nav-dropdown-menu.nav-dropdown-menu",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > a#nav-home-link.nav-dropdown-row-link",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.nav-row-roll.roll-up",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "22.275px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.nav-row-roll-inner",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "22.275px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.nav-row-text",
+      "textSnippet": "Home",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "22.275px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > a#nav-works-link.nav-dropdown-row-link",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > a#nav-about-link.nav-dropdown-row-link",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > a.nav-dropdown-row-link",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "16.5px",
+        "fontWeight": "400",
+        "lineHeight": "16px",
+        "letterSpacing": "-1.03px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.nav-dropdown-col-right",
+      "textSnippet": "    ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.nav-dropdown-info-stack",
+      "textSnippet": "   ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.nav-dropdown-ongoing",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.nav-ongoing-text",
+      "textSnippet": "Ongoing projects",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "14px",
+        "letterSpacing": "-0.84px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > a.nav-social-icon",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.social-icon-txt",
+      "textSnippet": "Bē",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "700",
+        "lineHeight": "13px",
+        "letterSpacing": "-0.96px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > a#nav-floating-cta.nav-floating-cta",
+      "textSnippet": "Start a project",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.floating-cta-icon",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.project-main-curtain",
+      "textSnippet": "Memphis Grizzlies TYPE Art Direction DAT...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > main#main-content.project-main-wrap",
+      "textSnippet": "Memphis Grizzlies TYPE Art Direction DAT...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.project-split-container",
+      "textSnippet": "Memphis Grizzlies TYPE Art Direction DAT...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > aside#project-info-col.project-info-col",
+      "textSnippet": "Memphis Grizzlies TYPE Art Direction DAT...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.project-title-wrap",
+      "textSnippet": "Memphis Grizzlies",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.project-meta-wrap",
+      "textSnippet": "TYPE Art Direction DATE 2024 SERVICES Br...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.project-meta-cell",
+      "textSnippet": "TYPE Art Direction",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.project-accordion-wrap",
+      "textSnippet": "Deliverables Brand Workshop, Brand Strat...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.project-tab-item.is-open",
+      "textSnippet": "Deliverables Brand Workshop, Brand Strat...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > button#project-tab-header-deliverables.project-tab-header",
+      "textSnippet": "Deliverables",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.project-tab-icon",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div#project-tab-deliverables.project-tab-body",
+      "textSnippet": "Brand Workshop, Brand Strategy, Position...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.project-tab-content",
+      "textSnippet": "Brand Workshop, Brand Strategy, Position...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.project-tab-item.",
+      "textSnippet": "Context The Memphis Grizzlies needed a c...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > button#project-tab-header-context.project-tab-header",
+      "textSnippet": "Context",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div#project-tab-context.project-tab-body",
+      "textSnippet": "The Memphis Grizzlies needed a comprehen...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > button#project-tab-header-challengeSolution.project-tab-header",
+      "textSnippet": "Challenge & Solution",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div#project-tab-challengeSolution.project-tab-body",
+      "textSnippet": "Rapid turnaround times during live games...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > button#project-tab-header-credits.project-tab-header",
+      "textSnippet": "Credits",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "normal",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div#project-tab-credits.project-tab-body",
+      "textSnippet": "Art Direction: Nam Pham · Design & Motio...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.project-action-row",
+      "textSnippet": "View on Behance ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > a#project-action-link.project-action-link",
+      "textSnippet": "View on Behance ↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "500",
+        "lineHeight": "20.25px",
+        "letterSpacing": "-0.2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span#project-action-label.action-label",
+      "textSnippet": "View on Behance",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "500",
+        "lineHeight": "20.25px",
+        "letterSpacing": "-0.2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.action-arrow",
+      "textSnippet": "↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "500",
+        "lineHeight": "20.25px",
+        "letterSpacing": "-0.2px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.project-stack-card",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > section#project-next-wrap.project-next-wrap",
+      "textSnippet": "NEXT PROJECT: U.S. Ski & Snowboard | OWG...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.project-next-container",
+      "textSnippet": "NEXT PROJECT: U.S. Ski & Snowboard | OWG...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > a#project-next-link.project-next-link",
+      "textSnippet": "NEXT PROJECT: U.S. Ski & Snowboard | OWG...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span#project-next-title.project-next-title",
+      "textSnippet": "U.S. Ski & Snowboard | OWG Milano Cortin...",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "29.6px",
+        "fontWeight": "500",
+        "lineHeight": "34.04px",
+        "letterSpacing": "-0.8px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.project-next-arrow",
+      "textSnippet": "↗",
+      "styles": {
+        "fontFam": "\"AT Aero\", sans-serif",
+        "fontSize": "16.25px",
+        "fontWeight": "400",
+        "lineHeight": "16.25px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div#f3-footer-curtain.f3-footer-reveal-wrap",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > footer#f3-footer.f3-editorial-footer",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.f3-intro-divider-row.f3-footer-divider-row",
+      "textSnippet": "  ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.f3-footer-top-row",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.f3-footer-col-left",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.f3-footer-contact-block",
+      "textSnippet": "hainampham08@outlook.com Temporarily loc...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.f3-footer-col-right",
+      "textSnippet": "Behance LinkedIn Instagram Pinterest (co...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.f3-footer-socials-block",
+      "textSnippet": "Behance LinkedIn Instagram Pinterest (co...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > ul.f3-footer-socials-list",
+      "textSnippet": "Behance LinkedIn Instagram Pinterest (co...",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > li.f3-footer-social-item",
+      "textSnippet": "Behance",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > span.f3-footer-badge",
+      "textSnippet": "(coming soon)",
+      "styles": {
+        "fontFam": "\"AT Aero Retina\", \"At Aero Retina\", AtAero-Retina, \"AT Aero\", \"At Aero\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "lineHeight": "35px",
+        "letterSpacing": "-0.3px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.f3-footer-emblem-block",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    },
+    {
+      "element": "Project > div.f3-footer-brand-mark",
+      "textSnippet": " ",
+      "styles": {
+        "fontFam": "\"AT Aero\", \"At Aero\", AtAero, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "17.55px",
+        "letterSpacing": "-0.895px",
+        "textTransform": "none"
+      }
+    }
+  ]
+}

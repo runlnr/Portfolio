@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    if (sessionStorage.getItem('np_is_navigating')) { document.documentElement.classList.add('is-navigating-in'); }
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About • Nam Pham</title>
+  <meta name="description"
+    content="Nam Pham is an independent graphic design practice based in Ho Chi Minh City, creating timeless brands and digital experiences where flawless functionality meets editorial aesthetics.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sometype+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sometype+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet">
+  </noscript>
+
+  <link rel="preload" href="assets/fonts/AtAero-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/fonts/AtAero-Retina.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/fonts/AtAero-Light.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/fonts/NeueHaasDisplayRoman.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/PPSupplyMono-Regular.otf" as="font" type="font/otf" crossorigin>
+
+  <link rel="stylesheet" href="css/typography.css?v=1.0.0">
+  <link rel="stylesheet" href="css/main.css?v=1.0.0">
+  <link rel="stylesheet" href="css/components.css?v=1.0.0">
+  <link rel="stylesheet" href="css/hero-3d.css?v=1.0.0">
+  <link rel="stylesheet" href="css/glassmorphism.css?v=1.0.0">
+  <link rel="stylesheet" href="css/pages.css?v=1.0.0">
+  <link rel="stylesheet" href="css/futurethree-scroll.css?v=1.0.0">
+  <link rel="stylesheet" href="css/responsive.css?v=1.0.0">
+</head>
+
+<body class="about-page-body">
+
+  <!-- Fullscreen Page Transition Curtain (Silk-smooth Cross-Fade) -->
+  <div class="page-transition-curtain" id="page-transition-curtain" aria-hidden="true"></div>
+
+  <!-- Fullscreen Backdrop Blur Overlay when navigation dropdown is active -->
+  <div class="nav-dropdown-backdrop" id="nav-dropdown-backdrop" aria-hidden="true"></div>
+
+  <!-- Top Navigation: Centered Modular Navigation Box with Logo on Left, Status in Center, Hamburger on Right -->
+  <header class="hero-top-nav" id="hero-top-nav">
+    <nav class="nav-modular-box" aria-label="Main Navigation">
+      <!-- Left: Nam Pham Brand Mark -->
+      <a href="index.html" class="nav-box-brand hero-nav-brand" aria-label="Nam Pham Home">
+        <svg class="nav-brand-logo" viewBox="0 0 351.33 384.87" fill="currentColor" aria-hidden="true">
+          <path class="logo-stroke logo-stroke-1"
+            d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
+            transform="translate(211.63, 128.18) rotate(-158.12) scale(1.02, 1)" />
+          <path class="logo-stroke logo-stroke-2"
+            d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
+            transform="translate(139.7, 256.69) rotate(21.88) scale(1.02, 1)" />
+        </svg>
+      </a>
+
+      <!-- Center: Status Line -->
+      <div class="nav-status-line type-mono-a" id="nav-status-line">Looking sharp today</div>
+
+      <!-- Right: Hamburger Menu Button (2 lines) -->
+      <button class="nav-hamburger-btn" id="nav-hamburger-btn" aria-label="Toggle Navigation Menu"
+        aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Full-Width 2-Column Split Dropdown Menu -->
+      <div class="nav-dropdown-menu" id="nav-dropdown-menu" aria-hidden="true">
+        <div class="nav-dropdown-grid">
+          <!-- Left Column: Navigation Links -->
+          <div class="nav-dropdown-col-left">
+            <a href="index.html" class="nav-dropdown-row-link" id="nav-home-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">Home</span>
+                  <span class="nav-row-text">Home</span>
+                </span>
+              </span>
+            </a>
+
+            <a href="index.html#f3-portfolio" class="nav-dropdown-row-link" id="nav-works-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">Projects</span>
+                  <span class="nav-row-text">Projects</span>
+                </span>
+              </span>
+            </a>
+
+            <a href="about.html" class="nav-dropdown-row-link is-active" id="nav-about-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">About</span>
+                  <span class="nav-row-text">About</span>
+                </span>
+              </span>
+            </a>
+
+            <a href="index.html#f3-contact" class="nav-dropdown-row-link" id="nav-contact-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">Contact</span>
+                  <span class="nav-row-text">Contact</span>
+                </span>
+              </span>
+            </a>
+
+            <a href="index.html#f3-portfolio" class="nav-dropdown-row-link" id="nav-archive-link">
+              <span class="nav-row-roll roll-up">
+                <span class="nav-row-roll-inner">
+                  <span class="nav-row-text">Archive</span>
+                  <span class="nav-row-text">Archive</span>
+                </span>
+              </span>
+            </a>
+          </div>
+
+          <!-- Vertical Dashed Divider -->
+          <div class="nav-dropdown-divider" aria-hidden="true"></div>
+
+          <!-- Right Column: Live Clock, Studio Details & Socials -->
+          <div class="nav-dropdown-col-right">
+            <!-- Top Right: Live Studio Clock -->
+            <div class="nav-dropdown-clock-wrap">
+              <span class="nav-clock-dot"></span>
+              <span class="nav-dropdown-clock live-clock type-mono-a">--:--:-- UTC+7</span>
+            </div>
+
+            <!-- Middle / Bottom Right Details: Ongoing Projects & Socials -->
+            <div class="nav-dropdown-info-stack">
+              <div class="nav-dropdown-ongoing">
+                <span class="nav-ongoing-line"><span class="nav-ongoing-badge"><span>01</span></span><span class="nav-ongoing-text">Ongoing projects</span></span>
+              </div>
+
+              <!-- Social Links -->
+              <div class="nav-dropdown-socials">
+                <a href="https://www.behance.net/pxly" target="_blank" rel="noopener noreferrer" class="nav-social-icon"
+                  aria-label="Behance">
+                  <span class="social-icon-txt">Bē</span>
+                </a>
+                <a href="https://www.instagram.com/_phnm._" target="_blank" rel="noopener noreferrer"
+                  class="nav-social-icon" aria-label="Instagram">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                  </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/phnm08/" target="_blank" rel="noopener noreferrer"
+                  class="nav-social-icon" aria-label="LinkedIn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect width="4" height="12" x="2" y="9" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Bottom-Centered Floating 'Start a project' Call CTA -->
+  <a href="javascript:void(0)" class="nav-floating-cta" id="nav-floating-cta" aria-label="Start a project">
+    <span class="floating-cta-icon" aria-hidden="true">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+      </svg>
+    </span>
+    <span class="floating-cta-text type-aero-f">Start a project</span>
+  </a>
+
+  <!-- Main Scrollable About Editorial Curtain & Container -->
+  <div class="about-main-curtain">
+  <main class="about-main-wrap" id="main-content">
+    <div class="f3-container about-container">
+
+      <!-- 1. Hero Bio Section with Portrait -->
+      <section class="about-hero-section about-bio-section" id="about-bio" aria-label="About Statement">
+        <!-- Portrait Image on Left Column -->
+        <div class="about-portrait-row">
+          <div class="about-portrait-wrap">
+            <img src="assets/images/PFP%20old.webp" alt="Nam Pham Portrait" class="about-portrait-img" loading="eager" width="320" height="427">
+          </div>
+        </div>
+
+        <!-- 2-Column Separation Lines -->
+        <div class="f3-intro-divider-row about-divider-row" aria-hidden="true">
+          <div class="f3-intro-divider-col-left"></div>
+          <div class="f3-intro-divider-col-right"></div>
+        </div>
+
+        <!-- 2-Column Split: 'About' on Left, Paragraphs on Right -->
+        <div class="about-split-row about-bio-split">
+          <!-- Left Column: About Title -->
+          <div class="about-col-left">
+            <div class="about-label-lockup">
+              <span class="about-bio-label type-aero-b">About</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Bio Narrative Paragraphs -->
+          <div class="about-col-right">
+            <div class="about-paragraphs type-aero-b">
+              <p>
+                Nam Pham is an independent graphic designer, art director, and brand strategist based in Ho Chi Minh City. His practice explores the relationship between visual identity, digital architecture, and typographic systems—crafting timeless brands where flawless functionality meets editorial aesthetics.
+              </p>
+              <p>
+                Nam has collaborated with culture-shaping founders, creative studios, and global teams to translate complex ideas into clear, engaging, and unforgettable visual narratives. Balancing commercial rigor with bespoke craft, every system is built from first principles with obsessive attention to detail.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 2. Feature Visual (At the end of black section above bottom footer) -->
+    <section class="about-fullbleed-visual" aria-label="Studio Feature Visual">
+      <div class="about-fullbleed-wrap">
+        <img src="assets/images/Chair%20only.png" alt="Chair Visual Feature" class="about-fullbleed-img" loading="lazy" width="745" height="500">
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <!-- Centered Frameless Contact Form Modal with Background Blur -->
+  <div class="f3-contact-modal-scrim" id="f3-contact-modal" role="dialog" aria-modal="true" aria-label="Contact studio" hidden data-lenis-prevent>
+    <div class="f3-contact-modal-backdrop" id="f3-modal-backdrop" aria-hidden="true"></div>
+
+    <!-- Floating Top Right Close Button -->
+    <button type="button" class="f3-contact-modal-close" id="f3-close-contact-modal" aria-label="Close contact form">
+      <svg class="f3-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="f3-contact-modal-content-wrap" data-lenis-prevent>
+      <div class="f3-contact-modal-dialog">
+        <!-- Modal Header / Studio Logo -->
+        <div class="f3-modal-header">
+          <div class="f3-modal-brand-wrap" aria-label="Nam Pham Studio">
+            <svg class="f3-modal-brand-logo" viewBox="0 0 351.33 384.87" fill="currentColor" aria-hidden="true">
+              <path class="logo-stroke logo-stroke-1"
+                d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
+                transform="translate(211.63, 128.18) rotate(-158.12) scale(1.02, 1)" />
+              <path class="logo-stroke logo-stroke-2"
+                d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
+                transform="translate(139.7, 256.69) rotate(21.88) scale(1.02, 1)" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Frameless Centered Form -->
+        <form class="f3-contact-form f3-modal-form" id="f3-contact-form" novalidate>
+          <!-- Field 1: Name -->
+          <div class="f3-form-group">
+            <label for="f3-form-name" class="f3-form-label type-aero-f">
+              <span class="f3-label-num">[01]</span>
+              <span class="f3-label-text">Name</span>
+            </label>
+            <input type="text" id="f3-form-name" name="name" class="f3-form-input type-mono-a"
+              placeholder="Your name or company" autocomplete="name" required>
+          </div>
+
+          <!-- Field 2: Email -->
+          <div class="f3-form-group">
+            <label for="f3-form-email" class="f3-form-label type-aero-f">
+              <span class="f3-label-num">[02]</span>
+              <span class="f3-label-text">Email address</span>
+            </label>
+            <input type="email" id="f3-form-email" name="email" class="f3-form-input type-mono-a"
+              placeholder="name@domain.com" autocomplete="email" required>
+          </div>
+
+          <!-- Field 3: Service Selection (Interactive Pills) -->
+          <div class="f3-form-group">
+            <label class="f3-form-label type-aero-f" id="service-group-label">
+              <span class="f3-label-num">[03]</span>
+              <span class="f3-label-text">Discipline of interest</span>
+            </label>
+            <input type="hidden" name="service" id="f3-selected-service" value="Brand Identity">
+            <div class="f3-pill-group" role="radiogroup" aria-labelledby="service-group-label">
+              <button type="button" class="f3-pill-btn type-mono-a" data-service="Art Direction" role="radio" aria-checked="false">
+                <span>ART DIRECTION</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a is-active" data-service="Brand Identity" role="radio" aria-checked="true">
+                <span>BRAND IDENTITY</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a" data-service="Website Design" role="radio" aria-checked="false">
+                <span>WEBSITE DESIGN</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a" data-service="Social Media Design" role="radio" aria-checked="false">
+                <span>SOCIAL MEDIA</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a" data-service="Comprehensive System" role="radio" aria-checked="false">
+                <span>FULL SYSTEM</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Field 4: Budget / Scope (Interactive Pills) -->
+          <div class="f3-form-group">
+            <label class="f3-form-label type-aero-f" id="budget-group-label">
+              <span class="f3-label-num">[04]</span>
+              <span class="f3-label-text">Project budget</span>
+            </label>
+            <input type="hidden" name="budget" id="f3-selected-budget" value="$5K – $10K">
+            <div class="f3-pill-group" role="radiogroup" aria-labelledby="budget-group-label">
+              <button type="button" class="f3-pill-btn type-mono-a" data-budget="< $5K" role="radio" aria-checked="false">
+                <span>&lt; $5K</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a is-active" data-budget="$5K – $10K" role="radio" aria-checked="true">
+                <span>$5K &ndash; $10K</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a" data-budget="$10K – $25K" role="radio" aria-checked="false">
+                <span>$10K &ndash; $25K</span>
+              </button>
+              <button type="button" class="f3-pill-btn type-mono-a" data-budget="$25K+" role="radio" aria-checked="false">
+                <span>$25K+</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Field 5: Project Brief -->
+          <div class="f3-form-group">
+            <label for="f3-form-message" class="f3-form-label type-aero-f">
+              <span class="f3-label-num">[05]</span>
+              <span class="f3-label-text">Project brief</span>
+            </label>
+            <textarea id="f3-form-message" name="message" class="f3-form-textarea type-mono-a" rows="3"
+              placeholder="Tell us about the product, vision, and timeline..." required></textarea>
+          </div>
+
+          <!-- Action Row -->
+          <div class="f3-form-action-row">
+            <button type="submit" class="f3-contact-submit-btn" id="f3-submit-btn">
+              <span class="f3-btn-label">Send message ↗</span>
+            </button>
+            <div class="f3-form-status-msg type-mono-a" id="f3-form-status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- White Architectural Curtain Reveal Footer -->
+  <div class="f3-footer-reveal-wrap" id="f3-footer-curtain">
+    <footer class="f3-editorial-footer" id="f3-footer" aria-label="Studio Contact and Socials">
+      <div class="f3-container">
+        <!-- 2-Column Separation Lines Above Footer -->
+        <div class="f3-intro-divider-row f3-footer-divider-row" aria-hidden="true">
+          <div class="f3-intro-divider-col-left"></div>
+          <div class="f3-intro-divider-col-right"></div>
+        </div>
+
+        <!-- Top Row: 2-Column Layout Synchronized with Grid & Separation Lines -->
+        <div class="f3-footer-top-row">
+          <!-- Left Column: Direct Email & Location -->
+          <div class="f3-footer-col-left">
+            <div class="f3-footer-contact-block">
+              <a href="mailto:hainampham08@outlook.com" class="f3-footer-email-link type-aero-b"
+                aria-label="Email hainampham08@outlook.com">
+                hainampham08@outlook.com
+              </a>
+              <div class="f3-footer-location">
+                <span>Temporarily located in</span>
+                <span>Ho Chi Minh City, Vietnam</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Socials Stack + Brand Logo on Far Right -->
+          <div class="f3-footer-col-right">
+            <div class="f3-footer-socials-block">
+              <ul class="f3-footer-socials-list" role="list">
+                <li class="f3-footer-social-item">
+                  <a href="https://www.behance.net/pxly" target="_blank" rel="noopener noreferrer"
+                    class="f3-footer-social-link type-aero-b" data-handle="@pxly" aria-label="Behance">
+                    <span>Behance</span>
+                  </a>
+                </li>
+                <li class="f3-footer-social-item">
+                  <a href="https://www.linkedin.com/in/phnm08/" target="_blank" rel="noopener noreferrer"
+                    class="f3-footer-social-link type-aero-b" data-handle="@phnm08" aria-label="LinkedIn">
+                    <span>LinkedIn</span>
+                  </a>
+                </li>
+                <li class="f3-footer-social-item">
+                  <a href="https://www.instagram.com/_phnm._" target="_blank" rel="noopener noreferrer"
+                    class="f3-footer-social-link type-aero-b" data-handle="@_phnm._" aria-label="Instagram">
+                    <span>Instagram</span>
+                  </a>
+                </li>
+                <li class="f3-footer-social-item">
+                  <span class="f3-footer-social-link is-inactive type-aero-b" aria-disabled="true">
+                    <span>Pinterest</span>
+                    <span class="f3-footer-badge">(coming soon)</span>
+                  </span>
+                </li>
+                <li class="f3-footer-social-item">
+                  <span class="f3-footer-social-link is-inactive type-aero-b" aria-disabled="true">
+                    <span>Awwwards</span>
+                    <span class="f3-footer-badge">(coming soon)</span>
+                  </span>
+                </li>
+                <li class="f3-footer-social-item">
+                  <span class="f3-footer-social-link is-inactive type-aero-b" aria-disabled="true">
+                    <span>VSCO</span>
+                    <span class="f3-footer-badge">(coming soon)</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Right: Static Nam Pham Brand Logo Mark -->
+            <div class="f3-footer-emblem-block">
+              <div class="f3-footer-brand-mark" aria-label="Nam Pham Studio Logo">
+                <svg class="f3-footer-brand-svg" viewBox="0 0 351.33 384.87" fill="currentColor" aria-hidden="true">
+                  <path class="logo-stroke logo-stroke-1"
+                    d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
+                    transform="translate(211.63, 128.18) rotate(-158.12) scale(1.02, 1)" />
+                  <path class="logo-stroke logo-stroke-2"
+                    d="M42.85-40.15C42.85-54.83 51.84-69.52 62.33-80.90L62.33-211.85L57.23-211.85L13.18-176.49L23.07-168.70L23.07-66.82C23.07-27.87 62.62 3.90 111.17 3.90L111.17-18.88C100.98-14.98 89.59-11.99 77.91-11.99C56.33-11.99 42.85-22.77 42.85-40.15Z"
+                    transform="translate(139.7, 256.69) rotate(21.88) scale(1.02, 1)" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Giant Signature Handle: @pxly (At Aero Type D) -->
+        <div class="f3-footer-brand-signature" aria-label="@pxly">
+          <span class="f3-signature-text type-aero-d">@pxly</span>
+        </div>
+
+        <!-- Bottom Colophon Bar -->
+        <div class="f3-footer-colophon-bar type-mono-a">
+          <div class="f3-colophon-col-left">
+            <div class="f3-colophon-privacy">ALL RIGHTS RESERVED</div>
+            <div class="f3-colophon-left">©2026</div>
+          </div>
+          <div class="f3-colophon-col-right">
+            <a href="privacy.html" class="f3-colophon-privacy-link f3-colophon-start-project type-mono-a">Privacy Policy</a>
+            <div class="f3-colophon-right">
+              <span class="f3-footer-clock live-clock type-mono-a">--:--:-- UTC+7</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/vendor/lucide.min.js" defer></script>
+  <script src="js/vendor/motion.min.js" defer></script>
+  <script src="js/text-flip.js?v=1.0.0" defer></script>
+  <script src="js/projects-data.js?v=1.0.0" defer></script>
+  <script src="js/utils.js?v=1.0.0" defer></script>
+  <script src="js/motion-stack.js?v=1.0.0" defer></script>
+  <script src="js/futurethree-scroll.js?v=1.0.0" defer></script>
+  <script src="js/contact.js?v=1.0.0" defer></script>
+  <script src="js/about.js?v=1.0.0" defer></script>
+  <script src="js/app.js?v=1.0.0" defer></script>
+</body>
+
+</html>

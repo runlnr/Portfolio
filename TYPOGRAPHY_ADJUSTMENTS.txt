@@ -1,0 +1,224 @@
+================================================================================
+NAM PHAM® PORTFOLIO — TYPOGRAPHY AUDIT & ADJUSTMENTS BREAKDOWN
+================================================================================
+
+This document catalogs all Category 3 (Custom / Standalone / Divergent) text
+elements across the entire site. It is split into two actionable lists:
+
+  1. "SIMILAR" LIST   : Elements where ONLY 1 property diverges from a standard preset.
+  2. "DIFFERENT" LIST : Elements with 2+ diverging properties, custom scales, or fluid clamp().
+
+--------------------------------------------------------------------------------
+STANDARD TYPOGRAPHY PRESETS REFERENCE (css/typography.css & TYPOGRAPHY.txt)
+--------------------------------------------------------------------------------
+• AT AERO TYPE A (Manifesto / Display)
+  Font: AT Aero Retina | Weight: 350 | Size: 43px | Line: 49px | Tracking: -2.0px
+
+• AT AERO TYPE B (Section Titles / Headlines)
+  Font: AT Aero Regular | Weight: 400 | Size: 30px | Line: 35px | Tracking: -1.0px
+
+• AT AERO TYPE C (Card Titles / Subheaders / Body Emphases)
+  Font: AT Aero Regular | Weight: 400 | Size: 20px | Line: 27.5px | Tracking: -1.2px
+
+• AT AERO TYPE D (Giant Display Signature)
+  Font: AT Aero SemiBold | Weight: 500 | Size: 230px | Line: 230px | Tracking: -17.0px
+
+• AT AERO TYPE E (Metadata / Action Links / Navigation Subtext)
+  Font: AT Aero Retina | Weight: 350 | Size: 14.5px | Line: 20px | Tracking: -0.3px
+
+• AT AERO TYPE F (Body / Form Labels & Inputs)
+  Font: AT Aero Regular | Weight: 400 | Size: 16px | Line: 22px | Tracking: -0.3px
+
+• PP SUPPLY MONO TYPE A (Colophon / Live Clocks / Badges / Tags)
+  Font: PP Supply Mono | Weight: 400 | Size: 11px | Line: 13px | Tracking: +0.5px
+
+
+================================================================================
+LIST 1: "SIMILAR" ELEMENTS (1 Single Property Diverging)
+================================================================================
+
+[01] DROPDOWN MENU NAVIGATION LINKS
+     • Selector         : span.nav-row-text
+     • Source File      : css/hero-3d.css (Line 778)
+     • Sample Text      : "Home", "Projects", "About", "Contact", "Archive"
+     • Current Styles   : AT Aero | 16.5px | Line: 22.3px | Spacing: -1.03px | Weight: 400
+     • Closest Preset   : AT Aero Type F (16px / 22px / -0.3px / 400)
+     • Diverging Prop   : Letter Spacing is -1.03px (preset standard is -0.3px)
+     • Adjustment Note  : Can be aligned to .type-aero-f or kept if intentional optical tracking.
+
+[02] HOMEPAGE FEATURED SECTION TAG
+     • Selector         : span.f3-featured-tag
+     • Source File      : css/futurethree-scroll.css (Line 478)
+     • Sample Text      : "Recent works"
+     • Current Styles   : AT Aero | 25px | Line: 27.5px | Spacing: -1.2px | Weight: 400
+     • Closest Preset   : AT Aero Type C (20px / 27.5px / -1.2px / 400)
+     • Diverging Prop   : Font Size is 25px (preset standard is 20px)
+     • Adjustment Note  : Size is 25px between Type C (20px) and Type B (30px).
+
+[03] WORK CARD TITLE HOVER ARROWS
+     • Selector         : span.f3-title-arrow
+     • Source File      : css/futurethree-scroll.css (Line 1225)
+     • Sample Text      : "↗"
+     • Current Styles   : AT Aero Retina | 11.89px | Line: 20px | Spacing: -0.3px | Weight: 350
+     • Closest Preset   : AT Aero Type E (14.5px / 20px / -0.3px / 350)
+     • Diverging Prop   : Font Size is 11.89px (preset standard is 14.5px)
+     • Adjustment Note  : Arrow was scaled down slightly to align with 20px card titles.
+
+[04] 3D WORK TITLE FLIP CONTAINER & FACES
+     • Selector         : span.f3-title-flip, span.f3-title-face
+     • Source File      : css/futurethree-scroll.css (Line 1169)
+     • Sample Text      : "Memphis Grizzlies", "U.S. Ski & Snowboard", etc.
+     • Current Styles   : AT Aero | 20px | Line: 23.6px | Spacing: -1.2px | Weight: 400
+     • Closest Preset   : AT Aero Type C (20px / 27.5px / -1.2px / 400)
+     • Diverging Prop   : Line Height is 23.6px (preset standard is 27.5px)
+     • Adjustment Note  : Line height is clamped to 23.6px for tight 3D box roll rotation.
+
+[05] HERO PILL BUTTON & ARROW ("Start a project")
+     • Selector         : span.f3-pill-label, span.f3-pill-arrow
+     • Source File      : css/futurethree-scroll.css (Line 2458)
+     • Sample Text      : "Start a project", "↗"
+     • Current Styles   : AT Aero | 16px | Line: 16px | Spacing: -0.3px | Weight: 400
+     • Closest Preset   : AT Aero Type F (16px / 22px / -0.3px / 400)
+     • Diverging Prop   : Line Height is 16px (preset standard is 22px)
+     • Adjustment Note  : Line height matches font-size (1:1) for vertical flex centering in pill.
+
+[06] FOOTER SOCIAL INACTIVE BADGES
+     • Selector         : span.f3-footer-badge
+     • Source File      : css/futurethree-scroll.css (Line 3107)
+     • Sample Text      : "(coming soon)"
+     • Current Styles   : AT Aero Retina | 14.5px | Line: 35px | Spacing: -0.3px | Weight: 350
+     • Closest Preset   : AT Aero Type E (14.5px / 20px / -0.3px / 350)
+     • Diverging Prop   : Line Height is 35px (preset standard is 20px)
+     • Adjustment Note  : Line height stretched to 35px to align with the parent social row height.
+
+[07] PROJECT CASE STUDY NEXT TITLE
+     • Selector         : span#project-next-title.project-next-title
+     • Source File      : css/pages.css (Line 1426)
+     • Sample Text      : "U.S. Ski & Snowboard | OWG Milano Cortina 2026"
+     • Current Styles   : AT Aero | 30px | Line: 35px | Spacing: -1.0px | Weight: 500 (Medium)
+     • Closest Preset   : AT Aero Type B (30px / 35px / -1.0px / 400 Regular)
+     • Diverging Prop   : Font Weight is 500 Medium (preset standard is 400 Regular)
+     • Adjustment Note  : Weight is 500 for emphasis in the bottom transition banner.
+
+[08] PROJECT CASE STUDY EXTERNAL ACTION LINK & LABEL
+     • Selector         : a#project-action-link.project-action-link, span.action-label
+     • Source File      : css/pages.css (Line 1326)
+     • Sample Text      : "View on Behance ↗", "Visit Site →"
+     • Current Styles   : AT Aero | 15px | Line: 20px | Spacing: -0.3px | Weight: 500 (Medium)
+     • Closest Preset   : AT Aero Type E (14.5px / 20px / -0.3px / 350 Retina)
+     • Diverging Prop   : Font Weight is 500 Medium (preset standard is 350 Retina)
+     • Adjustment Note  : Uses 500 Medium for standalone action link button prominence.
+
+[09] PROJECT NEXT BANNER ARROW
+     • Selector         : span.project-next-arrow
+     • Source File      : css/pages.css (Line 1435)
+     • Sample Text      : "↗"
+     • Current Styles   : AT Aero | 16.25px | Line: 22px | Spacing: -0.3px | Weight: 400
+     • Closest Preset   : AT Aero Type F (16px / 22px / -0.3px / 400)
+     • Diverging Prop   : Font Size is 16.25px (preset standard is 16px)
+     • Adjustment Note  : 0.25px micro-scaling difference.
+
+[10] MONOSPACE LIGHT BUTTON ARROWS & ONGOING BADGES
+     • Selector         : span.btn-arrow, span.nav-ongoing-badge
+     • Source File      : css/futurethree-scroll.css (Line 780), css/hero-3d.css (Line 915)
+     • Sample Text      : "01", "↗"
+     • Current Styles   : PP Supply Mono | 11px | Line: 13px | Spacing: 0.5px | Weight: 300 (Light)
+     • Closest Preset   : PP Supply Mono Type A (11px / 13px / 0.5px / 400 Regular)
+     • Diverging Prop   : Font Weight is 300 Supply-Light (preset standard is 400 Regular)
+     • Adjustment Note  : Uses Supply-Light OTF for ultra-thin numeral tags.
+
+[11] FOOTER STUDIO CLOCK DIGITS
+     • Selector         : span#f3-clock-studio.f3-clock-val
+     • Source File      : css/futurethree-scroll.css (Line 2620)
+     • Sample Text      : "18:20:34"
+     • Current Styles   : PP Supply Mono | 11px | Line: 13px | Spacing: 0.5px | Weight: 500 (Medium)
+     • Closest Preset   : PP Supply Mono Type A (11px / 13px / 0.5px / 400 Regular)
+     • Diverging Prop   : Font Weight is 500 Medium (preset standard is 400 Regular)
+     • Adjustment Note  : 500 weight gives crisp contrast against the dark background.
+
+
+================================================================================
+LIST 2: "DIFFERENT" ELEMENTS (Completely Standalone / Multiple Diffs)
+================================================================================
+
+[01] DROPDOWN MENU ONGOING STATUS LABEL
+     • Selector         : span.nav-ongoing-text
+     • Source File      : css/hero-3d.css (Line 931)
+     • Sample Text      : "Ongoing projects"
+     • Current Styles   : AT Aero | 14px | Line: 14px | Spacing: -0.84px | Weight: 400
+     • Why Different    : Diverges across 3 parameters (14px size, 14px line, -0.84px tracking)
+                          designed specifically to fit adjacent to the 01 tag badge.
+
+[02] CONTACT FORM SUBMIT BUTTON LABEL
+     • Selector         : span.f3-btn-label
+     • Source File      : css/futurethree-scroll.css (Line 2851)
+     • Sample Text      : "Send message ↗"
+     • Current Styles   : AT Aero | 13.5px | Line: 13.5px | Spacing: -0.835px | Weight: 400
+     • Why Different    : Custom scaled button font (13.5px size, 13.5px line-height,
+                          -0.835px tracking) fitted to the 48px height send button.
+
+[03] TOP NAV SOCIAL ICON BRAND GLYPHS
+     • Selector         : span.social-icon-txt
+     • Source File      : css/hero-3d.css (Line 1033)
+     • Sample Text      : "Bē"
+     • Current Styles   : AT Aero | 13px | Line: 13px | Spacing: -0.96px | Weight: 700 (Bold)
+     • Why Different    : Bespoke logo icon glyph using 700 Bold weight, 13px box size,
+                          and -0.96px optical letter-spacing.
+
+[04] HERO 3D TERMINAL ASCII CORNER SLASHES
+     • Selector         : span.ascii-corner-slash (.ascii-corner-tl, -tr, -bl, -br)
+     • Source File      : css/hero-3d.css (Line 1500)
+     • Sample Text      : "/", "\"
+     • Current Styles   : AT Aero | 20px | Line: 20px | Weight: 900 (Black)
+     • Why Different    : Structural terminal framing glyphs requiring heavy 900 Black
+                          weight and 1:1 square bounding box.
+
+[05] LIST VIEW PROJECT TAG BULLET SEPARATOR
+     • Selector         : span.f3-list-tag-dot
+     • Source File      : css/futurethree-scroll.css (Line 755)
+     • Sample Text      : "•"
+     • Current Styles   : PP Supply Mono | 8px | Line: 13px | Weight: 500 (Medium)
+     • Why Different    : Micro-scaled 8px bullet delimiter with 500 weight between category tags.
+
+[06] INTERACTIVE PROJECT MODAL SECTION HEADINGS
+     • Selector         : h3.pm-heading
+     • Source File      : css/project-modal.css (Line 235)
+     • Sample Text      : "CONTEXT", "DELIVERABLES", "CHALLENGE & SOLUTION"
+     • Current Styles   : AT Aero | 24px | Line: 31.2px | Spacing: -0.5px | Weight: 500
+     • Why Different    : Standalone modal section heading typography (24px size, 31.2px line,
+                          -0.5px tracking, 500 weight).
+
+[07] INTERACTIVE PROJECT MODAL BODY TEXT
+     • Selector         : p.pm-body-p
+     • Source File      : css/project-modal.css (Line 248)
+     • Sample Text      : (Modal description paragraphs)
+     • Current Styles   : AT Aero | 15px | Line: 24px | Spacing: -0.2px | Weight: 400
+     • Why Different    : Dedicated modal editorial body scale (15px size, 24px line-height,
+                          -0.2px tracking for reading legibility in modal context).
+
+[08] ABOUT PAGE RESPONSIVE FLUID HERO HEADLINE
+     • Selector         : h1.about-hero-title
+     • Source File      : css/pages.css (Line 1571)
+     • Sample Text      : "Editorial Graphic Design & Art Direction"
+     • Current Styles   : AT Aero Retina | clamp(44px, 7.5vw, 92px) | Line: 0.95em | Spacing: -0.04em | Weight: 350
+     • Why Different    : Fully dynamic viewport-calculated clamp() responsive scale
+                          scaling seamlessly between mobile (44px) and large displays (92px).
+
+[09] ABOUT PAGE EDITORIAL LEAD STATEMENT
+     • Selector         : h2.about-lead-statement
+     • Source File      : css/pages.css (Line 1685)
+     • Sample Text      : (Editorial intro statement)
+     • Current Styles   : AT Aero Retina | 32px | Line: 40px | Spacing: -1.2px | Weight: 350
+     • Why Different    : Standalone 32px/40px editorial headline scale with Retina 350 weight.
+
+[10] HERO CRT TERMINAL MONOSPACE MATRIX
+     • Selector         : pre.hero-ascii-art, .ascii-line
+     • Source File      : css/hero-3d.css (Line 1445)
+     • Sample Text      : (Monospace terminal character stream)
+     • Current Styles   : PP Supply Mono | 10px | Line: 11px | Weight: 400
+     • Why Different    : Specialized 10px/11px matrix engineered for the 80-character
+                          retro CRT TV visual canvas.
+
+================================================================================
+END OF ADJUSTMENTS BREAKDOWN
+================================================================================

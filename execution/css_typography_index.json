@@ -1,0 +1,2870 @@
+[
+  {
+    "file": "css/components.css",
+    "line": 15,
+    "selector": ".nav-grid",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px",
+      "text-transform": "lowercase"
+    }
+  },
+  {
+    "file": "css/components.css",
+    "line": 33,
+    "selector": ".nav-brand",
+    "props": {
+      "font-weight": "500",
+      "letter-spacing": "-1.9px",
+      "font-size": "13px"
+    }
+  },
+  {
+    "file": "css/components.css",
+    "line": 104,
+    "selector": ".nav-pill-contact",
+    "props": {
+      "font-weight": "600"
+    }
+  },
+  {
+    "file": "css/components.css",
+    "line": 118,
+    "selector": ".mobile-menu-btn",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "12px"
+    }
+  },
+  {
+    "file": "css/components.css",
+    "line": 154,
+    "selector": ".mobile-links a",
+    "props": {
+      "font-size": "2.5rem",
+      "font-weight": "600",
+      "text-transform": "uppercase",
+      "letter-spacing": "calc(-0.03em - 0.7px)"
+    }
+  },
+  {
+    "file": "css/components.css",
+    "line": 180,
+    "selector": ".footer-col-title",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/components.css",
+    "line": 196,
+    "selector": ".footer-links-list a",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px"
+    }
+  },
+  {
+    "file": "css/components.css",
+    "line": 237,
+    "selector": ".footer-bottom",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px"
+    }
+  },
+  {
+    "file": "css/components.css",
+    "line": 270,
+    "selector": ".view-toggle-btn",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/components.css",
+    "line": 313,
+    "selector": ".view-toggle-btn.active",
+    "props": {
+      "font-weight": "600"
+    }
+  },
+  {
+    "file": "css/components.css",
+    "line": 319,
+    "selector": ".badge-tag",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px"
+    }
+  },
+  {
+    "file": "css/components.css",
+    "line": 347,
+    "selector": ".pill-option",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/components.css",
+    "line": 398,
+    "selector": ".pill-option.selected",
+    "props": {
+      "font-weight": "600"
+    }
+  },
+  {
+    "file": "css/components.css",
+    "line": 426,
+    "selector": ".ticker-item",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "font-weight": "500",
+      "text-transform": "uppercase",
+      "letter-spacing": "-0.2px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 177,
+    "selector": ".f3-editorial-wrapper",
+    "props": {
+      "font-family": "var(--font-sans)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 200,
+    "selector": ".f3-mono-tag",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 230,
+    "selector": ".f3-meta-square",
+    "props": {
+      "font-size": "8px",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 248,
+    "selector": ".f3-intro-statement",
+    "props": {
+      "font-family": "var(--manifesto-font-family, var(--font-retina, 'AT Aero Retina', var(--font-sans)))",
+      "font-size": "var(--manifesto-font-size, 43px)",
+      "font-weight": "var(--manifesto-font-weight, 400)",
+      "line-height": "var(--manifesto-line-height, 1.1)",
+      "letter-spacing": "var(--manifesto-letter-spacing, -1.8px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 262,
+    "selector": ".f3-intro-right-col .f3-pill-btn",
+    "props": {
+      "font-family": "var(--type-mono-light-font, 'Supply-Light', 'PP Supply Mono', monospace)",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-light-weight, 300)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 293,
+    "selector": ".f3-intro-right-col .f3-pill-btn .btn-arrow",
+    "props": {
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 329,
+    "selector": ".f3-intro-status",
+    "props": {
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 349,
+    "selector": ".f3-intro-status-text",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-a-weight, 400)",
+      "line-height": "1",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 363,
+    "selector": ".f3-mono-shuffle-letter",
+    "props": {
+      "font-family": "inherit",
+      "font-size": "inherit",
+      "font-weight": "inherit",
+      "line-height": "inherit",
+      "letter-spacing": "inherit"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 381,
+    "selector": ".f3-ongoing-badge",
+    "props": {
+      "font-family": "var(--type-mono-light-font, 'Supply-Light', 'PP Supply Mono', monospace)",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-light-weight, 300)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "line-height": "1",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 401,
+    "selector": ".f3-ongoing-label",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "14px",
+      "font-weight": "400",
+      "letter-spacing": "-0.8px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 478,
+    "selector": ".f3-featured-tag",
+    "props": {
+      "font-family": "var(--featured-tag-font-family, var(--font-primary, 'AT Aero', sans-serif))",
+      "font-size": "var(--featured-tag-font-size, 25px)",
+      "font-weight": "var(--featured-tag-font-weight, 400)",
+      "letter-spacing": "var(--featured-tag-letter-spacing, -1.2px)",
+      "line-height": "var(--featured-tag-line-height, 27.5px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 496,
+    "selector": ".f3-view-btn",
+    "props": {
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 533,
+    "selector": ".f3-featured-more-link",
+    "props": {
+      "font-family": "var(--type-aero-e-font, var(--font-retina, 'AT Aero Retina', var(--font-sans)))",
+      "font-size": "var(--type-aero-e-size, 16px)",
+      "font-weight": "var(--type-aero-e-weight, 450)",
+      "line-height": "var(--type-aero-e-line, 20px)",
+      "letter-spacing": "var(--type-aero-e-spacing, -0.7px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 723,
+    "selector": ".f3-list-title",
+    "props": {
+      "font-family": "var(--type-aero-b-font, var(--font-primary, 'AT Aero', sans-serif))",
+      "font-size": "var(--type-aero-b-size, 30px)",
+      "font-weight": "var(--type-aero-b-weight, 400)",
+      "line-height": "var(--type-aero-b-line, 35px)",
+      "letter-spacing": "var(--type-aero-b-spacing, -1px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 736,
+    "selector": ".f3-list-tags",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 755,
+    "selector": ".f3-list-tag-dot",
+    "props": {
+      "font-size": "8px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 775,
+    "selector": ".f3-list-cta-btn",
+    "props": {
+      "font-family": "var(--type-mono-light-font, 'Supply-Light', 'PP Supply Mono', monospace)",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-light-weight, 300)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 810,
+    "selector": ".f3-list-cta-btn .btn-arrow",
+    "props": {
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 837,
+    "selector": ".f3-list-title",
+    "props": {
+      "font-size": "clamp(20px, 3.5vw, 26px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 841,
+    "selector": ".f3-list-tags",
+    "props": {
+      "font-size": "10px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 846,
+    "selector": ".f3-list-cta-btn",
+    "props": {
+      "font-size": "10px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 886,
+    "selector": ".f3-list-tags",
+    "props": {
+      "font-size": "9.5px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1023,
+    "selector": ".f3-thumbnail-badge",
+    "props": {
+      "font-family": "var(--type-mono-light-font, 'Supply-Light', 'PP Supply Mono', monospace)",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-light-weight, 300)",
+      "letter-spacing": "0",
+      "line-height": "1",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1099,
+    "selector": ".f3-cursor-view-tag",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1153,
+    "selector": ".f3-work-card-title",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "var(--work-card-title-size, 20px)",
+      "font-weight": "400",
+      "letter-spacing": "-1.2px",
+      "line-height": "1.18",
+      "text-transform": "none"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1169,
+    "selector": ".f3-title-flip",
+    "props": {
+      "line-height": "1.18em"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1190,
+    "selector": ".text-flip-face",
+    "props": {
+      "line-height": "1.18em"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1208,
+    "selector": ".f3-title-face",
+    "props": {
+      "line-height": "1.18em"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1225,
+    "selector": ".f3-title-arrow",
+    "props": {
+      "font-size": "0.82em"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1236,
+    "selector": ".f3-work-card-year",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "var(--work-card-title-size, 20px)",
+      "font-weight": "400",
+      "letter-spacing": "-1.2px",
+      "line-height": "1.18"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1259,
+    "selector": ".f3-work-tag",
+    "props": {
+      "font-family": "var(--type-mono-light-font, 'Supply-Light', 'PP Supply Mono', monospace)",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-light-weight, 300)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1293,
+    "selector": ".f3-works-expand-btn",
+    "props": {
+      "font-family": "var(--type-mono-light-font, 'Supply-Light', 'PP Supply Mono', monospace)",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-light-weight, 300)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1320,
+    "selector": ".f3-works-expand-btn .expand-arrow",
+    "props": {
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1360,
+    "selector": ".f3-work-card-year",
+    "props": {
+      "font-size": "clamp(20px, 5.5vw, 25px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1382,
+    "selector": ".f3-project-card-01 .f3-card-title",
+    "props": {
+      "font-size": "var(--card-01-title-size, clamp(24px, 2.8vw, 38px))",
+      "font-weight": "var(--card-01-title-weight, 500)",
+      "letter-spacing": "var(--card-01-letter-spacing, -2.2px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1404,
+    "selector": ".f3-project-card-02 .f3-card-title",
+    "props": {
+      "font-size": "var(--card-02-title-size, clamp(24px, 2.8vw, 38px))",
+      "font-weight": "var(--card-02-title-weight, 500)",
+      "letter-spacing": "var(--card-02-letter-spacing, -2.3px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1417,
+    "selector": ".f3-watermark-number",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "var(--watermark-size, clamp(160px, 20vw, 290px))",
+      "font-weight": "600",
+      "line-height": "0.8",
+      "letter-spacing": "-10px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1451,
+    "selector": ".f3-project-card-03 .f3-card-title",
+    "props": {
+      "font-size": "var(--card-03-title-size, clamp(24px, 2.8vw, 38px))",
+      "font-weight": "var(--card-03-title-weight, 500)",
+      "letter-spacing": "var(--card-03-letter-spacing, -2.2px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1465,
+    "selector": ".f3-card-num",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "18px",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1473,
+    "selector": ".f3-card-title",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "clamp(24px, 2.8vw, 38px)",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1492,
+    "selector": ".f3-contact-coord-block",
+    "props": {
+      "font-size": "var(--contact-font-size, 13px)",
+      "line-height": "var(--contact-line-height, 1.4)",
+      "letter-spacing": "var(--contact-letter-spacing, -1.3px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1504,
+    "selector": ".f3-coord-col-address .f3-coord-label",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "var(--contact-font-size, 13px)",
+      "font-weight": "var(--contact-label-weight, 500)",
+      "letter-spacing": "var(--contact-letter-spacing, -1.3px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1513,
+    "selector": ".f3-coord-col-address .f3-coord-value",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "var(--contact-font-size, 13px)",
+      "font-weight": "var(--contact-value-weight, 400)",
+      "line-height": "var(--contact-line-height, 1.45)",
+      "letter-spacing": "var(--contact-letter-spacing, -1.3px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1522,
+    "selector": ".f3-coord-col-contact .f3-coord-subrow",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "var(--contact-font-size, 13px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1531,
+    "selector": ".f3-coord-col-contact .f3-coord-label",
+    "props": {
+      "font-size": "var(--contact-font-size, 13px)",
+      "font-weight": "var(--contact-label-weight, 500)",
+      "letter-spacing": "var(--contact-letter-spacing, -1.3px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1538,
+    "selector": ".f3-coord-col-contact .f3-coord-value",
+    "props": {
+      "font-size": "var(--contact-font-size, 13px)",
+      "font-weight": "var(--contact-value-weight, 400)",
+      "letter-spacing": "var(--contact-letter-spacing, -1.3px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1566,
+    "selector": ".f3-portfolio-main-title",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "var(--best-title-size, clamp(22px, 2.5vw, 32px))",
+      "font-weight": "var(--best-title-weight, 500)",
+      "letter-spacing": "var(--best-title-letter-spacing, -2.5px)",
+      "line-height": "var(--best-title-line-height, 1.05)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1577,
+    "selector": ".f3-portfolio-tag-serif",
+    "props": {
+      "font-family": "var(--font-serif)",
+      "font-size": "var(--best-tag-serif-size, clamp(22px, 2.6vw, 34px))",
+      "font-style": "italic"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1584,
+    "selector": ".f3-portfolio-view-all",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "var(--best-view-all-size, 13.5px)",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1601,
+    "selector": ".f3-disciplines-bar",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1627,
+    "selector": ".f3-services-subhead",
+    "props": {
+      "font-family": "var(--font-serif)",
+      "font-size": "clamp(44px, 5.8vw, 84px)",
+      "font-style": "italic",
+      "font-weight": "400",
+      "line-height": "0.95"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1637,
+    "selector": ".f3-services-mainhead",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "clamp(52px, 7.5vw, 110px)",
+      "font-weight": "500",
+      "line-height": "0.9",
+      "letter-spacing": "-1.9px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1673,
+    "selector": ".f3-service-side-tag",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1683,
+    "selector": ".f3-service-title",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "clamp(28px, 3.2vw, 44px)",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px",
+      "line-height": "1.1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1693,
+    "selector": ".f3-service-details h4",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "15px",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1702,
+    "selector": ".f3-service-details p",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "13.5px",
+      "line-height": "1.55"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1732,
+    "selector": ".f3-service-pill-btn",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "10.5px",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1773,
+    "selector": ".f3-billboard-text",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "clamp(64px, 14vw, 210px)",
+      "font-weight": "500",
+      "line-height": "0.88",
+      "letter-spacing": "-1.9px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1821,
+    "selector": ".f3-outro-featured-top .f3-mono-tag",
+    "props": {
+      "font-size": "11px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1854,
+    "selector": ".f3-outro-featured-title",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "22px",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1863,
+    "selector": ".f3-outro-view-btn",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1898,
+    "selector": ".f3-outro-headline",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "clamp(32px, 3.8vw, 54px)",
+      "font-weight": "500",
+      "line-height": "1.12",
+      "letter-spacing": "-1.9px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1908,
+    "selector": ".f3-outro-directory-grid",
+    "props": {
+      "font-size": "13.5px",
+      "line-height": "1.5"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1918,
+    "selector": ".f3-outro-dir-label",
+    "props": {
+      "font-weight": "500",
+      "letter-spacing": "-1.9px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1934,
+    "selector": ".f3-outro-social-list a",
+    "props": {
+      "font-weight": "500",
+      "letter-spacing": "-1.9px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1955,
+    "selector": ".f3-outro-contact-links a",
+    "props": {
+      "font-size": "15px",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 1976,
+    "selector": ".f3-calendly-link",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "14px",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2034,
+    "selector": ".f3-showcase-title",
+    "props": {
+      "font-family": "var(--manifesto-font-family, var(--type-aero-a-font, var(--font-retina, 'AT Aero Retina', sans-serif)))",
+      "font-size": "var(--manifesto-font-size, var(--type-aero-a-size, 43px))",
+      "font-weight": "var(--manifesto-font-weight, var(--type-aero-a-weight, 450))",
+      "line-height": "var(--manifesto-line-height, var(--type-aero-a-line, 49px))",
+      "letter-spacing": "var(--manifesto-letter-spacing, var(--type-aero-a-spacing, -2px))"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2138,
+    "selector": ".f3-showcase-label",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, monospace))",
+      "font-size": "var(--type-mono-a-size, 10.5px)",
+      "font-weight": "500",
+      "line-height": "var(--type-mono-a-line, 13px)",
+      "letter-spacing": "0.8px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2156,
+    "selector": ".f3-showcase-desc",
+    "props": {
+      "font-family": "var(--type-aero-c-font)",
+      "font-size": "var(--type-aero-c-size, 20px)",
+      "font-weight": "var(--type-aero-c-weight, 400)",
+      "line-height": "var(--type-aero-c-line, 27.5px)",
+      "letter-spacing": "var(--type-aero-c-spacing, -1.2px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2213,
+    "selector": ".f3-showcase-title",
+    "props": {
+      "font-size": "clamp(26px, 6.5vw, 36px)",
+      "line-height": "1.15",
+      "letter-spacing": "-1.2px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2244,
+    "selector": ".f3-showcase-label",
+    "props": {
+      "font-size": "11px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2250,
+    "selector": ".f3-showcase-desc",
+    "props": {
+      "font-family": "var(--type-aero-c-font, 'AT Aero', sans-serif)",
+      "font-size": "14.5px",
+      "line-height": "1.45",
+      "letter-spacing": "-0.4px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2366,
+    "selector": ".f3-contact-hook-title",
+    "props": {
+      "font-family": "var(--font-display, 'AT Aero', sans-serif)",
+      "font-size": "clamp(44px, 7vw, 76px)",
+      "font-weight": "500",
+      "line-height": "0.94",
+      "letter-spacing": "-2.2px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2386,
+    "selector": ".f3-contact-email-link",
+    "props": {
+      "font-family": "var(--font-display, 'AT Aero', sans-serif)",
+      "font-size": "17px",
+      "letter-spacing": "-0.4px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2410,
+    "selector": ".f3-contact-pill-trigger",
+    "props": {
+      "font-family": "var(--type-aero-f-font, var(--font-primary, 'AT Aero', sans-serif))",
+      "font-size": "var(--type-aero-f-size, 16px)",
+      "font-weight": "var(--type-aero-f-weight, 400)",
+      "letter-spacing": "var(--type-aero-f-spacing, -0.3px)",
+      "text-transform": "none",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2458,
+    "selector": ".f3-pill-label",
+    "props": {
+      "font-family": "inherit",
+      "font-size": "inherit",
+      "font-weight": "inherit",
+      "letter-spacing": "inherit",
+      "text-transform": "none"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2466,
+    "selector": ".f3-pill-arrow",
+    "props": {
+      "font-size": "16px",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2475,
+    "selector": ".f3-contact-corners-bar",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2505,
+    "selector": ".f3-clock-val",
+    "props": {
+      "font-variant-numeric": "tabular-nums",
+      "font-weight": "500"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2563,
+    "selector": ".f3-contact-modal-close",
+    "props": {
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2672,
+    "selector": ".f3-form-label",
+    "props": {
+      "font-family": "var(--type-aero-f-font, 'AT Aero', sans-serif)",
+      "font-size": "var(--type-aero-f-size, 16px)",
+      "font-weight": "var(--type-aero-f-weight, 400)",
+      "line-height": "var(--type-aero-f-line, 22px)",
+      "letter-spacing": "var(--type-aero-f-spacing, -0.3px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2685,
+    "selector": ".f3-form-label .f3-label-num",
+    "props": {
+      "font-feature-settings": "\"tnum\""
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2695,
+    "selector": ".f3-form-textarea",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-a-weight, 400)",
+      "line-height": "var(--type-mono-a-line, 13px)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2726,
+    "selector": ".f3-form-textarea::placeholder",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-a-weight, 400)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2755,
+    "selector": ".f3-pill-group .f3-pill-btn",
+    "props": {
+      "font-family": "var(--type-mono-light-font, 'Supply-Light', 'PP Supply Mono', monospace)",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-light-weight, 300)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2796,
+    "selector": ".f3-pill-group .f3-pill-btn.is-active",
+    "props": {
+      "font-weight": "var(--type-mono-light-weight, 300)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2823,
+    "selector": ".f3-contact-submit-btn",
+    "props": {
+      "font-family": "var(--font-display, 'AT Aero', 'At Aero', sans-serif)",
+      "font-size": "13.5px",
+      "font-weight": "400",
+      "letter-spacing": "calc(-0.01em - 0.7px)",
+      "text-transform": "none !important",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2851,
+    "selector": ".f3-contact-submit-btn .f3-btn-label",
+    "props": {
+      "font-family": "inherit",
+      "font-size": "inherit",
+      "font-weight": "inherit",
+      "letter-spacing": "inherit",
+      "text-transform": "inherit",
+      "line-height": "inherit"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 2883,
+    "selector": ".f3-form-status-msg",
+    "props": {
+      "font-size": "11px",
+      "letter-spacing": "0.6px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3022,
+    "selector": ".f3-footer-email-link",
+    "props": {
+      "font-family": "var(--type-aero-b-font)",
+      "font-size": "var(--type-aero-b-size)",
+      "font-weight": "var(--type-aero-b-weight)",
+      "letter-spacing": "var(--type-aero-b-spacing)",
+      "line-height": "var(--type-aero-b-line)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3043,
+    "selector": "@media (max-width: 480px)",
+    "props": {
+      "font-size": "clamp(16px, 5.2vw, 22px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3050,
+    "selector": ".f3-footer-location",
+    "props": {
+      "font-family": "var(--type-aero-b-font)",
+      "font-size": "var(--type-aero-b-size)",
+      "font-weight": "var(--type-aero-b-weight)",
+      "letter-spacing": "var(--type-aero-b-spacing)",
+      "line-height": "var(--type-aero-b-line)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3064,
+    "selector": ".f3-footer-location span",
+    "props": {
+      "line-height": "var(--type-aero-b-line)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3088,
+    "selector": ".f3-footer-social-link",
+    "props": {
+      "font-family": "var(--type-aero-b-font)",
+      "font-size": "var(--type-aero-b-size)",
+      "font-weight": "var(--type-aero-b-weight)",
+      "letter-spacing": "var(--type-aero-b-spacing)",
+      "line-height": "var(--type-aero-b-line)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3107,
+    "selector": ".f3-footer-badge",
+    "props": {
+      "font-family": "var(--font-retina, 'AT Aero Retina', sans-serif)",
+      "font-size": "clamp(11px, 1.1vw, 15px)",
+      "font-weight": "400",
+      "letter-spacing": "-0.3px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3161,
+    "selector": ".f3-footer-brand-signature",
+    "props": {
+      "font-size": "clamp(52px, 14vw, var(--type-aero-d-size, 260px))"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3175,
+    "selector": "@media (min-width: 1440px)",
+    "props": {
+      "font-size": "var(--type-aero-d-size, 260px)"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3183,
+    "selector": ".f3-signature-text",
+    "props": {
+      "font-family": "var(--type-aero-d-font, 'AT Aero', sans-serif)",
+      "font-size": "1em",
+      "font-weight": "var(--type-aero-d-weight, 500)",
+      "letter-spacing": "clamp(-10px, -0.7vw, -3px)",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3198,
+    "selector": "@media (min-width: 1440px)",
+    "props": {
+      "font-size": "1em",
+      "letter-spacing": "var(--type-aero-d-spacing, -10px)",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3207,
+    "selector": ".neue-haas-underscore",
+    "props": {
+      "font-family": "'Neue Haas Real', sans-serif",
+      "font-weight": "700",
+      "line-height": "inherit"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3232,
+    "selector": ".f3-footer-colophon-bar",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "line-height": "1",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3287,
+    "selector": ".f3-colophon-privacy-link",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-a-weight, 400)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "line-height": "var(--type-mono-a-line, 13px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3422,
+    "selector": ".f3-strip-title",
+    "props": {
+      "font-size": "15px"
+    }
+  },
+  {
+    "file": "css/futurethree-scroll.css",
+    "line": 3452,
+    "selector": ".f3-watermark-number",
+    "props": {
+      "font-size": "110px"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 239,
+    "selector": ".nav-pinned-item",
+    "props": {
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 257,
+    "selector": ".nav-pinned-item .hero-location-text",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "var(--nav-pinned-font-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px",
+      "text-transform": "uppercase",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 267,
+    "selector": ".nav-pinned-item .live-clock-gmt",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "var(--nav-pinned-font-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 477,
+    "selector": ".nav-status-line",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--nav-status-font-weight, 500)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "line-height": "1",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 588,
+    "selector": ".nav-dropdown-menu",
+    "props": {
+      "text-transform": "none !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 676,
+    "selector": ".nav-dropdown-menu *",
+    "props": {
+      "text-transform": "none !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 684,
+    "selector": ".nav-dropdown-menu .nav-ongoing-badge",
+    "props": {
+      "text-transform": "uppercase !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 716,
+    "selector": ".nav-dropdown-row-link",
+    "props": {
+      "font-family": "var(--font-display, \"Neue Haas Grotesk Display Pro\", \"Inter\", -apple-system, sans-serif)",
+      "font-size": "var(--nav-dropdown-item-font-size, 16.5px)",
+      "font-weight": "var(--nav-dropdown-item-font-weight, 400)",
+      "letter-spacing": "calc(-0.02em - 0.7px)",
+      "text-transform": "none !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 750,
+    "selector": ".nav-dropdown-row-link .nav-row-roll",
+    "props": {
+      "line-height": "1.35em"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 778,
+    "selector": ".nav-dropdown-row-link .nav-row-roll-inner .nav-row-text",
+    "props": {
+      "line-height": "1.35em",
+      "text-transform": "none !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 805,
+    "selector": ".nav-dropdown-row-link .nav-row-count",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase !important",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 865,
+    "selector": ".nav-dropdown-clock-wrap",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "400",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "line-height": "1",
+      "text-transform": "uppercase !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 879,
+    "selector": ".nav-dropdown-clock",
+    "props": {
+      "letter-spacing": "var(--type-mono-a-spacing, 0px)",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 914,
+    "selector": ".nav-ongoing-line",
+    "props": {
+      "font-family": "var(--font-sans, \"Inter\", -apple-system, sans-serif)",
+      "font-size": "var(--nav-dropdown-info-font-size, 14px)",
+      "font-weight": "400",
+      "letter-spacing": "calc(-0.01em - 0.7px)",
+      "line-height": "1",
+      "text-transform": "none !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 931,
+    "selector": ".nav-ongoing-text",
+    "props": {
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 938,
+    "selector": ".nav-ongoing-badge",
+    "props": {
+      "font-family": "var(--type-mono-light-font, 'Supply-Light', 'PP Supply Mono', monospace)",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-light-weight, 300)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "line-height": "1",
+      "text-transform": "uppercase !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 959,
+    "selector": ".nav-info-phone",
+    "props": {
+      "font-family": "var(--font-sans, \"Inter\", -apple-system, sans-serif)",
+      "font-size": "var(--nav-dropdown-info-font-size, 14px)",
+      "font-weight": "400",
+      "letter-spacing": "calc(-0.01em - 0.7px)",
+      "line-height": "1.35",
+      "text-transform": "none !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1033,
+    "selector": ".nav-social-icon .social-icon-txt",
+    "props": {
+      "font-family": "var(--font-display, \"Neue Haas Grotesk Display Pro\", \"Inter\", sans-serif)",
+      "font-weight": "700",
+      "font-size": "13px",
+      "letter-spacing": "calc(-0.02em - 0.7px)",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1077,
+    "selector": ".nav-floating-cta",
+    "props": {
+      "text-transform": "none !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1164,
+    "selector": ".nav-floating-cta .floating-cta-text",
+    "props": {
+      "font-family": "var(--type-aero-f-font, var(--font-primary, 'AT Aero', sans-serif))",
+      "font-size": "var(--type-aero-f-size, 16px)",
+      "font-weight": "var(--type-aero-f-weight, 400)",
+      "letter-spacing": "var(--type-aero-f-spacing, -0.3px)",
+      "text-transform": "none !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1215,
+    "selector": ".site-nav-top .hero-nav-brand",
+    "props": {
+      "font-family": "var(--font-display, var(--font-sans)) !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1236,
+    "selector": ".nav-modular-box .brand-roll",
+    "props": {
+      "line-height": "var(--nav-box-brand-size, 17px) !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1256,
+    "selector": ".nav-modular-box .brand-roll-inner span",
+    "props": {
+      "line-height": "var(--nav-box-brand-size, 17px) !important",
+      "font-size": "var(--nav-box-brand-size, 17px) !important",
+      "font-weight": "var(--nav-box-brand-weight, 700) !important",
+      "letter-spacing": "var(--nav-box-brand-letter-spacing, 0px) !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1272,
+    "selector": ".nav-modular-box .brand-slash",
+    "props": {
+      "line-height": "var(--nav-box-brand-size, 17px) !important",
+      "font-size": "var(--nav-box-brand-size, 17px) !important",
+      "font-weight": "var(--nav-box-brand-weight, 700) !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1282,
+    "selector": ".nav-modular-box .brand-r",
+    "props": {
+      "font-family": "var(--font-sans) !important",
+      "font-size": "var(--nav-box-brand-r-size, 9px) !important",
+      "font-weight": "500 !important",
+      "line-height": "1 !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1329,
+    "selector": ".nav-modular-box .nav-box-link",
+    "props": {
+      "font-size": "12px !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1333,
+    "selector": ".nav-modular-box .nav-box-brand",
+    "props": {
+      "font-size": "14px !important"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1500,
+    "selector": ".ascii-corner-slash",
+    "props": {
+      "font-family": "'AT Aero', var(--font-sans), sans-serif",
+      "font-size": "var(--corner-slashes-size, 20px)",
+      "font-weight": "var(--corner-slashes-weight, 900)",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1553,
+    "selector": ".hero-cta-btn",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--cta-btn-font-weight, 600)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1579,
+    "selector": ".hero-cta-btn .cta-roll",
+    "props": {
+      "line-height": "1.2em"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1595,
+    "selector": ".hero-cta-btn .cta-roll-inner span",
+    "props": {
+      "line-height": "1.2em"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1622,
+    "selector": ".hero-clock-row",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "line-height": "1",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1650,
+    "selector": ".hero-bottom-text",
+    "props": {
+      "font-family": "\"AT Aero Retina\", \"At Aero Retina\", \"AT Aero\", var(--font-sans), -apple-system, sans-serif",
+      "font-size": "var(--hero-bottom-text-size, var(--headline-font-size, 48px))",
+      "font-weight": "var(--hero-bottom-text-weight, 400)",
+      "line-height": "1",
+      "letter-spacing": "var(--hero-bottom-text-spacing, calc(-0.02em - 0.7px))"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1674,
+    "selector": "@media (max-width: 900px)",
+    "props": {
+      "font-size": "clamp(24px, 4vw, 36px)"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1708,
+    "selector": ".hero-eyebrow",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--eyebrow-font-weight, 500)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1720,
+    "selector": ".hero-bottom-headline",
+    "props": {
+      "font-family": "var(--font-sans, -apple-system, BlinkMacSystemFont, sans-serif)",
+      "font-size": "var(--headline-font-size, clamp(34px, 4vw, 56px))",
+      "font-weight": "var(--headline-font-weight, 600)",
+      "line-height": "var(--headline-line-height, 0.94)",
+      "letter-spacing": "var(--headline-letter-spacing, calc(-0.035em - 0.7px))",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1745,
+    "selector": ".hero-center-tagline p",
+    "props": {
+      "font-family": "var(--font-sans, -apple-system, BlinkMacSystemFont, sans-serif)",
+      "font-size": "var(--tagline-font-size, 13px)",
+      "font-weight": "var(--tagline-font-weight, 400)",
+      "line-height": "var(--tagline-line-height, 1.4)",
+      "letter-spacing": "var(--tagline-letter-spacing, calc(0em - 0.7px))"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1771,
+    "selector": ".hero-bottom-socials a",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase",
+      "line-height": "1.3"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1797,
+    "selector": ".ascii-corner-slash",
+    "props": {
+      "font-size": "22px"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1821,
+    "selector": ".hero-bottom-headline",
+    "props": {
+      "font-size": "clamp(24px, 6.5vw, 32px)"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1848,
+    "selector": ".hero-meta-tag",
+    "props": {
+      "font-family": "var(--font-mono) !important",
+      "font-size": "11px !important",
+      "font-weight": "500 !important",
+      "line-height": "1",
+      "letter-spacing": "0.1px !important",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1859,
+    "selector": ".legacy-nav-brand",
+    "props": {
+      "font-family": "var(--font-nav)",
+      "font-weight": "var(--nav-font-weight, 500)",
+      "font-size": "var(--nav-font-size, 14px)",
+      "line-height": "var(--nav-line-height, 16px)",
+      "letter-spacing": "var(--nav-letter-spacing, -0.8px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1872,
+    "selector": ".site-nav-top .hero-nav-brand",
+    "props": {
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1901,
+    "selector": ".nav-roll",
+    "props": {
+      "line-height": "var(--nav-line-height, 14.5px)"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1919,
+    "selector": ".site-nav-top .nav-roll-inner span",
+    "props": {
+      "line-height": "var(--nav-line-height, 14.5px)"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1948,
+    "selector": ".nav-roll-static",
+    "props": {
+      "line-height": "var(--nav-line-height, 14.5px)",
+      "font-weight": "600"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1968,
+    "selector": ".hero-nav-stack",
+    "props": {
+      "line-height": "var(--nav-line-height, 14.5px)"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 1975,
+    "selector": ".hero-nav-link",
+    "props": {
+      "font-family": "inherit",
+      "font-size": "inherit",
+      "font-weight": "inherit",
+      "letter-spacing": "inherit",
+      "text-transform": "none"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 2072,
+    "selector": ".hero-featured-title",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "var(--vd-featured-font-size, 78px)",
+      "font-weight": "500",
+      "line-height": "var(--vd-featured-line-height, 0.95)",
+      "letter-spacing": "-1.9px",
+      "text-transform": "capitalize"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 2086,
+    "selector": ".hero-featured-meta",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 2196,
+    "selector": ".hero-ribbon-title",
+    "props": {
+      "font-family": "var(--font-nav)",
+      "font-size": "11px",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 2205,
+    "selector": ".hero-ribbon-meta",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 2237,
+    "selector": ".hero-location-text",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px",
+      "text-transform": "uppercase",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 2247,
+    "selector": ".hero-clock-row",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 2277,
+    "selector": ".hero-lang-btn",
+    "props": {
+      "font-family": "inherit",
+      "font-size": "inherit",
+      "font-weight": "inherit",
+      "letter-spacing": "inherit"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 2301,
+    "selector": ".hero-lang-btn.active",
+    "props": {
+      "font-weight": "500"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 2317,
+    "selector": ".hero-lang-divider",
+    "props": {
+      "font-size": "12px",
+      "font-weight": "400"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 2360,
+    "selector": ".hero-featured-title",
+    "props": {
+      "font-size": "clamp(2.2rem, 9vw, 3.4rem)"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 2376,
+    "selector": ".hero-bottom-statement",
+    "props": {
+      "font-size": "clamp(1.8rem, 7.5vw, 2.8rem)"
+    }
+  },
+  {
+    "file": "css/hero-3d.css",
+    "line": 2380,
+    "selector": ".hero-bottom-desc",
+    "props": {
+      "font-size": "13px"
+    }
+  },
+  {
+    "file": "css/main.css",
+    "line": 40,
+    "selector": "html",
+    "props": {
+      "font-size": "16px"
+    }
+  },
+  {
+    "file": "css/main.css",
+    "line": 141,
+    "selector": "button",
+    "props": {
+      "font": "inherit"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 68,
+    "selector": ".greeting-item",
+    "props": {
+      "font-size": "clamp(3rem, 8vw, 7.5rem)",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 78,
+    "selector": ".hero-main-title",
+    "props": {
+      "font-size": "clamp(4rem, 12vw, 12rem)",
+      "font-weight": "500",
+      "line-height": "0.88",
+      "letter-spacing": "-1.9px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 96,
+    "selector": ".hero-bio",
+    "props": {
+      "font-size": "clamp(1.1rem, 2vw, 1.6rem)",
+      "line-height": "1.25",
+      "letter-spacing": "calc(-0.02em - 0.7px)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 103,
+    "selector": ".hero-meta-col",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 128,
+    "selector": ".section-title",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "12px",
+      "text-transform": "uppercase",
+      "letter-spacing": "0.05em"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 176,
+    "selector": ".project-card-title",
+    "props": {
+      "font-size": "1.2rem",
+      "font-weight": "600",
+      "letter-spacing": "calc(-0.02em - 0.7px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 183,
+    "selector": ".project-card-field",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 220,
+    "selector": ".service-num",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 226,
+    "selector": ".service-name",
+    "props": {
+      "font-size": "1.5rem",
+      "font-weight": "600",
+      "letter-spacing": "calc(-0.03em - 0.7px)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 235,
+    "selector": ".service-desc",
+    "props": {
+      "font-size": "13px",
+      "line-height": "1.4"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 247,
+    "selector": ".manifesto-text",
+    "props": {
+      "font-family": "'AT Aero Retina', 'At Aero Retina', var(--font-sans)",
+      "font-size": "clamp(2rem, 4.5vw, 4.2rem)",
+      "font-weight": "400",
+      "line-height": "1.12",
+      "letter-spacing": "calc(-0.04em - 0.7px)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 271,
+    "selector": ".cta-title",
+    "props": {
+      "font-size": "clamp(2.5rem, 7vw, 6.5rem)",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px",
+      "line-height": "0.95",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 279,
+    "selector": ".cta-sub",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "13px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 286,
+    "selector": ".cta-btn",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "12px",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 336,
+    "selector": ".works-main-title",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "var(--works-title-font-size, clamp(3.2rem, 7.5vw, 6.4rem))",
+      "font-weight": "500",
+      "line-height": "var(--works-title-line-height, 1.0)",
+      "letter-spacing": "-1.9px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 347,
+    "selector": ".works-counter",
+    "props": {
+      "font-family": "var(--font-nav)",
+      "font-size": "var(--works-counter-size, 15px)",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 366,
+    "selector": ".view-toggle-btn",
+    "props": {
+      "font-family": "var(--font-nav)",
+      "font-size": "12px",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 393,
+    "selector": ".toggle-icon",
+    "props": {
+      "font-size": "11px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 427,
+    "selector": ".work-card-title",
+    "props": {
+      "font-family": "var(--font-nav)",
+      "font-size": "13px",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 436,
+    "selector": ".work-card-date",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 480,
+    "selector": ".grid-cursor-tag",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 539,
+    "selector": ".works-list-header-row",
+    "props": {
+      "font-family": "var(--font-nav)",
+      "font-size": "11.5px",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 558,
+    "selector": ".work-list-item-row",
+    "props": {
+      "font-family": "var(--font-nav)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 576,
+    "selector": ".list-col-num",
+    "props": {
+      "font-size": "12px",
+      "font-weight": "600",
+      "font-variant-numeric": "tabular-nums"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 583,
+    "selector": ".list-col-title",
+    "props": {
+      "font-size": "1.35rem",
+      "font-weight": "600",
+      "letter-spacing": "calc(-0.02em - 0.7px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 594,
+    "selector": ".list-col-year",
+    "props": {
+      "font-size": "13px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 600,
+    "selector": ".list-col-arrow",
+    "props": {
+      "font-size": "15px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 689,
+    "selector": ".about-header-meta",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "12px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 696,
+    "selector": ".about-statement",
+    "props": {
+      "font-family": "'AT Aero Retina', 'At Aero Retina', var(--font-sans)",
+      "font-size": "clamp(2.2rem, 5vw, 4.5rem)",
+      "font-weight": "400",
+      "line-height": "1.1",
+      "letter-spacing": "calc(-0.04em - 0.7px)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 733,
+    "selector": ".clients-row",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "12px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 748,
+    "selector": ".client-name",
+    "props": {
+      "font-weight": "600",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 780,
+    "selector": ".form-group-title",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "text-transform": "uppercase",
+      "letter-spacing": "0.05em"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 789,
+    "selector": ".input-field",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "1.1rem"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 815,
+    "selector": ".submit-btn",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "12px",
+      "font-weight": "600",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 840,
+    "selector": ".info-block-title",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 848,
+    "selector": ".info-block-content",
+    "props": {
+      "font-size": "1.2rem",
+      "font-weight": "500",
+      "line-height": "1.3"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 863,
+    "selector": ".project-meta-bar",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 881,
+    "selector": ".project-meta-label",
+    "props": {
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 886,
+    "selector": ".project-meta-val",
+    "props": {
+      "font-weight": "600"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 914,
+    "selector": ".narrative-title",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "12px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 921,
+    "selector": ".narrative-body",
+    "props": {
+      "font-size": "clamp(1.25rem, 2.5vw, 2rem)",
+      "line-height": "1.25",
+      "letter-spacing": "calc(-0.03em - 0.7px)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 928,
+    "selector": ".project-credits-table",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "12px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 991,
+    "selector": ".next-label",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "12px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 999,
+    "selector": ".next-title",
+    "props": {
+      "font-size": "clamp(2rem, 6vw, 5rem)",
+      "font-weight": "500",
+      "letter-spacing": "-1.9px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1106,
+    "selector": ".project-info-title",
+    "props": {
+      "font-family": "var(--type-aero-e-font, var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif))",
+      "font-size": "var(--type-aero-e-size, 16px)",
+      "font-weight": "var(--type-aero-e-weight, 450)",
+      "line-height": "var(--type-aero-e-line, 20px)",
+      "letter-spacing": "var(--type-aero-e-spacing, -0.2px)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1137,
+    "selector": ".project-meta-label",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "line-height": "1",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1147,
+    "selector": ".project-meta-value",
+    "props": {
+      "font-family": "var(--type-aero-e-font, var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif))",
+      "font-size": "var(--type-aero-e-size, 16px)",
+      "font-weight": "var(--type-aero-e-weight, 450)",
+      "line-height": "var(--type-aero-e-line, 22px)",
+      "letter-spacing": "var(--type-aero-e-spacing, -0.2px)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1205,
+    "selector": ".project-tab-title",
+    "props": {
+      "font-family": "var(--type-aero-e-font, 'AT Aero Retina', 'AT Aero', sans-serif)",
+      "font-size": "var(--type-aero-e-size, 16px)",
+      "font-weight": "500",
+      "line-height": "var(--type-aero-e-line, 22px)",
+      "letter-spacing": "var(--type-aero-e-spacing, -0.2px)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1249,
+    "selector": ".project-tab-text",
+    "props": {
+      "font-family": "var(--type-aero-e-font, 'AT Aero Retina', 'AT Aero', sans-serif)",
+      "font-size": "var(--type-aero-e-size, 16px)",
+      "font-weight": "var(--type-aero-e-weight, 450)",
+      "line-height": "var(--type-aero-e-line, 22px)",
+      "letter-spacing": "var(--type-aero-e-spacing, -0.2px)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1326,
+    "selector": ".project-action-link",
+    "props": {
+      "font-family": "var(--font-primary, 'AT Aero', sans-serif)",
+      "font-size": "15px",
+      "font-weight": "500",
+      "letter-spacing": "-0.2px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1417,
+    "selector": ".project-next-prefix",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "500",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1426,
+    "selector": ".project-next-title",
+    "props": {
+      "font-family": "var(--type-aero-b-font, var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif))",
+      "font-size": "clamp(1.2rem, 2.2vw, 1.85rem)",
+      "font-weight": "500",
+      "letter-spacing": "-0.8px",
+      "line-height": "1.15"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1435,
+    "selector": ".project-next-arrow",
+    "props": {
+      "font-family": "var(--font-primary, 'AT Aero', sans-serif)",
+      "font-size": "1.25em",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1485,
+    "selector": ".project-info-title",
+    "props": {
+      "font-size": "clamp(32px, 8vw, 44px)",
+      "line-height": "1.05"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1570,
+    "selector": ".about-fullbleed-visual",
+    "props": {
+      "line-height": "0"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1582,
+    "selector": ".about-fullbleed-wrap",
+    "props": {
+      "line-height": "0"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1613,
+    "selector": ".about-meta-status",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "var(--mono-font-size, 11px)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1629,
+    "selector": ".about-meta-tag",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "var(--mono-font-size, 11px)",
+      "letter-spacing": "var(--mono-letter-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1670,
+    "selector": ".about-bio-label",
+    "props": {
+      "font-family": "var(--type-aero-b-font, 'AT Aero', sans-serif)",
+      "font-weight": "var(--type-aero-b-weight, 400)",
+      "font-size": "var(--type-aero-b-size, 30px)",
+      "line-height": "var(--type-aero-b-line, 35px)",
+      "letter-spacing": "var(--type-aero-b-spacing, -1px)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1702,
+    "selector": ".about-section-heading",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "12px",
+      "font-weight": "500",
+      "letter-spacing": "0.5px",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1711,
+    "selector": ".about-dossier-meta",
+    "props": {
+      "font-family": "var(--font-mono)",
+      "font-size": "11px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1743,
+    "selector": ".about-lead-statement",
+    "props": {
+      "font-family": "var(--font-display, 'AT Aero')",
+      "font-size": "var(--type-aero-b-size, 25px)",
+      "line-height": "var(--type-aero-b-line, 30px)",
+      "letter-spacing": "var(--type-aero-b-spacing, -1.2px)",
+      "font-weight": "450"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1753,
+    "selector": ".about-paragraphs",
+    "props": {
+      "font-family": "var(--type-aero-b-font, 'AT Aero', sans-serif)",
+      "font-weight": "var(--type-aero-b-weight, 400)",
+      "font-size": "var(--type-aero-b-size, 30px)",
+      "line-height": "var(--type-aero-b-line, 35px)",
+      "letter-spacing": "var(--type-aero-b-spacing, -1px)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1800,
+    "selector": ".about-pillar-tag",
+    "props": {
+      "font-size": "11px",
+      "font-family": "var(--font-mono)"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1806,
+    "selector": ".about-pillar-title",
+    "props": {
+      "font-family": "var(--font-display, 'AT Aero')",
+      "font-size": "20px",
+      "font-weight": "500",
+      "letter-spacing": "-0.6px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1814,
+    "selector": ".about-pillar-text",
+    "props": {
+      "font-family": "var(--font-sans, 'AT Aero')",
+      "font-size": "15px",
+      "line-height": "1.5",
+      "letter-spacing": "-0.2px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1854,
+    "selector": ".about-disc-num",
+    "props": {
+      "font-size": "11px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1859,
+    "selector": ".about-disc-title",
+    "props": {
+      "font-family": "var(--font-display, 'AT Aero')",
+      "font-size": "18px",
+      "font-weight": "500",
+      "letter-spacing": "-0.5px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1867,
+    "selector": ".about-disc-desc",
+    "props": {
+      "font-family": "var(--font-sans, 'AT Aero')",
+      "font-size": "14px",
+      "line-height": "1.45"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1891,
+    "selector": ".about-contact-title",
+    "props": {
+      "font-family": "var(--font-display, 'AT Aero')",
+      "font-size": "clamp(44px, 7vw, 76px)",
+      "line-height": "0.94",
+      "letter-spacing": "-2.2px",
+      "font-weight": "500"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1909,
+    "selector": ".about-email-link",
+    "props": {
+      "font-family": "var(--font-display, 'AT Aero')",
+      "font-size": "17px",
+      "letter-spacing": "-0.4px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1951,
+    "selector": ".about-hero-title",
+    "props": {
+      "font-size": "clamp(26px, 7.5vw, 34px)",
+      "line-height": "1.1",
+      "letter-spacing": "-1.2px"
+    }
+  },
+  {
+    "file": "css/pages.css",
+    "line": 1957,
+    "selector": ".about-lead-statement",
+    "props": {
+      "font-size": "20px",
+      "line-height": "1.25"
+    }
+  },
+  {
+    "file": "css/project-modal.css",
+    "line": 129,
+    "selector": ".pm-meta-title",
+    "props": {
+      "font-family": "var(--type-aero-e-font, 'AT Aero Retina', sans-serif)",
+      "font-size": "var(--type-aero-e-size, 16px)",
+      "font-weight": "var(--type-aero-e-weight, 450)",
+      "line-height": "var(--type-aero-e-line, 20px)",
+      "letter-spacing": "var(--type-aero-e-spacing, -0.2px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/project-modal.css",
+    "line": 141,
+    "selector": ".pm-close-btn",
+    "props": {
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/project-modal.css",
+    "line": 183,
+    "selector": ".pm-meta-label",
+    "props": {
+      "font-family": "var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace))",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/project-modal.css",
+    "line": 191,
+    "selector": ".pm-meta-year-badge",
+    "props": {
+      "font-family": "var(--type-mono-light-font, 'Supply-Light', 'PP Supply Mono', monospace)",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-light-weight, 300)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/project-modal.css",
+    "line": 223,
+    "selector": ".pm-meta-content",
+    "props": {
+      "font-family": "var(--type-aero-e-font, 'AT Aero Retina', 'AT Aero', sans-serif)",
+      "font-weight": "var(--type-aero-e-weight, 450)",
+      "font-size": "var(--type-aero-e-size, 14px)",
+      "line-height": "var(--type-aero-e-line, 20px)",
+      "letter-spacing": "var(--type-aero-e-spacing, -0.2px)",
+      "text-transform": "none"
+    }
+  },
+  {
+    "file": "css/project-modal.css",
+    "line": 257,
+    "selector": ".pm-pill-btn",
+    "props": {
+      "font-family": "var(--type-mono-light-font, 'Supply-Light', 'PP Supply Mono', monospace)",
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "font-weight": "var(--type-mono-light-weight, 300)",
+      "letter-spacing": "var(--type-mono-a-spacing, 0.5px)",
+      "text-transform": "uppercase",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/project-modal.css",
+    "line": 291,
+    "selector": ".pm-pill-btn .btn-arrow",
+    "props": {
+      "font-size": "var(--type-mono-a-size, 11px)",
+      "line-height": "1"
+    }
+  },
+  {
+    "file": "css/project-modal.css",
+    "line": 444,
+    "selector": ".pm-meta-title",
+    "props": {
+      "font-size": "17px"
+    }
+  },
+  {
+    "file": "css/typography.css",
+    "line": 508,
+    "selector": ".type-aero-a",
+    "props": {
+      "font-family": "var(--type-aero-a-font)",
+      "font-weight": "var(--type-aero-a-weight)",
+      "font-size": "var(--type-aero-a-size)",
+      "line-height": "var(--type-aero-a-line)",
+      "letter-spacing": "var(--type-aero-a-spacing)"
+    }
+  },
+  {
+    "file": "css/typography.css",
+    "line": 516,
+    "selector": ".type-aero-b",
+    "props": {
+      "font-family": "var(--type-aero-b-font)",
+      "font-weight": "var(--type-aero-b-weight)",
+      "font-size": "var(--type-aero-b-size)",
+      "line-height": "var(--type-aero-b-line)",
+      "letter-spacing": "var(--type-aero-b-spacing)"
+    }
+  },
+  {
+    "file": "css/typography.css",
+    "line": 524,
+    "selector": ".type-aero-c",
+    "props": {
+      "font-family": "var(--type-aero-c-font)",
+      "font-weight": "var(--type-aero-c-weight)",
+      "font-size": "var(--type-aero-c-size)",
+      "line-height": "var(--type-aero-c-line)",
+      "letter-spacing": "var(--type-aero-c-spacing)"
+    }
+  },
+  {
+    "file": "css/typography.css",
+    "line": 532,
+    "selector": ".type-aero-d",
+    "props": {
+      "font-family": "var(--type-aero-d-font)",
+      "font-weight": "var(--type-aero-d-weight)",
+      "font-size": "var(--type-aero-d-size)",
+      "line-height": "var(--type-aero-d-line)",
+      "letter-spacing": "var(--type-aero-d-spacing)"
+    }
+  },
+  {
+    "file": "css/typography.css",
+    "line": 555,
+    "selector": ".type-aero-e",
+    "props": {
+      "font-family": "var(--type-aero-e-font)",
+      "font-weight": "var(--type-aero-e-weight)",
+      "font-size": "var(--type-aero-e-size)",
+      "line-height": "var(--type-aero-e-line)",
+      "letter-spacing": "var(--type-aero-e-spacing)"
+    }
+  },
+  {
+    "file": "css/typography.css",
+    "line": 563,
+    "selector": ".type-aero-f",
+    "props": {
+      "font-family": "var(--type-aero-f-font)",
+      "font-weight": "var(--type-aero-f-weight)",
+      "font-size": "var(--type-aero-f-size)",
+      "line-height": "var(--type-aero-f-line)",
+      "letter-spacing": "var(--type-aero-f-spacing)"
+    }
+  },
+  {
+    "file": "css/typography.css",
+    "line": 571,
+    "selector": ".type-mono-a",
+    "props": {
+      "font-family": "var(--type-mono-a-font)",
+      "font-weight": "var(--type-mono-a-weight)",
+      "font-size": "var(--type-mono-a-size)",
+      "line-height": "var(--type-mono-a-line)",
+      "letter-spacing": "var(--type-mono-a-spacing)",
+      "text-transform": "uppercase"
+    }
+  },
+  {
+    "file": "css/typography.css",
+    "line": 580,
+    "selector": "body",
+    "props": {
+      "font-family": "var(--font-sans)",
+      "font-size": "13px",
+      "line-height": "1.35",
+      "letter-spacing": "calc(-0.015em - 0.7px)"
+    }
+  },
+  {
+    "file": "css/typography.css",
+    "line": 595,
+    "selector": ".nav-text",
+    "props": {
+      "font-family": "var(--font-nav)",
+      "font-size": "var(--nav-font-size)",
+      "font-weight": "var(--nav-font-weight)",
+      "line-height": "var(--nav-line-height)",
+      "letter-spacing": "var(--nav-letter-spacing)",
+      "text-transform": "uppercase"
+    }
+  }
+]

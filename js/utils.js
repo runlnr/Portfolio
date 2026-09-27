@@ -5,54 +5,68 @@
  * - initIcons(): Initializes Lucide icons on the page
  */
 
-export function cn(...inputs) {
-  const classes = [];
-  
-  for (const input of inputs) {
-    if (!input) continue;
-    if (typeof input === 'string') {
-      classes.push(input);
-    } else if (Array.isArray(input)) {
-      classes.push(cn(...input));
-    } else if (typeof input === 'object') {
-      for (const [key, value] of Object.entries(input)) {
-        if (value) classes.push(key);
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define([], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    module.exports = factory();
+  } else {
+    const exports = factory();
+    root.cn = exports.cn;
+    root.cva = exports.cva;
+    root.initIcons = exports.initIcons;
+  }
+}(typeof self !== 'undefined' ? self : this, function () {
+  function cn(...inputs) {
+    const classes = [];
+    
+    for (const input of inputs) {
+      if (!input) continue;
+      if (typeof input === 'string') {
+        classes.push(input);
+      } else if (Array.isArray(input)) {
+        classes.push(cn(...input));
+      } else if (typeof input === 'object') {
+        for (const [key, value] of Object.entries(input)) {
+          if (value) classes.push(key);
+        }
       }
+    }
+    
+    // Clean duplicates and extra spaces
+    return Array.from(new Set(classes.join(' ').trim().split(/\s+/))).filter(Boolean).join(' ');
+  }
+
+  function cva(base = '', config = {}) {
+    return function(props = {}) {
+      const { variants = {}, defaultVariants = {} } = config;
+      const resolvedProps = { ...defaultVariants, ...props };
+      const classes = [base];
+
+      for (const [variantName, variantOptions] of Object.entries(variants)) {
+        const selectedValue = resolvedProps[variantName];
+        if (selectedValue && variantOptions[selectedValue]) {
+          classes.push(variantOptions[selectedValue]);
+        }
+      }
+
+      if (props.className) {
+        classes.push(props.className);
+      }
+
+      return cn(...classes);
+    };
+  }
+
+  function initIcons() {
+    if (typeof window !== 'undefined' && window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
     }
   }
-  
-  // Clean duplicates and extra spaces
-  return Array.from(new Set(classes.join(' ').trim().split(/\s+/))).join(' ');
-}
 
-export function cva(base = '', config = {}) {
-  return function(props = {}) {
-    const { variants = {}, defaultVariants = {} } = config;
-    const resolvedProps = { ...defaultVariants, ...props };
-    const classes = [base];
-
-    for (const [variantName, variantOptions] of Object.entries(variants)) {
-      const selectedValue = resolvedProps[variantName];
-      if (selectedValue && variantOptions[selectedValue]) {
-        classes.push(variantOptions[selectedValue]);
-      }
-    }
-
-    if (props.className) {
-      classes.push(props.className);
-    }
-
-    return cn(...classes);
+  return {
+    cn,
+    cva,
+    initIcons
   };
-}
-
-export function initIcons() {
-  if (window.lucide && typeof window.lucide.createIcons === 'function') {
-    window.lucide.createIcons();
-  }
-}
-
-// Global exposure for non-module script access
-window.cn = cn;
-window.cva = cva;
-window.initIcons = initIcons;
+}));

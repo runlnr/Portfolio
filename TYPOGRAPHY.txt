@@ -4,7 +4,7 @@ NAM PHAM® PORTFOLIO — STANDARDIZED TYPOGRAPHY PRESETS
 
 1. AT AERO TYPE A (Manifesto / Hero Statements)
    • Font Family    : AT Aero Retina (var(--font-retina))
-   • Font Weight    : 450 (Retina)
+   • Font Weight    : 350 (Retina)
    • Font Size      : 43px
    • Line Spacing   : 49px (line-height: 49px)
    • Letter Spacing : -2px (letter-spacing: -2px)
@@ -13,12 +13,12 @@ NAM PHAM® PORTFOLIO — STANDARDIZED TYPOGRAPHY PRESETS
 
 --------------------------------------------------------------------------------
 
-2. AT AERO TYPE B (Featured Tags / Section Headers)
+2. AT AERO TYPE B (Section Titles / Headlines / Editorial Subtitles)
    • Font Family    : AT Aero Regular (var(--font-primary) / var(--font-sans))
    • Font Weight    : 400 (Regular)
-   • Font Size      : 25px
-   • Line Spacing   : 27.5px (line-height: 27.5px)
-   • Letter Spacing : -1.5px (letter-spacing: -1.5px)
+   • Font Size      : 30px
+   • Line Spacing   : 35px (line-height: 35px)
+   • Letter Spacing : -1px (letter-spacing: -1px)
    • CSS Token      : var(--type-aero-b-font), var(--type-aero-b-size), etc.
    • Utility Class  : .type-aero-b
 
@@ -29,88 +29,124 @@ NAM PHAM® PORTFOLIO — STANDARDIZED TYPOGRAPHY PRESETS
    • Font Weight    : 400 (Regular)
    • Font Size      : 20px
    • Line Spacing   : 27.5px (line-height: 27.5px)
-   • Letter Spacing : -1.5px (letter-spacing: -1.5px)
+   • Letter Spacing : -1.2px (letter-spacing: -1.2px)
    • CSS Token      : var(--type-aero-c-font), var(--type-aero-c-size), etc.
    • Utility Class  : .type-aero-c
 
 --------------------------------------------------------------------------------
 
 4. AT AERO TYPE D (Giant Display Signatures / Billboard Headlines)
-   • Font Family    : AT Aero SemiBold (var(--font-primary) / var(--font-sans))
-   • Font Weight    : 600 (SemiBold)
-   • Font Size      : 200px
+   • Font Family    : AT Aero (var(--font-primary) / var(--font-sans))
+   • Font Weight    : 500 (Medium)
+   • Font Size      : 230px
    • Line Spacing   : 230px (line-height: 230px)
-   • Letter Spacing : -10px (letter-spacing: -10px)
+   • Letter Spacing : -17px (letter-spacing: -17px)
    • CSS Token      : var(--type-aero-d-font), var(--type-aero-d-size), etc.
    • Utility Class  : .type-aero-d
 
 --------------------------------------------------------------------------------
 
-5. AT AERO TYPE E (Action Links / About Link / View More)
+5. AT AERO TYPE E (Metadata / Action Links / Navigation Subtext)
    • Font Family    : AT Aero Retina (var(--font-retina))
-   • Font Weight    : 450 (Retina)
-   • Font Size      : 16px
+   • Font Weight    : 350 (Retina)
+   • Font Size      : 14.5px
    • Line Spacing   : 20px (line-height: 20px)
-   • Letter Spacing : -0.7px (letter-spacing: -0.7px)
+   • Letter Spacing : -0.3px (letter-spacing: -0.3px)
    • CSS Token      : var(--type-aero-e-font), var(--type-aero-e-size), etc.
    • Utility Class  : .type-aero-e
 
 --------------------------------------------------------------------------------
 
-6. PP SUPPLY MONO TYPE A (Colophon / Status Tags / Metadata)
+6. AT AERO TYPE F (Body / Form Labels & Inputs / General Interface)
+   • Font Family    : AT Aero Regular (var(--font-primary) / var(--font-sans))
+   • Font Weight    : 400 (Regular)
+   • Font Size      : 16px
+   • Line Spacing   : 22px (line-height: 22px)
+   • Letter Spacing : -0.3px (letter-spacing: -0.3px)
+   • CSS Token      : var(--type-aero-f-font), var(--type-aero-f-size), etc.
+   • Utility Class  : .type-aero-f
+
+--------------------------------------------------------------------------------
+
+7. PP SUPPLY MONO TYPE A (Colophon / Live Clocks / Badges / Status Tags)
    • Font Family    : PP Supply Mono (var(--font-mono))
    • Font Weight    : 400 (Regular)
    • Font Size      : 11px
    • Line Spacing   : 13px (line-height: 13px)
-   • Letter Spacing : -0.2px (letter-spacing: -0.2px)
+   • Letter Spacing : 0.5px (letter-spacing: 0.5px)
    • CSS Token      : var(--type-mono-a-font), var(--type-mono-a-size), etc.
    • Utility Class  : .type-mono-a
 
+--------------------------------------------------------------------------------
+
+8. PP SUPPLY MONO LIGHT (Tags / Numerals / Button Badges)
+   • Font Family    : Supply-Light (var(--font-mono-light))
+   • Font Weight    : 300 (Light)
+   • CSS Token      : var(--type-mono-light-font), var(--type-mono-light-weight)
+
 ================================================================================
-QUICK CSS VARIABLE REFERENCE
+QUICK CSS VARIABLE REFERENCE (:root tokens from css/typography.css)
 ================================================================================
 
 :root {
   /* At Aero Type A */
-  --type-aero-a-font: var(--font-retina);
-  --type-aero-a-weight: 450;
+  --type-aero-a-font: var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif);
+  --type-aero-a-weight: 350;
   --type-aero-a-size: 43px;
   --type-aero-a-line: 49px;
   --type-aero-a-spacing: -2px;
 
   /* At Aero Type B */
-  --type-aero-b-font: var(--font-primary);
+  --type-aero-b-font: var(--font-primary, 'AT Aero', sans-serif);
   --type-aero-b-weight: 400;
-  --type-aero-b-size: 25px;
-  --type-aero-b-line: 27.5px;
-  --type-aero-b-spacing: -1.5px;
+  --type-aero-b-size: 30px;
+  --type-aero-b-line: 35px;
+  --type-aero-b-spacing: -1px;
 
   /* At Aero Type C */
-  --type-aero-c-font: var(--font-primary);
+  --type-aero-c-font: var(--font-primary, 'AT Aero', sans-serif);
   --type-aero-c-weight: 400;
   --type-aero-c-size: 20px;
   --type-aero-c-line: 27.5px;
-  --type-aero-c-spacing: -1.5px;
+  --type-aero-c-spacing: -1.2px;
 
   /* At Aero Type D */
-  --type-aero-d-font: var(--font-primary);
-  --type-aero-d-weight: 600;
-  --type-aero-d-size: 200px;
+  --type-aero-d-font: var(--font-primary, 'AT Aero', sans-serif);
+  --type-aero-d-weight: 500;
+  --type-aero-d-size: 230px;
   --type-aero-d-line: 230px;
-  --type-aero-d-spacing: -10px;
+  --type-aero-d-spacing: -17px;
 
   /* At Aero Type E */
-  --type-aero-e-font: var(--font-retina);
-  --type-aero-e-weight: 450;
-  --type-aero-e-size: 16px;
+  --type-aero-e-font: var(--font-retina, 'AT Aero Retina', 'AT Aero', sans-serif);
+  --type-aero-e-weight: 350;
+  --type-aero-e-size: 14.5px;
   --type-aero-e-line: 20px;
-  --type-aero-e-spacing: -0.7px;
+  --type-aero-e-spacing: -0.3px;
+
+  /* At Aero Type F */
+  --type-aero-f-font: var(--font-primary, 'AT Aero', sans-serif);
+  --type-aero-f-weight: 400;
+  --type-aero-f-size: 16px;
+  --type-aero-f-line: 22px;
+  --type-aero-f-spacing: -0.3px;
 
   /* PP Supply Mono Type A */
-  --type-mono-a-font: var(--font-mono);
+  --type-mono-a-font: var(--font-mono, 'PP Supply Mono', monospace);
   --type-mono-a-weight: 400;
   --type-mono-a-size: 11px;
   --type-mono-a-line: 13px;
-  --type-mono-a-spacing: -0.2px;
+  --type-mono-a-spacing: 0.5px;
+
+  /* PP Supply Mono Light */
+  --font-mono-light: 'Supply-Light', 'PP Supply Mono', 'PPSupplyMono-Regular', monospace;
+  --type-mono-light-font: var(--font-mono-light);
+  --type-mono-light-weight: 300;
+
+  /* Universal Rectangle Button & Tag Dimension Controls */
+  --rect-btn-height: 22px;
+  --rect-btn-padx: 8px;
+  --rect-btn-min-width: auto;
+  --rect-btn-gap: 6px;
 }
 ================================================================================

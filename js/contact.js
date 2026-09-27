@@ -22,6 +22,13 @@
       modal.removeAttribute('hidden');
       if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
       document.body.classList.add('f3-contact-modal-open');
+      document.documentElement.classList.add('f3-contact-modal-open');
+
+      if (window.motionStack && window.motionStack.lenis && typeof window.motionStack.lenis.stop === 'function') {
+        window.motionStack.lenis.stop();
+      } else if (window.lenis && typeof window.lenis.stop === 'function') {
+        window.lenis.stop();
+      }
 
       // Request next frame to trigger CSS transitions
       requestAnimationFrame(() => {
@@ -42,6 +49,13 @@
         openBtn.focus();
       }
       document.body.classList.remove('f3-contact-modal-open');
+      document.documentElement.classList.remove('f3-contact-modal-open');
+
+      if (window.motionStack && window.motionStack.lenis && typeof window.motionStack.lenis.start === 'function') {
+        window.motionStack.lenis.start();
+      } else if (window.lenis && typeof window.lenis.start === 'function') {
+        window.lenis.start();
+      }
 
       // Wait for exit transition to finish before hiding from accessibility tree
       setTimeout(() => {
@@ -282,12 +296,12 @@
             second: '2-digit',
             hour12: false
           }).format(now);
-          studioClockEl.textContent = `[${studioTime}]`;
+          studioClockEl.textContent = studioTime;
         } catch (e) {
           const h = String((now.getUTCHours() + 7) % 24).padStart(2, '0');
           const m = String(now.getUTCMinutes()).padStart(2, '0');
           const s = String(now.getUTCSeconds()).padStart(2, '0');
-          studioClockEl.textContent = `[${h}:${m}:${s}]`;
+          studioClockEl.textContent = `${h}:${m}:${s}`;
         }
       }
 
@@ -295,7 +309,7 @@
         const h = String(now.getHours()).padStart(2, '0');
         const m = String(now.getMinutes()).padStart(2, '0');
         const s = String(now.getSeconds()).padStart(2, '0');
-        clientClockEl.textContent = `[${h}:${m}:${s}]`;
+        clientClockEl.textContent = `${h}:${m}:${s}`;
       }
     }
 

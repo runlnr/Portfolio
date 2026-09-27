@@ -574,12 +574,12 @@
 }
 
 /* Hide cursor completely during loader */
-body.is-loading .custom-cursor,
 body.is-loading {
   cursor: none !important;
 }
 
 body.is-loading .custom-cursor {
+  cursor: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
