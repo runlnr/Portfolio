@@ -82,7 +82,7 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
     gallery: [
       {
         type: 'full',
-        src: 'assets/projects/us%20ski%20%26%20snowboard/1(first).webp',
+        src: 'assets/projects/us%20ski%20%26%20snowboard/1%20(first).webp',
         alt: 'U.S. Ski & Snowboard Milano Cortina Visual Identity Hero',
         width: 4920,
         height: 2372,
