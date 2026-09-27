@@ -63,3 +63,7 @@ You operate within a 3-layer architecture that separates concerns to maximize re
 - `npm test` - Run automated static asset and route endpoint verification suite
 - `npm run typecheck` - Run TypeScript static typechecker (`tsc --noEmit`)
 - `npm start` / `npm run dev` - Start local development server on port 3000
+
+## Deployment & Domain
+- **Official Domain:** `https://scherre.com`
+- **Hosting Platform:** Cloudflare Pages (mirrored from GitHub `main` branch)

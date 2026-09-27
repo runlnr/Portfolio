@@ -1,7 +1,8 @@
 # Directive: Site Architecture & Design System
 
 ## Goal
-Maintain visual excellence and structural consistency across the #SWAG portfolio website.
+Maintain visual excellence and structural consistency across the Nam Pham portfolio website.
+- **Official Production Domain:** `https://scherre.com` (deployed on Cloudflare Pages)
 
 ## Core File Organization
 - **Pages**:
