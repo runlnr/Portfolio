@@ -326,10 +326,13 @@
 
     initFooterSignatureHandleSwitcher();
 
-    // 4. Interactive Hover Letter Shuffle on Ho Chi Minh City Status Text
-    function initCityLetterShuffle() {
-      const cityElements = document.querySelectorAll('.f3-intro-city');
-      if (!cityElements.length) return;
+    // 4. Interactive Hover Letter Shuffle on Mono Elements
+    // Targets: HCMC status text, Studio & Client time labels, Colophon footer notices, and 4-Box Service labels
+    function initMonoLetterShuffle() {
+      const shuffleTargets = document.querySelectorAll(
+        '.f3-intro-city, .f3-corner-label, .f3-colophon-privacy, .f3-colophon-left, .f3-showcase-label'
+      );
+      if (!shuffleTargets.length) return;
 
       const MONO_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
@@ -337,11 +340,11 @@
         return MONO_CHARS[Math.floor(Math.random() * MONO_CHARS.length)];
       }
 
-      cityElements.forEach(cityEl => {
-        if (cityEl.dataset.shuffleInit === 'true') return;
-        cityEl.dataset.shuffleInit = 'true';
+      shuffleTargets.forEach(el => {
+        if (el.dataset.shuffleInit === 'true') return;
+        el.dataset.shuffleInit = 'true';
 
-        const originalText = cityEl.textContent;
+        const originalText = el.textContent.trim().replace(/\s+/g, ' ');
         const fragment = document.createDocumentFragment();
 
         for (let i = 0; i < originalText.length; i++) {
@@ -357,10 +360,10 @@
           }
         }
 
-        cityEl.innerHTML = '';
-        cityEl.appendChild(fragment);
+        el.innerHTML = '';
+        el.appendChild(fragment);
 
-        const letters = cityEl.querySelectorAll('.f3-mono-shuffle-letter');
+        const letters = el.querySelectorAll('.f3-mono-shuffle-letter');
         letters.forEach(letter => {
           const originalChar = letter.dataset.original;
           let intervalId = null;
@@ -408,7 +411,8 @@
       });
     }
 
-    initCityLetterShuffle();
+    window.initMonoLetterShuffle = initMonoLetterShuffle;
+    initMonoLetterShuffle();
   }
 
   window.initFutureThreeScroll = initFutureThreeScroll;

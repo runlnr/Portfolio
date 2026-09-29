@@ -1,6 +1,6 @@
 /**
  * Unified Whole-Block Text Flip Animation Engine
- * Powered by Motion.dev (Motion.animate)
+ * Powered by GSAP (gsap.to)
  *
  * Flips the entire text block / title as a single unit on hover and unhover.
  * No character splitting, no wave stagger - clean, silky smooth, hardware-accelerated.
@@ -10,7 +10,6 @@
   'use strict';
 
   function initTextFlip() {
-    const Motion = window.Motion;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // Select all flip elements across the entire site:
@@ -85,66 +84,35 @@
       // Whole-block animation parameters (Cinematic & Deliberate editorial curve)
       const hoverDuration = 0.48;
       const unhoverDuration = 0.38;
-      const easeCurve = [0.16, 1, 0.3, 1];
-
-      let activeAnim = null;
 
       function playFlip(forward) {
-        if (prefersReducedMotion || !Motion || !Motion.animate) {
-          if (activeAnim) {
-            try { activeAnim.stop(); } catch (e) {}
-            activeAnim = null;
+        if (prefersReducedMotion || !window.gsap) {
+          if (window.gsap) {
+            window.gsap.killTweensOf(inner);
           }
           inner.style.transform = forward ? 'translateY(-50%)' : 'translateY(0%)';
           return;
         }
 
-        const targetY = forward ? '-50%' : '0%';
+        const targetNum = forward ? -50 : 0;
         const animDuration = forward ? hoverDuration : unhoverDuration;
 
-        let currentY = forward ? 0 : -50;
-        const currentTransform = inner.style.transform || '';
-        const match = currentTransform.match(/translateY\((-?[\d.]+)%\)/);
-        if (match) {
-          currentY = parseFloat(match[1]);
+        let currentY = 0;
+        try {
+          currentY = parseFloat(window.gsap.getProperty(inner, 'yPercent')) || 0;
+        } catch (e) {
+          currentY = forward ? 0 : -50;
         }
 
-        const targetNum = forward ? -50 : 0;
-        const finalTransform = forward ? 'translateY(-50%)' : 'translateY(0%)';
-        if (Math.abs(currentY - targetNum) < 0.05) {
-          inner.style.transform = finalTransform;
-          return;
-        }
-
-        if (activeAnim) {
-          try {
-            if (typeof activeAnim.cancel === 'function') activeAnim.cancel();
-            if (typeof activeAnim.stop === 'function') activeAnim.stop();
-          } catch (e) {}
-          activeAnim = null;
-        }
-
-        const fromKeyframe = Math.abs(currentY) < 0.05 && forward ? '-0.001%' : `${currentY}%`;
         const travel = Math.min(1, Math.max(0.15, Math.abs(targetNum - currentY) / 50));
         const duration = animDuration * travel;
 
-        const anim = Motion.animate(
-          inner,
-          { y: [fromKeyframe, targetY] },
-          {
-            duration: duration,
-            ease: easeCurve
-          }
-        );
-
-        activeAnim = anim;
-
-        anim.finished.then(() => {
-          if (activeAnim === anim) {
-            inner.style.transform = finalTransform;
-            activeAnim = null;
-          }
-        }).catch(() => {});
+        window.gsap.to(inner, {
+          yPercent: targetNum,
+          duration: duration,
+          ease: 'expo.out',
+          overwrite: 'auto'
+        });
       }
 
       trigger.addEventListener('mouseenter', () => {
@@ -159,7 +127,9 @@
 
   function warmUpCompositor() {
     document.querySelectorAll('.text-flip-inner, .nav-row-roll-inner, .nav-roll-inner').forEach(inner => {
-      if (!inner.style.transform) {
+      if (window.gsap) {
+        window.gsap.set(inner, { yPercent: 0 });
+      } else if (!inner.style.transform) {
         inner.style.transform = 'translateY(0%)';
       }
     });
