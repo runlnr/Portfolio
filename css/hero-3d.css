@@ -481,7 +481,7 @@
   letter-spacing: var(--type-mono-a-spacing, 0.5px);
   color: var(--nav-status-color, rgba(255, 255, 255, 0.65));
   white-space: nowrap;
-  pointer-events: none;
+  pointer-events: auto;
   text-align: center;
   line-height: 1;
   display: inline-flex;

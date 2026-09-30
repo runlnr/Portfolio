@@ -327,87 +327,107 @@
     initFooterSignatureHandleSwitcher();
 
     // 4. Interactive Hover Letter Shuffle on Mono Elements
-    // Targets: HCMC status text, Studio & Client time labels, Colophon footer notices, and 4-Box Service labels
-    function initMonoLetterShuffle() {
-      const shuffleTargets = document.querySelectorAll(
-        '.f3-intro-city, .f3-corner-label, .f3-colophon-privacy, .f3-colophon-left, .f3-showcase-label'
-      );
-      if (!shuffleTargets.length) return;
+    // Targets: Nav Status Line, HCMC status text, Studio & Client time labels, Colophon footer notices, and 4-Box Service labels
+    const MONO_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    function getRandomMonoChar() {
+      return MONO_CHARS[Math.floor(Math.random() * MONO_CHARS.length)];
+    }
 
-      const MONO_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    function initShuffleOnElement(el) {
+      if (!el) return;
+      el.dataset.shuffleInit = 'true';
 
-      function getRandomMonoChar() {
-        return MONO_CHARS[Math.floor(Math.random() * MONO_CHARS.length)];
+      const originalText = el.textContent.trim().replace(/\s+/g, ' ');
+      if (!originalText) return;
+      const fragment = document.createDocumentFragment();
+
+      for (let i = 0; i < originalText.length; i++) {
+        const char = originalText[i];
+        if (/\s/.test(char)) {
+          const spaceSpan = document.createElement('span');
+          spaceSpan.className = 'f3-mono-shuffle-space';
+          spaceSpan.innerHTML = '&nbsp;';
+          spaceSpan.setAttribute('aria-hidden', 'true');
+          fragment.appendChild(spaceSpan);
+        } else {
+          const span = document.createElement('span');
+          span.className = 'f3-mono-shuffle-letter';
+          span.textContent = char;
+          span.dataset.original = char;
+          fragment.appendChild(span);
+        }
       }
 
-      shuffleTargets.forEach(el => {
-        if (el.dataset.shuffleInit === 'true') return;
-        el.dataset.shuffleInit = 'true';
+      el.innerHTML = '';
+      el.appendChild(fragment);
 
-        const originalText = el.textContent.trim().replace(/\s+/g, ' ');
-        const fragment = document.createDocumentFragment();
+      const letters = el.querySelectorAll('.f3-mono-shuffle-letter');
+      letters.forEach(letter => {
+        const originalChar = letter.dataset.original;
+        let intervalId = null;
+        let timeoutId = null;
+        let isHovered = false;
 
-        for (let i = 0; i < originalText.length; i++) {
-          const char = originalText[i];
-          if (/\s/.test(char)) {
-            fragment.appendChild(document.createTextNode(char));
-          } else {
-            const span = document.createElement('span');
-            span.className = 'f3-mono-shuffle-letter';
-            span.textContent = char;
-            span.dataset.original = char;
-            fragment.appendChild(span);
+        function startShuffling() {
+          if (!intervalId) {
+            intervalId = setInterval(() => {
+              letter.textContent = getRandomMonoChar();
+            }, 35);
           }
         }
 
-        el.innerHTML = '';
-        el.appendChild(fragment);
-
-        const letters = el.querySelectorAll('.f3-mono-shuffle-letter');
-        letters.forEach(letter => {
-          const originalChar = letter.dataset.original;
-          let intervalId = null;
-          let timeoutId = null;
-          let isHovered = false;
-
-          function startShuffling() {
-            if (!intervalId) {
-              intervalId = setInterval(() => {
-                letter.textContent = getRandomMonoChar();
-              }, 35);
-            }
+        function stopShuffling() {
+          if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
           }
+          letter.textContent = originalChar;
+        }
 
-          function stopShuffling() {
-            if (intervalId) {
-              clearInterval(intervalId);
-              intervalId = null;
-            }
-            letter.textContent = originalChar;
+        letter.addEventListener('pointerenter', () => {
+          isHovered = true;
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+            timeoutId = null;
           }
-
-          letter.addEventListener('pointerenter', () => {
-            isHovered = true;
-            if (timeoutId) {
-              clearTimeout(timeoutId);
-              timeoutId = null;
-            }
-            startShuffling();
-          });
-
-          letter.addEventListener('pointerleave', () => {
-            isHovered = false;
-            if (timeoutId) {
-              clearTimeout(timeoutId);
-            }
-            timeoutId = setTimeout(() => {
-              if (!isHovered) {
-                stopShuffling();
-              }
-              timeoutId = null;
-            }, 2000);
-          });
+          startShuffling();
         });
+
+        letter.addEventListener('pointerleave', () => {
+          isHovered = false;
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+          }
+          timeoutId = setTimeout(() => {
+            if (!isHovered) {
+              stopShuffling();
+            }
+            timeoutId = null;
+          }, 2000);
+        });
+      });
+    }
+
+    function initMonoLetterShuffle(customTarget) {
+      let targets = [];
+      if (customTarget) {
+        if (customTarget instanceof Node) {
+          targets = [customTarget];
+        } else if (typeof customTarget === 'string') {
+          targets = Array.from(document.querySelectorAll(customTarget));
+        } else if (Array.isArray(customTarget) || customTarget instanceof NodeList) {
+          targets = Array.from(customTarget);
+        }
+      } else {
+        targets = Array.from(document.querySelectorAll(
+          '.nav-status-line, .f3-intro-city, .f3-corner-label, .f3-colophon-privacy, .f3-colophon-left, .f3-showcase-label'
+        ));
+      }
+
+      targets.forEach(el => {
+        if (!el) return;
+        if (!customTarget && el.dataset.shuffleInit === 'true') return;
+        initShuffleOnElement(el);
       });
     }
 

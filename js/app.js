@@ -504,34 +504,44 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3c. Nav Bar Status Line ASCII Scramble Transition on Scroll
   // Cycles between:
   //   State 'sharp': "Looking sharp today" (Hero Viewport)
-  //   State 'works': "What stood out"       (Manifesto / Featured Works Section)
+  //   State 'works': "What stood out"       (Manifesto / Featured Works / Services)
+  //   State 'shy':   "Dont be shy"          (Near Bottom Footer / Contact Section)
   function initNavStatusScramble() {
     const statusEl = document.getElementById('nav-status-line');
     const introSection = document.getElementById('f3-intro') || document.querySelector('.f3-section-intro');
-    if (!statusEl || !introSection) return;
+    const footerSection = document.getElementById('f3-contact') || document.getElementById('f3-footer-curtain') || document.getElementById('f3-footer') || document.querySelector('.f3-editorial-footer');
+    if (!statusEl || (!introSection && !footerSection)) return;
 
     const TEXT_HERO = 'Looking sharp today';
     const TEXT_WORKS = 'What stood out';
+    const TEXT_SHY = 'Dont be shy';
     const ASCII_GLYPHS = '!@#$%^&*()_+-=[]{}|;:,.<>?/~\\X#0123456789ABCDEF!?:;';
 
     function getRandomGlyph() {
       return ASCII_GLYPHS[Math.floor(Math.random() * ASCII_GLYPHS.length)];
     }
 
-    let currentState = 'sharp'; // 'sharp' | 'works'
+    let currentState = 'sharp'; // 'sharp' | 'works' | 'shy'
     let isScrambling = false;
     let queuedState = null;
     let activeIntervalId = null;
 
     let introTop = 0;
-    function updateIntroMetrics() {
-      const rect = introSection.getBoundingClientRect();
+    let footerTop = 0;
+    function updateNavMetrics() {
       const scrollY = window.scrollY || window.pageYOffset || 0;
-      introTop = rect.top + scrollY;
+      if (introSection) {
+        const rect = introSection.getBoundingClientRect();
+        introTop = rect.top + scrollY;
+      }
+      if (footerSection) {
+        const fRect = footerSection.getBoundingClientRect();
+        footerTop = fRect.top + scrollY;
+      }
     }
 
-    updateIntroMetrics();
-    window.addEventListener('resize', updateIntroMetrics, { passive: true });
+    updateNavMetrics();
+    window.addEventListener('resize', updateNavMetrics, { passive: true });
 
     function scrambleNavText(targetText, duration = 700) {
       return new Promise((resolve) => {
@@ -588,6 +598,9 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(activeIntervalId);
             activeIntervalId = null;
             statusEl.textContent = targetText;
+            if (typeof window.initMonoLetterShuffle === 'function') {
+              window.initMonoLetterShuffle(statusEl);
+            }
             resolve();
           }
         }, 1000 / fps);
@@ -604,9 +617,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
       currentState = targetState;
       isScrambling = true;
-      const targetText = targetState === 'works' ? TEXT_WORKS : TEXT_HERO;
 
-      await scrambleNavText(targetText, 700);
+      let targetText = TEXT_HERO;
+      if (targetState === 'shy') {
+        targetText = TEXT_SHY;
+      } else if (targetState === 'works') {
+        targetText = TEXT_WORKS;
+      }
+
+      await scrambleNavText(targetText, 550);
       isScrambling = false;
 
       if (queuedState && queuedState !== currentState) {
@@ -621,11 +640,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkNavScroll(currentY) {
       const y = typeof currentY === 'number' ? currentY : (window.scrollY || window.pageYOffset || 0);
       const viewportHeight = window.innerHeight || 800;
-      // Trigger threshold: when #f3-intro top reaches ~30% into viewport from bottom
       const threshold = viewportHeight * 0.70;
-      const distFromTop = introTop - y;
 
-      if (distFromTop <= threshold) {
+      if (footerSection && (footerTop - y) <= threshold) {
+        transitionTo('shy');
+      } else if (introSection && (introTop - y) <= threshold) {
         transitionTo('works');
       } else {
         transitionTo('sharp');
@@ -652,9 +671,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       hookScrambleLenis();
-      updateIntroMetrics();
+      updateNavMetrics();
       checkNavScroll();
     }, 100);
+
+    setTimeout(() => {
+      updateNavMetrics();
+      checkNavScroll();
+    }, 600);
 
     checkNavScroll();
   }

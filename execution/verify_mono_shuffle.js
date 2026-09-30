@@ -20,6 +20,7 @@ async function testShuffle() {
     await page.waitForTimeout(500);
 
     const indexSelectors = [
+      '.nav-status-line',
       '.f3-intro-city',
       '.f3-corner-label',
       '.f3-colophon-privacy',
@@ -30,9 +31,9 @@ async function testShuffle() {
     for (const sel of indexSelectors) {
       const count = await page.$$eval(sel, (els) => {
         return els.map(el => ({
-          text: el.textContent,
-          hasLetters: el.querySelectorAll('.f3-mono-shuffle-letter').length,
-          letterCount: el.querySelectorAll('.f3-mono-shuffle-letter').length
+          text: el.innerText.trim(),
+          letterCount: el.querySelectorAll('.f3-mono-shuffle-letter').length,
+          spaceCount: el.querySelectorAll('.f3-mono-shuffle-space').length
         }));
       });
       console.log(`Selector "${sel}" matched ${count.length} element(s):`, count);

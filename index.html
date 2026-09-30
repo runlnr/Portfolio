@@ -76,51 +76,6 @@
       --pm-indicator-right: 25px;
       /* <-- TWEAK THIS: Right margin of modal scroller indicator (e.g. 25px) */
 
-      /* Manifesto & Recent Works */
-      --manifesto-gap: 260px;
-      --manifesto-font-family: var(--type-aero-a-font);
-      --manifesto-font-size: var(--type-aero-a-size, 43px);
-      --manifesto-font-weight: var(--type-aero-a-weight, 450);
-      --manifesto-letter-spacing: var(--type-aero-a-spacing, -2px);
-      --manifesto-line-height: var(--type-aero-a-line, 49px);
-      --manifesto-top-margin: 30px;
-      --manifesto-lockup-margin-top: 0px;
-      --manifesto-coord-margin-top: 2px;
-      --manifesto-coord-gap: 7px;
-      --manifesto-statement-margin-top: 0px;
-      --manifesto-btn-gap: 20px;
-      --manifesto-btn-margin-bottom: 0px;
-
-      /* Featured Tag */
-      --featured-tag-font-family: var(--font-primary, 'AT Aero', sans-serif);
-      --featured-tag-font-size: 25px;
-      --featured-tag-font-weight: 400;
-      --featured-tag-letter-spacing: -1.2px;
-      --featured-tag-line-height: 27.5px;
-      --featured-tag-color: #faf9fc;
-      --featured-tag-margin-top: 0px;
-      --featured-tag-margin-bottom: 0px;
-      --works-grid-margin-top: 20px;
-      --works-grid-padding-bottom: 100px;
-      --works-col-left-margin-top: 0px;
-      --works-col-left-gap: 70px;
-      --works-col-right-margin-top: 0px;
-      --works-col-right-gap: 70px;
-      --f3-works-grid-gap: 25px;
-
-      /* Cards */
-      --card-tags-margin-top: 8px;
-      --work-card-title-size: 20px;
-      --card-info-margin-top: 18px;
-      --card-1-margin-top: 0px;
-      --card-1-margin-bottom: 0px;
-      --card-2-margin-top: 0px;
-      --card-2-margin-bottom: 0px;
-      --card-3-margin-top: 0px;
-      --card-3-margin-bottom: 0px;
-      --card-4-margin-top: 0px;
-      --card-4-margin-bottom: 0px;
-
       /* Footer */
       --f3-footer-margin-top: 80px;
       --f3-footer-padding-top: 32px;
@@ -586,8 +541,11 @@
                 </button>
               </div>
 
-              <!-- See all projects Link on far right -->
-              <a href="javascript:void(0)" class="f3-featured-more-link type-aero-e">See all projects <span class="f3-title-arrow">↗</span></a>
+              <!-- See all projects Button on far right -->
+              <a href="javascript:void(0)" class="f3-featured-more-link type-mono-a" aria-label="See all projects">
+                <span>SEE ALL PROJECTS</span>
+                <span class="btn-arrow">↗</span>
+              </a>
             </div>
           </div>
 
@@ -618,11 +576,7 @@
                         </span>
                       </h3>
                     </div>
-                    <div class="f3-work-card-tags">
-                      <span class="f3-work-tag type-mono-a">BRANDING</span>
-                      <span class="f3-work-tag type-mono-a">SOCIAL</span>
-                      <span class="f3-work-tag type-mono-a">SPORT</span>
-                    </div>
+                    <p class="f3-work-card-subtitle type-aero-c">Social Media Case Study</p>
                   </div>
                 </a>
 
@@ -648,11 +602,7 @@
                         </span>
                       </h3>
                     </div>
-                    <div class="f3-work-card-tags">
-                      <span class="f3-work-tag type-mono-a">BRANDING</span>
-                      <span class="f3-work-tag type-mono-a">SOCIAL</span>
-                      <span class="f3-work-tag type-mono-a">SPORT</span>
-                    </div>
+                    <p class="f3-work-card-subtitle type-aero-c">Brand Design</p>
                   </div>
                 </a>
               </div>
@@ -681,11 +631,7 @@
                         </span>
                       </h3>
                     </div>
-                    <div class="f3-work-card-tags">
-                      <span class="f3-work-tag type-mono-a">BRANDING</span>
-                      <span class="f3-work-tag type-mono-a">SOCIAL</span>
-                      <span class="f3-work-tag type-mono-a">SPORT</span>
-                    </div>
+                    <p class="f3-work-card-subtitle type-aero-c">Social Case Study</p>
                   </div>
                 </a>
 
@@ -711,10 +657,7 @@
                         </span>
                       </h3>
                     </div>
-                    <div class="f3-work-card-tags">
-                      <span class="f3-work-tag type-mono-a">BRANDING</span>
-                      <span class="f3-work-tag type-mono-a">MOTION</span>
-                    </div>
+                    <p class="f3-work-card-subtitle type-aero-c">Coming Soon</p>
                   </div>
                 </a>
               </div>
@@ -742,13 +685,7 @@
                         </span>
                       </div>
                     </div>
-                    <div class="f3-list-tags type-mono-a" aria-hidden="true">
-                      <span>BRANDING</span>
-                      <span class="f3-list-tag-dot">•</span>
-                      <span>SOCIAL</span>
-                      <span class="f3-list-tag-dot">•</span>
-                      <span>SPORT</span>
-                    </div>
+                    <p class="f3-list-subtitle type-aero-c">Social Media Case Study</p>
                   </div>
                 </a>
 
@@ -769,13 +706,7 @@
                         </span>
                       </div>
                     </div>
-                    <div class="f3-list-tags type-mono-a" aria-hidden="true">
-                      <span>BRANDING</span>
-                      <span class="f3-list-tag-dot">•</span>
-                      <span>SOCIAL</span>
-                      <span class="f3-list-tag-dot">•</span>
-                      <span>SPORT</span>
-                    </div>
+                    <p class="f3-list-subtitle type-aero-c">Social Case Study</p>
                   </div>
                 </a>
 
@@ -796,13 +727,7 @@
                         </span>
                       </div>
                     </div>
-                    <div class="f3-list-tags type-mono-a" aria-hidden="true">
-                      <span>BRANDING</span>
-                      <span class="f3-list-tag-dot">•</span>
-                      <span>SOCIAL</span>
-                      <span class="f3-list-tag-dot">•</span>
-                      <span>SPORT</span>
-                    </div>
+                    <p class="f3-list-subtitle type-aero-c">Brand Design</p>
                   </div>
                 </a>
 
@@ -823,11 +748,7 @@
                         </span>
                       </div>
                     </div>
-                    <div class="f3-list-tags type-mono-a" aria-hidden="true">
-                      <span>BRANDING</span>
-                      <span class="f3-list-tag-dot">•</span>
-                      <span>MOTION</span>
-                    </div>
+                    <p class="f3-list-subtitle type-aero-c">Coming Soon</p>
                   </div>
                 </a>
               </div>
@@ -839,105 +760,56 @@
       </section>
 
       <!-- B. Section 2: Studio Services & Discipline Showcase -->
-      <section class="f3-section-bio-services f3-showcase-section" id="f3-bio-services">
+      <section class="f3-section-bio-services f3-services-directory-section" id="f3-bio-services" aria-label="Services Directory">
         <div class="f3-container">
-          <!-- 2-Column Separation Lines Above Services -->
-          <div class="f3-intro-divider-row" aria-hidden="true">
-            <div class="f3-intro-divider-col-left"></div>
-            <div class="f3-intro-divider-col-right"></div>
+          <!-- Single Continuous Hairline Divider Above Services -->
+          <div class="f3-single-divider-row" aria-hidden="true">
+            <div class="f3-single-divider-line"></div>
           </div>
 
-          <div class="f3-showcase-container">
-            <!-- Centered 2-Line Headline -->
-            <div class="f3-showcase-header">
-              <h2 class="f3-showcase-title type-aero-a">
-                Everything your product needs to be<br>taken seriously
-              </h2>
+          <!-- Services Editorial Statement -->
+          <div class="f3-services-statement-wrap">
+            <p class="f3-services-statement type-aero-a">
+              I design brands and digital experiences that move people, from first insight to final launch.
+            </p>
+          </div>
+
+          <!-- 3-Column Editorial Services Directory -->
+          <div class="f3-services-directory-grid">
+            <!-- Column 1: Blank Offset Column -->
+            <div class="f3-services-col f3-services-col-empty" aria-hidden="true"></div>
+
+            <!-- Column 2: Core Services (Positioned in 2nd Column) -->
+            <div class="f3-services-col">
+              <h3 class="f3-services-col-title type-aero-c">Core Services</h3>
+              <ul class="f3-services-list" role="list">
+                <li class="f3-services-item type-aero-c">Brand Design Systems &amp; Visual Identity Development</li>
+                <li class="f3-services-item type-aero-c">Logo &amp; Identity Systems</li>
+                <li class="f3-services-item type-aero-c">Motion &amp; Dynamic Branding</li>
+                <li class="f3-services-item type-aero-c">3D &amp; Spatial Visual Assets</li>
+                <li class="f3-services-item type-aero-c">Brand Applications (Digital &amp; Physical)</li>
+                <li class="f3-services-item type-aero-c">Art Direction &amp; Creative Direction</li>
+              </ul>
             </div>
 
-            <!-- 4-Box Interactive Showcase Grid -->
-            <div class="f3-showcase-wrap" aria-label="Services Interactive Showcase">
-              <div class="f3-showcase-grid">
-                <!-- 1. Art Direction (Text appears 25px to the Right) -->
-                <div class="f3-showcase-item" data-service-index="0">
-                  <div class="f3-showcase-box">
-                    <span class="f3-box-corner f3-corner-tl" aria-hidden="true"></span>
-                    <span class="f3-box-corner f3-corner-tr" aria-hidden="true"></span>
-                    <span class="f3-box-corner f3-corner-bl" aria-hidden="true"></span>
-                    <span class="f3-box-corner f3-corner-br" aria-hidden="true"></span>
-                    <svg class="f3-showcase-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Art Direction Icon">
-                      <path d="M6 18 L6 10 L14 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M34 10 L42 10 L42 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M6 30 L6 38 L14 38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M34 38 L42 38 L42 30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="24" cy="24" r="2" fill="currentColor"/>
-                    </svg>
-                  </div>
-                  <span class="f3-showcase-label type-mono-a">ART DIRECTION</span>
-                  <p class="f3-showcase-desc f3-desc-right type-aero-c">Visual language crafted to captivate. Setting the aesthetic standard where form meets obsession.</p>
-                </div>
+            <!-- Column 3: Strategic & Digital Services + Engagement Models (Merged) -->
+            <div class="f3-services-col">
+              <div class="f3-services-group">
+                <h3 class="f3-services-col-title type-aero-c">Strategic &amp; Digital Services</h3>
+                <ul class="f3-services-list" role="list">
+                  <li class="f3-services-item type-aero-c">Positioning Strategy &amp; Narrative / Story Frameworks</li>
+                  <li class="f3-services-item type-aero-c">UX/UI Systems &amp; Wireframing / Prototyping</li>
+                  <li class="f3-services-item type-aero-c">Creative &amp; Interactive Development</li>
+                </ul>
+              </div>
 
-                <!-- 2. Brand Identity (Text appears 25px to the Right) -->
-                <div class="f3-showcase-item" data-service-index="1">
-                  <div class="f3-showcase-box">
-                    <span class="f3-box-corner f3-corner-tl" aria-hidden="true"></span>
-                    <span class="f3-box-corner f3-corner-tr" aria-hidden="true"></span>
-                    <span class="f3-box-corner f3-corner-bl" aria-hidden="true"></span>
-                    <span class="f3-box-corner f3-corner-br" aria-hidden="true"></span>
-                    <svg class="f3-showcase-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Brand Identity Icon">
-                      <path d="M24 4 L41.3 14 L41.3 34 L24 44 L6.7 34 L6.7 14 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                      <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="1.5"/>
-                    </svg>
-                  </div>
-                  <span class="f3-showcase-label type-mono-a">BRAND IDENTITY</span>
-                  <p class="f3-showcase-desc f3-desc-right type-aero-c">Strategy-led brand systems that remove friction, sharpen positioning, and command instant recognition.</p>
-                </div>
-
-                <!-- 3. Website Design (Text appears 25px to the Left) -->
-                <div class="f3-showcase-item" data-service-index="2">
-                  <div class="f3-showcase-box">
-                    <span class="f3-box-corner f3-corner-tl" aria-hidden="true"></span>
-                    <span class="f3-box-corner f3-corner-tr" aria-hidden="true"></span>
-                    <span class="f3-box-corner f3-corner-bl" aria-hidden="true"></span>
-                    <span class="f3-box-corner f3-corner-br" aria-hidden="true"></span>
-                    <svg class="f3-showcase-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Website Design Icon">
-                      <rect x="4" y="8" width="40" height="32" rx="3" stroke="currentColor" stroke-width="1.5"/>
-                      <path d="M4 16 L44 16" stroke="currentColor" stroke-width="1.5"/>
-                      <path d="M18 16 L18 40" stroke="currentColor" stroke-width="1.5"/>
-                      <circle cx="9" cy="12" r="1.2" fill="currentColor"/>
-                      <circle cx="13" cy="12" r="1.2" fill="currentColor"/>
-                      <circle cx="17" cy="12" r="1.2" fill="currentColor"/>
-                    </svg>
-                  </div>
-                  <span class="f3-showcase-label type-mono-a">WEBSITE DESIGN</span>
-                  <p class="f3-showcase-desc f3-desc-left type-aero-c">Editorial aesthetics fused with flawless functionality. Digital experiences that turn attention into conviction.</p>
-                </div>
-
-                <!-- 4. Social Media Design (Text appears 25px to the Left) -->
-                <div class="f3-showcase-item" data-service-index="3">
-                  <div class="f3-showcase-box">
-                    <span class="f3-box-corner f3-corner-tl" aria-hidden="true"></span>
-                    <span class="f3-box-corner f3-corner-tr" aria-hidden="true"></span>
-                    <span class="f3-box-corner f3-corner-bl" aria-hidden="true"></span>
-                    <span class="f3-box-corner f3-corner-br" aria-hidden="true"></span>
-                    <svg class="f3-showcase-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Social Media Design Icon">
-                      <path d="M10 24 L38 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                      <path d="M10 24 L38 38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                      <circle cx="10" cy="24" r="4" fill="currentColor"/>
-                      <circle cx="38" cy="10" r="4" fill="currentColor"/>
-                      <circle cx="38" cy="38" r="4" fill="currentColor"/>
-                    </svg>
-                  </div>
-                  <span class="f3-showcase-label type-mono-a">SOCIAL MEDIA DESIGN</span>
-                  <p class="f3-showcase-desc f3-desc-left type-aero-c">High-impact visual narratives designed for cultural resonance across modern digital channels.</p>
-                </div>
+              <div class="f3-services-group">
+                <h3 class="f3-services-col-title type-aero-c">Engagement Models</h3>
+                <ul class="f3-services-list" role="list">
+                  <li class="f3-services-item type-aero-c">Retainer &amp; Open-Scope Engagement</li>
+                </ul>
               </div>
             </div>
-
-            <!-- Studio Philosophy Quote Underneath 4 Boxes -->
-            <p class="f3-showcase-footer-quote type-aero-e">
-              I don't really separate these four things in my head &mdash; a brand system, a website, a social post, they're all just the same idea shown in a different place. If one part looks off, the rest usually does too.
-            </p>
           </div>
         </div>
       </section>
@@ -950,20 +822,37 @@
             <div class="f3-single-divider-line"></div>
           </div>
 
-          <!-- Centered CTA Hero Stage -->
+          <!-- 2-Column Split CTA Hero Stage -->
           <div class="f3-contact-hero-stage">
-            <div class="f3-contact-hook-wrap">
-              <h2 class="f3-contact-hook-title type-aero-a">
-                Let's build<br>together.
-              </h2>
-              <div class="f3-contact-cta-action">
-                <button type="button" class="f3-contact-pill-trigger type-aero-f" id="f3-open-contact-modal" aria-haspopup="dialog" aria-expanded="false" aria-controls="f3-contact-modal">
-                  <span class="f3-pill-label">Start a project</span>
-                  <span class="f3-pill-arrow" aria-hidden="true">↗</span>
-                </button>
-                <a href="mailto:work@scherre.com" class="about-email-link f3-contact-email-link type-aero-e" aria-label="Email studio directly">
-                  work@scherre.com <span class="f3-title-arrow">↗</span>
-                </a>
+            <div class="f3-contact-split-layout">
+              <!-- Left Column: Headline -->
+              <div class="f3-contact-left-col">
+                <h2 class="f3-contact-hook-title type-aero-a">
+                  Let’s build<br>something together
+                </h2>
+              </div>
+
+              <!-- Right Column: 3 Action Rows -->
+              <div class="f3-contact-right-col">
+                <div class="f3-contact-links-list">
+                  <!-- Row 1: Start a project (Triggers Contact Modal) -->
+                  <button type="button" class="f3-contact-action-row type-aero-c" id="f3-open-contact-modal" aria-haspopup="dialog" aria-expanded="false" aria-controls="f3-contact-modal">
+                    <span class="f3-action-text">Start a project</span>
+                    <span class="f3-action-arrow" aria-hidden="true">↗</span>
+                  </button>
+
+                  <!-- Row 2: Partnership -->
+                  <a href="mailto:work@scherre.com?subject=Partnership" class="f3-contact-action-row type-aero-c">
+                    <span class="f3-action-text">Partnership</span>
+                    <span class="f3-action-arrow" aria-hidden="true">↗</span>
+                  </a>
+
+                  <!-- Row 3: Drop a message -->
+                  <a href="mailto:work@scherre.com?subject=Drop%20a%20message" class="f3-contact-action-row type-aero-c">
+                    <span class="f3-action-text">Drop a message</span>
+                    <span class="f3-action-arrow" aria-hidden="true">↗</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -24,6 +24,7 @@ const endpoints = [
   '/js/hero-statement-scramble.js',
   '/js/works.js',
   '/js/service-showcase.js',
+  '/js/ascii-smile.js',
   '/js/contact.js',
   '/js/about.js',
   '/js/project.js',
