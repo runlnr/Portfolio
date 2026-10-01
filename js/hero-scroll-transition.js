@@ -16,6 +16,7 @@
   let currentTimeline = null;
 
   function initHeroScrollTransition() {
+    if (!window.matchMedia('(min-width: 1024px)').matches) return;
     if (!window.gsap || !window.ScrollTrigger) {
       console.warn('HeroScrollTransition: GSAP or ScrollTrigger not loaded');
       return;
@@ -417,13 +418,24 @@
   window.destroyHeroScrollTransition = destroyHeroScrollTransition;
   window.refreshHeroTransition = refreshHeroTransition;
 
-  window.addEventListener('pagehide', destroyHeroScrollTransition, { once: true });
+  function handleHeroScrollTransitionResponsive() {
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+      setTimeout(initHeroScrollTransition, 100);
+    } else {
+      destroyHeroScrollTransition();
+    }
+  }
+
+  const scrollTransitionDesktopQuery = window.matchMedia('(min-width: 1024px)');
+  if (scrollTransitionDesktopQuery.addEventListener) {
+    scrollTransitionDesktopQuery.addEventListener('change', handleHeroScrollTransitionResponsive);
+  } else {
+    scrollTransitionDesktopQuery.addListener(handleHeroScrollTransitionResponsive);
+  }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(initHeroScrollTransition, 100);
-    });
+    document.addEventListener('DOMContentLoaded', handleHeroScrollTransitionResponsive);
   } else {
-    setTimeout(initHeroScrollTransition, 100);
+    handleHeroScrollTransitionResponsive();
   }
 })();

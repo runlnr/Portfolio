@@ -120,6 +120,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    if (!window.matchMedia('(min-width: 1024px)').matches) return;
     initAboutContactTriggers();
 
     // If loaded directly without page transition, trigger ASCII reveal immediately

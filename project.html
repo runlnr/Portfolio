@@ -3,10 +3,10 @@
 
 <head>
   <script>
-    if (sessionStorage.getItem('np_is_navigating')) { document.documentElement.classList.add('is-navigating-in'); }
+    if (window.innerWidth >= 1024 && sessionStorage.getItem('np_is_navigating')) { document.documentElement.classList.add('is-navigating-in'); }
   </script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Project • Nam Pham</title>
   <meta name="description"
     content="Nam Pham is an independent graphic design practice based in Ho Chi Minh City, creating timeless brands and digital experiences.">
@@ -41,6 +41,13 @@
 
 <body class="project-page-body">
 
+  <!-- Mobile-Only Lockout Overlay (Active strictly below 1024px) -->
+  <div class="mobile-lockout-overlay" id="mobile-lockout-notice" role="status" aria-live="polite">
+    <p class="mobile-lockout-message type-aero-f">This site is optimized for desktop. A mobile version is in development.</p>
+  </div>
+
+  <!-- Main Site Desktop Content Wrapper -->
+  <div id="site-root">
   <!-- Fullscreen Page Transition Curtain (Slide-Up matching Site Loader) -->
   <div class="page-transition-curtain" id="page-transition-curtain" aria-hidden="true"></div>
 
@@ -327,6 +334,7 @@
         </div>
       </div>
     </footer>
+  </div>
   </div>
 
   <!-- Project Scripts -->

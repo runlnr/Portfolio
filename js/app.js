@@ -218,7 +218,12 @@ window.previewLoader = function (state = 'white') {
 };
 window.freezeIntroLoader = window.previewLoader;
 
-document.addEventListener('DOMContentLoaded', () => {
+let appInitialized = false;
+
+function initDesktopApp() {
+  if (appInitialized) return;
+  if (!window.matchMedia('(min-width: 1024px)').matches) return;
+  appInitialized = true;
 
   // 1. First-Time Access Check & Intro Loader (3-second logo fill, then slide up)
   const loader = document.getElementById('site-loader');
@@ -1375,4 +1380,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (syncRafId) cancelAnimationFrame(syncRafId);
     if (bottomBarRo) bottomBarRo.disconnect();
   }, { once: true });
-});
+}
+
+function handleAppResponsive() {
+  if (window.matchMedia('(min-width: 1024px)').matches) {
+    initDesktopApp();
+  } else {
+    document.documentElement.classList.remove('is-loading');
+    document.body.classList.remove('is-loading');
+    const loader = document.getElementById('site-loader');
+    if (loader) {
+      loader.style.display = 'none';
+      loader.style.pointerEvents = 'none';
+    }
+  }
+}
+
+const appDesktopQuery = window.matchMedia('(min-width: 1024px)');
+if (appDesktopQuery.addEventListener) {
+  appDesktopQuery.addEventListener('change', handleAppResponsive);
+} else {
+  appDesktopQuery.addListener(handleAppResponsive);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', handleAppResponsive);
+} else {
+  handleAppResponsive();
+}

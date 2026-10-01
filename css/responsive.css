@@ -1,4 +1,68 @@
 /* ==========================================================================
+   Mobile-Only Lockout Overlay (< 1024px)
+   Replaces the entire site below 1024px viewport width with a full-screen
+   non-interactive notice.
+   ========================================================================== */
+
+/* Desktop (>= 1024px): Overlay is hidden, site root renders normally */
+@media (min-width: 1024px) {
+  .mobile-lockout-overlay {
+    display: none !important;
+  }
+
+  #site-root {
+    display: contents;
+  }
+}
+
+/* Mobile & Tablet (< 1024px): Lockout overlay active, site root completely hidden */
+@media (max-width: 1023px) {
+  html,
+  body {
+    overflow: hidden !important;
+    height: 100dvh !important;
+    overscroll-behavior: none !important;
+    touch-action: none !important;
+    position: fixed !important;
+    width: 100% !important;
+    inset: 0 !important;
+  }
+
+  #site-root {
+    display: none !important;
+  }
+
+  .mobile-lockout-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 999999 !important;
+    background-color: var(--bg, #030303) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 24px !important;
+    text-align: center !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    pointer-events: auto !important;
+  }
+
+  .mobile-lockout-message {
+    max-width: 28ch !important;
+    font-family: var(--type-aero-f-font, var(--font-primary, 'AT Aero', sans-serif)) !important;
+    font-size: 17px !important;
+    font-weight: 400 !important;
+    line-height: 1.45 !important;
+    letter-spacing: -0.2px !important;
+    color: var(--text-color, #faf9fc) !important;
+    opacity: 0.92 !important;
+    margin: 0 !important;
+    text-wrap: balance;
+  }
+}
+
+/* ==========================================================================
    Responsive Breakpoints & Media Queries
    ========================================================================== */
 

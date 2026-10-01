@@ -57,6 +57,7 @@
   }
 
   function initHeroTvAscii() {
+    if (!window.matchMedia('(min-width: 1024px)').matches) return;
     const canvas = document.getElementById('hero-tv-canvas');
     if (!canvas) return;
 
@@ -431,11 +432,24 @@
   window.initHeroTvAscii = initHeroTvAscii;
   window.destroyHeroTvAscii = destroyHeroTvAscii;
 
-  window.addEventListener('pagehide', destroyHeroTvAscii, { once: true });
+  function handleHeroTvAsciiResponsive() {
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+      initHeroTvAscii();
+    } else {
+      destroyHeroTvAscii();
+    }
+  }
+
+  const tvDesktopQuery = window.matchMedia('(min-width: 1024px)');
+  if (tvDesktopQuery.addEventListener) {
+    tvDesktopQuery.addEventListener('change', handleHeroTvAsciiResponsive);
+  } else {
+    tvDesktopQuery.addListener(handleHeroTvAsciiResponsive);
+  }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHeroTvAscii);
+    document.addEventListener('DOMContentLoaded', handleHeroTvAsciiResponsive);
   } else {
-    initHeroTvAscii();
+    handleHeroTvAsciiResponsive();
   }
 })();

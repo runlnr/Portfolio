@@ -7,6 +7,7 @@
   'use strict';
 
   function initFutureThreeScroll() {
+    if (!window.matchMedia('(min-width: 1024px)').matches) return;
     // 1. Scroll-Driven Editorial Cascade Reveal System
     function initScrollReveal() {
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -448,11 +449,22 @@
     initMonoLetterShuffle();
   }
 
-  window.initFutureThreeScroll = initFutureThreeScroll;
+  function handleFutureThreeResponsive() {
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+      initFutureThreeScroll();
+    }
+  }
+
+  const f3DesktopQuery = window.matchMedia('(min-width: 1024px)');
+  if (f3DesktopQuery.addEventListener) {
+    f3DesktopQuery.addEventListener('change', handleFutureThreeResponsive);
+  } else {
+    f3DesktopQuery.addListener(handleFutureThreeResponsive);
+  }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initFutureThreeScroll);
+    document.addEventListener('DOMContentLoaded', handleFutureThreeResponsive);
   } else {
-    initFutureThreeScroll();
+    handleFutureThreeResponsive();
   }
 })();

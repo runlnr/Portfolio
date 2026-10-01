@@ -14,6 +14,7 @@ class MotionStack {
 
   init() {
     if (typeof window === 'undefined') return;
+    if (!window.matchMedia('(min-width: 1024px)').matches) return;
 
     // 1. Initialize Lenis Smooth Scroll
     if (window.Lenis) {
@@ -146,8 +147,6 @@ class MotionStack {
   initMagneticButtons() {
     const magnetics = document.querySelectorAll('[data-magnetic], .btn-magnetic');
     magnetics.forEach((btn) => {
-      let isHovered = false;
-
       btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
@@ -182,6 +181,7 @@ class MotionStack {
     if (this.lenis) {
       this.lenis.destroy();
       this.lenis = null;
+      window.lenis = null;
     }
     this.isInitialized = false;
   }
@@ -192,10 +192,29 @@ class MotionStack {
   }
 }
 
+function handleMotionStackInit() {
+  if (window.matchMedia('(min-width: 1024px)').matches) {
+    if (!window.motionStack || !window.motionStack.isInitialized) {
+      window.motionStack = new MotionStack();
+    }
+  } else {
+    if (window.motionStack && typeof window.motionStack.destroy === 'function') {
+      window.motionStack.destroy();
+    }
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  window.motionStack = new MotionStack();
+  handleMotionStackInit();
   if (window.initIcons) window.initIcons();
 });
+
+const motionDesktopQuery = window.matchMedia('(min-width: 1024px)');
+if (motionDesktopQuery.addEventListener) {
+  motionDesktopQuery.addEventListener('change', handleMotionStackInit);
+} else {
+  motionDesktopQuery.addListener(handleMotionStackInit);
+}
 
 window.addEventListener('pagehide', () => {
   if (window.motionStack && typeof window.motionStack.destroy === 'function') {

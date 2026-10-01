@@ -443,8 +443,25 @@ window.triggerProjectAsciiAppear = function () {
   });
 };
 
-window.addEventListener('pagehide', clearActiveProjectScrambles, { once: true });
+function handleProjectPageResponsive() {
+  if (window.matchMedia('(min-width: 1024px)').matches) {
+    window.initProjectPage();
+  } else {
+    clearActiveProjectScrambles();
+    if (projectGalleryMatchMedia) {
+      projectGalleryMatchMedia.revert();
+      projectGalleryMatchMedia = null;
+    }
+  }
+}
+
+const projectDesktopQuery = window.matchMedia('(min-width: 1024px)');
+if (projectDesktopQuery.addEventListener) {
+  projectDesktopQuery.addEventListener('change', handleProjectPageResponsive);
+} else {
+  projectDesktopQuery.addListener(handleProjectPageResponsive);
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-  window.initProjectPage();
+  handleProjectPageResponsive();
 });

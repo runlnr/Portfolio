@@ -158,6 +158,7 @@
    * Initializes headline scramble effect on page load
    */
   function initHeroStatementScramble(force = false) {
+    if (!window.matchMedia('(min-width: 1024px)').matches) return;
     if (isInitialized && !force) return;
     const leftEl = document.getElementById('hero-text-left');
     const rightEl = document.getElementById('hero-text-right');
@@ -240,14 +241,25 @@
     PHRASES
   };
 
-  window.addEventListener('pagehide', destroyHeroStatementScramble, { once: true });
+  function handleHeroStatementResponsive() {
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+      initHeroStatementScramble(false);
+    } else {
+      destroyHeroStatementScramble();
+    }
+  }
+
+  const statementDesktopQuery = window.matchMedia('(min-width: 1024px)');
+  if (statementDesktopQuery.addEventListener) {
+    statementDesktopQuery.addEventListener('change', handleHeroStatementResponsive);
+  } else {
+    statementDesktopQuery.addListener(handleHeroStatementResponsive);
+  }
 
   // Immediate initialize on DOMContentLoaded or if already loaded
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      initHeroStatementScramble(false);
-    });
+    document.addEventListener('DOMContentLoaded', handleHeroStatementResponsive);
   } else {
-    initHeroStatementScramble(false);
+    handleHeroStatementResponsive();
   }
 })();
