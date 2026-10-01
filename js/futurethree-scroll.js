@@ -342,6 +342,7 @@
 
     function initShuffleOnElement(el) {
       if (!el) return;
+      if (el.querySelector('a, button, input')) return;
       el.dataset.shuffleInit = 'true';
 
       const originalText = el.textContent.trim().replace(/\s+/g, ' ');
@@ -356,6 +357,11 @@
           spaceSpan.innerHTML = '&nbsp;';
           spaceSpan.setAttribute('aria-hidden', 'true');
           fragment.appendChild(spaceSpan);
+        } else if (char === '©' || char === '®') {
+          const staticSpan = document.createElement('span');
+          staticSpan.className = 'f3-mono-shuffle-static';
+          staticSpan.textContent = char;
+          fragment.appendChild(staticSpan);
         } else {
           const span = document.createElement('span');
           span.className = 'f3-mono-shuffle-letter';
@@ -427,7 +433,7 @@
         }
       } else {
         targets = Array.from(document.querySelectorAll(
-          '.nav-status-line, .f3-intro-city, .f3-corner-label, .f3-colophon-left, .f3-colophon-center, .f3-colophon-right, .f3-colophon-privacy-link, .f3-showcase-label'
+          '.nav-status-line, .f3-intro-city, .f3-corner-label, .f3-colophon-left, .f3-colophon-center, .f3-colophon-privacy-link, .f3-showcase-label'
         ));
       }
 
