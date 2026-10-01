@@ -258,7 +258,7 @@ body.pm-modal-active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--rect-btn-gap, 6px);
+  gap: var(--rect-btn-gap, 11px);
   height: var(--rect-btn-height, 22px);
   min-width: var(--rect-btn-min-width, auto);
   box-sizing: border-box;

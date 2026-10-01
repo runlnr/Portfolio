@@ -29,6 +29,22 @@ class MotionStack {
       });
       window.lenis = this.lenis;
 
+      // Lock Lenis immediately if page is still in loading or transition state
+      const isInitialLocked = document.documentElement.classList.contains('is-loading') ||
+        document.body.classList.contains('is-loading') ||
+        document.documentElement.classList.contains('is-navigating-in') ||
+        document.documentElement.classList.contains('is-navigating-out') ||
+        document.body.classList.contains('is-navigating-in') ||
+        document.body.classList.contains('is-navigating-out') ||
+        document.documentElement.classList.contains('page-transitioning') ||
+        document.body.classList.contains('page-transitioning') ||
+        sessionStorage.getItem('np_is_navigating') === 'true' ||
+        (!sessionStorage.getItem('np_has_seen_intro') && !!document.getElementById('site-loader'));
+
+      if (isInitialLocked) {
+        this.lenis.stop();
+      }
+
       // 2. Synchronize Lenis with GSAP ScrollTrigger & Ticker
       if (window.gsap && window.ScrollTrigger) {
         window.gsap.registerPlugin(window.ScrollTrigger);

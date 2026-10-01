@@ -450,7 +450,7 @@
   --type-aero-c-weight: 400;
   --type-aero-c-size: 20px;
   --type-aero-c-line: 27.5px;
-  --type-aero-c-spacing: -1.2px;
+  --type-aero-c-spacing: -0.8px;
 
   /* At Aero Type D */
   --type-aero-d-font: var(--font-primary, 'AT Aero', sans-serif);
@@ -492,7 +492,7 @@
   --rect-btn-height: 22px;
   --rect-btn-padx: 8px;
   --rect-btn-min-width: auto;
-  --rect-btn-gap: 6px;
+  --rect-btn-gap: 11px;
 
   /* Standardized Monospace Tag & Button Dimension Tokens (Linked to Master) */
   --mono-tag-height: var(--rect-btn-height, 22px);

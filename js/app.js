@@ -50,6 +50,61 @@ window.replayIntroLoader = function () {
  */
 let hasRevealedViewportText = false;
 
+// Global Scroll-Lock State Controller
+function isSiteBusyWithLoaderOrTransition() {
+  return document.documentElement.classList.contains('is-loading') ||
+    document.body.classList.contains('is-loading') ||
+    document.documentElement.classList.contains('is-navigating-in') ||
+    document.body.classList.contains('is-navigating-in') ||
+    document.documentElement.classList.contains('is-navigating-out') ||
+    document.body.classList.contains('is-navigating-out') ||
+    document.documentElement.classList.contains('page-transitioning') ||
+    document.body.classList.contains('page-transitioning') ||
+    (typeof loaderFinished !== 'undefined' && !loaderFinished && document.getElementById('site-loader') && !sessionStorage.getItem('np_has_seen_intro'));
+}
+
+function lockSiteScroll() {
+  const lenis = (window.motionStack && window.motionStack.lenis) || window.lenis;
+  if (lenis && typeof lenis.stop === 'function') {
+    lenis.stop();
+  }
+}
+
+function unlockSiteScroll() {
+  if (isSiteBusyWithLoaderOrTransition()) return;
+  if (document.body.classList.contains('pm-modal-active') || document.body.classList.contains('nav-dropdown-active')) {
+    return;
+  }
+  const lenis = (window.motionStack && window.motionStack.lenis) || window.lenis;
+  if (lenis && typeof lenis.start === 'function') {
+    lenis.start();
+  }
+}
+
+window.lockSiteScroll = lockSiteScroll;
+window.unlockSiteScroll = unlockSiteScroll;
+window.isSiteBusyWithLoaderOrTransition = isSiteBusyWithLoaderOrTransition;
+
+// Hard block for wheel, touch, and scroll keys while loading screen or transition is active
+const SCROLL_LOCK_KEYS = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', 'Space', ' '];
+window.addEventListener('wheel', (e) => {
+  if (isSiteBusyWithLoaderOrTransition()) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+window.addEventListener('touchmove', (e) => {
+  if (isSiteBusyWithLoaderOrTransition()) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+window.addEventListener('keydown', (e) => {
+  if (isSiteBusyWithLoaderOrTransition() && SCROLL_LOCK_KEYS.includes(e.key)) {
+    e.preventDefault();
+  }
+});
+
 window.triggerViewportTextReveal = function () {
   if (hasRevealedViewportText) return;
   hasRevealedViewportText = true;
@@ -124,6 +179,8 @@ window.previewLoader = function (state = 'white') {
     loader.style.display = 'none';
     loader.style.pointerEvents = 'none';
     document.body.classList.remove('is-loading');
+    document.documentElement.classList.remove('is-loading');
+    unlockSiteScroll();
     return;
   }
   loader.style.display = 'block';
@@ -132,6 +189,8 @@ window.previewLoader = function (state = 'white') {
   const logoCenter = document.getElementById('loader-logo-center');
   if (logoCenter) logoCenter.classList.remove('fade-out');
   document.body.classList.add('is-loading');
+  document.documentElement.classList.add('is-loading');
+  lockSiteScroll();
 
   if (state === 'grey' || state === 'start') {
     if (fillWrap) fillWrap.style.clipPath = 'inset(100% 0 0 0)';
@@ -169,7 +228,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let loaderFinished = !!hasSeenIntro;
 
   if (!hasSeenIntro && loader) {
+    document.documentElement.classList.add('is-loading');
     document.body.classList.add('is-loading');
+    window.scrollTo(0, 0);
+    lockSiteScroll();
 
     const cfg = Object.assign({
       fillDuration: 5000,
@@ -227,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
           loader.style.transition = `opacity ${fadeDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
           loader.classList.add('slide-up', 'fade-out');
           document.body.classList.remove('is-loading');
+          document.documentElement.classList.remove('is-loading');
           document.body.classList.add('loader-revealed');
           loaderFinished = true;
           sessionStorage.setItem('np_has_seen_intro', 'true');
@@ -241,10 +304,11 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => scrollToPortfolioSection(true), 400);
           }
 
-          // Remove loader once page fade completes
+          // Remove loader once page fade completes and unlock scroll
           setTimeout(() => {
             loader.style.display = 'none';
             loader.style.pointerEvents = 'none';
+            unlockSiteScroll();
           }, fadeDuration);
         }, logoFade + blackHold);
       }, whiteHold);
@@ -254,8 +318,10 @@ document.addEventListener('DOMContentLoaded', () => {
       loader.style.display = 'none';
       loader.style.pointerEvents = 'none';
     }
+    document.documentElement.classList.remove('is-loading');
     document.body.classList.remove('is-loading');
     document.body.classList.add('loader-revealed');
+    unlockSiteScroll();
     initHeroTvInteraction();
     if (window.initHeroHeadlineScramble) {
       window.initHeroHeadlineScramble(false);
@@ -310,6 +376,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     isNavigating = true;
     sessionStorage.setItem('np_is_navigating', 'true');
+    document.documentElement.classList.add('is-navigating-out', 'page-transitioning');
+    document.body.classList.add('is-navigating-out', 'page-transitioning');
+    lockSiteScroll();
 
     // Phase 1: Smoothly fade dark overlay in (opacity 0 -> 1)
     curtain.classList.remove('is-revealing');
@@ -328,6 +397,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const isNavigatingIn = sessionStorage.getItem('np_is_navigating') === 'true';
 
     if (curtain && isNavigatingIn) {
+      document.documentElement.classList.add('is-navigating-in', 'page-transitioning');
+      document.body.classList.add('is-navigating-in', 'page-transitioning');
+      window.scrollTo(0, 0);
+      lockSiteScroll();
+
       const holdDuration = (window.TRANSITION_CONFIG && window.TRANSITION_CONFIG.holdDuration) || 800;
       const revealDuration = (window.TRANSITION_CONFIG && window.TRANSITION_CONFIG.revealDuration) || 1100;
 
@@ -341,6 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
           curtain.classList.remove('is-covering');
           curtain.classList.add('is-revealing');
           document.documentElement.classList.remove('is-navigating-in');
+          document.body.classList.remove('is-navigating-in');
 
           // Trigger appearing animation IMMEDIATELY as fade begins (ZERO DELAY):
           if (window.triggerViewportTextReveal) {
@@ -349,13 +424,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
           setTimeout(() => {
             curtain.classList.remove('is-revealing');
+            document.documentElement.classList.remove('page-transitioning');
+            document.body.classList.remove('page-transitioning');
             sessionStorage.removeItem('np_is_navigating');
             isNavigating = false;
+            unlockSiteScroll();
           }, revealDuration);
         });
       }, holdDuration);
     } else if (!isNavigatingIn) {
-      document.documentElement.classList.remove('is-navigating-in');
+      document.documentElement.classList.remove('is-navigating-in', 'is-navigating-out', 'page-transitioning');
+      document.body.classList.remove('is-navigating-in', 'is-navigating-out', 'page-transitioning');
+      unlockSiteScroll();
     }
 
     // Intercept internal page link clicks across the site
@@ -401,11 +481,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('pageshow', (event) => {
       if (event.persisted) {
         sessionStorage.removeItem('np_is_navigating');
-        document.documentElement.classList.remove('is-navigating-in');
+        document.documentElement.classList.remove('is-navigating-in', 'is-navigating-out', 'page-transitioning');
+        document.body.classList.remove('is-navigating-in', 'is-navigating-out', 'page-transitioning');
         if (curtain) {
           curtain.classList.remove('is-covering', 'is-revealing');
         }
         isNavigating = false;
+        unlockSiteScroll();
       }
     });
   }

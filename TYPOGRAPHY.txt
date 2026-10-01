@@ -147,6 +147,6 @@ QUICK CSS VARIABLE REFERENCE (:root tokens from css/typography.css)
   --rect-btn-height: 22px;
   --rect-btn-padx: 8px;
   --rect-btn-min-width: auto;
-  --rect-btn-gap: 6px;
+  --rect-btn-gap: 11px;
 }
 ================================================================================

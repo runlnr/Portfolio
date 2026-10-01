@@ -204,15 +204,16 @@
       });
     }
 
-    // 7. Footer Social Hover Handle Switcher (@pxly -> @phnm08, @_phnm._, etc.)
+    // 7. Footer Social Hover Handle Switcher (@scherre -> @pxly, @phnm08, @_phnm._)
     function initFooterSignatureHandleSwitcher() {
       const signatureContainer = document.querySelector('.f3-footer-brand-signature');
       const signatureTextEl = signatureContainer ? signatureContainer.querySelector('.f3-signature-text') : null;
       const socialLinks = document.querySelectorAll('.f3-footer-social-link[data-handle]');
+      const socialsList = document.querySelector('.f3-footer-socials-list');
 
       if (!signatureTextEl || socialLinks.length === 0) return;
 
-      const DEFAULT_HANDLE = '@pxly';
+      const DEFAULT_HANDLE = '@scherre';
       const ASCII_POOL = 'abcdefghijklmnopqrstuvwxyz0123456789_.-';
 
       function formatHandleToHTML(str) {
@@ -321,7 +322,13 @@
         link.addEventListener('mouseenter', () => scrambleTo(handle));
         link.addEventListener('focus', () => scrambleTo(handle));
         link.addEventListener('touchstart', () => scrambleTo(handle), { passive: true });
+        link.addEventListener('mouseleave', () => scrambleTo(DEFAULT_HANDLE));
+        link.addEventListener('blur', () => scrambleTo(DEFAULT_HANDLE));
       });
+
+      if (socialsList) {
+        socialsList.addEventListener('mouseleave', () => scrambleTo(DEFAULT_HANDLE));
+      }
     }
 
     initFooterSignatureHandleSwitcher();
@@ -420,7 +427,7 @@
         }
       } else {
         targets = Array.from(document.querySelectorAll(
-          '.nav-status-line, .f3-intro-city, .f3-corner-label, .f3-colophon-privacy, .f3-colophon-left, .f3-showcase-label'
+          '.nav-status-line, .f3-intro-city, .f3-corner-label, .f3-colophon-left, .f3-colophon-center, .f3-colophon-right, .f3-colophon-privacy-link, .f3-showcase-label'
         ));
       }
 

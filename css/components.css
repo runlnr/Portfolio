@@ -573,12 +573,34 @@
   }
 }
 
-/* Hide cursor completely during loader */
-body.is-loading {
+/* ==========================================================================
+   Scroll Lock & Cursor Management during Loader & Transitions
+   ========================================================================== */
+html.is-loading,
+body.is-loading,
+html.is-navigating-in,
+body.is-navigating-in,
+html.is-navigating-out,
+body.is-navigating-out,
+html.page-transitioning,
+body.page-transitioning {
+  overflow: hidden !important;
+  touch-action: none !important;
+  overscroll-behavior: none !important;
+}
+
+/* Hide cursor completely during loader & page transitions */
+body.is-loading,
+body.is-navigating-out,
+body.is-navigating-in,
+html.page-transitioning body {
   cursor: none !important;
 }
 
-body.is-loading .custom-cursor {
+body.is-loading .custom-cursor,
+body.is-navigating-out .custom-cursor,
+body.is-navigating-in .custom-cursor,
+html.page-transitioning .custom-cursor {
   cursor: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
