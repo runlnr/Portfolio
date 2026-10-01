@@ -21,11 +21,15 @@
   body {
     overflow: hidden !important;
     height: 100dvh !important;
+    background-color: #080808 !important;
     overscroll-behavior: none !important;
     touch-action: none !important;
     position: fixed !important;
     width: 100% !important;
     inset: 0 !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -webkit-touch-callout: none !important;
   }
 
   #site-root {
@@ -35,8 +39,10 @@
   .mobile-lockout-overlay {
     position: fixed !important;
     inset: 0 !important;
+    width: 100% !important;
+    height: 100dvh !important;
     z-index: 999999 !important;
-    background-color: var(--bg, #030303) !important;
+    background-color: #080808 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -44,8 +50,11 @@
     text-align: center !important;
     user-select: none !important;
     -webkit-user-select: none !important;
+    -webkit-touch-callout: none !important;
     -webkit-tap-highlight-color: transparent !important;
-    pointer-events: auto !important;
+    pointer-events: none !important;
+    cursor: default !important;
+    touch-action: none !important;
   }
 
   .mobile-lockout-message {
@@ -55,10 +64,12 @@
     font-weight: 400 !important;
     line-height: 1.45 !important;
     letter-spacing: -0.2px !important;
-    color: var(--text-color, #faf9fc) !important;
+    color: #faf9fc !important;
     opacity: 0.92 !important;
-    margin: 0 !important;
-    text-wrap: balance;
+    margin: 0 auto !important;
+    text-wrap: balance !important;
+    pointer-events: none !important;
+    user-select: none !important;
   }
 }
 
