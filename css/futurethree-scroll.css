@@ -3018,7 +3018,7 @@ body.f3-contact-modal-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateY(-5px);
+  transform: translateY(-10px);
   transition: width 0.2s ease, height 0.2s ease;
 }
 
