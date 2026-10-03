@@ -783,8 +783,6 @@ function initDesktopApp() {
       if (window.initWorksPage) window.initWorksPage();
     } else if (url.includes('project.html')) {
       if (window.initProjectPage) window.initProjectPage();
-    } else if (url.includes('contact.html')) {
-      if (window.initContactPage) window.initContactPage();
     } else if (url.includes('index.html') || url.split('#')[0].endsWith('/') || url.includes('#f3-portfolio')) {
       if (window.initHeroTvAscii) {
         window.initHeroTvAscii();

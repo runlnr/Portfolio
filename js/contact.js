@@ -70,12 +70,15 @@
 
     const triggerSelectors = [
       '#f3-open-contact-modal',
-      '#nav-floating-cta'
+      '#f3-open-drop-message',
+      '#nav-floating-cta',
+      '.contact-trigger-modal',
+      '#contact-start-project',
+      '#contact-drop-message'
     ];
 
     triggerSelectors.forEach(sel => {
-      const el = document.querySelector(sel);
-      if (el) {
+      document.querySelectorAll(sel).forEach(el => {
         el.addEventListener('click', (e) => {
           e.preventDefault();
           // If navigation dropdown is open, close it seamlessly
@@ -93,7 +96,7 @@
           }
           openModal();
         });
-      }
+      });
     });
 
     if (closeBtn) {
@@ -266,8 +269,8 @@
     const clientTzEl = document.getElementById('f3-clock-client-tz');
     if (!studioClockEl && !clientClockEl) return;
 
-    // Detect client timezone label (UTC offset only, e.g. (UTC+7), (UTC-5))
-    let clientTzLabel = '(LOCAL)';
+    // Detect client timezone label (UTC offset only, e.g. [UTC+7], [UTC-5])
+    let clientTzLabel = '[UTC+7]';
     try {
       const now = new Date();
       const offsetMinutes = -now.getTimezoneOffset();
@@ -276,9 +279,9 @@
       const absH = Math.floor(absM / 60);
       const remM = absM % 60;
       const offsetStr = remM > 0 ? `UTC${sign}${absH}:${String(remM).padStart(2, '0')}` : `UTC${sign}${absH}`;
-      clientTzLabel = `(${offsetStr})`;
+      clientTzLabel = `[${offsetStr}]`;
     } catch (e) {
-      clientTzLabel = '(LOCAL)';
+      clientTzLabel = '[UTC+7]';
     }
 
     if (clientTzEl) {

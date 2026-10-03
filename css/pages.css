@@ -756,101 +756,7 @@
   color: var(--text-muted);
 }
 
-/* ==========================================================================
-   Contact Page Styles (Dark Theme)
-   ========================================================================== */
-.contact-hero {
-  padding-top: clamp(140px, 18vh, 200px);
-  padding-bottom: 60px;
-}
 
-.contact-layout {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 80px;
-  padding-bottom: 120px;
-}
-
-.contact-form-section {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.form-group-title {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
-  margin-bottom: 16px;
-}
-
-.input-field {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--border-color);
-  padding: 16px 0;
-  font-family: var(--font-sans);
-  font-size: 1.1rem;
-  color: #faf9fc;
-  outline: none;
-  transition: border-color var(--transition-fast);
-}
-
-.input-field:focus {
-  border-color: #ffffff;
-}
-
-.input-field::placeholder {
-  color: var(--text-muted);
-}
-
-.input-field:focus::placeholder {
-  opacity: 0;
-  color: transparent;
-}
-
-.submit-btn {
-  align-self: flex-start;
-  background: #ffffff;
-  color: #000000;
-  padding: 16px 40px;
-  border-radius: var(--radius-full);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: transform var(--transition-fast), background-color var(--transition-fast);
-}
-
-.submit-btn:hover {
-  transform: scale(1.04);
-  background-color: #e5e5e5;
-}
-
-.contact-info-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.info-block-title {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-}
-
-.info-block-content {
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 1.3;
-  color: #faf9fc;
-}
 
 /* ==========================================================================
    Project Detail / Case Study Styles (Dark Theme)
@@ -1560,9 +1466,10 @@ html.is-navigating-in .project-action-row {
 }
 
 .about-container {
-  max-width: var(--container-max, 1440px);
+  width: 100%;
+  max-width: var(--f3-max-width, 100%);
   margin: 0 auto;
-  padding: 0 25px;
+  padding: 0 var(--f3-gutter-x, 25px);
   box-sizing: border-box;
 }
 
@@ -1641,7 +1548,7 @@ html.is-navigating-in .project-action-row {
 }
 
 .about-portrait-wrap {
-  width: 100%;
+  width: 320px;
   max-width: 320px;
   aspect-ratio: 3 / 4;
   overflow: hidden;
@@ -1659,12 +1566,14 @@ html.is-navigating-in .project-action-row {
   filter: grayscale(100%) contrast(1.05);
 }
 
-.about-divider-row {
-  margin-top: 0;
-}
-
+.about-split-row.about-bio-split,
 .about-bio-split {
-  padding: 48px 0 60px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding-top: 100px !important;
+  padding-bottom: 200px !important;
 }
 
 .about-bio-label {
@@ -1679,17 +1588,19 @@ html.is-navigating-in .project-action-row {
 
 /* 2. Split 2-Column Section Rows */
 .about-split-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  display: flex;
+  justify-content: space-between;
   align-items: flex-start;
-  padding: 60px 0;
+  gap: 40px;
+  padding: 0;
 }
 
 .about-col-left {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  flex: 1 1 auto;
+  max-width: 780px;
 }
 
 .about-label-lockup {
@@ -1737,7 +1648,9 @@ html.is-navigating-in .project-action-row {
 .about-col-right {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  align-items: flex-end;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .about-lead-statement {
@@ -1751,16 +1664,12 @@ html.is-navigating-in .project-action-row {
 }
 
 .about-paragraphs {
-  font-family: var(--type-aero-b-font, 'AT Aero', sans-serif);
-  font-weight: var(--type-aero-b-weight, 400);
-  font-size: var(--type-aero-b-size, 30px);
-  line-height: var(--type-aero-b-line, 35px);
-  letter-spacing: var(--type-aero-b-spacing, -1px);
   color: rgba(255, 255, 255, 0.85);
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  max-width: 680px;
+  gap: 70px;
+  width: 100%;
+  max-width: 780px;
 }
 
 .about-paragraphs p {
@@ -1931,8 +1840,9 @@ html.is-navigating-in .project-action-row {
 
 /* Responsive Breakpoints */
 @media (max-width: 992px) {
-  .about-split-row {
-    grid-template-columns: 1fr;
+  .about-split-row,
+  .about-bio-split {
+    flex-direction: column;
     gap: 36px;
     padding: 48px 0;
   }

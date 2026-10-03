@@ -29,14 +29,14 @@
   <link rel="preload" href="assets/fonts/NeueHaasDisplayRoman.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonts/PPSupplyMono-Regular.otf" as="font" type="font/otf" crossorigin>
 
-  <link rel="stylesheet" href="css/typography.css?v=2.3.0">
-  <link rel="stylesheet" href="css/main.css?v=2.3.0">
-  <link rel="stylesheet" href="css/components.css?v=2.3.0">
-  <link rel="stylesheet" href="css/hero-3d.css?v=2.3.0">
-  <link rel="stylesheet" href="css/glassmorphism.css?v=2.3.0">
-  <link rel="stylesheet" href="css/pages.css?v=2.3.0">
-  <link rel="stylesheet" href="css/futurethree-scroll.css?v=2.3.0">
-  <link rel="stylesheet" href="css/responsive.css?v=2.3.0">
+  <link rel="stylesheet" href="css/typography.css?v=2.3.2">
+  <link rel="stylesheet" href="css/main.css?v=2.3.2">
+  <link rel="stylesheet" href="css/components.css?v=2.3.2">
+  <link rel="stylesheet" href="css/hero-3d.css?v=2.3.2">
+  <link rel="stylesheet" href="css/glassmorphism.css?v=2.3.2">
+  <link rel="stylesheet" href="css/pages.css?v=2.3.2">
+  <link rel="stylesheet" href="css/futurethree-scroll.css?v=2.3.2">
+  <link rel="stylesheet" href="css/responsive.css?v=2.3.2">
 
   <!-- CRITICAL: Inline Mobile Lockout CSS (< 1024px) for Instant CDN & Browser Cache Immunity -->
   <style id="mobile-lockout-critical-css">
@@ -175,7 +175,7 @@
               </span>
             </a>
 
-            <a href="index.html#f3-contact" class="nav-dropdown-row-link" id="nav-contact-link">
+            <a href="#f3-contact" class="nav-dropdown-row-link" id="nav-contact-link">
               <span class="nav-row-roll roll-up">
                 <span class="nav-row-roll-inner">
                   <span class="nav-row-text">Contact</span>
@@ -260,39 +260,26 @@
   <main class="about-main-wrap" id="main-content">
     <div class="f3-container about-container">
 
-      <!-- 1. Hero Bio Section with Portrait -->
+      <!-- 1. Hero Bio Section with Narrative & Portrait -->
       <section class="about-hero-section about-bio-section" id="about-bio" aria-label="About Statement">
-        <!-- Portrait Image on Left Column -->
-        <div class="about-portrait-row">
-          <div class="about-portrait-wrap">
-            <img src="assets/images/PFP%20old.webp" alt="Nam Pham Portrait" class="about-portrait-img" loading="eager" width="320" height="427">
-          </div>
-        </div>
-
-        <!-- 2-Column Separation Lines -->
-        <div class="f3-intro-divider-row about-divider-row" aria-hidden="true">
-          <div class="f3-intro-divider-col-left"></div>
-          <div class="f3-intro-divider-col-right"></div>
-        </div>
-
-        <!-- 2-Column Split: 'About' on Left, Paragraphs on Right -->
+        <!-- 2-Column Split: Bio Narrative in Left Column, Portrait in Right Column -->
         <div class="about-split-row about-bio-split">
-          <!-- Left Column: About Title -->
+          <!-- Left Column: Bio Narrative Paragraphs -->
           <div class="about-col-left">
-            <div class="about-label-lockup">
-              <span class="about-bio-label type-aero-b">About</span>
+            <div class="about-paragraphs type-aero-c">
+              <p>
+                Nam Pham is a designer, ex-competitive programmer, self-declared table tennis pro, and lifelong Kanye West fan. He was born in Dak Lak, Vietnam, and moved with his family to Ho Chi Minh City in third grade, where he grew up. He studied computer science at VNU-HCM High School for the Gifted, where working with code and minimal IDEs shaped his taste in design. He is now on a gap year before heading to Taiwan in a few months for a bachelor's degree in either energy engineering or interaction design.
+              </p>
+              <p>
+                He works remotely as a freelancer, and is currently under contract with Seros Partners, producing their social media graphics. He spent years teaching himself graphic design (currently on year 3), building case studies the whole time, and that work has taken him to clients in Mexico, Germany, the UAE, Spain, the United States, and Vietnam. His work spans visual identity, brand systems, sports graphics, websites, and editorial.
+              </p>
             </div>
           </div>
 
-          <!-- Right Column: Bio Narrative Paragraphs -->
+          <!-- Right Column: Portrait Image -->
           <div class="about-col-right">
-            <div class="about-paragraphs type-aero-b">
-              <p>
-                Nam Pham is an independent graphic designer, art director, and brand strategist based in Ho Chi Minh City. His practice explores the relationship between visual identity, digital architecture, and typographic systems—crafting timeless brands where flawless functionality meets editorial aesthetics.
-              </p>
-              <p>
-                Nam has collaborated with culture-shaping founders, creative studios, and global teams to translate complex ideas into clear, engaging, and unforgettable visual narratives. Balancing commercial rigor with bespoke craft, every system is built from first principles with obsessive attention to detail.
-              </p>
+            <div class="about-portrait-wrap">
+              <img src="assets/images/PFP%20old.webp" alt="Nam Pham Portrait" class="about-portrait-img" loading="eager" width="320" height="427">
             </div>
           </div>
         </div>
@@ -300,10 +287,65 @@
 
     </div>
 
-    <!-- 2. Feature Visual (At the end of black section above bottom footer) -->
-    <section class="about-fullbleed-visual" aria-label="Studio Feature Visual">
-      <div class="about-fullbleed-wrap">
-        <img src="assets/images/Chair%20only.webp" alt="Chair Visual Feature" class="about-fullbleed-img" loading="lazy" width="745" height="500">
+    <!-- 2. Get In Touch (Editorial Contact CTA Section) -->
+    <section class="f3-section-contact" id="f3-contact" aria-label="Get In Touch">
+      <div class="f3-container f3-contact-container">
+        <!-- Single Continuous Hairline Divider with Architectural Corner Squares -->
+        <div class="f3-single-divider-row" aria-hidden="true">
+          <div class="f3-single-divider-line"></div>
+        </div>
+
+        <!-- 2-Column Split CTA Hero Stage -->
+        <div class="f3-contact-hero-stage">
+          <div class="f3-contact-split-layout">
+            <!-- Left Column: Headline -->
+            <div class="f3-contact-left-col">
+              <h2 class="f3-contact-hook-title type-aero-a">
+                Let’s build<br>something together
+              </h2>
+            </div>
+
+            <!-- Right Column: 3 Action Rows -->
+            <div class="f3-contact-right-col">
+              <div class="f3-contact-links-list">
+                <!-- Row 1: Start a project (Triggers Contact Modal) -->
+                <button type="button" class="f3-contact-action-row type-aero-c" id="f3-open-contact-modal" aria-haspopup="dialog" aria-expanded="false" aria-controls="f3-contact-modal">
+                  <span class="f3-action-text">Start a project</span>
+                  <span class="f3-action-arrow" aria-hidden="true">↗</span>
+                </button>
+
+                <!-- Row 2: Partnership -->
+                <a href="mailto:work@scherre.com?subject=Partnership" class="f3-contact-action-row type-aero-c">
+                  <span class="f3-action-text">Partnership</span>
+                  <span class="f3-action-arrow" aria-hidden="true">↗</span>
+                </a>
+
+                <!-- Row 3: Drop a message -->
+                <a href="mailto:work@scherre.com?subject=Drop%20a%20message" class="f3-contact-action-row type-aero-c">
+                  <span class="f3-action-text">Drop a message</span>
+                  <span class="f3-action-arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Corner dual clocks -->
+        <div class="f3-contact-corners-bar">
+          <!-- Left Corner: Studio Clock (UTC+7) -->
+          <div class="f3-contact-corner f3-contact-corner-left type-mono-a" aria-label="Studio Local Time">
+            <span class="f3-corner-label">MY TIME</span>
+            <span class="f3-clock-val" id="f3-clock-studio">--:--:--</span>
+            <span class="f3-clock-tz">(UTC+7)</span>
+          </div>
+
+          <!-- Right Corner: Visitor Local Clock -->
+          <div class="f3-contact-corner f3-contact-corner-right type-mono-a" aria-label="Visitor Local Time">
+            <span class="f3-corner-label">YOUR TIME</span>
+            <span class="f3-clock-val" id="f3-clock-client">--:--:--</span>
+            <span class="f3-clock-tz" id="f3-clock-client-tz">(LOCAL)</span>
+          </div>
+        </div>
       </div>
     </section>
   </main>
