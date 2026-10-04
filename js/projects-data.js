@@ -19,8 +19,8 @@ const SWAG_PROJECTS = [
     honor: 'Behance Curated x 2, Sports Design Annual',
     stack: 'Photoshop, Illustrator, After Effects, Figma',
     tags: ['BRANDING', 'SOCIAL', 'SPORT'],
-    behanceUrl: 'https://www.behance.net/gallery/215316491/Memphis-Grizzlies-Brand-Identity',
-    visitUrl: 'https://www.behance.net/gallery/215316491/Memphis-Grizzlies-Brand-Identity',
+    behanceUrl: 'https://www.behance.net/gallery/224192669/2024-25-Memphis-Grizzlies',
+    visitUrl: 'https://www.behance.net/gallery/224192669/2024-25-Memphis-Grizzlies',
     image: 'assets/thumbnails/Memphis.webp',
     placeholderColor: '#1d222d',
     credits: [
@@ -59,8 +59,8 @@ My work centered on rebuilding "Grit and Grind," the franchise's own decade-old 
     honor: 'Awwwards Nominee, CSSDA Special Kudos',
     stack: 'Photoshop, Illustrator, After Effects, Figma',
     tags: ['BRANDING', 'SOCIAL', 'SPORT'],
-    behanceUrl: 'https://www.behance.net/pxly',
-    visitUrl: 'https://www.behance.net/pxly',
+    behanceUrl: 'https://www.behance.net/gallery/248873435/US-Ski-Snowboard-Milano-Cortina-2026',
+    visitUrl: 'https://www.behance.net/gallery/248873435/US-Ski-Snowboard-Milano-Cortina-2026',
     image: 'assets/thumbnails/US S&S.webp',
     placeholderColor: '#26282b',
     credits: [
@@ -274,8 +274,8 @@ I stripped the colors out of the US flag and pushed them into a sharp gradient a
     honor: 'Tokyo TDC Annual Nominee',
     stack: 'InDesign, Photoshop, Risograph, Craft',
     tags: ['BRANDING', 'SOCIAL', 'SPORT'],
-    behanceUrl: 'https://www.behance.net/pxly',
-    visitUrl: 'https://www.behance.net/pxly',
+    behanceUrl: 'https://www.behance.net/gallery/232678817/NKH-x-CEL-2025-3x3-Superleague',
+    visitUrl: 'https://www.behance.net/gallery/232678817/NKH-x-CEL-2025-3x3-Superleague',
     image: 'assets/thumbnails/NK Hoops.webp?v=2',
     placeholderColor: '#2a241e',
     credits: [

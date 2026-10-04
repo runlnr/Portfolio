@@ -602,7 +602,7 @@
             </div>
             <div class="f3-featured-col-right">
               <div class="f3-view-switcher" role="radiogroup" aria-label="Portfolio View Switcher">
-                <button type="button" class="f3-view-btn" id="f3-view-list" aria-checked="false" aria-label="List view">
+                <button type="button" class="f3-view-btn is-active" id="f3-view-list" aria-checked="true" aria-label="List view">
                   <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
                     <rect x="0" y="0" width="22" height="1.4" fill="currentColor" />
@@ -610,8 +610,9 @@
                     <rect x="0" y="12.6" width="22" height="1.4" fill="currentColor" />
                   </svg>
                 </button>
-                <button type="button" class="f3-view-btn is-active" id="f3-view-grid" aria-checked="true"
-                  aria-label="Grid view">
+                <!-- Grid View Toggle Button (Unclickable / In Development) -->
+                <button type="button" class="f3-view-btn is-disabled" id="f3-view-grid" aria-checked="false"
+                  aria-disabled="true" aria-label="Grid view (In development)" data-cursor="In development">
                   <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
                     <rect x="0" y="0" width="10.3" height="6.3" fill="currentColor" />
@@ -632,7 +633,7 @@
 
           <!-- Works Grid (Staggered 2-column editorial showcase) -->
           <div class="f3-works-grid-container" id="f3-portfolio">
-            <div class="f3-works-staggered-grid" id="f3-works-grid">
+            <div class="f3-works-staggered-grid" id="f3-works-grid" style="display: none;">
               <!-- Column 1 (Left): Memphis Grizzlies, NK Hoops -->
               <div class="f3-works-col f3-works-col-left">
                 <!-- Project 1: Memphis Grizzlies -->
@@ -740,90 +741,120 @@
               </div>
             </div>
 
-            <!-- List View (Hidden by default, shown when 'list' is selected) -->
-            <div class="f3-works-list-view" id="f3-works-list" style="display: none;">
-              <div class="f3-list-items-wrap" id="f3-works-list-items">
-                <a href="project.html?id=memphis-grizzlies" class="f3-list-item-row" data-project-id="memphis-grizzlies" aria-label="Memphis Grizzlies">
-                  <!-- Left Column: Thumbnail Preview Slot -->
-                  <div class="f3-list-col-left">
-                    <div class="f3-list-thumb-slot" aria-hidden="true">
-                      <img src="assets/thumbnails/Memphis.webp" alt="Memphis Grizzlies preview" class="f3-list-thumb-img" loading="lazy" />
-                    </div>
-                  </div>
-                  <!-- Right Column (Aligned with Statement): Title, Tags, CTA -->
-                  <div class="f3-list-col-right">
-                    <div class="f3-list-title-row">
-                      <span class="f3-list-title type-aero-b">Memphis Grizzlies</span>
-                      <div class="f3-list-action-col">
-                        <span class="f3-list-cta-btn type-mono-a">
-                          <span>VIEW PROJECT</span>
-                          <span class="btn-arrow">↗</span>
-                        </span>
-                      </div>
-                    </div>
-                    <p class="f3-list-subtitle type-aero-c">Social Media Case Study</p>
-                  </div>
-                </a>
+            <!-- List View (Revamped Editorial Gallery View, Default Active) -->
+            <div class="f3-works-list-view" id="f3-works-list" style="display: flex;">
+              <div class="f3-gallery-list-wrap" id="f3-works-list-items">
 
-                <a href="project.html?id=us-ski-snowboard" class="f3-list-item-row" data-project-id="us-ski-snowboard" aria-label="U.S. Ski & Snowboard | OWG Milano Cortina">
-                  <div class="f3-list-col-left">
-                    <div class="f3-list-thumb-slot" aria-hidden="true">
-                      <img src="assets/thumbnails/US S&S.webp" alt="U.S. Ski & Snowboard preview" class="f3-list-thumb-img" loading="lazy" />
-                    </div>
-                  </div>
-                  <div class="f3-list-col-right">
-                    <div class="f3-list-title-row">
-                      <span class="f3-list-title type-aero-b">U.S. Ski & Snowboard | OWG Milano Cortina</span>
-                      <div class="f3-list-action-col">
-                        <span class="f3-list-cta-btn type-mono-a">
-                          <span>VIEW PROJECT</span>
-                          <span class="btn-arrow">↗</span>
-                        </span>
-                      </div>
-                    </div>
-                    <p class="f3-list-subtitle type-aero-c">Social Case Study</p>
-                  </div>
-                </a>
+                <!-- Row 1: U.S. Ski & Snowboard (USSS) -->
+                <div class="f3-gallery-project-block" data-project-id="us-ski-snowboard">
+                  <div class="f3-gallery-hairline-divider" aria-hidden="true"></div>
+                  <div class="f3-gallery-row f3-gallery-row-1">
+                    <div class="f3-gallery-offset-spacer" aria-hidden="true"></div>
 
-                <a href="project.html?id=nk-hoops" class="f3-list-item-row" data-project-id="nk-hoops" aria-label="NK Hoops">
-                  <div class="f3-list-col-left">
-                    <div class="f3-list-thumb-slot" aria-hidden="true">
-                      <img src="assets/thumbnails/NK Hoops.webp?v=2" alt="NK Hoops preview" class="f3-list-thumb-img" loading="lazy" />
-                    </div>
-                  </div>
-                  <div class="f3-list-col-right">
-                    <div class="f3-list-title-row">
-                      <span class="f3-list-title type-aero-b">NK Hoops</span>
-                      <div class="f3-list-action-col">
-                        <span class="f3-list-cta-btn type-mono-a">
-                          <span>VIEW PROJECT</span>
+                    <!-- Image 1: USSS 1 (Gradient Olympic rings) with Footer Bar -->
+                    <div class="f3-gallery-card-wrap f3-gallery-card-usss-1">
+                      <a href="https://www.behance.net/gallery/248873435/US-Ski-Snowboard-Milano-Cortina-2026" target="_blank" rel="noopener noreferrer" class="f3-gallery-item" aria-label="U.S. Ski & Snowboard | OWG Milano Cortina" data-cursor="/view/">
+                        <div class="f3-gallery-media">
+                          <img src="assets/new%20thumbnails/USSS%201.webp" alt="U.S. Ski & Snowboard | OWG Milano Cortina" class="f3-gallery-img" loading="lazy" width="975" height="766" decoding="async" />
+                        </div>
+                      </a>
+                      <div class="f3-gallery-subbar">
+                        <span class="f3-list-card-badge type-mono-a">01</span>
+                        <a href="https://www.behance.net/gallery/248873435/US-Ski-Snowboard-Milano-Cortina-2026" target="_blank" rel="noopener noreferrer" class="f3-featured-more-link type-mono-a" aria-label="View on Behance">
+                          <span>VIEW ON BEHANCE</span>
                           <span class="btn-arrow">↗</span>
-                        </span>
+                        </a>
                       </div>
                     </div>
-                    <p class="f3-list-subtitle type-aero-c">Brand Design</p>
-                  </div>
-                </a>
 
-                <a href="project.html?id=audi-revolut-f1" class="f3-list-item-row" data-project-id="audi-revolut-f1" aria-label="Audi Revolut F1">
-                  <div class="f3-list-col-left">
-                    <div class="f3-list-thumb-slot" aria-hidden="true">
-                      <img src="assets/thumbnails/Audi Revolut.webp?v=3" alt="Audi Revolut F1 preview" class="f3-list-thumb-img" loading="lazy" />
+                    <!-- Image 2: USSS 2 (One For All Poster) -->
+                    <div class="f3-gallery-card-wrap f3-gallery-card-usss-2">
+                      <a href="https://www.behance.net/gallery/248873435/US-Ski-Snowboard-Milano-Cortina-2026" target="_blank" rel="noopener noreferrer" class="f3-gallery-item" aria-label="U.S. Ski & Snowboard One For All" data-cursor="/view/">
+                        <div class="f3-gallery-media">
+                          <img src="assets/new%20thumbnails/USSS%202.webp" alt="U.S. Ski & Snowboard One For All" class="f3-gallery-img" loading="lazy" width="748" height="890" decoding="async" />
+                        </div>
+                      </a>
+                      <span class="f3-gallery-img-code type-mono-a">USSS_02.jpg</span>
                     </div>
                   </div>
-                  <div class="f3-list-col-right">
-                    <div class="f3-list-title-row">
-                      <span class="f3-list-title type-aero-b">Audi Revolut F1</span>
-                      <div class="f3-list-action-col">
-                        <span class="f3-list-cta-btn type-mono-a">
-                          <span>VIEW PROJECT</span>
+                </div>
+
+                <!-- Row 2: Memphis Grizzlies -->
+                <div class="f3-gallery-project-block" data-project-id="memphis-grizzlies">
+                  <div class="f3-gallery-hairline-divider" aria-hidden="true"></div>
+                  <div class="f3-gallery-row f3-gallery-row-2">
+                    <!-- Image 1: Memphis 1 ('95 '94 Graphics) with Footer Bar -->
+                    <div class="f3-gallery-card-wrap f3-gallery-card-memphis-1">
+                      <a href="https://www.behance.net/gallery/224192669/2024-25-Memphis-Grizzlies" target="_blank" rel="noopener noreferrer" class="f3-gallery-item" aria-label="Memphis Grizzlies Case Study" data-cursor="/view/">
+                        <div class="f3-gallery-media">
+                          <img src="assets/new%20thumbnails/Memphis%201.webp" alt="Memphis Grizzlies Case Study" class="f3-gallery-img" loading="lazy" width="1616" height="1264" decoding="async" />
+                        </div>
+                      </a>
+                      <div class="f3-gallery-subbar">
+                        <span class="f3-list-card-badge type-mono-a">02</span>
+                        <a href="https://www.behance.net/gallery/224192669/2024-25-Memphis-Grizzlies" target="_blank" rel="noopener noreferrer" class="f3-featured-more-link type-mono-a" aria-label="View on Behance">
+                          <span>VIEW ON BEHANCE</span>
                           <span class="btn-arrow">↗</span>
-                        </span>
+                        </a>
                       </div>
                     </div>
-                    <p class="f3-list-subtitle type-aero-c">Coming Soon</p>
+
+                    <!-- Image 2: Memphis 2 (Instagram Feed Phone) -->
+                    <div class="f3-gallery-card-wrap f3-gallery-card-memphis-2">
+                      <a href="https://www.behance.net/gallery/224192669/2024-25-Memphis-Grizzlies" target="_blank" rel="noopener noreferrer" class="f3-gallery-item" aria-label="Memphis Grizzlies Social Media" data-cursor="/view/">
+                        <div class="f3-gallery-media">
+                          <img src="assets/new%20thumbnails/Memphis%202.webp" alt="Memphis Grizzlies Social Media" class="f3-gallery-img" loading="lazy" width="748" height="890" decoding="async" />
+                        </div>
+                      </a>
+                      <span class="f3-gallery-img-code type-mono-a">Memphis_02.jpg</span>
+                    </div>
+
+                    <!-- Image 3: Memphis 3 (Team Players Photo - 0 Margin to Right Edge) -->
+                    <div class="f3-gallery-card-wrap f3-gallery-card-memphis-3 f3-bleed-right">
+                      <a href="https://www.behance.net/gallery/224192669/2024-25-Memphis-Grizzlies" target="_blank" rel="noopener noreferrer" class="f3-gallery-item" aria-label="Memphis Grizzlies Team" data-cursor="/view/">
+                        <div class="f3-gallery-media">
+                          <img src="assets/new%20thumbnails/Memphis%203.webp" alt="Memphis Grizzlies Team" class="f3-gallery-img" loading="lazy" width="962" height="891" decoding="async" />
+                        </div>
+                      </a>
+                      <span class="f3-gallery-img-code type-mono-a">Memphis_03.jpg</span>
+                    </div>
                   </div>
-                </a>
+                </div>
+
+                <!-- Row 3: NK Hoops -->
+                <div class="f3-gallery-project-block" data-project-id="nk-hoops">
+                  <div class="f3-gallery-hairline-divider" aria-hidden="true"></div>
+                  <div class="f3-gallery-row f3-gallery-row-3">
+                    <!-- Image 1: NK Hoops 2 (Stickers & Court Graphics) -->
+                    <div class="f3-gallery-card-wrap f3-gallery-card-nk-2">
+                      <a href="https://www.behance.net/gallery/232678817/NKH-x-CEL-2025-3x3-Superleague" target="_blank" rel="noopener noreferrer" class="f3-gallery-item" aria-label="NK Hoops Brand Graphics" data-cursor="/view/">
+                        <div class="f3-gallery-media">
+                          <img src="assets/new%20thumbnails/NK%20Hoops%202.webp" alt="NK Hoops Brand Graphics" class="f3-gallery-img" loading="lazy" width="748" height="890" decoding="async" />
+                        </div>
+                      </a>
+                      <span class="f3-gallery-img-code type-mono-a">3X3SPL_01.jpg</span>
+                    </div>
+
+                    <!-- Image 2: NK Hoops 1 (Jersey Collar) with Footer Bar -->
+                    <div class="f3-gallery-card-wrap f3-gallery-card-nk-1">
+                      <a href="https://www.behance.net/gallery/232678817/NKH-x-CEL-2025-3x3-Superleague" target="_blank" rel="noopener noreferrer" class="f3-gallery-item" aria-label="NK Hoops Jersey" data-cursor="/view/">
+                        <div class="f3-gallery-media">
+                          <img src="assets/new%20thumbnails/NK%20Hoops%201.webp" alt="NK Hoops Jersey" class="f3-gallery-img" loading="lazy" width="1800" height="1408" decoding="async" />
+                        </div>
+                      </a>
+                      <div class="f3-gallery-subbar">
+                        <span class="f3-list-card-badge type-mono-a">03</span>
+                        <a href="https://www.behance.net/gallery/232678817/NKH-x-CEL-2025-3x3-Superleague" target="_blank" rel="noopener noreferrer" class="f3-featured-more-link type-mono-a" aria-label="View on Behance">
+                          <span>VIEW ON BEHANCE</span>
+                          <span class="btn-arrow">↗</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="f3-gallery-offset-spacer-right" aria-hidden="true"></div>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -843,7 +874,7 @@
           <!-- Services Editorial Statement -->
           <div class="f3-services-statement-wrap">
             <p class="f3-services-statement type-aero-a">
-              He designs brands and digital experiences that move people, from first insight to final launch.
+              Focus ↗
             </p>
           </div>
 

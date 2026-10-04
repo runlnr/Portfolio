@@ -39,7 +39,14 @@ const endpoints = [
   '/assets/fonts/AtAero-Retina.otf',
   '/assets/fonts/PPSupplyMono-Regular.otf',
   '/assets/logo/logo.svg',
-  '/assets/logo/favicon.svg'
+  '/assets/logo/favicon.svg',
+  '/assets/new%20thumbnails/USSS%201.webp',
+  '/assets/new%20thumbnails/USSS%202.webp',
+  '/assets/new%20thumbnails/Memphis%201.webp',
+  '/assets/new%20thumbnails/Memphis%202.webp',
+  '/assets/new%20thumbnails/Memphis%203.webp',
+  '/assets/new%20thumbnails/NK%20Hoops%201.webp',
+  '/assets/new%20thumbnails/NK%20Hoops%202.webp'
 ];
 
 async function checkEndpoint(port, path) {

@@ -86,15 +86,6 @@
           if (expandWrap) expandWrap.style.display = 'none';
           if (viewCursorTag) viewCursorTag.classList.remove('is-visible');
           listViewContainer.style.display = 'flex';
-        } else {
-          viewGridBtn.classList.add('is-active');
-          viewGridBtn.setAttribute('aria-checked', 'true');
-          viewListBtn.classList.remove('is-active');
-          viewListBtn.setAttribute('aria-checked', 'false');
-
-          listViewContainer.style.display = 'none';
-          gridViewContainer.style.display = 'flex';
-          if (expandWrap) expandWrap.style.display = '';
         }
 
         if (window.ScrollTrigger) {
@@ -104,7 +95,8 @@
 
       viewGridBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        setView('grid');
+        e.stopPropagation();
+        // Unclickable / In Development
       });
 
       viewListBtn.addEventListener('click', (e) => {
@@ -113,7 +105,7 @@
       });
     }
 
-    // 5. Floating /view/ Cursor Follower Tag for Work Cards
+    // 5. Floating /view/ Cursor Follower Tag for Work Cards & In-Development elements
     let viewCursorTag = document.getElementById('f3-cursor-view-tag');
     if (!viewCursorTag) {
       viewCursorTag = document.createElement('div');
@@ -124,7 +116,7 @@
       document.body.appendChild(viewCursorTag);
     }
 
-    const f3WorkCards = document.querySelectorAll('.f3-work-card');
+    const f3WorkCards = document.querySelectorAll('.f3-work-card, .f3-gallery-item, #f3-view-grid, [data-cursor]');
     if (f3WorkCards.length > 0 && viewCursorTag) {
       let mouseX = -9999, mouseY = -9999;
       let currentX = -9999, currentY = -9999;
@@ -358,7 +350,7 @@
           spaceSpan.innerHTML = '&nbsp;';
           spaceSpan.setAttribute('aria-hidden', 'true');
           fragment.appendChild(spaceSpan);
-        } else if (char === '©' || char === '®') {
+        } else if (char === '©' || char === '®' || char === '_' || char === '.') {
           const staticSpan = document.createElement('span');
           staticSpan.className = 'f3-mono-shuffle-static';
           staticSpan.textContent = char;
@@ -398,6 +390,9 @@
           letter.textContent = originalChar;
         }
 
+        letter._startShuffling = startShuffling;
+        letter._stopShuffling = stopShuffling;
+
         letter.addEventListener('pointerenter', () => {
           isHovered = true;
           if (timeoutId) {
@@ -420,6 +415,23 @@
           }, 2000);
         });
       });
+
+      // Also trigger full shuffle on parent element hover for .f3-gallery-img-code
+      if (el.classList.contains('f3-gallery-img-code')) {
+        let elTimeout = null;
+        el.addEventListener('mouseenter', () => {
+          if (elTimeout) {
+            clearTimeout(elTimeout);
+            elTimeout = null;
+          }
+          letters.forEach(l => l._startShuffling && l._startShuffling());
+        });
+        el.addEventListener('mouseleave', () => {
+          elTimeout = setTimeout(() => {
+            letters.forEach(l => l._stopShuffling && l._stopShuffling());
+          }, 400);
+        });
+      }
     }
 
     function initMonoLetterShuffle(customTarget) {
@@ -434,7 +446,7 @@
         }
       } else {
         targets = Array.from(document.querySelectorAll(
-          '.nav-status-line, .f3-intro-city, .f3-corner-label, .f3-colophon-left, .f3-colophon-center, .f3-colophon-privacy-link, .f3-showcase-label'
+          '.nav-status-line, .f3-intro-city, .f3-corner-label, .f3-colophon-left, .f3-colophon-center, .f3-colophon-privacy-link, .f3-showcase-label, .f3-gallery-img-code'
         ));
       }
 

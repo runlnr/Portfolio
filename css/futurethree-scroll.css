@@ -43,7 +43,7 @@
   --featured-tag-margin-top: 0px;
   --featured-tag-margin-bottom: 0px;
   --works-grid-margin-top: 20px;
-  --works-grid-padding-bottom: 200px;
+  --works-grid-padding-bottom: 100px;
   --works-col-left-margin-top: 0px;
   --works-col-left-gap: 70px;
   --works-col-right-margin-top: 0px;
@@ -480,7 +480,7 @@ a .f3-mono-shuffle-letter,
   gap: var(--f3-works-grid-gap, 25px);
   align-items: center;
   margin-top: var(--featured-tag-margin-top, 0px);
-  margin-bottom: var(--featured-tag-margin-bottom, clamp(40px, 5.5vh, 60px));
+  margin-bottom: var(--intro-divider-margin-bottom, 24px);
 }
 
 .f3-featured-col-left {
@@ -553,6 +553,29 @@ a .f3-mono-shuffle-letter,
   cursor: default;
 }
 
+/* Grid View Toggle Button (Unclickable / In development) */
+.f3-view-btn.is-disabled,
+.f3-view-btn[aria-disabled="true"],
+#f3-view-grid {
+  color: #4a4a4a;
+  cursor: not-allowed;
+  pointer-events: auto;
+  opacity: 0.6;
+}
+
+.f3-view-btn.is-disabled:hover,
+.f3-view-btn[aria-disabled="true"]:hover,
+#f3-view-grid:hover {
+  color: #666666;
+  opacity: 0.8;
+}
+
+.f3-view-btn.is-disabled:hover svg,
+.f3-view-btn[aria-disabled="true"]:hover svg,
+#f3-view-grid:hover svg {
+  transform: none;
+}
+
 .f3-featured-more-link {
   display: inline-flex;
   align-items: center;
@@ -594,62 +617,45 @@ a .f3-mono-shuffle-letter,
 }
 
 /* ==========================================================================
-   LIST VIEW SYSTEM (Toggled via .f3-view-switcher)
+   REVAMPED EDITORIAL GALLERY LIST VIEW SYSTEM
    ========================================================================== */
 .f3-works-list-view {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: calc(var(--intro-divider-margin-bottom, 24px) - var(--works-grid-margin-top, 20px));
-  padding-bottom: var(--works-grid-padding-bottom, 100px);
+  margin-top: 0;
+  padding-bottom: 0;
+  box-sizing: border-box;
+  container-type: inline-size;
+  container-name: gallery;
 }
 
-.f3-list-items-wrap {
+.f3-gallery-list-wrap {
   display: flex;
   flex-direction: column;
   width: 100%;
-  position: relative;
-}
-
-/* Sibling dimming when hovering over the list */
-.f3-list-items-wrap:hover .f3-list-item-row:not(:hover) {
-  opacity: 0.22;
-}
-
-.f3-list-item-row {
-  display: flex;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  gap: var(--f3-works-grid-gap, 25px);
-  padding: 0;
-  height: 150px;
+  gap: 100px; /* 100px separation between project rows */
   box-sizing: border-box;
-  text-decoration: none;
-  color: #faf9fc;
-  cursor: pointer;
-  transform: scale(1);
-  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, transform 0.14s ease-out;
-  z-index: 1;
 }
 
-.f3-list-item-row:active {
-  transform: scale(0.995);
+.f3-gallery-project-block {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.f3-list-item-row:hover {
-  opacity: 1 !important;
-  z-index: 20;
-}
-
-/* Full-width top hairline divider directly underneath 'Recent works' kept intact */
-.f3-list-item-row:first-child {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+.f3-gallery-hairline-divider {
+  width: 100%;
+  height: 0;
+  border-top: 1px solid var(--intro-divider-color, #282828);
+  margin-bottom: 30px;
+  box-sizing: border-box;
   position: relative;
 }
 
-.f3-list-item-row:first-child::before,
-.f3-list-item-row:first-child::after {
+.f3-gallery-hairline-divider::before,
+.f3-gallery-hairline-divider::after {
   content: '';
   position: absolute;
   width: var(--f3-divider-square-size, 2px);
@@ -660,148 +666,188 @@ a .f3-mono-shuffle-letter,
   z-index: 2;
 }
 
-.f3-list-item-row:first-child::before {
+.f3-gallery-hairline-divider::before {
   left: 0;
 }
 
-.f3-list-item-row:first-child::after {
+.f3-gallery-hairline-divider::after {
   right: 0;
 }
 
-/* Hairline divider separating projects: displayed on the right side only (matching statement column) */
-.f3-list-col-right {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.f3-list-col-right::before,
-.f3-list-col-right::after {
-  content: '';
-  position: absolute;
-  width: var(--f3-divider-square-size, 2px);
-  height: var(--f3-divider-square-size, 2px);
-  background-color: var(--f3-divider-square-color, #e5e5e6);
-  bottom: -1px;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.f3-list-col-right::before {
-  left: 0;
-}
-
-.f3-list-col-right::after {
-  right: 0;
-}
-
-/* Left Column: Synchronized with .f3-intro-left-col */
-.f3-list-col-left {
-  flex: 1;
-  min-width: 0;
+.f3-gallery-row {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  gap: 25px; /* 25px margin separation between images */
+  box-sizing: border-box;
   position: relative;
-  align-self: stretch;
+  --gallery-subbar-margin: 34px; /* Reduced by 30px (64px - 30px) */
+  --gallery-subbar-height: 22px;
+  --gallery-extra-height: calc(var(--gallery-subbar-margin) + var(--gallery-subbar-height)); /* 34px + 22px = 56px */
+  --row-base-height: clamp(230px, calc((100vw - 50px - 132.53px) / 3.1985), 450px);
+  --row-base-height: clamp(230px, calc((100cqi - 132.53px) / 3.1985), 540px);
+  --row-full-height: calc(var(--row-base-height) + var(--gallery-extra-height));
 }
 
-/* Thumbnail Slot inside Left Column (2-row tall, scaled proportionally, bleed down by default) */
-.f3-list-thumb-slot {
-  width: 440px;
-  max-width: calc(100% - 25px);
-  height: calc(200% + 1px);
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 2px;
+/* Row 1: U.S. Ski & Snowboard (USSS) - Aligned towards right */
+.f3-gallery-row-1 {
+  justify-content: flex-end;
+}
+
+.f3-gallery-offset-spacer {
+  display: none;
+}
+
+/* Items with subbar: USSS 1, Memphis 1, NK Hoops 1 — identical size, ratio, height, width */
+.f3-gallery-card-usss-1 .f3-gallery-item,
+.f3-gallery-card-memphis-1 .f3-gallery-item,
+.f3-gallery-card-nk-1 .f3-gallery-item {
+  height: var(--row-base-height);
+  aspect-ratio: 1800 / 1408;
+}
+
+/* Portrait items without subbar: USSS 2, Memphis 2, NK Hoops 2 — identical size, ratio, height, width */
+.f3-gallery-card-usss-2 .f3-gallery-item,
+.f3-gallery-card-memphis-2 .f3-gallery-item,
+.f3-gallery-card-nk-2 .f3-gallery-item {
+  height: var(--row-full-height);
+  aspect-ratio: 748 / 890;
+}
+
+/* Wide item without subbar: Memphis 3 */
+.f3-gallery-card-memphis-3 .f3-gallery-item {
+  height: var(--row-full-height);
+  aspect-ratio: 962 / 891;
+}
+
+/* Row 2: Memphis Grizzlies - Full width with 0 margin to site's right side */
+.f3-gallery-row-2 {
+  justify-content: flex-start;
+}
+
+/* Row 3: NK Hoops - Aligned towards left with 25px margin to site's left side */
+.f3-gallery-row-3 {
+  justify-content: flex-start;
+}
+
+.f3-gallery-offset-spacer-right {
+  display: none;
+}
+
+/* Bleed modifiers for 0 margin to the site's side */
+.f3-bleed-right {
+  margin-right: calc(-1 * var(--f3-gutter-x, 25px));
+}
+
+.f3-bleed-left {
+  margin-left: calc(-1 * var(--f3-gutter-x, 25px));
+}
+
+/* Card Wrap & Media Container */
+.f3-gallery-card-wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.f3-gallery-item,
+.f3-gallery-item:hover,
+.f3-gallery-item:focus,
+.f3-gallery-item:active {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  position: relative;
   overflow: hidden;
-  background: transparent;
-  opacity: 0;
-  transform: scale(0.98);
-  transform-origin: top left;
-  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
+  background-color: transparent;
+  box-sizing: border-box;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .f3-list-item-row:hover .f3-list-thumb-slot {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.44s cubic-bezier(0.16, 1, 0.3, 1), transform 0.44s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+.f3-gallery-media {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  opacity: 1 !important;
 }
 
-/* Row 4 (Audi Revolut F1): Bleeds UP across Row 4 and Row 3 */
-.f3-list-item-row[data-project-id="audi-revolut-f1"] .f3-list-thumb-slot {
-  top: auto;
-  bottom: 0;
-  transform-origin: bottom left;
-}
-
-.f3-list-thumb-img {
+.f3-gallery-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 2px;
+  filter: grayscale(0%) contrast(100%) brightness(100%);
+  opacity: 1 !important;
+  transform: none !important;
+  transition: filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: filter;
 }
 
-/* Right Column: Synchronized with .f3-intro-right-col (Statement alignment) */
-.f3-list-col-right {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
+@media (hover: hover) and (pointer: fine) {
+  /* When hovering over one image, all other images turn into black and white with 120% contrast and 50% brightness */
+  .f3-gallery-list-wrap:has(.f3-gallery-item:hover) .f3-gallery-item:not(:hover) .f3-gallery-img {
+    filter: grayscale(100%) contrast(120%) brightness(50%);
+    opacity: 1 !important;
+  }
+
+  .f3-gallery-item:hover,
+  .f3-gallery-item:hover .f3-gallery-img {
+    filter: grayscale(0%) contrast(100%) brightness(100%) !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
-/* Horizontal Row holding Title on Left and VIEW PROJECT on Right */
-.f3-list-title-row {
+/* Mono Label below every project image */
+.f3-gallery-img-code {
+  display: block;
+  width: 100%;
+  margin-top: 10px; /* 10px margin to bottom of image */
+  text-align: left;
+  color: #757575;
+  opacity: 1;
+  font-family: var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace));
+  font-size: var(--type-mono-a-size, 11px);
+  font-weight: var(--type-mono-a-weight, 300);
+  line-height: 1;
+  letter-spacing: var(--type-mono-a-spacing, 0.5px);
+  text-transform: uppercase;
+  user-select: none;
+  box-sizing: border-box;
+  cursor: default;
+}
+
+.f3-gallery-img-code:hover {
+  color: #757575;
+  opacity: 1;
+}
+
+/* Subbar containing badge + button */
+.f3-gallery-subbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  margin-top: var(--gallery-subbar-margin, 34px);
+  height: var(--gallery-subbar-height, 22px);
+  box-sizing: border-box;
+  gap: 12px;
 }
 
-.f3-list-title {
-  font-family: var(--type-aero-b-font, var(--font-primary, 'AT Aero', sans-serif));
-  font-size: var(--type-aero-b-size, 30px);
-  font-weight: var(--type-aero-b-weight, 400);
-  line-height: var(--type-aero-b-line, 35px);
-  letter-spacing: var(--type-aero-b-spacing, -1px);
-  color: #faf9fc;
-  margin: 0;
-  white-space: nowrap;
-  transition: color 0.25s ease;
-}
-
-/* List Subtitle: Single line greyed out text at AT Aero Type C (no hover animation) */
-.f3-list-subtitle {
-  font-family: var(--type-aero-c-font, var(--font-primary, 'AT Aero', sans-serif));
-  font-size: var(--type-aero-c-size, 20px);
-  font-weight: var(--type-aero-c-weight, 400);
-  line-height: var(--type-aero-c-line, 27.5px);
-  letter-spacing: var(--type-aero-c-spacing, -1.2px);
-  color: #626262;
-  margin: 1px 0 0 0;
-  padding: 0;
-  white-space: nowrap;
-  pointer-events: none;
-  transition: none !important;
-}
-
-/* Right Action: VIEW PROJECT CTA aligned in the middle vertically with project title */
-.f3-list-action-col {
-  flex-shrink: 0;
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-}
-
-.f3-list-cta-btn {
+.f3-list-card-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--rect-btn-gap, 11px);
   background-color: #161616;
   border: none;
   color: #faf9fc;
@@ -809,112 +855,56 @@ a .f3-mono-shuffle-letter,
   font-size: var(--type-mono-a-size, 11px);
   font-weight: var(--type-mono-light-weight, 300);
   letter-spacing: var(--type-mono-a-spacing, 0.5px);
-  text-transform: uppercase;
   padding: 0 var(--rect-btn-padx, 8px);
-  border-radius: 0;
   height: var(--rect-btn-height, 22px);
   min-width: var(--rect-btn-min-width, auto);
   box-sizing: border-box;
+  border-radius: 0;
   line-height: 1;
-  opacity: 0;
-  transform: translateX(10px);
-  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), background-color var(--transition-fast, 0.2s ease);
-  white-space: nowrap;
+  text-transform: uppercase;
+  user-select: none;
 }
 
-.f3-list-item-row:hover .f3-list-cta-btn {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.f3-list-cta-btn:active {
-  transform: scale(0.96);
-  transition: transform 120ms ease-out;
-}
-
-.f3-list-cta-btn .btn-arrow {
-  font-size: var(--type-mono-a-size, 11px);
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  transition: transform var(--transition-fast, 0.2s ease);
-}
-
-.f3-list-item-row:hover .f3-list-cta-btn:hover {
-  background-color: #242424;
-}
-
-.f3-list-item-row:hover .f3-list-cta-btn:hover .btn-arrow {
-  transform: translate(2px, -2px);
-}
-
-/* Responsive Viewport Queries */
+/* Responsive Breakpoints */
 @media (max-width: 960px) {
-  .f3-list-item-row {
-    padding: 20px 0;
-    height: 130px;
+  .f3-gallery-row {
+    --row-base-height: clamp(200px, 24vw, 280px);
+    gap: 16px;
   }
 
-  .f3-list-thumb-slot {
-    width: 280px;
-  }
-
-  .f3-list-title {
-    font-size: clamp(20px, 3.5vw, 26px);
-  }
-
-  .f3-list-subtitle {
-    font-size: var(--type-aero-c-size, 20px);
-  }
-
-  .f3-list-cta-btn {
-    padding: 3px 6px;
-    font-size: 10px;
-    height: 22px;
-  }
-}
-
-@media (max-width: 768px) {
-  .f3-list-item-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    height: auto;
-    min-height: auto;
-  }
-
-  .f3-list-col-left {
-    display: none;
-  }
-
-  .f3-list-col-right {
-    width: 100%;
-  }
-
-  .f3-list-item-row::after {
-    width: 100%;
+  .f3-gallery-list-wrap {
+    gap: 60px;
   }
 }
 
 @media (max-width: 640px) {
-  .f3-list-title-row {
+  .f3-gallery-row {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    gap: 24px;
   }
 
-  .f3-list-title {
-    white-space: normal;
+  .f3-gallery-offset-spacer,
+  .f3-gallery-offset-spacer-right {
+    display: none;
   }
 
-  .f3-list-subtitle {
-    margin-top: 4px;
-    white-space: normal;
+  .f3-bleed-right {
+    margin-right: 0;
   }
 
-  .f3-list-cta-btn {
-    opacity: 1;
-    transform: none;
+  .f3-bleed-left {
+    margin-left: 0;
+  }
+
+  .f3-gallery-card-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  .f3-gallery-item {
+    width: 100% !important;
+    height: auto !important;
   }
 }
 
@@ -924,7 +914,7 @@ a .f3-mono-shuffle-letter,
   display: flex;
   flex-direction: column;
   margin-top: var(--works-grid-margin-top, 0px);
-  padding-bottom: var(--works-grid-padding-bottom, clamp(60px, 8vh, 100px));
+  padding-bottom: var(--works-grid-padding-bottom, 100px);
 }
 
 .f3-works-staggered-grid {
@@ -1032,12 +1022,20 @@ a .f3-mono-shuffle-letter,
   image-rendering: -webkit-optimize-contrast;
   image-rendering: high-quality;
   transform: translateZ(0);
-  transition: opacity 0.52s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity;
+  filter: grayscale(0%);
+  transition: filter 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  will-change: filter;
 }
 
 .f3-work-card:hover .f3-work-card-media img.f3-card-img-primary {
-  opacity: 0.32;
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .f3-works-grid-container:has(.f3-work-card:hover) .f3-work-card:not(:hover) .f3-work-card-media img.f3-card-img-primary {
+    filter: grayscale(100%) contrast(120%) brightness(50%);
+  }
 }
 
 /* Project Thumbnail Corner Number Badge (Top-Left 0px, White Square, Black Mono Number) */

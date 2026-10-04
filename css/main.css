@@ -134,8 +134,12 @@ a:hover {
 .nav-dropdown-row-link,
 .nav-dropdown-row-link:hover,
 .f3-list-item-row,
-.f3-list-item-row:hover {
-  opacity: 1;
+.f3-list-item-row:hover,
+.f3-gallery-item,
+.f3-gallery-item:hover,
+.f3-gallery-item:focus,
+.f3-gallery-item:active {
+  opacity: 1 !important;
 }
 
 button {
