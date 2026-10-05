@@ -2032,7 +2032,7 @@ a .f3-mono-shuffle-letter,
   width: 100%;
   box-sizing: border-box;
   align-items: start;
-  margin-top: 150px;
+  margin-top: 50px;
 }
 
 .f3-services-col {
@@ -2118,18 +2118,10 @@ a .f3-mono-shuffle-letter,
     padding-bottom: 80px;
   }
 
-  .f3-services-statement-wrap {
-    margin-top: 36px;
-  }
-
   .f3-services-directory-grid {
     grid-template-columns: 1fr;
     gap: 40px;
-    margin-top: 60px;
-  }
-
-  .f3-services-col-empty {
-    display: none;
+    margin-top: 36px;
   }
 
   .f3-services-group + .f3-services-group {
@@ -3492,7 +3484,7 @@ body.f3-contact-modal-open {
   transition-delay: 0.02s;
 }
 
-.f3-services-statement-wrap.f3-scroll-reveal.is-revealed {
+.f3-services-directory-grid > .f3-services-col:nth-child(1).f3-scroll-reveal.is-revealed {
   transition-delay: 0.04s;
 }
 
