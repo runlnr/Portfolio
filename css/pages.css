@@ -2004,4 +2004,48 @@ html.is-navigating-in .project-action-row {
     padding: 0 20px;
   }
 }
+
+/* ==========================================================================
+   PAGES LIGHT MODE THEME OVERRIDES (data-theme="light")
+   ========================================================================== */
+html[data-theme="light"] .about-page-body,
+html[data-theme="light"] .about-main-wrap {
+  background-color: var(--bg, #e5e5e6);
+  color: var(--text-color, #0a0a0a);
+  transition: var(--transition-theme);
+}
+
+html[data-theme="light"] .about-paragraphs p {
+  color: #0a0a0a;
+}
+
+html[data-theme="light"] .privacy-page-body,
+html[data-theme="light"] .privacy-main-wrap {
+  background-color: var(--bg, #e5e5e6);
+  color: var(--text-color, #0a0a0a);
+  transition: var(--transition-theme);
+}
+
+html[data-theme="light"] .privacy-title,
+html[data-theme="light"] .privacy-section-heading,
+html[data-theme="light"] .privacy-text strong,
+html[data-theme="light"] .privacy-list-item strong,
+html[data-theme="light"] .privacy-email-link {
+  color: #0a0a0a;
+}
+
+html[data-theme="light"] .privacy-lead,
+html[data-theme="light"] .privacy-text,
+html[data-theme="light"] .privacy-list-item {
+  color: #333333;
+}
+
+html[data-theme="light"] .privacy-date-note {
+  color: #666666;
+}
+
+html[data-theme="light"] .privacy-contact-box {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.10);
+}
 

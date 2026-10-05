@@ -3582,3 +3582,156 @@ body.f3-contact-modal-open {
     transform: none !important;
   }
 }
+
+/* ==========================================================================
+   FUTURE THREE® LIGHT MODE THEME SYSTEM (data-theme="light")
+   ========================================================================== */
+html[data-theme="light"] {
+  --featured-tag-color: #0a0a0a;
+  --f3-divider-square-color: #0a0a0a;
+  --intro-divider-color: rgba(10, 10, 10, 0.15);
+  --f3-thumbnail-badge-bg: #0a0a0a;
+  --f3-thumbnail-badge-color: #ffffff;
+}
+
+html[data-theme="light"] .f3-editorial-wrapper {
+  background-color: var(--bg, #e5e5e6);
+  color: var(--text-color, #0a0a0a);
+  transition: var(--transition-theme);
+}
+
+html[data-theme="light"] .f3-intro-statement {
+  color: #0a0a0a;
+}
+
+html[data-theme="light"] .f3-intro-status {
+  color: #666666;
+}
+
+html[data-theme="light"] .f3-statement-btn {
+  border-color: #0a0a0a;
+  color: #0a0a0a;
+}
+
+html[data-theme="light"] .f3-statement-btn:hover {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+html[data-theme="light"] .f3-intro-divider-col-left,
+html[data-theme="light"] .f3-intro-divider-col-right,
+html[data-theme="light"] .f3-gallery-hairline-divider,
+html[data-theme="light"] .f3-services-directory-section .f3-single-divider-line {
+  border-top-color: rgba(10, 10, 10, 0.15);
+}
+
+html[data-theme="light"] .f3-intro-divider-col-left::before,
+html[data-theme="light"] .f3-intro-divider-col-left::after,
+html[data-theme="light"] .f3-intro-divider-col-right::before,
+html[data-theme="light"] .f3-intro-divider-col-right::after,
+html[data-theme="light"] .f3-gallery-hairline-divider::before,
+html[data-theme="light"] .f3-gallery-hairline-divider::after,
+html[data-theme="light"] .f3-services-directory-section .f3-single-divider-line::before,
+html[data-theme="light"] .f3-services-directory-section .f3-single-divider-line::after {
+  background-color: #0a0a0a;
+}
+
+html[data-theme="light"] .f3-featured-tag {
+  color: #0a0a0a;
+}
+
+html[data-theme="light"] .f3-view-btn {
+  color: #999999;
+}
+
+html[data-theme="light"] .f3-view-btn.is-active {
+  color: #0a0a0a;
+}
+
+html[data-theme="light"] .f3-view-btn:hover:not(.is-active) {
+  color: rgba(10, 10, 10, 0.8);
+}
+
+html[data-theme="light"] .f3-view-btn.is-disabled,
+html[data-theme="light"] #f3-view-grid {
+  color: #bbbbbb;
+}
+
+html[data-theme="light"] .f3-featured-more-link {
+  background-color: #d6d6d7;
+  color: #0a0a0a;
+}
+
+html[data-theme="light"] .f3-featured-more-link:hover {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+html[data-theme="light"] .f3-gallery-img-code {
+  color: #666666;
+}
+
+html[data-theme="light"] .f3-list-card-badge {
+  background-color: #d6d6d7;
+  color: #0a0a0a;
+}
+
+html[data-theme="light"] .f3-card-title {
+  color: #0a0a0a;
+}
+
+html[data-theme="light"] .f3-card-category,
+html[data-theme="light"] .f3-card-year {
+  color: #666666;
+}
+
+/* Services / Focus Section in Light Mode */
+html[data-theme="light"] .f3-services-statement {
+  color: #0a0a0a;
+}
+
+html[data-theme="light"] .f3-service-col-title {
+  color: #0a0a0a;
+}
+
+html[data-theme="light"] .f3-service-item {
+  color: #555555;
+}
+
+html[data-theme="light"] .f3-service-item:hover {
+  color: #0a0a0a;
+}
+
+/* ==========================================================================
+   SIGNATURE INVERTED DEEP BLACK FOOTER IN LIGHT MODE
+   The bottom contact stage and colophon explicitly invert to #030303
+   ========================================================================== */
+html[data-theme="light"] .f3-section-contact {
+  background-color: #030303 !important;
+  color: #faf9fc !important;
+}
+
+html[data-theme="light"] .f3-section-contact .f3-single-divider-line {
+  border-top-color: #282828 !important;
+}
+
+html[data-theme="light"] .f3-section-contact .f3-single-divider-line::before,
+html[data-theme="light"] .f3-section-contact .f3-single-divider-line::after {
+  background-color: #ffffff !important;
+}
+
+html[data-theme="light"] .f3-contact-hook-title {
+  color: #faf9fc !important;
+}
+
+html[data-theme="light"] .f3-contact-action-row {
+  color: #faf9fc;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+html[data-theme="light"] .f3-contact-corners-bar,
+html[data-theme="light"] .f3-contact-corners-bar span,
+html[data-theme="light"] .f3-footer-colophon,
+html[data-theme="light"] .f3-footer-colophon * {
+  color: #faf9fc !important;
+}

@@ -366,12 +366,38 @@ function initDesktopApp() {
   }
   window.scrollToPortfolioSection = scrollToPortfolioSection;
 
-  // 1b. Hero TV Setup & Hero Bottom Visual Switch
+  // 1b. Theme Management & Hero Bottom Switch
+  function setTheme(theme) {
+    if (theme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      try { localStorage.setItem('np_theme', 'light'); } catch (e) {}
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      try { localStorage.setItem('np_theme', 'dark'); } catch (e) {}
+    }
+    const heroSwitch = document.getElementById('hero-bottom-switch');
+    if (heroSwitch) {
+      const isLight = theme === 'light';
+      heroSwitch.setAttribute('aria-checked', String(isLight));
+      heroSwitch.classList.toggle('is-checked', isLight);
+    }
+    window.dispatchEvent(new CustomEvent('themechange', { detail: { theme } }));
+  }
+  window.setTheme = setTheme;
+
+  function initTheme() {
+    // Light mode is currently disabled / in development
+    document.documentElement.removeAttribute('data-theme');
+    try { localStorage.removeItem('np_theme'); } catch (e) {}
+  }
+  window.initTheme = initTheme;
+
   function initHeroTvInteraction() {
     const tvWrapper = document.getElementById('hero-tv-wrapper');
     if (tvWrapper) {
       tvWrapper.style.transform = 'none';
     }
+    initTheme();
     initHeroSwitch();
   }
 
@@ -380,18 +406,20 @@ function initDesktopApp() {
     if (!heroSwitch || heroSwitch.dataset.initialized) return;
     heroSwitch.dataset.initialized = 'true';
 
+    heroSwitch.setAttribute('aria-checked', 'false');
+    heroSwitch.setAttribute('aria-disabled', 'true');
+    heroSwitch.setAttribute('disabled', 'true');
+    heroSwitch.classList.remove('is-checked');
+
     heroSwitch.addEventListener('click', (e) => {
       e.preventDefault();
-      const isChecked = heroSwitch.getAttribute('aria-checked') === 'true';
-      const newState = !isChecked;
-      heroSwitch.setAttribute('aria-checked', String(newState));
-      heroSwitch.classList.toggle('is-checked', newState);
+      e.stopPropagation();
     });
 
     heroSwitch.addEventListener('keydown', (e) => {
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
-        heroSwitch.click();
+        e.stopPropagation();
       }
     });
   }

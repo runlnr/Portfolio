@@ -1481,13 +1481,14 @@ body.nav-dropdown-active .nav-floating-cta,
   justify-content: center;
   overflow: hidden;
   will-change: transform, mask-image;
-  background-color: #040404;
+  background-color: var(--bg, #040404);
   mask-image: url(#hero-shape-mask);
   -webkit-mask-image: url(#hero-shape-mask);
   mask-size: 100% 100%;
   -webkit-mask-size: 100% 100%;
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
+  transition: var(--transition-theme);
 }
 
 .hero-tv-wrapper:hover {
@@ -1554,7 +1555,7 @@ body.nav-dropdown-active .nav-floating-cta,
   pointer-events: none;
   user-select: none;
   z-index: 15;
-  transition: opacity 0.3s ease;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
   opacity: 1;
 }
 
@@ -1761,22 +1762,24 @@ body.is-loading .hero-bottom-switch-wrap {
   border: none;
   padding: 0;
   margin: 0;
-  cursor: pointer;
+  cursor: not-allowed;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   outline: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+}
+
+.hero-bottom-switch.is-disabled,
+.hero-bottom-switch[disabled] {
+  cursor: not-allowed;
+  pointer-events: auto;
 }
 
 .hero-bottom-switch:hover .hero-switch-track {
   border-color: rgba(255, 255, 255, 0.25);
-}
-
-.hero-bottom-switch:active {
-  transform: scale(0.95);
 }
 
 .hero-bottom-switch:focus-visible .hero-switch-track {
@@ -1813,7 +1816,7 @@ body.is-loading .hero-bottom-switch-wrap {
               background-color 0.2s ease;
 }
 
-/* Checked / ON state */
+/* Checked / ON state (fallback if ever toggled) */
 .hero-bottom-switch[aria-checked="true"] .hero-switch-track,
 .hero-bottom-switch.is-checked .hero-switch-track {
   border-color: rgba(255, 255, 255, 0.30);
@@ -1824,6 +1827,43 @@ body.is-loading .hero-bottom-switch-wrap {
 .hero-bottom-switch.is-checked .hero-switch-thumb {
   transform: translateX(16px);
   background-color: #ffffff;
+}
+
+/* Tooltip: Light mode in development (Clean pure text, no backdrop, no stroke) */
+.hero-switch-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(3px);
+  padding: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  color: #737373;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 20;
+  user-select: none;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-bottom-switch-wrap:hover .hero-switch-tooltip,
+.hero-bottom-switch:focus-visible ~ .hero-switch-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  color: #faf9fc;
 }
 
 /* ==========================================================================
@@ -2173,8 +2213,9 @@ body {
   z-index: 1;
   overflow: hidden;
   pointer-events: none;
-  background-color: #030303;
+  background-color: var(--bg, #030303);
   opacity: var(--backdrop-opacity, 1);
+  transition: var(--transition-theme);
 }
 
 .hero-backdrop-duotone {

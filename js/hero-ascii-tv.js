@@ -190,6 +190,7 @@
       uniform float u_glyph_count;
       uniform float u_time;
       uniform float u_edge_softness;
+      uniform float u_theme_mode;
 
       vec2 coverUV(vec2 uv, vec2 src, vec2 dst, float vScale, vec2 vOffset) {
         float srcAspect = src.x / src.y;
@@ -258,18 +259,25 @@
         vec2 glyphUV = vec2((glyphIndex + glyphLocal.x) / u_glyph_count, glyphLocal.y);
         float glyphMask = texture2D(u_glyph, glyphUV).r;
 
-        // Natural video color matching without artificial outline/stroke
-        vec3 bgCharColor = vec3(0.012, 0.012, 0.012);
-        vec3 activeColor = color;
-        vec3 characterColor = mix(bgCharColor, activeColor, clamp(luma * 1.2, 0.0, 1.0));
-
         // Scanline modulation
         float scanline = sin(frag.y * 1.2) * 0.05 + 0.95;
-        vec3 asciiColor = characterColor * glyphMask * scanline;
 
-        // Bloom
-        vec3 bloom = activeColor * smoothstep(0.65, 1.0, luma) * u_bloom_strength;
-        vec3 finalColor = asciiColor + bloom;
+        // 1. Dark Mode output: Natural video color matching + bloom on black background
+        vec3 bgCharColor = vec3(0.012, 0.012, 0.012);
+        vec3 characterColor = mix(bgCharColor, color, clamp(luma * 1.2, 0.0, 1.0));
+        vec3 darkAscii = characterColor * glyphMask * scanline;
+        vec3 bloom = color * smoothstep(0.65, 1.0, luma) * u_bloom_strength;
+        vec3 darkFinal = darkAscii + bloom;
+
+        // 2. Light Mode output: Clean #e5e5e6 background + stark obsidian ASCII glyphs on dancer
+        vec3 lightBg = vec3(0.898, 0.898, 0.902);
+        float rawLuma = dot(color, vec3(0.299, 0.587, 0.114));
+        float personAlpha = smoothstep(0.06, 0.25, rawLuma);
+        vec3 lightCharColor = mix(vec3(0.35, 0.35, 0.36), vec3(0.04, 0.04, 0.04), clamp((rawLuma - 0.06) * 3.0, 0.0, 1.0));
+        vec3 lightGlyph = mix(lightBg, lightCharColor * scanline, glyphMask);
+        vec3 lightFinal = mix(lightBg, lightGlyph, personAlpha);
+
+        vec3 finalColor = mix(darkFinal, lightFinal, u_theme_mode);
 
         gl_FragColor = vec4(finalColor, 1.0);
       }
@@ -307,6 +315,7 @@
     const uGlyphCount = gl.getUniformLocation(program, 'u_glyph_count');
     const uTime = gl.getUniformLocation(program, 'u_time');
     const uEdgeSoftness = gl.getUniformLocation(program, 'u_edge_softness');
+    const uThemeMode = gl.getUniformLocation(program, 'u_theme_mode');
 
     const videoTexture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, videoTexture);
@@ -358,6 +367,8 @@
       gl.uniform2f(uVideoOffset,    params.videoOffsetX || 0.0, params.videoOffsetY || 0.0);
       gl.uniform1f(uGlyphCount,     glyphChars.length);
       gl.uniform1f(uEdgeSoftness,   params.edgeSoftness !== undefined ? params.edgeSoftness : 0.05);
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      gl.uniform1f(uThemeMode,      isLight ? 1.0 : 0.0);
     }
     uploadStableUniforms();
 
@@ -367,6 +378,11 @@
       Object.assign(params, newParams);
       uploadStableUniforms();
     };
+
+    const handleThemeChange = () => {
+      uploadStableUniforms();
+    };
+    window.addEventListener('themechange', handleThemeChange);
 
     // Per-frame cell size depends on DPR (stable once DPR is known)
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -381,6 +397,9 @@
       }
 
       resize(); // no-op unless canvas dimensions changed
+
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      gl.uniform1f(uThemeMode, isLight ? 1.0 : 0.0);
 
       if (video.readyState >= 2) {
         // Upload video texture

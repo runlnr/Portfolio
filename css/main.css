@@ -27,6 +27,23 @@
   --transition-fast: 0.2s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
   --transition-smooth: 0.4s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
   --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-theme: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                      color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                      border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html[data-theme="light"] {
+  --bg: #e5e5e6;
+  --text-color: #0a0a0a;
+  --text-muted: #666666;
+  --border-color: rgba(0, 0, 0, 0.10);
+  --border-light: rgba(0, 0, 0, 0.06);
+  --card-bg: #dcdcdc;
+  --surface-dark: #e5e5e6;
+  --surface-dark-card: #d5d5d6;
+  --text-light: #0a0a0a;
+  --f3-divider-square-color: #0a0a0a;
+  background-color: #e5e5e6;
 }
 
 /* Remove default cursor globally */
@@ -41,15 +58,16 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #030303;
+  background-color: var(--bg, #030303);
   cursor: none !important;
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
+  transition: var(--transition-theme);
 }
 
 body {
-  background-color: #030303;
-  color: #faf9fc;
+  background-color: var(--bg, #030303);
+  color: var(--text-color, #faf9fc);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -57,6 +75,7 @@ body {
   cursor: none !important;
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
+  transition: var(--transition-theme);
 }
 
 /* Hide default browser scrollbar globally */
