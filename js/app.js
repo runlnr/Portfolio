@@ -360,7 +360,7 @@ function initDesktopApp() {
 
   // Helper: Smooth scroll to the Portfolio / Works section on the hero site
   function scrollToPortfolioSection(smooth = true) {
-    const portfolio = document.querySelector('.f3-featured-tag-row') || document.getElementById('f3-portfolio');
+    const portfolio = document.querySelector('.f3-intro-divider-row') || document.querySelector('.f3-featured-tag-row') || document.getElementById('f3-portfolio');
     if (!portfolio) {
       const curPath = window.location.pathname;
       const isHome = curPath === '/' || curPath.endsWith('/') || curPath.endsWith('/index.html') || curPath.endsWith('index.html');
@@ -370,7 +370,7 @@ function initDesktopApp() {
       }
       return;
     }
-    const offset = -75;
+    const offset = 0;
     const lenis = (window.motionStack && window.motionStack.lenis) || window.lenis;
     if (lenis) {
       if (typeof lenis.start === 'function') {
@@ -979,14 +979,14 @@ function initDesktopApp() {
       const hash = href.includes('#') ? '#' + href.split('#')[1] : href;
       let targetElem = document.querySelector(hash);
       if (hash === '#f3-portfolio' || hash === '#works' || hash === '#projects') {
-        targetElem = document.querySelector('.f3-featured-tag-row') || targetElem;
+        targetElem = document.querySelector('.f3-intro-divider-row') || document.querySelector('.f3-featured-tag-row') || targetElem;
       }
       if (targetElem) {
         e.preventDefault();
         if (typeof closeNavDropdown === 'function') {
           closeNavDropdown();
         }
-        const offset = (hash === '#f3-portfolio' || hash === '#works' || hash === '#projects') ? -75 : -20;
+        const offset = (hash === '#f3-portfolio' || hash === '#works' || hash === '#projects') ? 0 : -20;
         if (window.motionStack && window.motionStack.lenis) {
           window.motionStack.lenis.scrollTo(targetElem, { offset: offset, duration: 1.0 });
         } else if (window.lenis) {
