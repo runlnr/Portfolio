@@ -3392,13 +3392,13 @@ body.f3-contact-modal-open {
 
 /* ==========================================================================
    SCROLL-DRIVEN EDITORIAL CASCADE REVEAL SYSTEM
-   Emil Kowalski 600ms Editorial Reveal with Asymmetric Stagger
+   Emil Kowalski 580ms Editorial Reveal with Asymmetric Stagger
    ========================================================================== */
 .f3-scroll-reveal {
   opacity: 0;
-  transform: translate3d(0, 32px, 0);
-  transition: opacity 0.62s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.58s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -3408,7 +3408,9 @@ body.f3-contact-modal-open {
 }
 
 /* Stagger deltas for editorial flow */
-.f3-intro-lockup.f3-scroll-reveal.is-revealed {
+/* 1. Recent Works Section */
+.f3-intro-lockup.f3-scroll-reveal.is-revealed,
+.f3-intro-divider-row.f3-scroll-reveal.is-revealed {
   transition-delay: 0.02s;
 }
 
@@ -3416,44 +3418,121 @@ body.f3-contact-modal-open {
   transition-delay: 0.04s;
 }
 
+/* Grid View Cards */
 .f3-works-col-left .f3-work-card:nth-child(1).f3-scroll-reveal.is-revealed {
-  transition-delay: 0.06s;
-}
-
-.f3-works-col-right .f3-work-card:nth-child(1).f3-scroll-reveal.is-revealed {
-  transition-delay: 0.16s;
-}
-
-.f3-works-col-left .f3-work-card:nth-child(2).f3-scroll-reveal.is-revealed {
-  transition-delay: 0.10s;
-}
-
-.f3-works-col-right .f3-work-card:nth-child(2).f3-scroll-reveal.is-revealed {
-  transition-delay: 0.20s;
-}
-
-.f3-service-showcase.f3-scroll-reveal.is-revealed {
-  transition-delay: 0.06s;
-}
-
-.f3-showcase-footer-quote.f3-scroll-reveal.is-revealed {
-  transition-delay: 0.12s;
-}
-
-.f3-single-divider-row.f3-scroll-reveal.is-revealed {
   transition-delay: 0.04s;
 }
 
-.f3-contact-hero-stage.f3-scroll-reveal.is-revealed {
+.f3-works-col-left .f3-work-card:nth-child(2).f3-scroll-reveal.is-revealed {
   transition-delay: 0.08s;
 }
 
-.f3-contact-corners-bar.f3-scroll-reveal.is-revealed {
+.f3-works-col-right .f3-work-card:nth-child(1).f3-scroll-reveal.is-revealed {
+  transition-delay: 0.12s;
+}
+
+.f3-works-col-right .f3-work-card:nth-child(2).f3-scroll-reveal.is-revealed {
+  transition-delay: 0.16s;
+}
+
+/* List / Gallery View Cards & Dividers */
+.f3-gallery-hairline-divider.f3-scroll-reveal.is-revealed {
+  transition-delay: 0.02s;
+}
+
+.f3-gallery-row .f3-gallery-card-wrap:nth-of-type(1).f3-scroll-reveal.is-revealed {
+  transition-delay: 0.04s;
+}
+
+.f3-gallery-row .f3-gallery-card-wrap:nth-of-type(2).f3-scroll-reveal.is-revealed {
+  transition-delay: 0.10s;
+}
+
+.f3-gallery-row .f3-gallery-card-wrap:nth-of-type(3).f3-scroll-reveal.is-revealed {
+  transition-delay: 0.16s;
+}
+
+/* 2. Focus / Services Directory Section */
+.f3-services-directory-section .f3-single-divider-row.f3-scroll-reveal.is-revealed {
+  transition-delay: 0.02s;
+}
+
+.f3-services-statement-wrap.f3-scroll-reveal.is-revealed {
+  transition-delay: 0.04s;
+}
+
+.f3-services-directory-grid > .f3-services-col:nth-child(2).f3-scroll-reveal.is-revealed {
+  transition-delay: 0.08s;
+}
+
+.f3-services-directory-grid > .f3-services-col:nth-child(3).f3-scroll-reveal.is-revealed {
   transition-delay: 0.14s;
 }
 
-.f3-colophon-grid.f3-scroll-reveal.is-revealed {
-  transition-delay: 0.08s;
+/* 3. Contact Stage */
+.f3-section-contact .f3-single-divider-row.f3-scroll-reveal.is-revealed {
+  transition-delay: 0.02s;
+}
+
+.f3-contact-left-col.f3-scroll-reveal.is-revealed {
+  transition-delay: 0.04s;
+}
+
+.f3-contact-action-row:nth-child(1).f3-scroll-reveal.is-revealed {
+  transition-delay: 0.09s;
+}
+
+.f3-contact-action-row:nth-child(2).f3-scroll-reveal.is-revealed {
+  transition-delay: 0.14s;
+}
+
+.f3-contact-action-row:nth-child(3).f3-scroll-reveal.is-revealed {
+  transition-delay: 0.19s;
+}
+
+.f3-contact-corners-bar.f3-scroll-reveal.is-revealed {
+  transition-delay: 0.22s;
+}
+
+/* ==========================================================================
+   SCROLL-DRIVEN TYPEWRITER TEXT REVEAL SYSTEM
+   Zero layout-shift character sequence
+   ========================================================================== */
+.f3-typewriter-inner {
+  display: inline;
+}
+
+.f3-type-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.f3-type-char {
+  display: inline-block;
+  vertical-align: baseline;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0px);
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.f3-type-char.is-hidden {
+  opacity: 0;
+  transform: translate3d(0, 3px, 0);
+  filter: blur(2px);
+}
+
+.f3-type-char.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0px);
+}
+
+.f3-type-space {
+  display: inline;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3461,5 +3540,15 @@ body.f3-contact-modal-open {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+
+  .f3-type-char {
+    transition: none !important;
+  }
+
+  .f3-type-char.is-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
   }
 }

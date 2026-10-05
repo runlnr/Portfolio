@@ -14,7 +14,7 @@
       if (prefersReducedMotion) return;
 
       const targets = document.querySelectorAll(
-        '.f3-intro-lockup, .f3-intro-divider-row, .f3-featured-tag-row, .f3-work-card, .f3-service-showcase, .f3-showcase-footer-quote, .f3-single-divider-row, .f3-contact-hero-stage, .f3-contact-corners-bar, .f3-colophon-grid'
+        '.f3-intro-lockup, .f3-intro-divider-row, .f3-featured-tag-row, .f3-work-card, .f3-gallery-card-wrap, .f3-gallery-hairline-divider, .f3-services-directory-section .f3-single-divider-row, .f3-services-statement-wrap, .f3-services-directory-grid > .f3-services-col, .f3-section-contact .f3-single-divider-row, .f3-contact-left-col, .f3-contact-action-row, .f3-contact-corners-bar'
       );
 
       if (!targets.length) return;
@@ -48,6 +48,127 @@
     }
 
     initScrollReveal();
+
+    // 2. Scroll-Driven Typewriter Text Reveal System
+    function initScrollTypewriter() {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      const typeTargets = document.querySelectorAll(
+        '.f3-intro-statement, .f3-services-statement, .f3-services-col-title, .f3-services-item, .f3-contact-hook-title, .f3-contact-action-row .f3-action-text, .about-intro-statement, .about-bio-body, .about-discipline-title, .about-discipline-item, [data-typewriter]'
+      );
+
+      if (!typeTargets.length || !('IntersectionObserver' in window)) return;
+
+      typeTargets.forEach(el => {
+        if (el.dataset.typewriterReady === 'true') return;
+        if (el.querySelector('input, textarea, select, button, svg, img, video, canvas')) return;
+
+        const originalText = el.textContent.trim();
+        if (!originalText) return;
+        if (!el.getAttribute('aria-label')) {
+          el.setAttribute('aria-label', originalText);
+        }
+
+        const chars = [];
+        const container = document.createElement('span');
+        container.className = 'f3-typewriter-inner';
+        container.setAttribute('aria-hidden', 'true');
+
+        function processNode(node) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            const text = node.textContent;
+            // Tokenize into words and whitespace runs
+            const tokens = text.match(/\S+|\s+/g) || [];
+            tokens.forEach(token => {
+              if (/^\s+$/.test(token)) {
+                const spaceSpan = document.createElement('span');
+                spaceSpan.className = 'f3-type-space';
+                spaceSpan.textContent = ' ';
+                container.appendChild(spaceSpan);
+              } else {
+                const wordSpan = document.createElement('span');
+                wordSpan.className = 'f3-type-word';
+                for (let i = 0; i < token.length; i++) {
+                  const ch = token[i];
+                  const charSpan = document.createElement('span');
+                  charSpan.className = 'f3-type-char is-hidden';
+                  charSpan.textContent = ch;
+                  wordSpan.appendChild(charSpan);
+                  chars.push(charSpan);
+                }
+                container.appendChild(wordSpan);
+              }
+            });
+          } else if (node.nodeType === Node.ELEMENT_NODE) {
+            if (node.tagName === 'BR') {
+              container.appendChild(document.createElement('br'));
+            } else {
+              const wrapper = document.createElement(node.tagName.toLowerCase());
+              Array.from(node.attributes).forEach(attr => {
+                wrapper.setAttribute(attr.name, attr.value);
+              });
+              Array.from(node.childNodes).forEach(child => processNode(child));
+              container.appendChild(wrapper);
+            }
+          }
+        }
+
+        Array.from(el.childNodes).forEach(node => processNode(node));
+
+        el.innerHTML = '';
+        el.appendChild(container);
+        el.dataset.typewriterReady = 'true';
+        el._typewriterChars = chars;
+      });
+
+      function playTypewriter(el) {
+        if (!el || el._typewriterPlayed) return;
+        el._typewriterPlayed = true;
+
+        const chars = el._typewriterChars;
+        if (!chars || !chars.length) return;
+
+        let index = 0;
+        const total = chars.length;
+        const charInterval = total > 50 ? Math.max(10, Math.floor(1000 / total)) : 18;
+
+        const timer = setInterval(() => {
+          if (index < total) {
+            chars[index].classList.remove('is-hidden');
+            chars[index].classList.add('is-visible');
+            index++;
+          } else {
+            clearInterval(timer);
+          }
+        }, charInterval);
+      }
+
+      const typeObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            playTypewriter(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -30px 0px',
+        threshold: 0.1
+      });
+
+      typeTargets.forEach(el => {
+        if (!el._typewriterChars || !el._typewriterChars.length) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
+          playTypewriter(el);
+        } else {
+          typeObserver.observe(el);
+        }
+      });
+    }
+
+    initScrollTypewriter();
 
     // 3. Language Selector Button Toggle
     const langSelector = document.getElementById('hero-lang-selector');
