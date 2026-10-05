@@ -48,6 +48,12 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  if (reqUrl === '/index' || reqUrl === '/index.html') {
+    res.writeHead(301, { 'Location': '/' });
+    res.end();
+    return;
+  }
+
   if (reqUrl === '/') {
     reqUrl = '/index.html';
   } else if (!path.extname(reqUrl)) {

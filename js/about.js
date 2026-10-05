@@ -113,7 +113,7 @@
         if (typeof window.openContactModal === 'function') {
           window.openContactModal();
         } else {
-          window.location.href = 'index.html#f3-contact';
+          window.location.href = '/#f3-contact';
         }
       });
     }

@@ -9,6 +9,13 @@ if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
 
+if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/index.html') {
+  const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + (window.location.hash || '');
+  if (window.history.replaceState) {
+    window.history.replaceState(null, '', cleanPath);
+  }
+}
+
 // 1. Loading Screen Fill & Reveal Speeds (in milliseconds)
 window.LOADER_CONFIG = {
   // Fill duration: Time (ms) for logo to fill from grey to solid white
@@ -338,20 +345,21 @@ function initDesktopApp() {
 
   // Helper: Smooth scroll to the Portfolio / Works section on the hero site
   function scrollToPortfolioSection(smooth = true) {
-    const portfolio = document.getElementById('f3-portfolio');
+    const portfolio = document.querySelector('.f3-featured-tag-row') || document.getElementById('f3-portfolio');
     if (!portfolio) {
       const curPath = window.location.pathname;
       const isHome = curPath === '/' || curPath.endsWith('/') || curPath.endsWith('/index.html') || curPath.endsWith('index.html');
       if (!isHome) {
-        navigateTo('index.html#f3-portfolio');
+        navigateTo('/#f3-portfolio');
       }
       return;
     }
+    const offset = -75;
     if (window.motionStack && window.motionStack.lenis) {
       window.motionStack.lenis.resize();
-      window.motionStack.lenis.scrollTo(portfolio, { offset: -20, immediate: !smooth, duration: smooth ? 1.2 : 0 });
+      window.motionStack.lenis.scrollTo(portfolio, { offset: offset, immediate: !smooth, duration: smooth ? 1.0 : 0 });
     } else if (window.lenis) {
-      window.lenis.scrollTo(portfolio, { offset: -20, immediate: !smooth, duration: smooth ? 1.2 : 0 });
+      window.lenis.scrollTo(portfolio, { offset: offset, immediate: !smooth, duration: smooth ? 1.0 : 0 });
     } else {
       portfolio.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto' });
     }
@@ -442,45 +450,6 @@ function initDesktopApp() {
       document.body.classList.remove('is-navigating-in', 'is-navigating-out', 'page-transitioning');
       unlockSiteScroll();
     }
-
-    // Intercept internal page link clicks across the site
-    document.addEventListener('click', (e) => {
-      const link = e.target.closest('a');
-      if (!link) return;
-
-      const href = link.getAttribute('href');
-      if (!href) return;
-
-      // Ignore hash-only anchors or JS actions
-      if (href.startsWith('#') || href.startsWith('javascript:')) return;
-
-      // Ignore project modal triggers and in-situ overlay links
-      if (link.closest('.f3-work-card, .f3-list-item-row') || link.hasAttribute('data-project-id') || link.closest('#pm-modal-overlay')) {
-        return;
-      }
-
-      // Ignore new tab links, downloads, mailto, tel
-      if (link.target === '_blank' || link.hasAttribute('download')) return;
-      if (href.startsWith('mailto:') || href.startsWith('tel:')) return;
-
-      // Check external vs internal domain
-      try {
-        const targetUrl = new URL(href, window.location.href);
-        if (targetUrl.origin !== window.location.origin) return;
-
-        // If target is same path and query with hash, allow smooth scroll anchor
-        if (targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search && targetUrl.hash) {
-          return;
-        }
-
-        e.preventDefault();
-        navigateTo(href);
-      } catch (err) {
-        // Fallback for relative paths
-        e.preventDefault();
-        navigateTo(href);
-      }
-    });
 
     // Reset on browser back/forward history navigation (bfcache)
     window.addEventListener('pageshow', (event) => {
@@ -822,7 +791,7 @@ function initDesktopApp() {
     }
   }
 
-  // Intercept internal page link clicks
+  // Single Unified Internal Link & Brand Navigation Click Interceptor
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a');
     if (!link) return;
@@ -830,8 +799,26 @@ function initDesktopApp() {
     const href = link.getAttribute('href');
     const target = link.getAttribute('target');
 
-    if (!href || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http://') || href.startsWith('https://') || href.startsWith('javascript:') || target === '_blank' || e.metaKey || e.ctrlKey) {
+    if (!href || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:') || target === '_blank' || e.metaKey || e.ctrlKey) {
       return;
+    }
+
+    if (link.getAttribute('aria-disabled') === 'true' || link.dataset.cursor === 'In development') {
+      e.preventDefault();
+      return;
+    }
+
+    // Ignore project modal triggers and in-situ overlay links
+    if (link.closest('.f3-work-card, .f3-list-item-row') || link.hasAttribute('data-project-id') || link.closest('#pm-modal-overlay')) {
+      return;
+    }
+
+    // Check external vs internal domain
+    try {
+      const targetUrl = new URL(href, window.location.href);
+      if (targetUrl.origin !== window.location.origin) return;
+    } catch (err) {
+      // Relative path is internal
     }
 
     const curNavPath = window.location.pathname;
@@ -840,6 +827,7 @@ function initDesktopApp() {
     // Direct click on N/P brand logo / Home link
     const isBrandHomeClick = link.classList.contains('hero-nav-brand') ||
       link.classList.contains('nav-box-brand') ||
+      link.id === 'nav-home-link' ||
       link.getAttribute('aria-label')?.includes('Home') ||
       link.querySelector('.nav-brand-logo');
 
@@ -850,10 +838,8 @@ function initDesktopApp() {
 
       if (isHomePage) {
         e.preventDefault();
-        if (window.location.hash) {
-          if (window.history.pushState) {
-            window.history.pushState(null, '', window.location.pathname);
-          }
+        if (window.location.hash && window.history.pushState) {
+          window.history.pushState(null, '', '/');
         }
         if (window.motionStack && window.motionStack.lenis) {
           window.motionStack.lenis.scrollTo(0, { immediate: false, duration: 0.8 });
@@ -864,9 +850,9 @@ function initDesktopApp() {
         }
         return;
       } else {
-        // When on a subpage (e.g. project.html), smoothly cross-fade to index.html
+        // When on a subpage (e.g. project.html), smoothly cross-fade to home root
         e.preventDefault();
-        navigateTo('index.html');
+        navigateTo('/');
         return;
       }
     }
@@ -874,34 +860,43 @@ function initDesktopApp() {
     // In-page hash anchor clicks on the home page (e.g. #f3-portfolio, #f3-intro, #f3-footer)
     if (href.startsWith('#') || (isHomePage && (href.startsWith('index.html#') || href.startsWith('/#')))) {
       const hash = href.includes('#') ? '#' + href.split('#')[1] : href;
-      const targetElem = document.querySelector(hash);
+      let targetElem = document.querySelector(hash);
+      if (hash === '#f3-portfolio') {
+        targetElem = document.querySelector('.f3-featured-tag-row') || targetElem;
+      }
       if (targetElem) {
         e.preventDefault();
         if (typeof closeNavDropdown === 'function') {
           closeNavDropdown();
         }
+        const offset = hash === '#f3-portfolio' ? -75 : -20;
         if (window.motionStack && window.motionStack.lenis) {
-          window.motionStack.lenis.scrollTo(targetElem, { offset: -20, duration: 1.0 });
+          window.motionStack.lenis.scrollTo(targetElem, { offset: offset, duration: 1.0 });
         } else if (window.lenis) {
-          window.lenis.scrollTo(targetElem, { offset: -20, duration: 1.0 });
+          window.lenis.scrollTo(targetElem, { offset: offset, duration: 1.0 });
         } else {
           targetElem.scrollIntoView({ behavior: 'smooth' });
-        }
-        if (window.history.pushState) {
-          window.history.pushState(null, '', hash);
         }
         return;
       }
     }
+
+    // Cross-page navigation with transition
+    e.preventDefault();
+    navigateTo(href);
   });
 
   // Handle browser back/forward buttons smoothly
   window.addEventListener('popstate', () => {
     if (window.location.hash) {
-      const targetElem = document.querySelector(window.location.hash);
+      let targetElem = document.querySelector(window.location.hash);
+      if (window.location.hash === '#f3-portfolio') {
+        targetElem = document.querySelector('.f3-featured-tag-row') || targetElem;
+      }
       if (targetElem) {
+        const offset = window.location.hash === '#f3-portfolio' ? -75 : -20;
         if (window.motionStack && window.motionStack.lenis) {
-          window.motionStack.lenis.scrollTo(targetElem, { offset: -20, duration: 0.8 });
+          window.motionStack.lenis.scrollTo(targetElem, { offset: offset, duration: 0.8 });
         } else {
           targetElem.scrollIntoView({ behavior: 'smooth' });
         }
@@ -1257,7 +1252,11 @@ function initDesktopApp() {
 
     // Close on dropdown link click
     navDropdownMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
+      link.addEventListener('click', (e) => {
+        if (link.getAttribute('aria-disabled') === 'true' || link.getAttribute('href') === 'javascript:void(0)') {
+          e.preventDefault();
+          return;
+        }
         closeNavDropdown();
       });
     });

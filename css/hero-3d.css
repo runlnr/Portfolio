@@ -746,6 +746,12 @@ body.nav-dropdown-active {
   opacity: 1 !important;
 }
 
+.nav-dropdown-row-link[aria-disabled="true"],
+.nav-dropdown-row-link[data-cursor],
+#nav-archive-link {
+  cursor: not-allowed;
+}
+
 /* Rolling Text Flip Container: safe padding avoids font glyph overhang cropping */
 .nav-dropdown-row-link .nav-row-roll {
   display: inline-flex;
