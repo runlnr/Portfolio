@@ -9,8 +9,12 @@ if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
 
-if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/index.html') {
-  const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + (window.location.hash || '');
+if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/index.html' || window.location.hash === '#f3-portfolio') {
+  if (window.location.hash === '#f3-portfolio' || window.location.hash === '#works' || window.location.hash === '#projects') {
+    sessionStorage.setItem('np_scroll_to_works', 'true');
+  }
+  const cleanHash = (window.location.hash === '#f3-portfolio' || window.location.hash === '#works' || window.location.hash === '#projects') ? '' : (window.location.hash || '');
+  const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + cleanHash;
   if (window.history.replaceState) {
     window.history.replaceState(null, '', cleanPath);
   }
@@ -312,7 +316,12 @@ function initDesktopApp() {
             window.triggerHeroAsciiAppear();
           }
 
-          if (window.location.hash === '#f3-portfolio') {
+          const shouldScrollToWorks = sessionStorage.getItem('np_scroll_to_works') === 'true' || window.location.hash === '#f3-portfolio' || window.location.hash === '#works' || window.location.hash === '#projects';
+          if (shouldScrollToWorks) {
+            sessionStorage.removeItem('np_scroll_to_works');
+            if (window.location.hash && window.history.replaceState) {
+              window.history.replaceState(null, '', window.location.pathname);
+            }
             setTimeout(() => scrollToPortfolioSection(true), 400);
           }
 
@@ -338,7 +347,13 @@ function initDesktopApp() {
     if (window.initHeroHeadlineScramble) {
       window.initHeroHeadlineScramble(false);
     }
-    if (window.location.hash === '#f3-portfolio') {
+    const isNavIn = sessionStorage.getItem('np_is_navigating') === 'true';
+    const shouldScrollToWorks = sessionStorage.getItem('np_scroll_to_works') === 'true' || window.location.hash === '#f3-portfolio' || window.location.hash === '#works' || window.location.hash === '#projects';
+    if (shouldScrollToWorks && !isNavIn) {
+      sessionStorage.removeItem('np_scroll_to_works');
+      if (window.location.hash && window.history.replaceState) {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
       setTimeout(() => scrollToPortfolioSection(true), 250);
     }
   }
@@ -350,18 +365,24 @@ function initDesktopApp() {
       const curPath = window.location.pathname;
       const isHome = curPath === '/' || curPath.endsWith('/') || curPath.endsWith('/index.html') || curPath.endsWith('index.html');
       if (!isHome) {
-        navigateTo('/#f3-portfolio');
+        sessionStorage.setItem('np_scroll_to_works', 'true');
+        navigateTo('/');
       }
       return;
     }
     const offset = -75;
-    if (window.motionStack && window.motionStack.lenis) {
-      window.motionStack.lenis.resize();
-      window.motionStack.lenis.scrollTo(portfolio, { offset: offset, immediate: !smooth, duration: smooth ? 1.0 : 0 });
-    } else if (window.lenis) {
-      window.lenis.scrollTo(portfolio, { offset: offset, immediate: !smooth, duration: smooth ? 1.0 : 0 });
+    const lenis = (window.motionStack && window.motionStack.lenis) || window.lenis;
+    if (lenis) {
+      if (typeof lenis.start === 'function') {
+        lenis.start();
+      }
+      if (typeof lenis.resize === 'function') {
+        lenis.resize();
+      }
+      lenis.scrollTo(portfolio, { offset: offset, immediate: !smooth, duration: smooth ? 1.0 : 0 });
     } else {
-      portfolio.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto' });
+      const top = portfolio.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0) + offset;
+      window.scrollTo({ top: top, behavior: smooth ? 'smooth' : 'auto' });
     }
   }
   window.scrollToPortfolioSection = scrollToPortfolioSection;
@@ -493,6 +514,15 @@ function initDesktopApp() {
             sessionStorage.removeItem('np_is_navigating');
             isNavigating = false;
             unlockSiteScroll();
+
+            if (sessionStorage.getItem('np_scroll_to_works') === 'true') {
+              sessionStorage.removeItem('np_scroll_to_works');
+              setTimeout(() => {
+                if (window.scrollToPortfolioSection) {
+                  window.scrollToPortfolioSection(true);
+                }
+              }, 50);
+            }
           }, revealDuration);
         });
       }, holdDuration);
@@ -887,6 +917,8 @@ function initDesktopApp() {
         closeNavDropdown();
       }
 
+      sessionStorage.removeItem('np_scroll_to_works');
+
       if (isHomePage) {
         e.preventDefault();
         if (window.location.hash && window.history.pushState) {
@@ -908,11 +940,45 @@ function initDesktopApp() {
       }
     }
 
+    // Direct click on Projects / Works link (e.g. #nav-works-link in dropdown)
+    const isProjectsClick = link.id === 'nav-works-link' ||
+      link.dataset.scrollTarget === 'works' ||
+      link.dataset.scrollTarget === 'portfolio' ||
+      href === '#f3-portfolio' ||
+      href === '/#f3-portfolio' ||
+      href === '#works' ||
+      href === '/#works' ||
+      href === '#projects' ||
+      href === '/#projects';
+
+    if (isProjectsClick) {
+      if (typeof closeNavDropdown === 'function') {
+        closeNavDropdown();
+      }
+
+      if (isHomePage) {
+        e.preventDefault();
+        // Clean URL if any hash exists - keep URL clean without #f3-portfolio
+        if (window.location.hash && window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname);
+        }
+        scrollToPortfolioSection(true);
+        return;
+      } else {
+        // When on a subpage (e.g. project.html, about.html, privacy.html),
+        // smoothly transition to home root and trigger scroll on arrival
+        e.preventDefault();
+        sessionStorage.setItem('np_scroll_to_works', 'true');
+        navigateTo('/');
+        return;
+      }
+    }
+
     // In-page hash anchor clicks on the home page (e.g. #f3-portfolio, #f3-intro, #f3-footer)
     if (href.startsWith('#') || (isHomePage && (href.startsWith('index.html#') || href.startsWith('/#')))) {
       const hash = href.includes('#') ? '#' + href.split('#')[1] : href;
       let targetElem = document.querySelector(hash);
-      if (hash === '#f3-portfolio') {
+      if (hash === '#f3-portfolio' || hash === '#works' || hash === '#projects') {
         targetElem = document.querySelector('.f3-featured-tag-row') || targetElem;
       }
       if (targetElem) {
@@ -920,13 +986,14 @@ function initDesktopApp() {
         if (typeof closeNavDropdown === 'function') {
           closeNavDropdown();
         }
-        const offset = hash === '#f3-portfolio' ? -75 : -20;
+        const offset = (hash === '#f3-portfolio' || hash === '#works' || hash === '#projects') ? -75 : -20;
         if (window.motionStack && window.motionStack.lenis) {
           window.motionStack.lenis.scrollTo(targetElem, { offset: offset, duration: 1.0 });
         } else if (window.lenis) {
           window.lenis.scrollTo(targetElem, { offset: offset, duration: 1.0 });
         } else {
-          targetElem.scrollIntoView({ behavior: 'smooth' });
+          const top = targetElem.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0) + offset;
+          window.scrollTo({ top: top, behavior: 'smooth' });
         }
         return;
       }
@@ -940,12 +1007,16 @@ function initDesktopApp() {
   // Handle browser back/forward buttons smoothly
   window.addEventListener('popstate', () => {
     if (window.location.hash) {
-      let targetElem = document.querySelector(window.location.hash);
-      if (window.location.hash === '#f3-portfolio') {
-        targetElem = document.querySelector('.f3-featured-tag-row') || targetElem;
+      if (window.location.hash === '#f3-portfolio' || window.location.hash === '#works' || window.location.hash === '#projects') {
+        scrollToPortfolioSection(true);
+        if (window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname);
+        }
+        return;
       }
+      let targetElem = document.querySelector(window.location.hash);
       if (targetElem) {
-        const offset = window.location.hash === '#f3-portfolio' ? -75 : -20;
+        const offset = -20;
         if (window.motionStack && window.motionStack.lenis) {
           window.motionStack.lenis.scrollTo(targetElem, { offset: offset, duration: 0.8 });
         } else {

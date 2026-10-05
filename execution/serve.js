@@ -42,7 +42,7 @@ const server = http.createServer((req, res) => {
   }
 
   if (reqUrl === '/works' || reqUrl === '/works.html') {
-    res.writeHead(302, { 'Location': '/#f3-portfolio' });
+    res.writeHead(302, { 'Location': '/' });
     res.end();
     return;
   }
