@@ -2032,11 +2032,7 @@ a .f3-mono-shuffle-letter,
   width: 100%;
   box-sizing: border-box;
   align-items: start;
-  margin-top: 100px;
-}
-
-.f3-services-col-focus .f3-services-statement {
-  margin-top: -25px;
+  margin-top: 50px;
 }
 
 .f3-services-col {
@@ -2126,10 +2122,6 @@ a .f3-mono-shuffle-letter,
     grid-template-columns: 1fr;
     gap: 40px;
     margin-top: 36px;
-  }
-
-  .f3-services-col-focus .f3-services-statement {
-    margin-top: 0;
   }
 
   .f3-services-group + .f3-services-group {
