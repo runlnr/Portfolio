@@ -35,7 +35,7 @@
         modal.classList.add('is-open');
         const firstInput = document.getElementById('f3-form-name');
         if (firstInput) {
-          setTimeout(() => firstInput.focus(), 120);
+          setTimeout(() => firstInput.focus(), 360);
         }
       });
     }
@@ -62,7 +62,7 @@
         if (!isModalOpen) {
           modal.setAttribute('hidden', '');
         }
-      }, 240);
+      }, 260);
     }
 
     window.openContactModal = openModal;

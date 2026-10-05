@@ -366,13 +366,36 @@ function initDesktopApp() {
   }
   window.scrollToPortfolioSection = scrollToPortfolioSection;
 
-  // 1b. Hero TV Setup (Hover & Tilt disabled per user instruction)
+  // 1b. Hero TV Setup & Hero Bottom Visual Switch
   function initHeroTvInteraction() {
     const tvWrapper = document.getElementById('hero-tv-wrapper');
     if (tvWrapper) {
       tvWrapper.style.transform = 'none';
     }
+    initHeroSwitch();
   }
+
+  function initHeroSwitch() {
+    const heroSwitch = document.getElementById('hero-bottom-switch');
+    if (!heroSwitch || heroSwitch.dataset.initialized) return;
+    heroSwitch.dataset.initialized = 'true';
+
+    heroSwitch.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isChecked = heroSwitch.getAttribute('aria-checked') === 'true';
+      const newState = !isChecked;
+      heroSwitch.setAttribute('aria-checked', String(newState));
+      heroSwitch.classList.toggle('is-checked', newState);
+    });
+
+    heroSwitch.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        heroSwitch.click();
+      }
+    });
+  }
+  window.initHeroSwitch = initHeroSwitch;
 
   // 2. Multi-Page Navigation Helper with Smooth Fade Transition
   let isNavigating = false;

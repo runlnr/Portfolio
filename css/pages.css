@@ -1664,6 +1664,11 @@ html.is-navigating-in .project-action-row {
 }
 
 .about-paragraphs {
+  font-family: var(--font-retina, 'AT Aero Retina', 'At Aero Retina', sans-serif);
+  font-weight: 350;
+  font-size: 21.5px;
+  line-height: 1.5;
+  letter-spacing: -0.8px;
   color: rgba(255, 255, 255, 0.85);
   display: flex;
   flex-direction: column;

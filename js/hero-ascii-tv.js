@@ -408,9 +408,45 @@
     window.addEventListener('resize', currentResizeHandler, { passive: true });
     video.play().catch(() => {});
     render();
+
+    // Pause WebGL rendering and video when Hero is off-screen to free GPU
+    if ('IntersectionObserver' in window) {
+      const heroEl = document.getElementById('hero-viewport') || canvas;
+      currentHeroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (video && video.paused) {
+              video.play().catch(() => {});
+            }
+            if (!currentAnimId) {
+              currentAnimId = requestAnimationFrame(render);
+            }
+          } else {
+            if (video && !video.paused) {
+              video.pause();
+            }
+            if (currentAnimId) {
+              cancelAnimationFrame(currentAnimId);
+              currentAnimId = null;
+            }
+          }
+        });
+      }, {
+        root: null,
+        threshold: 0,
+        rootMargin: '120px 0px 120px 0px'
+      });
+      currentHeroObserver.observe(heroEl);
+    }
   }
 
+  let currentHeroObserver = null;
+
   function destroyHeroTvAscii() {
+    if (currentHeroObserver) {
+      currentHeroObserver.disconnect();
+      currentHeroObserver = null;
+    }
     if (currentAnimId) {
       cancelAnimationFrame(currentAnimId);
       currentAnimId = null;

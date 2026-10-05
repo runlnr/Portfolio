@@ -38,9 +38,10 @@
     const topRightGroup = document.getElementById('hero-top-right-group');
     const centerTagline = document.getElementById('hero-center-tagline');
     const bottomSocials = document.getElementById('hero-bottom-socials');
-    const cornerSlashes = Array.from(document.querySelectorAll('.ascii-corner-slash'));
+    const cornerSlashes = Array.from(document.querySelectorAll('.ascii-corner-slash, .hero-corner-square'));
     const blueprintContainer = document.querySelector('.hero-blueprint-container');
     const midMetaBar = document.querySelector('.hero-mid-meta-bar');
+    const bottomSwitchWrap = document.getElementById('hero-bottom-switch-wrap');
     const centerVisual = document.getElementById('hero-center-visual');
 
     if (!heroViewport || !tvWrapper) {
@@ -172,6 +173,7 @@
       centerTagline,
       bottomSocials,
       midMetaBar,
+      bottomSwitchWrap,
       blueprintContainer,
       ...cornerSlashes
     ].filter(Boolean);

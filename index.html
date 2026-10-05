@@ -250,7 +250,7 @@
       --hero-tv-clip-path: url(#hero-shape-clip);
 
       /* ASCII & Slashes */
-      --hero-tv-top: 50.5%;
+      --hero-tv-top: 51.5%;
       --hero-tv-left: 50%;
       --hero-tv-width: 980px;
       --hero-tv-height: 586px;
@@ -538,25 +538,24 @@
 
       <!-- Central Lockup: Geometric Cyber ASCII Shape Visual -->
       <div class="hero-center-visual" id="hero-center-visual">
-        <!-- 4 Corner Slash Marks around ASCII Box -->
-        <span class="ascii-corner-slash ascii-corner-tl" aria-hidden="true">/</span>
-        <span class="ascii-corner-slash ascii-corner-tr" aria-hidden="true">\</span>
-        <span class="ascii-corner-slash ascii-corner-bl" aria-hidden="true">\</span>
-        <span class="ascii-corner-slash ascii-corner-br" aria-hidden="true">/</span>
+        <!-- 4 White Corner Squares around CRT TV (10px offset from edges, matching divider square size) -->
+        <span class="hero-corner-square hero-corner-tl" aria-hidden="true"></span>
+        <span class="hero-corner-square hero-corner-tr" aria-hidden="true"></span>
+        <span class="hero-corner-square hero-corner-bl" aria-hidden="true"></span>
+        <span class="hero-corner-square hero-corner-br" aria-hidden="true"></span>
 
         <div class="hero-tv-wrapper" id="hero-tv-wrapper">
           <canvas id="hero-tv-canvas" class="hero-tv-canvas" aria-label="ASCII Video Effect"></canvas>
         </div>
       </div>
 
-      <!-- Bottom Left: Nothing here/ -->
-      <div class="hero-bottom-text hero-text-left" id="hero-text-left">
-        <span>Nothing here/</span>
-      </div>
-
-      <!-- Bottom Right: /by accident. -->
-      <div class="hero-bottom-text hero-text-right" id="hero-text-right">
-        <span>/by accident.</span>
+      <!-- Hero Bottom Visual Switch -->
+      <div class="hero-bottom-switch-wrap" id="hero-bottom-switch-wrap">
+        <button type="button" class="hero-bottom-switch" id="hero-bottom-switch" role="switch" aria-checked="false" aria-label="Toggle visual switch">
+          <span class="hero-switch-track">
+            <span class="hero-switch-thumb"></span>
+          </span>
+        </button>
       </div>
     </section>
 

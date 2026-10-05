@@ -29,6 +29,11 @@
           if (entry.isIntersecting) {
             entry.target.classList.add('is-revealed');
             obs.unobserve(entry.target);
+            setTimeout(() => {
+              if (entry.target && entry.target.style) {
+                entry.target.style.transitionDelay = '0s';
+              }
+            }, 600);
           }
         });
       }, {
@@ -41,6 +46,11 @@
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
           el.classList.add('is-revealed');
+          setTimeout(() => {
+            if (el && el.style) {
+              el.style.transitionDelay = '0s';
+            }
+          }, 600);
         } else {
           observer.observe(el);
         }
@@ -55,7 +65,7 @@
       if (prefersReducedMotion) return;
 
       const typeTargets = document.querySelectorAll(
-        '.f3-intro-statement, .f3-services-statement, .f3-services-col-title, .f3-services-item, .f3-contact-hook-title, .f3-contact-action-row .f3-action-text, .about-intro-statement, .about-bio-body, .about-discipline-title, .about-discipline-item, [data-typewriter]'
+        '.f3-intro-statement, .f3-services-statement, .f3-contact-hook-title, .about-intro-statement, [data-typewriter]'
       );
 
       if (!typeTargets.length || !('IntersectionObserver' in window)) return;
@@ -131,17 +141,24 @@
 
         let index = 0;
         const total = chars.length;
-        const charInterval = total > 50 ? Math.max(10, Math.floor(1000 / total)) : 18;
+        const charInterval = total > 50 ? Math.max(12, Math.floor(900 / total)) : 18;
+        let lastTime = performance.now();
 
-        const timer = setInterval(() => {
-          if (index < total) {
-            chars[index].classList.remove('is-hidden');
-            chars[index].classList.add('is-visible');
-            index++;
-          } else {
-            clearInterval(timer);
+        function step(now) {
+          if (now - lastTime >= charInterval) {
+            const stepsToAdvance = Math.min(Math.floor((now - lastTime) / charInterval), 3);
+            for (let s = 0; s < stepsToAdvance && index < total; s++) {
+              chars[index].classList.remove('is-hidden');
+              chars[index].classList.add('is-visible');
+              index++;
+            }
+            lastTime = now;
           }
-        }, charInterval);
+          if (index < total) {
+            requestAnimationFrame(step);
+          }
+        }
+        requestAnimationFrame(step);
       }
 
       const typeObserver = new IntersectionObserver((entries, obs) => {
@@ -536,23 +553,6 @@
           }, 2000);
         });
       });
-
-      // Also trigger full shuffle on parent element hover for .f3-gallery-img-code
-      if (el.classList.contains('f3-gallery-img-code')) {
-        let elTimeout = null;
-        el.addEventListener('mouseenter', () => {
-          if (elTimeout) {
-            clearTimeout(elTimeout);
-            elTimeout = null;
-          }
-          letters.forEach(l => l._startShuffling && l._startShuffling());
-        });
-        el.addEventListener('mouseleave', () => {
-          elTimeout = setTimeout(() => {
-            letters.forEach(l => l._stopShuffling && l._stopShuffling());
-          }, 400);
-        });
-      }
     }
 
     function initMonoLetterShuffle(customTarget) {

@@ -2271,9 +2271,13 @@ a .f3-mono-shuffle-letter,
   cursor: pointer;
   box-sizing: border-box;
   text-align: left;
-  transition: border-color 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-    color 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: color, opacity, border-color;
+  transition: border-color 0.08s ease-out,
+    color 0.08s ease-out,
+    opacity 0.08s ease-out;
+  transition-delay: 0s;
 }
 
 .f3-contact-action-row:first-child {
@@ -2287,6 +2291,8 @@ a .f3-mono-shuffle-letter,
   line-height: inherit;
   letter-spacing: inherit;
   color: inherit;
+  pointer-events: none;
+  user-select: none;
 }
 
 .f3-action-arrow {
@@ -2296,33 +2302,47 @@ a .f3-mono-shuffle-letter,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.08s ease-out,
+    opacity 0.08s ease-out;
+  transition-delay: 0s;
 }
 
-/* Grey out unhovered rows (matching dropdown menu #626262 / 0.35 opacity) */
+/* Grey out unhovered rows super quickly (#626262 / 0.35 opacity) */
 @supports selector(:has(*)) {
   .f3-contact-links-list:has(.f3-contact-action-row:hover) .f3-contact-action-row:not(:hover),
   .f3-contact-links-list:has(.f3-contact-action-row:focus-visible) .f3-contact-action-row:not(:focus-visible) {
-    color: #626262 !important;
-    opacity: 0.35 !important;
+    color: #626262;
+    opacity: 0.35;
     border-bottom-color: rgba(255, 255, 255, 0.06);
+    transition: border-color 0.08s ease-out,
+      color 0.08s ease-out,
+      opacity 0.08s ease-out;
+    transition-delay: 0s !important;
   }
 }
 
 @media (hover: hover) and (pointer: fine) {
   .f3-contact-action-row:hover,
   .f3-contact-action-row:focus-visible {
-    color: #ffffff !important;
-    opacity: 1 !important;
+    color: #ffffff;
+    opacity: 1;
     border-bottom-color: #ffffff; /* brightens the outline underneath the hovered text */
+    transition: border-color 0.08s ease-out,
+      color 0.08s ease-out,
+      opacity 0.08s ease-out;
+    transition-delay: 0s !important;
   }
 
   .f3-contact-action-row:hover .f3-action-arrow,
   .f3-contact-action-row:focus-visible .f3-action-arrow {
     transform: none; /* keep arrow static */
-    color: #ffffff !important;
-    opacity: 1 !important;
+    color: #ffffff;
+    opacity: 1;
+    transition: color 0.08s ease-out,
+      opacity 0.08s ease-out;
+    transition-delay: 0s !important;
   }
 }
 
@@ -2430,22 +2450,24 @@ body.f3-contact-modal-open {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transition: opacity 220ms cubic-bezier(0.23, 1, 0.32, 1),
-    visibility 220ms;
+  transition: opacity 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 280ms;
 }
 
 .f3-contact-modal-scrim.is-open {
   opacity: 1;
   pointer-events: auto;
   visibility: visible;
+  transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 350ms;
 }
 
 .f3-contact-modal-backdrop {
   position: absolute;
   inset: 0;
   background: var(--f3-contact-modal-backdrop-bg, rgba(6, 6, 8, 0.82));
-  backdrop-filter: blur(var(--f3-contact-modal-backdrop-blur, 24px)) saturate(var(--nav-glass-saturate, 140%));
-  -webkit-backdrop-filter: blur(var(--f3-contact-modal-backdrop-blur, 24px)) saturate(var(--nav-glass-saturate, 140%));
+  backdrop-filter: blur(var(--f3-contact-modal-backdrop-blur, 26px)) saturate(var(--nav-glass-saturate, 140%));
+  -webkit-backdrop-filter: blur(var(--f3-contact-modal-backdrop-blur, 26px)) saturate(var(--nav-glass-saturate, 140%));
   cursor: pointer;
 }
 
@@ -2465,9 +2487,19 @@ body.f3-contact-modal-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.2s ease, transform 0.2s ease;
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 180ms ease 0ms, transform 180ms ease 0ms, color 0.2s ease;
   user-select: none;
   outline: none;
+}
+
+.f3-contact-modal-scrim.is-open .f3-contact-modal-close {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 320ms cubic-bezier(0.16, 1, 0.3, 1) 160ms,
+              transform 320ms cubic-bezier(0.16, 1, 0.3, 1) 160ms,
+              color 0.2s ease;
 }
 
 .f3-contact-modal-close:hover {
@@ -2490,7 +2522,7 @@ body.f3-contact-modal-open {
   display: block;
 }
 
-/* Modal Content Container */
+/* Modal Content Container: Staggered Entrance (site blurs first, then form appears) */
 .f3-contact-modal-content-wrap {
   position: relative;
   z-index: 2;
@@ -2503,20 +2535,23 @@ body.f3-contact-modal-open {
   box-sizing: border-box;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
-  transform: scale(0.96);
+  transform: scale(0.96) translateY(14px);
   opacity: 0;
   filter: blur(3px);
   transform-origin: center;
-  transition: transform 240ms cubic-bezier(0.23, 1, 0.32, 1),
-    opacity 220ms cubic-bezier(0.23, 1, 0.32, 1),
-    filter 220ms ease;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1) 0ms,
+    opacity 180ms ease 0ms,
+    filter 180ms ease 0ms;
   will-change: transform, opacity, filter;
 }
 
 .f3-contact-modal-scrim.is-open .f3-contact-modal-content-wrap {
-  transform: scale(1);
+  transform: scale(1) translateY(0);
   opacity: 1;
   filter: blur(0px);
+  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1) 160ms,
+    opacity 320ms cubic-bezier(0.16, 1, 0.3, 1) 160ms,
+    filter 320ms ease 160ms;
 }
 
 .f3-contact-modal-dialog {
@@ -3512,23 +3547,19 @@ body.f3-contact-modal-open {
   vertical-align: baseline;
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  filter: blur(0px);
-  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform, filter;
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .f3-type-char.is-hidden {
   opacity: 0;
   transform: translate3d(0, 3px, 0);
-  filter: blur(2px);
 }
 
 .f3-type-char.is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  filter: blur(0px);
 }
 
 .f3-type-space {
@@ -3549,6 +3580,5 @@ body.f3-contact-modal-open {
   .f3-type-char.is-hidden {
     opacity: 1 !important;
     transform: none !important;
-    filter: none !important;
   }
 }

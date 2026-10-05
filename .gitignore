@@ -7,3 +7,4 @@ Thumbs.db
 .playwright/
 .playwright-cli/
 .claude/
+execution/*.png
