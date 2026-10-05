@@ -1989,7 +1989,7 @@ a .f3-mono-shuffle-letter,
 .f3-services-directory-section {
   width: 100%;
   height: auto;
-  padding-top: 100px;
+  padding-top: 0;
   padding-bottom: 150px;
   box-sizing: border-box;
   position: relative;
@@ -2032,7 +2032,7 @@ a .f3-mono-shuffle-letter,
   width: 100%;
   box-sizing: border-box;
   align-items: start;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .f3-services-col {
