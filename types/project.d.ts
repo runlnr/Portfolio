@@ -94,6 +94,7 @@ declare global {
     freezeIntroLoader?: (state?: string | boolean) => void;
     initWorksPage?: () => void;
     initProjectPage?: () => void;
+    initScherreScroll?: () => void;
     initFutureThreeScroll?: () => void;
     openContactModal?: () => void;
     closeContactModal?: () => void;
