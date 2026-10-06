@@ -42,6 +42,25 @@ const server = http.createServer((req, res) => {
   }
 
 
+  if (reqUrl === '/api/contact' || reqUrl === '/api/contact.js') {
+    if (req.method === 'POST') {
+      res.writeHead(200, {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      res.end(JSON.stringify({ success: true, message: 'Local development mock: Inquiry received.' }));
+      return;
+    } else if (req.method === 'OPTIONS') {
+      res.writeHead(204, {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type'
+      });
+      res.end();
+      return;
+    }
+  }
+
   if (reqUrl === '/works' || reqUrl === '/works.html') {
     res.writeHead(302, { 'Location': '/' });
     res.end();

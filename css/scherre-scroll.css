@@ -2735,6 +2735,37 @@ body.f3-contact-modal-open {
   outline-offset: 2px;
 }
 
+/* Expandable Custom Field Drop-Down Fill */
+.f3-custom-field-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: grid-template-rows 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    margin-top 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  width: 100%;
+}
+
+.f3-custom-field-wrap.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 4px;
+}
+
+.f3-custom-field-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.f3-custom-field-inner .f3-form-input {
+  padding-top: 6px;
+  padding-bottom: 10px;
+}
+
 /* Action Row: Centered High-Contrast Button & Live Status Message */
 .f3-form-action-row {
   display: flex;
@@ -2758,12 +2789,12 @@ body.f3-contact-modal-open {
   height: 38px;
   padding: 0 20px;
   box-sizing: border-box;
-  font-family: var(--font-display, 'AT Aero', 'At Aero', sans-serif);
-  font-size: 13.5px;
-  font-weight: 400;
-  letter-spacing: calc(-0.01em - 0.7px);
+  font-family: var(--type-aero-e-font);
+  font-size: var(--type-aero-e-size);
+  font-weight: var(--type-aero-e-weight);
+  letter-spacing: var(--type-aero-e-spacing);
   text-transform: none !important;
-  line-height: 1;
+  line-height: var(--type-aero-e-line);
   cursor: pointer;
   text-decoration: none;
   user-select: none;

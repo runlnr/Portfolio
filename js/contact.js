@@ -129,6 +129,10 @@
     const nameInput = document.getElementById('f3-form-name');
     const emailInput = document.getElementById('f3-form-email');
     const messageInput = document.getElementById('f3-form-message');
+    const customServiceWrap = document.getElementById('f3-custom-service-wrap');
+    const customServiceInput = document.getElementById('f3-custom-service');
+    const customBudgetWrap = document.getElementById('f3-custom-budget-wrap');
+    const customBudgetInput = document.getElementById('f3-custom-budget');
 
     // 2. Interactive Monospace Pill Selector Handling
     const pillGroups = form.querySelectorAll('.f3-pill-group');
@@ -146,8 +150,44 @@
 
           const serviceVal = pill.getAttribute('data-service');
           const budgetVal = pill.getAttribute('data-budget');
-          if (serviceVal && serviceInput) serviceInput.value = serviceVal;
-          if (budgetVal && budgetInput) budgetInput.value = budgetVal;
+
+          if (serviceVal) {
+            if (serviceVal === 'Specify' || serviceVal === 'Custom') {
+              if (customServiceWrap) {
+                customServiceWrap.classList.add('is-open');
+                customServiceWrap.setAttribute('aria-hidden', 'false');
+                if (customServiceInput) {
+                  setTimeout(() => customServiceInput.focus(), 60);
+                  if (serviceInput) serviceInput.value = customServiceInput.value.trim() || 'Specify';
+                }
+              }
+            } else {
+              if (customServiceWrap) {
+                customServiceWrap.classList.remove('is-open');
+                customServiceWrap.setAttribute('aria-hidden', 'true');
+              }
+              if (serviceInput) serviceInput.value = serviceVal;
+            }
+          }
+
+          if (budgetVal) {
+            if (budgetVal === 'Specify' || budgetVal === 'Custom') {
+              if (customBudgetWrap) {
+                customBudgetWrap.classList.add('is-open');
+                customBudgetWrap.setAttribute('aria-hidden', 'false');
+                if (customBudgetInput) {
+                  setTimeout(() => customBudgetInput.focus(), 60);
+                  if (budgetInput) budgetInput.value = customBudgetInput.value.trim() || 'Specify';
+                }
+              }
+            } else {
+              if (customBudgetWrap) {
+                customBudgetWrap.classList.remove('is-open');
+                customBudgetWrap.setAttribute('aria-hidden', 'true');
+              }
+              if (budgetInput) budgetInput.value = budgetVal;
+            }
+          }
         });
 
         // Accessible Keyboard Navigation within Radio Group
@@ -168,8 +208,25 @@
       });
     });
 
+    // Sync Custom Input Values live
+    if (customServiceInput) {
+      customServiceInput.addEventListener('input', () => {
+        if (serviceInput) {
+          serviceInput.value = customServiceInput.value.trim() || 'Specify';
+        }
+      });
+    }
+
+    if (customBudgetInput) {
+      customBudgetInput.addEventListener('input', () => {
+        if (budgetInput) {
+          budgetInput.value = customBudgetInput.value.trim() || 'Specify';
+        }
+      });
+    }
+
     // Clear validation error on input
-    [nameInput, emailInput, messageInput].forEach(input => {
+    [nameInput, emailInput, messageInput, customServiceInput, customBudgetInput].forEach(input => {
       if (!input) return;
       input.addEventListener('input', () => {
         input.classList.remove('is-invalid');
@@ -180,14 +237,16 @@
       });
     });
 
-    // 3. Form Submission Handling with Feedback Animation
-    form.addEventListener('submit', (e) => {
+    // 3. Form Submission Handling with Feedback Animation & Real API Dispatch
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       let hasError = false;
       const name = (nameInput?.value || '').trim();
       const email = (emailInput?.value || '').trim();
       const message = (messageInput?.value || '').trim();
+      const service = (serviceInput?.value || '').trim() || 'Brand Identity';
+      const budget = (budgetInput?.value || '').trim() || '$1K – $2K';
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       if (!name) {
@@ -223,8 +282,20 @@
         statusMsg.className = 'f3-form-status-msg type-mono-a';
       }
 
-      // Simulate asynchronous transmission
-      setTimeout(() => {
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, service, budget, message })
+        });
+
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(result.error || 'Server error occurred.');
+        }
+
+        // Success State
         if (statusMsg) {
           statusMsg.textContent = 'MESSAGE SENT SUCCESSFULLY. TALK SOON.';
           statusMsg.className = 'f3-form-status-msg type-mono-a is-success';
@@ -239,6 +310,8 @@
         if (nameInput) nameInput.value = '';
         if (emailInput) emailInput.value = '';
         if (messageInput) messageInput.value = '';
+        if (customServiceInput) customServiceInput.value = '';
+        if (customBudgetInput) customBudgetInput.value = '';
 
         setTimeout(() => {
           if (submitBtn) {
@@ -254,8 +327,21 @@
               statusMsg.className = 'f3-form-status-msg type-mono-a';
             }, 300);
           }
-        }, 3500);
-      }, 950);
+        }, 4000);
+      } catch (err) {
+        console.error('Contact transmission error:', err);
+        if (statusMsg) {
+          statusMsg.textContent = (err.message && err.message.length < 60)
+            ? err.message.toUpperCase()
+            : 'FAILED TO TRANSMIT. PLEASE TRY AGAIN OR EMAIL DIRECTLY.';
+          statusMsg.className = 'f3-form-status-msg type-mono-a is-error';
+        }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          const btnLabel = submitBtn.querySelector('.f3-btn-label');
+          if (btnLabel) btnLabel.textContent = 'Send message ↗';
+        }
+      }
     });
 
     // 4. Initialize Live Dual Clocks
