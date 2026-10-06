@@ -367,8 +367,7 @@
       gl.uniform2f(uVideoOffset,    params.videoOffsetX || 0.0, params.videoOffsetY || 0.0);
       gl.uniform1f(uGlyphCount,     glyphChars.length);
       gl.uniform1f(uEdgeSoftness,   params.edgeSoftness !== undefined ? params.edgeSoftness : 0.05);
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      gl.uniform1f(uThemeMode,      isLight ? 1.0 : 0.0);
+      gl.uniform1f(uThemeMode, 0.0);
     }
     uploadStableUniforms();
 
@@ -398,8 +397,7 @@
 
       resize(); // no-op unless canvas dimensions changed
 
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      gl.uniform1f(uThemeMode, isLight ? 1.0 : 0.0);
+      gl.uniform1f(uThemeMode, 0.0);
 
       if (video.readyState >= 2) {
         // Upload video texture

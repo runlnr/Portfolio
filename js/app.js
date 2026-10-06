@@ -387,29 +387,30 @@ function initDesktopApp() {
   }
   window.scrollToPortfolioSection = scrollToPortfolioSection;
 
-  // 1b. Theme Management & Hero Bottom Switch
+  // 1b. Theme Management & Hero Bottom Switch (Obsidian Dark Art Direction)
   function setTheme(theme) {
-    if (theme === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
-      try { localStorage.setItem('np_theme', 'light'); } catch (e) {}
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-      try { localStorage.setItem('np_theme', 'dark'); } catch (e) {}
-    }
+    document.documentElement.removeAttribute('data-theme');
+    try { localStorage.removeItem('np_theme'); } catch (e) {}
     const heroSwitch = document.getElementById('hero-bottom-switch');
+    const switchTooltip = document.getElementById('hero-switch-tooltip');
     if (heroSwitch) {
-      const isLight = theme === 'light';
-      heroSwitch.setAttribute('aria-checked', String(isLight));
-      heroSwitch.classList.toggle('is-checked', isLight);
+      heroSwitch.setAttribute('aria-checked', 'false');
+      heroSwitch.setAttribute('disabled', 'true');
+      heroSwitch.setAttribute('aria-disabled', 'true');
+      heroSwitch.classList.remove('is-checked');
+      heroSwitch.classList.add('is-disabled');
     }
-    window.dispatchEvent(new CustomEvent('themechange', { detail: { theme } }));
+    if (switchTooltip) {
+      switchTooltip.textContent = 'Light mode (In development)';
+    }
+    window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: 'dark' } }));
   }
   window.setTheme = setTheme;
 
   function initTheme() {
-    // Light mode is currently disabled / in development
-    document.documentElement.removeAttribute('data-theme');
     try { localStorage.removeItem('np_theme'); } catch (e) {}
+    document.documentElement.removeAttribute('data-theme');
+    setTheme('dark');
   }
   window.initTheme = initTheme;
 
@@ -424,25 +425,18 @@ function initDesktopApp() {
 
   function initHeroSwitch() {
     const heroSwitch = document.getElementById('hero-bottom-switch');
-    if (!heroSwitch || heroSwitch.dataset.initialized) return;
-    heroSwitch.dataset.initialized = 'true';
+    if (!heroSwitch) return;
 
-    heroSwitch.setAttribute('aria-checked', 'false');
-    heroSwitch.setAttribute('aria-disabled', 'true');
     heroSwitch.setAttribute('disabled', 'true');
+    heroSwitch.setAttribute('aria-disabled', 'true');
+    heroSwitch.setAttribute('aria-checked', 'false');
+    heroSwitch.classList.add('is-disabled');
     heroSwitch.classList.remove('is-checked');
 
-    heroSwitch.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-    });
-
-    heroSwitch.addEventListener('keydown', (e) => {
-      if (e.key === ' ' || e.key === 'Enter') {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    });
+    const switchTooltip = document.getElementById('hero-switch-tooltip');
+    if (switchTooltip) {
+      switchTooltip.textContent = 'Light mode (In development)';
+    }
   }
   window.initHeroSwitch = initHeroSwitch;
 

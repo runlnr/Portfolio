@@ -141,12 +141,12 @@
 
         let index = 0;
         const total = chars.length;
-        const charInterval = total > 50 ? Math.max(12, Math.floor(900 / total)) : 18;
+        const charInterval = total > 50 ? Math.max(9.5, Math.floor(650 / total)) : 12;
         let lastTime = performance.now();
 
         function step(now) {
           if (now - lastTime >= charInterval) {
-            const stepsToAdvance = Math.min(Math.floor((now - lastTime) / charInterval), 3);
+            const stepsToAdvance = Math.min(Math.floor((now - lastTime) / charInterval), 4);
             for (let s = 0; s < stepsToAdvance && index < total; s++) {
               chars[index].classList.remove('is-hidden');
               chars[index].classList.add('is-visible');

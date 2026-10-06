@@ -30,8 +30,8 @@
   --intro-divider-margin-bottom: 24px;
   --f3-divider-square-size: 2px;
   --f3-divider-square-color: #e5e5e6;
-  --f3-divider-square-color-light: #0a0a0a;
-  --f3-divider-line-color-light: rgba(10, 10, 10, 0.2);
+  --f3-divider-square-color-light: #030303;
+  --f3-divider-line-color-light: rgba(3, 3, 3, 0.15);
 
   /* 2. Featured Header & Grid */
   --featured-tag-font-family: var(--font-primary, 'AT Aero', sans-serif);
@@ -2041,6 +2041,11 @@ a .f3-mono-shuffle-letter,
   width: 100%;
 }
 
+.f3-services-directory-grid > .f3-services-col:nth-child(2),
+.f3-services-directory-grid > .f3-services-col:nth-child(3) {
+  margin-top: 25px;
+}
+
 .f3-services-col-empty {
   min-height: 1px;
 }
@@ -2122,6 +2127,11 @@ a .f3-mono-shuffle-letter,
     grid-template-columns: 1fr;
     gap: 40px;
     margin-top: 36px;
+  }
+
+  .f3-services-directory-grid > .f3-services-col:nth-child(2),
+  .f3-services-directory-grid > .f3-services-col:nth-child(3) {
+    margin-top: 0;
   }
 
   .f3-services-group + .f3-services-group {
@@ -2855,6 +2865,7 @@ body.f3-contact-modal-open {
   background: #030303;
 }
 
+
 .f3-footer-reveal-wrap {
   position: sticky;
   bottom: 0;
@@ -2884,7 +2895,7 @@ body.f3-contact-modal-open {
   padding-top: var(--f3-footer-padding-top, 25px);
   padding-bottom: 0px;
   background: #e5e5e6;
-  color: #0a0a0a;
+  color: #030303;
   box-sizing: border-box;
 }
 
@@ -2898,14 +2909,14 @@ body.f3-contact-modal-open {
 .f3-footer-divider-row .f3-intro-divider-col-right {
   height: 0px;
   background: none;
-  border-top: 1px solid var(--f3-divider-line-color-light, rgba(10, 10, 10, 0.2));
+  border-top: 1px solid rgba(3, 3, 3, 0.15);
 }
 
 .f3-footer-divider-row .f3-intro-divider-col-left::before,
 .f3-footer-divider-row .f3-intro-divider-col-left::after,
 .f3-footer-divider-row .f3-intro-divider-col-right::before,
 .f3-footer-divider-row .f3-intro-divider-col-right::after {
-  background-color: var(--f3-divider-square-color-light, #0a0a0a);
+  background-color: #030303;
 }
 
 /* Main Grid Layout: 2 Columns (Left Stage: Contact + Socials, Right Stage: Emblem + Signature) */
@@ -2945,7 +2956,7 @@ body.f3-contact-modal-open {
   letter-spacing: -0.7px;
   -webkit-text-stroke: 0.10px currentColor;
   paint-order: stroke fill;
-  color: #0a0a0a;
+  color: #030303;
   text-decoration: none;
   display: block;
   width: fit-content;
@@ -2954,7 +2965,7 @@ body.f3-contact-modal-open {
 
 .f3-footer-email-link:hover,
 .f3-footer-email-link:focus-visible {
-  color: #0a0a0a;
+  color: #030303;
   opacity: 0.55;
 }
 
@@ -2970,7 +2981,7 @@ body.f3-contact-modal-open {
   line-height: 28.7px;
   -webkit-text-stroke: 0.10px currentColor;
   paint-order: stroke fill;
-  color: rgba(10, 10, 10, 0.55);
+  color: rgba(3, 3, 3, 0.45);
 }
 
 .f3-footer-location span {
@@ -3010,7 +3021,7 @@ body.f3-contact-modal-open {
   letter-spacing: var(--type-aero-c-spacing);
   -webkit-text-stroke: 0.10px currentColor;
   paint-order: stroke fill;
-  color: #0a0a0a;
+  color: #030303;
   text-decoration: none;
   display: inline-block;
   text-align: right;
@@ -3020,17 +3031,17 @@ body.f3-contact-modal-open {
 
 .f3-footer-social-link:hover,
 .f3-footer-social-link:focus-visible {
-  color: #0a0a0a;
+  color: #030303;
   opacity: 1;
 }
 
 /* Socials Focus Dimming: When any social is hovered, dim others in the list */
 .f3-footer-socials-list:hover .f3-footer-social-link {
-  color: rgba(10, 10, 10, 0.3);
+  color: rgba(3, 3, 3, 0.35);
 }
 
 .f3-footer-socials-list .f3-footer-social-link:hover {
-  color: #0a0a0a;
+  color: #030303;
   opacity: 1;
 }
 
@@ -3053,7 +3064,7 @@ body.f3-contact-modal-open {
 .f3-footer-brand-mark {
   width: var(--f3-footer-logo-size, 60px);
   height: var(--f3-footer-logo-size, 60px);
-  color: #0a0a0a;
+  color: #030303;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3085,7 +3096,7 @@ body.f3-contact-modal-open {
   font-weight: var(--type-aero-d-weight, 500);
   letter-spacing: clamp(-6px, -0.42vw, -2.5px);
   line-height: 0.93;
-  color: #0a0a0a;
+  color: #030303;
   white-space: nowrap;
   text-align: right;
   padding-bottom: 0;
@@ -3099,7 +3110,7 @@ body.f3-contact-modal-open {
   display: inline-block;
   vertical-align: baseline;
   line-height: 0;
-  color: #0a0a0a;
+  color: #030303;
   margin-left: var(--f3-footer-underscore-margin-left, 0px);
   margin-right: var(--f3-footer-underscore-margin-right, 0px);
   transform: scaleY(var(--f3-footer-underscore-scale-y, 1.0)) translateY(var(--f3-footer-underscore-offset-y, 0px));
@@ -3126,7 +3137,7 @@ body.f3-contact-modal-open {
   padding-top: 23px;
   padding-bottom: 25px;
   margin-bottom: 0px;
-  border-top: 1px solid var(--f3-divider-line-color-light, rgba(10, 10, 10, 0.2));
+  border-top: 1px solid rgba(3, 3, 3, 0.15);
   position: relative;
   font-family: var(--type-mono-a-font, var(--font-mono, 'PP Supply Mono', monospace));
   font-size: var(--type-mono-a-size, 11px);
@@ -3134,7 +3145,7 @@ body.f3-contact-modal-open {
   letter-spacing: var(--type-mono-a-spacing, 0.5px);
   line-height: 1;
   text-transform: uppercase;
-  color: #0a0a0a;
+  color: rgba(3, 3, 3, 0.45);
 }
 
 .f3-footer-colophon-bar::before,
@@ -3143,7 +3154,7 @@ body.f3-contact-modal-open {
   position: absolute;
   width: var(--f3-divider-square-size, 2px);
   height: var(--f3-divider-square-size, 2px);
-  background-color: var(--f3-divider-square-color-light, #0a0a0a);
+  background-color: #030303;
   top: -1px;
   pointer-events: none;
   z-index: 2;
@@ -3162,7 +3173,7 @@ body.f3-contact-modal-open {
   grid-row: 1;
   justify-self: start;
   text-align: left;
-  color: rgba(10, 10, 10, 0.55);
+  color: rgba(3, 3, 3, 0.45);
 }
 
 .f3-colophon-center {
@@ -3170,7 +3181,7 @@ body.f3-contact-modal-open {
   grid-row: 1;
   justify-self: end;
   text-align: right;
-  color: rgba(10, 10, 10, 0.55);
+  color: rgba(3, 3, 3, 0.45);
 }
 
 .f3-colophon-right {
@@ -3178,7 +3189,7 @@ body.f3-contact-modal-open {
   grid-row: 1;
   justify-self: end;
   text-align: right;
-  color: #0a0a0a;
+  color: rgba(3, 3, 3, 0.45);
 }
 
 .f3-colophon-privacy-link {
@@ -3187,7 +3198,7 @@ body.f3-contact-modal-open {
   font-weight: var(--type-mono-a-weight, 400);
   letter-spacing: var(--type-mono-a-spacing, 0.5px);
   line-height: var(--type-mono-a-line, 13px);
-  color: #0a0a0a;
+  color: rgba(3, 3, 3, 0.45);
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.2s ease, opacity 0.2s ease;
@@ -3196,8 +3207,8 @@ body.f3-contact-modal-open {
 
 .f3-colophon-privacy-link:hover,
 .f3-colophon-privacy-link:focus-visible {
-  color: #0a0a0a;
-  opacity: 0.55;
+  color: #030303;
+  opacity: 1;
 }
 
 /* ==========================================================================
@@ -3539,8 +3550,8 @@ body.f3-contact-modal-open {
   vertical-align: baseline;
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.20s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.20s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -3573,157 +3584,4 @@ body.f3-contact-modal-open {
     opacity: 1 !important;
     transform: none !important;
   }
-}
-
-/* ==========================================================================
-   FUTURE THREE® LIGHT MODE THEME SYSTEM (data-theme="light")
-   ========================================================================== */
-html[data-theme="light"] {
-  --featured-tag-color: #0a0a0a;
-  --f3-divider-square-color: #0a0a0a;
-  --intro-divider-color: rgba(10, 10, 10, 0.15);
-  --f3-thumbnail-badge-bg: #0a0a0a;
-  --f3-thumbnail-badge-color: #ffffff;
-}
-
-html[data-theme="light"] .f3-editorial-wrapper {
-  background-color: var(--bg, #e5e5e6);
-  color: var(--text-color, #0a0a0a);
-  transition: var(--transition-theme);
-}
-
-html[data-theme="light"] .f3-intro-statement {
-  color: #0a0a0a;
-}
-
-html[data-theme="light"] .f3-intro-status {
-  color: #666666;
-}
-
-html[data-theme="light"] .f3-statement-btn {
-  border-color: #0a0a0a;
-  color: #0a0a0a;
-}
-
-html[data-theme="light"] .f3-statement-btn:hover {
-  background-color: #0a0a0a;
-  color: #ffffff;
-}
-
-html[data-theme="light"] .f3-intro-divider-col-left,
-html[data-theme="light"] .f3-intro-divider-col-right,
-html[data-theme="light"] .f3-gallery-hairline-divider,
-html[data-theme="light"] .f3-services-directory-section .f3-single-divider-line {
-  border-top-color: rgba(10, 10, 10, 0.15);
-}
-
-html[data-theme="light"] .f3-intro-divider-col-left::before,
-html[data-theme="light"] .f3-intro-divider-col-left::after,
-html[data-theme="light"] .f3-intro-divider-col-right::before,
-html[data-theme="light"] .f3-intro-divider-col-right::after,
-html[data-theme="light"] .f3-gallery-hairline-divider::before,
-html[data-theme="light"] .f3-gallery-hairline-divider::after,
-html[data-theme="light"] .f3-services-directory-section .f3-single-divider-line::before,
-html[data-theme="light"] .f3-services-directory-section .f3-single-divider-line::after {
-  background-color: #0a0a0a;
-}
-
-html[data-theme="light"] .f3-featured-tag {
-  color: #0a0a0a;
-}
-
-html[data-theme="light"] .f3-view-btn {
-  color: #999999;
-}
-
-html[data-theme="light"] .f3-view-btn.is-active {
-  color: #0a0a0a;
-}
-
-html[data-theme="light"] .f3-view-btn:hover:not(.is-active) {
-  color: rgba(10, 10, 10, 0.8);
-}
-
-html[data-theme="light"] .f3-view-btn.is-disabled,
-html[data-theme="light"] #f3-view-grid {
-  color: #bbbbbb;
-}
-
-html[data-theme="light"] .f3-featured-more-link {
-  background-color: #d6d6d7;
-  color: #0a0a0a;
-}
-
-html[data-theme="light"] .f3-featured-more-link:hover {
-  background-color: #0a0a0a;
-  color: #ffffff;
-}
-
-html[data-theme="light"] .f3-gallery-img-code {
-  color: #666666;
-}
-
-html[data-theme="light"] .f3-list-card-badge {
-  background-color: #d6d6d7;
-  color: #0a0a0a;
-}
-
-html[data-theme="light"] .f3-card-title {
-  color: #0a0a0a;
-}
-
-html[data-theme="light"] .f3-card-category,
-html[data-theme="light"] .f3-card-year {
-  color: #666666;
-}
-
-/* Services / Focus Section in Light Mode */
-html[data-theme="light"] .f3-services-statement {
-  color: #0a0a0a;
-}
-
-html[data-theme="light"] .f3-service-col-title {
-  color: #0a0a0a;
-}
-
-html[data-theme="light"] .f3-service-item {
-  color: #555555;
-}
-
-html[data-theme="light"] .f3-service-item:hover {
-  color: #0a0a0a;
-}
-
-/* ==========================================================================
-   SIGNATURE INVERTED DEEP BLACK FOOTER IN LIGHT MODE
-   The bottom contact stage and colophon explicitly invert to #030303
-   ========================================================================== */
-html[data-theme="light"] .f3-section-contact {
-  background-color: #030303 !important;
-  color: #faf9fc !important;
-}
-
-html[data-theme="light"] .f3-section-contact .f3-single-divider-line {
-  border-top-color: #282828 !important;
-}
-
-html[data-theme="light"] .f3-section-contact .f3-single-divider-line::before,
-html[data-theme="light"] .f3-section-contact .f3-single-divider-line::after {
-  background-color: #ffffff !important;
-}
-
-html[data-theme="light"] .f3-contact-hook-title {
-  color: #faf9fc !important;
-}
-
-html[data-theme="light"] .f3-contact-action-row {
-  color: #faf9fc;
-  border-bottom-color: rgba(255, 255, 255, 0.12);
-}
-
-html[data-theme="light"] .f3-contact-corners-bar,
-html[data-theme="light"] .f3-contact-corners-bar span,
-html[data-theme="light"] .f3-footer-colophon,
-html[data-theme="light"] .f3-footer-colophon * {
-  color: #faf9fc !important;
-}
+}

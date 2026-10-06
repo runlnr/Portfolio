@@ -32,19 +32,6 @@
                       border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-html[data-theme="light"] {
-  --bg: #e5e5e6;
-  --text-color: #0a0a0a;
-  --text-muted: #666666;
-  --border-color: rgba(0, 0, 0, 0.10);
-  --border-light: rgba(0, 0, 0, 0.06);
-  --card-bg: #dcdcdc;
-  --surface-dark: #e5e5e6;
-  --surface-dark-card: #d5d5d6;
-  --text-light: #0a0a0a;
-  --f3-divider-square-color: #0a0a0a;
-  background-color: #e5e5e6;
-}
 
 /* Remove default cursor globally */
 *, *::before, *::after {

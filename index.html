@@ -3,6 +3,9 @@
 
 <head>
   <script>
+    try {
+      localStorage.removeItem('np_theme');
+    } catch (e) {}
     if (window.innerWidth >= 1024) {
       if (sessionStorage.getItem('np_has_seen_intro')) {
         document.documentElement.classList.add('skip-intro');
@@ -551,12 +554,12 @@
 
       <!-- Hero Bottom Visual Switch -->
       <div class="hero-bottom-switch-wrap" id="hero-bottom-switch-wrap">
-        <button type="button" class="hero-bottom-switch is-disabled" id="hero-bottom-switch" role="switch" aria-checked="false" aria-disabled="true" aria-label="Light mode in development (unavailable)" disabled>
+        <button type="button" class="hero-bottom-switch is-disabled" id="hero-bottom-switch" role="switch" aria-checked="false" aria-label="Light mode (In development)" disabled aria-disabled="true">
           <span class="hero-switch-track">
             <span class="hero-switch-thumb"></span>
           </span>
         </button>
-        <span class="hero-switch-tooltip type-mono-a" id="hero-switch-tooltip" role="tooltip" aria-hidden="true">Light mode in development</span>
+        <span class="hero-switch-tooltip type-mono-a" id="hero-switch-tooltip" role="tooltip" aria-hidden="true">Light mode (In development)</span>
       </div>
     </section>
 

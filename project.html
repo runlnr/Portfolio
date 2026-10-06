@@ -3,6 +3,7 @@
 
 <head>
   <script>
+    try { localStorage.removeItem('np_theme'); } catch (e) {}
     if (window.innerWidth >= 1024 && sessionStorage.getItem('np_is_navigating')) { document.documentElement.classList.add('is-navigating-in'); }
   </script>
   <meta charset="UTF-8">
