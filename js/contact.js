@@ -278,7 +278,7 @@
       }
 
       if (statusMsg) {
-        statusMsg.textContent = 'CONNECTING TO STUDIO...';
+        statusMsg.textContent = '';
         statusMsg.className = 'f3-form-status-msg type-mono-a';
       }
 

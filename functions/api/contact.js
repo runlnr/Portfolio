@@ -43,10 +43,11 @@ export async function onRequestPost(context) {
 
     const receiverEmail = env.CONTACT_RECEIVER_EMAIL || 'hainampham08@outlook.com';
     let fromEmail = env.CONTACT_FROM_EMAIL || 'work@scherre.com';
+    const upperName = (name || '').trim().toUpperCase();
 
     // Editorial HTML Email Template
     const htmlContent = `
-      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 28px 24px; background-color: #0d0d0d; color: #f2f2f2; border-radius: 8px; border: 1px solid #222;">
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 28px 24px; background-color: #0d0d0d; color: #f2f2f2; border-radius: 8px; border: 1px solid #262626;">
         <div style="border-bottom: 1px solid #262626; padding-bottom: 16px; margin-bottom: 24px;">
           <h2 style="margin: 0 0 6px 0; font-size: 20px; font-weight: 500; color: #ffffff; letter-spacing: -0.5px;">New Project Inquiry</h2>
           <p style="margin: 0; font-size: 13px; color: #888888;">Submitted via scherre.com contact brief</p>
@@ -54,7 +55,7 @@ export async function onRequestPost(context) {
 
         <div style="margin-bottom: 20px;">
           <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #777; margin-bottom: 4px;">Client Name</div>
-          <div style="font-size: 16px; color: #ffffff; font-weight: 500;">${escapeHtml(name)}</div>
+          <div style="font-size: 16px; color: #ffffff; font-weight: 500; letter-spacing: 0.2px;">${escapeHtml(upperName)}</div>
         </div>
 
         <div style="margin-bottom: 20px;">
@@ -81,7 +82,7 @@ export async function onRequestPost(context) {
         </div>
 
         <div style="border-top: 1px solid #262626; padding-top: 16px; font-size: 11px; color: #666; text-align: center;">
-          Directly reply to this email to respond to ${escapeHtml(name)} (${escapeHtml(email)}).
+          Directly reply to this email to respond to ${escapeHtml(upperName)} (${escapeHtml(email)}).
         </div>
       </div>
     `;
@@ -97,9 +98,9 @@ export async function onRequestPost(context) {
         from: fromEmail,
         to: [receiverEmail],
         reply_to: email,
-        subject: `New Inquiry: ${name} [${service || 'General'}]`,
+        subject: `New Inquiry: ${upperName} [${service || 'General'}]`,
         html: htmlContent,
-        text: `New Inquiry from ${name} (${email})\n\nDiscipline: ${service}\nBudget: ${budget}\n\nProject Brief:\n${message}`
+        text: `New Inquiry from ${upperName} (${email})\n\nDiscipline: ${service}\nBudget: ${budget}\n\nProject Brief:\n${message}`
       })
     });
 
@@ -118,9 +119,9 @@ export async function onRequestPost(context) {
           from: 'onboarding@resend.dev',
           to: [receiverEmail],
           reply_to: email,
-          subject: `New Inquiry: ${name} [${service || 'General'}]`,
+          subject: `New Inquiry: ${upperName} [${service || 'General'}]`,
           html: htmlContent,
-          text: `New Inquiry from ${name} (${email})\n\nDiscipline: ${service}\nBudget: ${budget}\n\nProject Brief:\n${message}`
+          text: `New Inquiry from ${upperName} (${email})\n\nDiscipline: ${service}\nBudget: ${budget}\n\nProject Brief:\n${message}`
         })
       });
       resendData = await resendResponse.json();
