@@ -76,7 +76,7 @@ declare global {
       fillEasingExp?: number;
       settleHold?: number;
       slideUpDuration?: number;
-      overlayFadeDelay?: number;
+      blackHoldDuration?: number;
       overlayFadeDuration?: number;
     };
     TRANSITION_CONFIG?: {

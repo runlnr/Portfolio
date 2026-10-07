@@ -26,12 +26,12 @@ window.LOADER_CONFIG = {
   fillDuration: 1800,
   // Fill easing exponent: Fast in, slow out curve (1.5 = energetic initial surge, smooth deceleration)
   fillEasingExp: 1.5,
-  // Brief hold once 100% white is reached before exiting
+  // Brief hold once 100% white is reached before exiting (300ms = 0.3s)
   settleHold: 300,
-  // Duration for the logo to slide up through its solid mask aperture and vanish
-  slideUpDuration: 620,
-  // Delay before the overlay background begins fading out (staggered with logo slide-up)
-  overlayFadeDelay: 250,
+  // Duration for the logo to slide up through its tight solid mask aperture and vanish
+  slideUpDuration: 480,
+  // Additional solid black screen hold time (100ms = 0.1s) after logo slides up before overlay fades
+  blackHoldDuration: 100,
   // Duration for black loader overlay to fade into hero page
   overlayFadeDuration: 600
 };
@@ -235,9 +235,11 @@ window.previewLoader = function (state = 'play') {
           requestAnimationFrame(step);
         } else {
           fillWrap.style.clipPath = 'inset(0% 0 0 0)';
-          // Settle briefly then slide up through mask
+          // Settle briefly (0.3s) then slide up through mask without fading
+          const settleTime = window.LOADER_CONFIG?.settleHold || 300;
           setTimeout(() => {
             if (logoCenter) logoCenter.classList.add('slide-up-exit');
+            const totalBlackHold = (window.LOADER_CONFIG?.slideUpDuration || 480) + (window.LOADER_CONFIG?.blackHoldDuration || 100);
             setTimeout(() => {
               loader.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
               loader.classList.add('fade-out');
@@ -248,8 +250,8 @@ window.previewLoader = function (state = 'play') {
                 document.documentElement.classList.remove('is-loading');
                 unlockSiteScroll();
               }, 600);
-            }, 250);
-          }, 300);
+            }, totalBlackHold);
+          }, settleTime);
         }
       }
       requestAnimationFrame(step);
@@ -286,8 +288,8 @@ function initDesktopApp() {
       fillDuration: 1800,
       fillEasingExp: 1.5,
       settleHold: 300,
-      slideUpDuration: 620,
-      overlayFadeDelay: 250,
+      slideUpDuration: 480,
+      blackHoldDuration: 100,
       overlayFadeDuration: 600
     }, window.LOADER_CONFIG || {});
 
@@ -319,14 +321,18 @@ function initDesktopApp() {
     requestAnimationFrame(animateFill);
 
     function onFillComplete() {
-      // 1. Brief pause after 100% white is reached
+      // 1. Brief pause after 100% white is reached (300ms = 0.3s)
       setTimeout(() => {
-        // 2. Slide the logo UP through its solid mask aperture
+        // 2. Slide the solid white logo UP through its mask aperture (no fade)
         if (logoCenter) {
           logoCenter.classList.add('slide-up-exit');
         }
 
-        // 3. Stagger the background fade-out to begin as the logo slides out
+        // 3. Keep solid black screen until logo finishes sliding up (480ms) + additional 0.1s (100ms) black hold
+        const slideUpTime = cfg.slideUpDuration || 480;
+        const blackHoldTime = typeof cfg.blackHoldDuration === 'number' ? cfg.blackHoldDuration : 100;
+        const totalWaitBeforeFade = slideUpTime + blackHoldTime;
+
         setTimeout(() => {
           loader.style.transition = `opacity ${cfg.overlayFadeDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
           loader.classList.add('slide-up', 'fade-out');
@@ -357,7 +363,7 @@ function initDesktopApp() {
             loader.style.pointerEvents = 'none';
             unlockSiteScroll();
           }, cfg.overlayFadeDuration);
-        }, cfg.overlayFadeDelay);
+        }, totalWaitBeforeFade);
       }, cfg.settleHold);
     }
   } else {
