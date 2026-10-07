@@ -22,10 +22,12 @@ if (window.location.pathname.endsWith('/index.html') || window.location.pathname
 
 // 1. Loading Screen Fill & Reveal Speeds (in milliseconds)
 window.LOADER_CONFIG = {
-  // Fill duration: Time (ms) for logo to fill from grey to solid white
-  fillDuration: 1800,
-  // Fill easing exponent: Fast in, slow out curve (1.5 = energetic initial surge, smooth deceleration)
-  fillEasingExp: 1.5,
+  // Fill duration: Time (ms) for logo to fill from grey to solid white (2400ms = 2.4s)
+  fillDuration: 2400,
+  // Fill easing: 'easeInOutQuint' from https://easings.net/#easeInOutQuint
+  // (Slow lower start, rapid mid surge, ultra-smooth quintic top deceleration)
+  fillEasing: 'easeInOutQuint',
+  fillEasingExp: 3.3,
   // Brief hold once 100% white is reached before exiting (300ms = 0.3s)
   settleHold: 300,
   // Duration for the logo to slide up through its tight solid mask aperture and vanish
@@ -224,13 +226,15 @@ window.previewLoader = function (state = 'play') {
     if (fillWrap) {
       fillWrap.style.clipPath = 'inset(100% 0 0 0)';
       let start = null;
-      const duration = (window.LOADER_CONFIG && window.LOADER_CONFIG.fillDuration) || 1800;
-      const exp = (window.LOADER_CONFIG && typeof window.LOADER_CONFIG.fillEasingExp === 'number') ? window.LOADER_CONFIG.fillEasingExp : 1.5;
+      const duration = (window.LOADER_CONFIG && window.LOADER_CONFIG.fillDuration) || 2400;
       function step(now) {
         if (!start) start = now;
         const p = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - p, exp);
-        fillWrap.style.clipPath = `inset(${(1 - eased) * 100}% 0 0 0)`;
+        // easeInOutQuint: https://easings.net/#easeInOutQuint
+        const visualEased = p < 0.5 ? 16 * Math.pow(p, 5) : 1 - Math.pow(-2 * p + 2, 5) / 2;
+        // Map directly to visual logo artwork bounds (66.16% span from 83.08% bottom to 16.92% top)
+        const clipBottom = p >= 1 ? 0 : 83.08 - (visualEased * 66.16);
+        fillWrap.style.clipPath = `inset(${clipBottom}% 0 0 0)`;
         if (p < 1) {
           requestAnimationFrame(step);
         } else {
@@ -285,8 +289,9 @@ function initDesktopApp() {
     lockSiteScroll();
 
     const cfg = Object.assign({
-      fillDuration: 1800,
-      fillEasingExp: 1.5,
+      fillDuration: 2400,
+      fillEasing: 'easeInOutQuint',
+      fillEasingExp: 3.3,
       settleHold: 300,
       slideUpDuration: 480,
       blackHoldDuration: 100,
@@ -299,10 +304,11 @@ function initDesktopApp() {
       if (!startTime) startTime = now;
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / cfg.fillDuration, 1);
-      // Fast in, slow out easing: starts with an energetic surge and smoothly settles into the top
-      const exp = typeof cfg.fillEasingExp === 'number' ? cfg.fillEasingExp : 1.5;
-      const eased = 1 - Math.pow(1 - progress, exp);
-      const clipBottom = (1 - eased) * 100;
+      // easeInOutQuint: https://easings.net/#easeInOutQuint
+      const visualEased = progress < 0.5 ? 16 * Math.pow(progress, 5) : 1 - Math.pow(-2 * progress + 2, 5) / 2;
+      // Map directly to visual logo artwork bounds (66.16% span from 83.08% bottom to 16.92% top)
+      const clipBottom = progress >= 1 ? 0 : 83.08 - (visualEased * 66.16);
+      fillWrap.style.clipPath = `inset(${clipBottom}% 0 0 0)`;
 
       if (fillWrap) {
         fillWrap.style.clipPath = `inset(${clipBottom}% 0 0 0)`;

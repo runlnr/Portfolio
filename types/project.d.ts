@@ -73,6 +73,7 @@ declare global {
     SWAG_PROJECTS: Project[];
     LOADER_CONFIG?: {
       fillDuration?: number;
+      fillEasing?: string | number;
       fillEasingExp?: number;
       settleHold?: number;
       slideUpDuration?: number;
