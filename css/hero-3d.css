@@ -1395,7 +1395,7 @@ body.nav-dropdown-active .nav-floating-cta,
   /* Height on desktop */
   --hero-tv-max-width: calc(100vw - (var(--hero-margin, 25px) * 2));
   --hero-tv-max-height: calc(100vh - (var(--hero-margin, 25px) * 2));
-  --hero-tv-top: 51%;
+  --hero-tv-top: 51.5%;
   /* Vertical position */
   --hero-tv-left: 50%;
   /* Horizontal position */

@@ -124,17 +124,19 @@ window.triggerViewportTextReveal = function () {
   const isAboutPage = !!document.querySelector('.about-main-wrap');
 
   if (isAboutPage) {
-    // 1. About Page: Simultaneous Terminal Matrix ASCII decode appear across statement headline
-    if (typeof window.triggerAboutAsciiAppear === 'function') {
-      window.triggerAboutAsciiAppear();
+    // 1. About Page: Future Three® Staggered Line Mask Reveal across bio paragraphs
+    const triggerFn = window.triggerAboutParagraphReveal || window.triggerAboutAsciiAppear;
+    if (typeof triggerFn === 'function') {
+      triggerFn();
     } else {
       let retries = 0;
-      const checkAboutAscii = setInterval(() => {
+      const checkAboutReveal = setInterval(() => {
         retries++;
-        if (typeof window.triggerAboutAsciiAppear === 'function' || retries > 12) {
-          clearInterval(checkAboutAscii);
-          if (typeof window.triggerAboutAsciiAppear === 'function') {
-            window.triggerAboutAsciiAppear();
+        const fn = window.triggerAboutParagraphReveal || window.triggerAboutAsciiAppear;
+        if (typeof fn === 'function' || retries > 12) {
+          clearInterval(checkAboutReveal);
+          if (typeof fn === 'function') {
+            fn();
           }
         }
       }, 25);

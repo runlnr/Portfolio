@@ -3,6 +3,28 @@
  * Live Seconds Clock, GSAP ScrollTriggers & Parallax Watermarks
  */
 
+/**
+ * ==========================================================================
+ * USER CONFIGURATION: Future Three® Scroll-Trigger Timing
+ * Easily adjust how deep elements must scroll into view before animating:
+ * ==========================================================================
+ */
+window.F3_SCROLL_CONFIG = Object.assign({
+  // Root margin bottom offset for intersection detection:
+  // '-15%' means element must travel ~15% into the viewport from the bottom before triggering
+  rootMargin: '0px 0px -15% 0px',
+
+  // Initial viewport check threshold on page load:
+  // 0.78 means element must already be within the top 78% of the viewport to animate immediately
+  initialTriggerRatio: 0.78,
+
+  // Intersection threshold (5% of element visible in the active margin area)
+  threshold: 0.05,
+
+  // Small delay (in ms) between intersection detection and line mask emergence
+  revealDelayMs: 60
+}, window.F3_SCROLL_CONFIG || {});
+
 (function () {
   'use strict';
 
@@ -20,6 +42,11 @@
       if (!targets.length) return;
       if (!('IntersectionObserver' in window)) return;
 
+      const cfg = window.F3_SCROLL_CONFIG || {};
+      const rootMargin = cfg.rootMargin || '0px 0px -15% 0px';
+      const threshold = typeof cfg.threshold === 'number' ? cfg.threshold : 0.05;
+      const initialRatio = typeof cfg.initialTriggerRatio === 'number' ? cfg.initialTriggerRatio : 0.78;
+
       targets.forEach(el => {
         el.classList.add('f3-scroll-reveal');
       });
@@ -29,6 +56,8 @@
           if (entry.isIntersecting) {
             entry.target.classList.add('is-revealed');
             obs.unobserve(entry.target);
+            const lineInners = entry.target.querySelectorAll('.f3-line-inner');
+            lineInners.forEach(inner => inner.classList.add('is-visible'));
             setTimeout(() => {
               if (entry.target && entry.target.style) {
                 entry.target.style.transitionDelay = '0s';
@@ -38,14 +67,16 @@
         });
       }, {
         root: null,
-        rootMargin: '0px 0px -40px 0px',
-        threshold: 0.08
+        rootMargin: rootMargin,
+        threshold: threshold
       });
 
       targets.forEach(el => {
         const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
+        if (rect.top < window.innerHeight * initialRatio && rect.bottom > 0) {
           el.classList.add('is-revealed');
+          const lineInners = el.querySelectorAll('.f3-line-inner');
+          lineInners.forEach(inner => inner.classList.add('is-visible'));
           setTimeout(() => {
             if (el && el.style) {
               el.style.transitionDelay = '0s';
@@ -59,20 +90,45 @@
 
     initScrollReveal();
 
-    // 2. Scroll-Driven Typewriter Text Reveal System
-    function initScrollTypewriter() {
+    // 2. Future Three® Staggered Line Mask Text Reveal System (Editorial Statements & Quotes)
+    function initScrollLineReveal() {
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (prefersReducedMotion) return;
 
-      const typeTargets = document.querySelectorAll(
-        '.f3-intro-statement, .f3-services-statement, .f3-contact-hook-title, .about-intro-statement, [data-typewriter]'
-      );
+      const candidateSelectors = [
+        '.f3-intro-statement',
+        '.f3-services-statement',
+        '.f3-contact-hook-title',
+        '.about-intro-statement',
+        '.about-manifesto-text',
+        '.f3-about-bio-text',
+        '.f3-about-quote',
+        '[data-split-inview]',
+        '[data-line-reveal]'
+      ].join(', ');
 
-      if (!typeTargets.length || !('IntersectionObserver' in window)) return;
+      const allCandidates = document.querySelectorAll(candidateSelectors);
+      const revealTargets = Array.from(allCandidates).filter(el => {
+        // Exclude mono text classes or mono ancestors
+        if (el.closest('.type-mono-a, .type-mono-b, .type-mono-c, .type-mono-d, [class*="type-mono"], [data-mono]')) return false;
+        if (el.matches('.type-mono-a, .type-mono-b, .type-mono-c, .type-mono-d, [class*="type-mono"], [data-mono]')) return false;
 
-      typeTargets.forEach(el => {
-        if (el.dataset.typewriterReady === 'true') return;
-        if (el.querySelector('input, textarea, select, button, svg, img, video, canvas')) return;
+        // Exclude footer, buttons, inputs, controls
+        if (el.closest('footer, .f3-footer, .f3-footer-location, .f3-signature-text, button, a, input, textarea, select')) return false;
+
+        // Exclude media, canvas, ASCII elements
+        if (el.matches('.hero-ascii, .f3-ascii-target, .f3-intro-status, .f3-intro-live-time, .f3-intro-city') || el.closest('.hero-ascii, .f3-ascii-target')) return false;
+
+        const text = el.textContent.trim();
+        if (!text || text.length === 0) return false;
+
+        return true;
+      });
+
+      if (!revealTargets.length || !('IntersectionObserver' in window)) return;
+
+      function splitIntoLines(el) {
+        if (el.dataset.lineRevealReady === 'true') return;
 
         const originalText = el.textContent.trim();
         if (!originalText) return;
@@ -80,112 +136,110 @@
           el.setAttribute('aria-label', originalText);
         }
 
-        const chars = [];
-        const container = document.createElement('span');
-        container.className = 'f3-typewriter-inner';
-        container.setAttribute('aria-hidden', 'true');
+        // Check if explicit <br> tags exist
+        const hasManualBr = el.querySelector('br') !== null;
+        let lines = [];
 
-        function processNode(node) {
-          if (node.nodeType === Node.TEXT_NODE) {
-            const text = node.textContent;
-            // Tokenize into words and whitespace runs
-            const tokens = text.match(/\S+|\s+/g) || [];
-            tokens.forEach(token => {
-              if (/^\s+$/.test(token)) {
-                const spaceSpan = document.createElement('span');
-                spaceSpan.className = 'f3-type-space';
-                spaceSpan.textContent = ' ';
-                container.appendChild(spaceSpan);
-              } else {
-                const wordSpan = document.createElement('span');
-                wordSpan.className = 'f3-type-word';
-                for (let i = 0; i < token.length; i++) {
-                  const ch = token[i];
-                  const charSpan = document.createElement('span');
-                  charSpan.className = 'f3-type-char is-hidden';
-                  charSpan.textContent = ch;
-                  wordSpan.appendChild(charSpan);
-                  chars.push(charSpan);
-                }
-                container.appendChild(wordSpan);
-              }
-            });
-          } else if (node.nodeType === Node.ELEMENT_NODE) {
-            if (node.tagName === 'BR') {
-              container.appendChild(document.createElement('br'));
-            } else {
-              const wrapper = document.createElement(node.tagName.toLowerCase());
-              Array.from(node.attributes).forEach(attr => {
-                wrapper.setAttribute(attr.name, attr.value);
-              });
-              Array.from(node.childNodes).forEach(child => processNode(child));
-              container.appendChild(wrapper);
-            }
+        if (hasManualBr) {
+          const parts = el.innerHTML
+            .replace(/\r\n/g, '\n')
+            .split(/<br\s*\/?>/i)
+            .map(p => p.replace(/<[^>]+>/g, '').trim())
+            .filter(p => p.length > 0);
+          if (parts.length > 1) {
+            lines = parts;
           }
         }
 
-        Array.from(el.childNodes).forEach(node => processNode(node));
+        if (!lines.length) {
+          // Temporarily wrap words to measure natural offsetTop wrapping
+          const words = originalText.split(/\s+/);
+          el.innerHTML = words
+            .map(w => `<span class="f3-temp-word" style="display:inline-block; margin-right:0.25em;">${w}</span>`)
+            .join('');
+
+          const wordSpans = Array.from(el.querySelectorAll('.f3-temp-word'));
+          let currentLine = [];
+          let currentTop = null;
+
+          wordSpans.forEach(span => {
+            const top = span.offsetTop;
+            if (currentTop === null || Math.abs(top - currentTop) > 6) {
+              if (currentLine.length) lines.push(currentLine.join(' '));
+              currentLine = [span.textContent];
+              currentTop = top;
+            } else {
+              currentLine.push(span.textContent);
+            }
+          });
+          if (currentLine.length) lines.push(currentLine.join(' '));
+        }
 
         el.innerHTML = '';
-        el.appendChild(container);
-        el.dataset.typewriterReady = 'true';
-        el._typewriterChars = chars;
-      });
+        lines.forEach((lineText, idx) => {
+          const mask = document.createElement('span');
+          mask.className = 'f3-line-mask';
+          mask.setAttribute('aria-hidden', 'true');
 
-      function playTypewriter(el) {
-        if (!el || el._typewriterPlayed) return;
-        el._typewriterPlayed = true;
+          const inner = document.createElement('span');
+          inner.className = 'f3-line-inner';
+          inner.style.setProperty('--line-idx', idx);
+          inner.textContent = lineText;
 
-        const chars = el._typewriterChars;
-        if (!chars || !chars.length) return;
+          mask.appendChild(inner);
+          el.appendChild(mask);
+        });
 
-        let index = 0;
-        const total = chars.length;
-        const charInterval = total > 50 ? Math.max(9.5, Math.floor(650 / total)) : 12;
-        let lastTime = performance.now();
-
-        function step(now) {
-          if (now - lastTime >= charInterval) {
-            const stepsToAdvance = Math.min(Math.floor((now - lastTime) / charInterval), 4);
-            for (let s = 0; s < stepsToAdvance && index < total; s++) {
-              chars[index].classList.remove('is-hidden');
-              chars[index].classList.add('is-visible');
-              index++;
-            }
-            lastTime = now;
-          }
-          if (index < total) {
-            requestAnimationFrame(step);
-          }
-        }
-        requestAnimationFrame(step);
+        el.dataset.lineRevealReady = 'true';
       }
 
-      const typeObserver = new IntersectionObserver((entries, obs) => {
+      revealTargets.forEach(splitIntoLines);
+
+      const cfg = window.F3_SCROLL_CONFIG || {};
+      const rootMargin = cfg.rootMargin || '0px 0px -15% 0px';
+      const threshold = typeof cfg.threshold === 'number' ? cfg.threshold : 0.05;
+      const initialRatio = typeof cfg.initialTriggerRatio === 'number' ? cfg.initialTriggerRatio : 0.78;
+      const revealDelay = typeof cfg.revealDelayMs === 'number' ? cfg.revealDelayMs : 60;
+
+      function playLineReveal(el) {
+        if (!el || el._lineRevealPlayed) return;
+        el._lineRevealPlayed = true;
+
+        setTimeout(() => {
+          requestAnimationFrame(() => {
+            const inners = el.querySelectorAll('.f3-line-inner');
+            inners.forEach(inner => {
+              inner.classList.add('is-visible');
+            });
+            el.classList.add('is-revealed');
+          });
+        }, revealDelay);
+      }
+
+      const revealObserver = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            playTypewriter(entry.target);
+            playLineReveal(entry.target);
             obs.unobserve(entry.target);
           }
         });
       }, {
         root: null,
-        rootMargin: '0px 0px -30px 0px',
-        threshold: 0.1
+        rootMargin: rootMargin,
+        threshold: threshold
       });
 
-      typeTargets.forEach(el => {
-        if (!el._typewriterChars || !el._typewriterChars.length) return;
+      revealTargets.forEach(el => {
         const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
-          playTypewriter(el);
+        if (rect.top < window.innerHeight * initialRatio && rect.bottom > 0) {
+          playLineReveal(el);
         } else {
-          typeObserver.observe(el);
+          revealObserver.observe(el);
         }
       });
     }
 
-    initScrollTypewriter();
+    initScrollLineReveal();
 
     // 3. Language Selector Button Toggle
     const langSelector = document.getElementById('hero-lang-selector');

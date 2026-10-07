@@ -1548,13 +1548,16 @@ html.is-navigating-in .project-action-row {
 }
 
 .about-portrait-wrap {
-  width: 320px;
-  max-width: 320px;
-  aspect-ratio: 3 / 4;
+  width: 410px;
+  max-width: 460px;
+  height: 492px;
+  aspect-ratio: 5 / 6;
   overflow: hidden;
   border-radius: 2px;
   background-color: #111111;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .about-portrait-img {
@@ -1568,12 +1571,28 @@ html.is-navigating-in .project-action-row {
 
 .about-split-row.about-bio-split,
 .about-bio-split {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--f3-works-grid-gap, 25px);
+  width: 100%;
+  align-items: start;
+  box-sizing: border-box;
   padding-top: 100px !important;
   padding-bottom: 200px !important;
+}
+
+.about-bio-portrait-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.about-bio-text-col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
 }
 
 .about-bio-label {
@@ -1600,7 +1619,7 @@ html.is-navigating-in .project-action-row {
   flex-direction: column;
   gap: 24px;
   flex: 1 1 auto;
-  max-width: 780px;
+  max-width: 690px;
 }
 
 .about-label-lockup {
@@ -1674,7 +1693,7 @@ html.is-navigating-in .project-action-row {
   flex-direction: column;
   gap: 70px;
   width: 100%;
-  max-width: 780px;
+  max-width: 690px;
 }
 
 .about-paragraphs p {
@@ -1850,6 +1869,18 @@ html.is-navigating-in .project-action-row {
     flex-direction: column;
     gap: 36px;
     padding: 48px 0;
+  }
+
+  .about-portrait-wrap {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 5 / 6;
+  }
+
+  .about-bio-text-col {
+    max-width: 100%;
+    margin-left: 0;
   }
 
   .about-disciplines-grid {
