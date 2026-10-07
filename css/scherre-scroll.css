@@ -2449,19 +2449,15 @@ body.f3-contact-modal-open {
   justify-content: center;
   padding: clamp(20px, 4vh, 40px) 20px;
   box-sizing: border-box;
-  opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transition: opacity 280ms cubic-bezier(0.16, 1, 0.3, 1),
-    visibility 280ms;
+  transition: visibility 0.26s ease;
 }
 
 .f3-contact-modal-scrim.is-open {
-  opacity: 1;
   pointer-events: auto;
   visibility: visible;
-  transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1),
-    visibility 350ms;
+  transition: visibility 0s linear;
 }
 
 .f3-contact-modal-backdrop {
@@ -2470,7 +2466,19 @@ body.f3-contact-modal-open {
   background: var(--f3-contact-modal-backdrop-bg, rgba(6, 6, 8, 0.82));
   backdrop-filter: blur(var(--f3-contact-modal-backdrop-blur, 26px)) saturate(var(--nav-glass-saturate, 140%));
   -webkit-backdrop-filter: blur(var(--f3-contact-modal-backdrop-blur, 26px)) saturate(var(--nav-glass-saturate, 140%));
+  opacity: 0;
   cursor: pointer;
+  isolation: isolate;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: opacity;
+  transition: opacity 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.f3-contact-modal-scrim.is-open .f3-contact-modal-backdrop {
+  opacity: 1;
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Floating Top-Right Close Button (Minimalist #faf9fc cross matching project modal) */
@@ -2490,27 +2498,29 @@ body.f3-contact-modal-open {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transform: scale(0.92);
-  transition: opacity 180ms ease 0ms, transform 180ms ease 0ms, color 0.2s ease;
+  transform: translate3d(0, 0, 0) scale(0.92);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: opacity 0.16s ease 0ms, transform 0.16s ease 0ms, color 0.2s ease;
   user-select: none;
   outline: none;
 }
 
 .f3-contact-modal-scrim.is-open .f3-contact-modal-close {
   opacity: 1;
-  transform: scale(1);
-  transition: opacity 320ms cubic-bezier(0.16, 1, 0.3, 1) 160ms,
-              transform 320ms cubic-bezier(0.16, 1, 0.3, 1) 160ms,
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1) 0.22s,
+              transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) 0.22s,
               color 0.2s ease;
 }
 
 .f3-contact-modal-close:hover {
   color: #ffffff;
-  transform: scale(1.15);
+  transform: translate3d(0, 0, 0) scale(1.15);
 }
 
 .f3-contact-modal-close:active {
-  transform: scale(0.95);
+  transform: translate3d(0, 0, 0) scale(0.95);
 }
 
 .f3-contact-modal-close:focus-visible {
@@ -2537,23 +2547,21 @@ body.f3-contact-modal-open {
   box-sizing: border-box;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
-  transform: scale(0.96) translateY(14px);
+  transform: translate3d(0, 14px, 0) scale(0.97);
   opacity: 0;
-  filter: blur(3px);
   transform-origin: center;
-  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1) 0ms,
-    opacity 180ms ease 0ms,
-    filter 180ms ease 0ms;
-  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1) 0ms,
+    opacity 0.18s ease 0ms;
 }
 
 .f3-contact-modal-scrim.is-open .f3-contact-modal-content-wrap {
-  transform: scale(1) translateY(0);
+  transform: translate3d(0, 0, 0) scale(1);
   opacity: 1;
-  filter: blur(0px);
-  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1) 160ms,
-    opacity 320ms cubic-bezier(0.16, 1, 0.3, 1) 160ms,
-    filter 320ms ease 160ms;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1) 0.22s,
+    opacity 0.34s cubic-bezier(0.16, 1, 0.3, 1) 0.22s;
 }
 
 .f3-contact-modal-dialog {

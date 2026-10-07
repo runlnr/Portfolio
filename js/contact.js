@@ -30,12 +30,14 @@
         window.lenis.stop();
       }
 
-      // Request next frame to trigger CSS transitions
+      // Request next animation frame to trigger GPU CSS transitions cleanly
       requestAnimationFrame(() => {
         modal.classList.add('is-open');
         const firstInput = document.getElementById('f3-form-name');
         if (firstInput) {
-          setTimeout(() => firstInput.focus(), 360);
+          setTimeout(() => {
+            if (isModalOpen) firstInput.focus();
+          }, 450);
         }
       });
     }
@@ -62,7 +64,7 @@
         if (!isModalOpen) {
           modal.setAttribute('hidden', '');
         }
-      }, 260);
+      }, 280);
     }
 
     window.openContactModal = openModal;
