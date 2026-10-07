@@ -157,29 +157,40 @@
     if (!window.matchMedia('(min-width: 1024px)').matches) return;
     initAboutContactTriggers();
 
+    function initSplitsAndHeight() {
+      prepareAboutParagraphLineSplits();
+      syncPortraitHeight();
+    }
+
     // Prepare line splits once layout / fonts are ready
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => {
-        prepareAboutParagraphLineSplits();
-        syncPortraitHeight();
+        initSplitsAndHeight();
       });
     } else {
-      prepareAboutParagraphLineSplits();
-      syncPortraitHeight();
+      initSplitsAndHeight();
     }
 
     window.addEventListener('resize', () => {
       syncPortraitHeight();
     }, { passive: true });
 
-    // If loaded directly without transition, trigger line reveal immediately
+    // If loaded directly without transition, trigger line reveal smoothly
     const isNavigatingIn = sessionStorage.getItem('np_is_navigating') === 'true';
     if (!isNavigatingIn) {
       setTimeout(() => {
-        syncPortraitHeight();
+        initSplitsAndHeight();
         triggerAboutParagraphReveal();
-      }, 100);
+      }, 150);
     }
+
+    // Safety fallback: ensure text is always animated and revealed even if transitions were interrupted
+    setTimeout(() => {
+      if (!hasRevealedAboutParagraphs) {
+        initSplitsAndHeight();
+        triggerAboutParagraphReveal();
+      }
+    }, 1200);
   });
 
 })();

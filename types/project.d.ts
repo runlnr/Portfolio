@@ -74,11 +74,10 @@ declare global {
     LOADER_CONFIG?: {
       fillDuration?: number;
       fillEasingExp?: number;
-      whiteHoldDuration?: number;
-      logoFadeDuration?: number;
-      blackHoldDuration?: number;
-      fadeDuration?: number;
+      settleHold?: number;
       slideUpDuration?: number;
+      overlayFadeDelay?: number;
+      overlayFadeDuration?: number;
     };
     TRANSITION_CONFIG?: {
       coverDuration?: number;

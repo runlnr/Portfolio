@@ -23,18 +23,17 @@ if (window.location.pathname.endsWith('/index.html') || window.location.pathname
 // 1. Loading Screen Fill & Reveal Speeds (in milliseconds)
 window.LOADER_CONFIG = {
   // Fill duration: Time (ms) for logo to fill from grey to solid white
-  fillDuration: 5000,
+  fillDuration: 1800,
   // Fill easing exponent: Fast in, slow out curve (1.5 = energetic initial surge, smooth deceleration)
   fillEasingExp: 1.5,
-  // Step 1: Hold fully white logo for 2 seconds (2000ms)
-  whiteHoldDuration: 2000,
-  // Step 2: Duration for logo itself to fade out (800ms)
-  logoFadeDuration: 800,
-  // Step 3: Wait on pure solid black screen for 1 second (1000ms)
-  blackHoldDuration: 1000,
-  // Step 4: Fade-out reveal: Duration (ms) for black loader overlay to fade into hero page
-  fadeDuration: 1100,
-  slideUpDuration: 1100
+  // Brief hold once 100% white is reached before exiting
+  settleHold: 300,
+  // Duration for the logo to slide up through its solid mask aperture and vanish
+  slideUpDuration: 620,
+  // Delay before the overlay background begins fading out (staggered with logo slide-up)
+  overlayFadeDelay: 250,
+  // Duration for black loader overlay to fade into hero page
+  overlayFadeDuration: 600
 };
 
 // 2. Page Transition Speed (Silk-Smooth Cross-Fade: 1100ms fade + 800ms black screen wait + 1100ms reveal)
@@ -178,29 +177,38 @@ window.triggerViewportTextReveal = function () {
 
 /**
  * Developer Helpers to inspect & calibrate loading screen logo:
+ * - previewLoader('play')   : Plays the full fill -> masked slide-up exit -> hero reveal sequence
  * - previewLoader('grey')   : Freezes loader in initial grey state
  * - previewLoader('half')   : Freezes loader 50% filled with white
  * - previewLoader('white')  : Freezes loader 100% filled with white
- * - previewLoader('fill')   : Plays the 3-second white fill animation live
+ * - previewLoader('exit')   : Triggers the masked slide-up exit immediately
  * - previewLoader('close')  : Hides loader and resumes normal view
  */
-window.previewLoader = function (state = 'white') {
+window.previewLoader = function (state = 'play') {
   const loader = document.getElementById('site-loader');
   const fillWrap = document.getElementById('loader-logo-fill-wrap');
+  const logoCenter = document.getElementById('loader-logo-center');
   if (!loader) return;
   if (state === 'close' || state === false) {
     loader.style.display = 'none';
     loader.style.pointerEvents = 'none';
+    loader.style.opacity = '';
     document.body.classList.remove('is-loading');
     document.documentElement.classList.remove('is-loading');
+    if (logoCenter) {
+      logoCenter.classList.remove('slide-up-exit', 'fade-out');
+    }
     unlockSiteScroll();
     return;
   }
+
   loader.style.display = 'block';
   loader.style.pointerEvents = 'all';
+  loader.style.opacity = '1';
   loader.classList.remove('slide-up', 'fade-out');
-  const logoCenter = document.getElementById('loader-logo-center');
-  if (logoCenter) logoCenter.classList.remove('fade-out');
+  if (logoCenter) {
+    logoCenter.classList.remove('slide-up-exit', 'fade-out');
+  }
   document.body.classList.add('is-loading');
   document.documentElement.classList.add('is-loading');
   lockSiteScroll();
@@ -209,18 +217,40 @@ window.previewLoader = function (state = 'white') {
     if (fillWrap) fillWrap.style.clipPath = 'inset(100% 0 0 0)';
   } else if (state === '50' || state === 'half') {
     if (fillWrap) fillWrap.style.clipPath = 'inset(50% 0 0 0)';
-  } else if (state === 'fill') {
+  } else if (state === 'exit') {
+    if (fillWrap) fillWrap.style.clipPath = 'inset(0% 0 0 0)';
+    if (logoCenter) logoCenter.classList.add('slide-up-exit');
+  } else if (state === 'play' || state === 'fill') {
     if (fillWrap) {
       fillWrap.style.clipPath = 'inset(100% 0 0 0)';
       let start = null;
-      const duration = (window.LOADER_CONFIG && window.LOADER_CONFIG.fillDuration) || 5000;
+      const duration = (window.LOADER_CONFIG && window.LOADER_CONFIG.fillDuration) || 1800;
       const exp = (window.LOADER_CONFIG && typeof window.LOADER_CONFIG.fillEasingExp === 'number') ? window.LOADER_CONFIG.fillEasingExp : 1.5;
       function step(now) {
         if (!start) start = now;
         const p = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - p, exp);
         fillWrap.style.clipPath = `inset(${(1 - eased) * 100}% 0 0 0)`;
-        if (p < 1) requestAnimationFrame(step);
+        if (p < 1) {
+          requestAnimationFrame(step);
+        } else {
+          fillWrap.style.clipPath = 'inset(0% 0 0 0)';
+          // Settle briefly then slide up through mask
+          setTimeout(() => {
+            if (logoCenter) logoCenter.classList.add('slide-up-exit');
+            setTimeout(() => {
+              loader.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+              loader.classList.add('fade-out');
+              setTimeout(() => {
+                loader.style.display = 'none';
+                loader.style.pointerEvents = 'none';
+                document.body.classList.remove('is-loading');
+                document.documentElement.classList.remove('is-loading');
+                unlockSiteScroll();
+              }, 600);
+            }, 250);
+          }, 300);
+        }
       }
       requestAnimationFrame(step);
     }
@@ -238,9 +268,10 @@ function initDesktopApp() {
   if (!window.matchMedia('(min-width: 1024px)').matches) return;
   appInitialized = true;
 
-  // 1. First-Time Access Check & Intro Loader (3-second logo fill, then slide up)
+  // 1. First-Time Access Check & Intro Loader (Logo fill, masked slide-up exit, hero reveal)
   const loader = document.getElementById('site-loader');
   const fillWrap = document.getElementById('loader-logo-fill-wrap');
+  const logoCenter = document.getElementById('loader-logo-center');
   const hasSeenIntro = sessionStorage.getItem('np_has_seen_intro');
 
   let loaderFinished = !!hasSeenIntro;
@@ -252,10 +283,12 @@ function initDesktopApp() {
     lockSiteScroll();
 
     const cfg = Object.assign({
-      fillDuration: 5000,
+      fillDuration: 1800,
       fillEasingExp: 1.5,
-      settlingHold: 0,
-      slideUpDuration: 1100
+      settleHold: 300,
+      slideUpDuration: 620,
+      overlayFadeDelay: 250,
+      overlayFadeDuration: 600
     }, window.LOADER_CONFIG || {});
 
     let startTime = null;
@@ -286,25 +319,16 @@ function initDesktopApp() {
     requestAnimationFrame(animateFill);
 
     function onFillComplete() {
-      const whiteHold = typeof cfg.whiteHoldDuration === 'number' ? cfg.whiteHoldDuration : 2000;
-      const logoFade = typeof cfg.logoFadeDuration === 'number' ? cfg.logoFadeDuration : 800;
-      const blackHold = typeof cfg.blackHoldDuration === 'number' ? cfg.blackHoldDuration : 1000;
-      const fadeDuration = typeof cfg.fadeDuration === 'number' ? cfg.fadeDuration : (typeof cfg.slideUpDuration === 'number' ? cfg.slideUpDuration : 1100);
-
-      const logoCenter = document.getElementById('loader-logo-center');
-
-      // 1. Keep the fully white logo there for 2 seconds (2000ms)
+      // 1. Brief pause after 100% white is reached
       setTimeout(() => {
-        // 2. Fade out the logo
+        // 2. Slide the logo UP through its solid mask aperture
         if (logoCenter) {
-          logoCenter.style.transition = `opacity ${logoFade}ms cubic-bezier(0.16, 1, 0.3, 1)`;
-          logoCenter.classList.add('fade-out');
+          logoCenter.classList.add('slide-up-exit');
         }
 
-        // 3. Wait for logo fade duration + 1 second on solid black screen
+        // 3. Stagger the background fade-out to begin as the logo slides out
         setTimeout(() => {
-          // 4. Fade into the hero page
-          loader.style.transition = `opacity ${fadeDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
+          loader.style.transition = `opacity ${cfg.overlayFadeDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
           loader.classList.add('slide-up', 'fade-out');
           document.body.classList.remove('is-loading');
           document.documentElement.classList.remove('is-loading');
@@ -332,9 +356,9 @@ function initDesktopApp() {
             loader.style.display = 'none';
             loader.style.pointerEvents = 'none';
             unlockSiteScroll();
-          }, fadeDuration);
-        }, logoFade + blackHold);
-      }, whiteHold);
+          }, cfg.overlayFadeDuration);
+        }, cfg.overlayFadeDelay);
+      }, cfg.settleHold);
     }
   } else {
     if (loader) {
