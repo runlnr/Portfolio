@@ -1,0 +1,92 @@
+/* ==========================================================================
+   ARCHIVE TAB STYLES (Pure 4-Column Minimal Grid)
+   Zero text / Zero buttons / 25px horizontal & vertical margins
+   Recent works grayscale hover transition
+   ========================================================================== */
+
+.archive-page-body {
+  background-color: #080808;
+  color: #faf9fc;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.archive-main-curtain {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: clamp(120px, 14vh, 160px);
+  padding-bottom: 0px;
+  z-index: 2;
+  background-color: #080808;
+}
+
+.archive-container {
+  width: 100%;
+  max-width: var(--f3-max-width, 100%);
+  margin: 0 auto;
+  padding: 0 var(--f3-gutter-x, 25px);
+  box-sizing: border-box;
+}
+
+/* 4 Invisible Columns Matrix (25px Row Gap & 25px Col Gap) */
+.archive-matrix {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  width: 100%;
+  margin-bottom: 120px;
+}
+
+/* Grid Slot (Invisible 1/4 Column Container) */
+.archive-slot {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Filled Image Slot */
+.archive-grid-item {
+  position: relative;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  background: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.archive-grid-item-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  filter: grayscale(0%) contrast(100%) brightness(100%);
+  opacity: 1 !important;
+  transform: none !important;
+  transition: filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: filter;
+}
+
+/* Recent Works Hover Animation:
+   When hovering over one image, all other images turn into black and white with 120% contrast and 50% brightness */
+@media (hover: hover) and (pointer: fine) {
+  .archive-matrix:has(.archive-grid-item:hover) .archive-grid-item:not(:hover) .archive-grid-item-img {
+    filter: grayscale(100%) contrast(120%) brightness(50%);
+    opacity: 1 !important;
+  }
+
+  .archive-grid-item:hover .archive-grid-item-img {
+    filter: grayscale(0%) contrast(100%) brightness(100%) !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Reduced Motion Guard */
+@media (prefers-reduced-motion: reduce) {
+  .archive-grid-item-img {
+    transition: none !important;
+  }
+}

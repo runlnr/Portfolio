@@ -2898,7 +2898,8 @@ body.f3-contact-modal-open {
 .about-main-curtain,
 .about-main-wrap,
 .privacy-main-curtain,
-.privacy-main-wrap {
+.privacy-main-wrap,
+.archive-main-curtain {
   position: relative;
   z-index: 2;
   background: #030303;

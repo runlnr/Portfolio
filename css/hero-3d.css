@@ -747,8 +747,7 @@ body.nav-dropdown-active {
 }
 
 .nav-dropdown-row-link[aria-disabled="true"],
-.nav-dropdown-row-link[data-cursor],
-#nav-archive-link {
+.nav-dropdown-row-link[data-cursor] {
   cursor: not-allowed;
 }
 

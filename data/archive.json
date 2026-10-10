@@ -1,0 +1,37 @@
+[
+  {
+    "id": "messi",
+    "image": "assets/archives/Messi.webp",
+    "alt": "Lionel Messi Poster Specimen",
+    "width": 1620,
+    "height": 2025
+  },
+  {
+    "id": "museum",
+    "image": "assets/archives/Museum 1 (RT).webp",
+    "alt": "Museum Exploration Specimen",
+    "width": 1620,
+    "height": 2025
+  },
+  {
+    "id": "post",
+    "image": "assets/archives/POST.webp",
+    "alt": "POST Graphic Specimen",
+    "width": 1620,
+    "height": 2025
+  },
+  {
+    "id": "milk",
+    "image": "assets/archives/milk.webp",
+    "alt": "Milk Packaging Exploration Specimen",
+    "width": 2025,
+    "height": 2531
+  },
+  {
+    "id": "ptnk",
+    "image": "assets/archives/PTNK.webp",
+    "alt": "PTNK Heritage Specimen",
+    "width": 1620,
+    "height": 2025
+  }
+]

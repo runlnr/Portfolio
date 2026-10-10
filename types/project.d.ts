@@ -68,9 +68,27 @@ export interface Project {
   date?: string;
 }
 
+export interface ArchiveItem {
+  id: string;
+  number: string;
+  title: string;
+  medium: string;
+  year: string;
+  category: string;
+  field: string;
+  aspectRatio: string;
+  dimensions: string;
+  image: string;
+  originalImage?: string;
+  tags: string[];
+  description: string;
+  credits: ProjectCredit[];
+}
+
 declare global {
   interface Window {
     SWAG_PROJECTS: Project[];
+    SWAG_ARCHIVE: ArchiveItem[];
     LOADER_CONFIG?: {
       fillDuration?: number;
       fillEasing?: string | number;
@@ -93,6 +111,7 @@ declare global {
     previewLoader?: (state?: string | boolean) => void;
     freezeIntroLoader?: (state?: string | boolean) => void;
     initWorksPage?: () => void;
+    initArchivePage?: () => void;
     initProjectPage?: () => void;
     initScherreScroll?: () => void;
     initFutureThreeScroll?: () => void;
@@ -100,6 +119,8 @@ declare global {
     closeContactModal?: () => void;
     openProjectModal?: (id: string) => void;
     closeProjectModal?: () => void;
+    openArchiveLightbox?: (id: string) => void;
+    closeArchiveLightbox?: () => void;
     cn?: (...inputs: any[]) => string;
     cva?: (base?: string, config?: any) => (props?: any) => string;
     initIcons?: () => void;
