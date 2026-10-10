@@ -136,6 +136,19 @@
     const customBudgetWrap = document.getElementById('f3-custom-budget-wrap');
     const customBudgetInput = document.getElementById('f3-custom-budget');
 
+    // Spam honeypot: invisible to people and assistive tech, often auto-filled by bots.
+    let honeypotInput = form.querySelector('input[name="website"]');
+    if (!honeypotInput) {
+      honeypotInput = document.createElement('input');
+      honeypotInput.type = 'text';
+      honeypotInput.name = 'website';
+      honeypotInput.tabIndex = -1;
+      honeypotInput.autocomplete = 'off';
+      honeypotInput.setAttribute('aria-hidden', 'true');
+      honeypotInput.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;';
+      form.appendChild(honeypotInput);
+    }
+
     // 2. Interactive Monospace Pill Selector Handling
     const pillGroups = form.querySelectorAll('.f3-pill-group');
     pillGroups.forEach(group => {
@@ -288,7 +301,7 @@
         const response = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, service, budget, message })
+          body: JSON.stringify({ name, email, service, budget, message, website: honeypotInput.value })
         });
 
         const result = await response.json().catch(() => ({}));

@@ -1,6 +1,6 @@
 # 004 — Easing token cleanup: bare `ease` on hover states
 
-- **Status**: TODO
+- **Status**: DONE
 - **Commit**: fc0984d
 - **Severity**: MEDIUM
 - **Category**: Easing & duration

@@ -16,6 +16,7 @@ Maintain visual excellence and structural consistency across the Nam Pham portfo
 - **Styling (`css/`)**:
   - `css/typography.css`: Root design tokens (`:root`), font faces (`Inter Display`), and typography settings.
   - `css/hero-3d.css`: Header navigation grid layout, difference blend mode, and viewport styles.
+  - `css/scherre-scroll.css`: Editorial home sections (intro, portfolio grid/list, services, billboard, outro, contact modal).
   - `css/components.css`: Buttons, pill selectors, footers, forms, and cards.
   - `css/pages.css`: Specific layouts for About, Works, Contact, and Project pages.
   - `css/archive.css`: Media grid, filter pill controls, card frames, and high-performance lightbox modal.
@@ -27,7 +28,9 @@ Maintain visual excellence and structural consistency across the Nam Pham portfo
   - `js/app.js`: Global initialization, real-time live clock (UTC+7).
   - `js/archive.js`: Category filter pills, media grid rendering, and interactive lightbox controller.
   - `js/works.js`: Grid/List view switcher, dynamic card rendering, hover previews.
-  - `js/contact.js`: Pill toggle logic and form submission handler.
+  - `js/contact.js`: Pill toggle logic and form submission handler (POSTs JSON to `/api/contact`; includes a hidden `website` honeypot field).
+  - `js/motion-stack.js` & `js/scherre-scroll.js`: GSAP/Lenis scroll reveals and editorial home animations (all guarded by `prefers-reduced-motion`).
+  - `functions/api/contact.js`: Cloudflare Pages Function that validates input (honeypot, field length caps, same-origin check) and sends mail via Resend. Requires env `RESEND_API_KEY`; optional `CONTACT_RECEIVER_EMAIL`, `CONTACT_FROM_EMAIL`. Falls back to `onboarding@resend.dev` if the sender domain is unverified.
   - `js/project.js`: URL parameter parser and case study renderer.
 
 ## Typography Tokens Standard (`css/typography.css`)

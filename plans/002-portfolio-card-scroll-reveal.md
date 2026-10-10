@@ -1,6 +1,6 @@
 # 002 — Portfolio card scroll-entry stagger reveal
 
-- **Status**: TODO
+- **Status**: SKIPPED — superseded: the `.f3-project-card-*` / `.f3-portfolio-right-stack` markup was replaced by the grid/list portfolio (`js/works.js`), so these targets no longer exist
 - **Commit**: fc0984d
 - **Severity**: HIGH
 - **Category**: Missed opportunity

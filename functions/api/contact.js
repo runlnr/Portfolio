@@ -6,16 +6,33 @@
 export async function onRequestPost(context) {
   const { request, env } = context;
 
+  // Same-origin only: the site posts from its own domain, so no wildcard CORS is needed.
+  const origin = request.headers.get('Origin');
+  const requestOrigin = new URL(request.url).origin;
+  const isLocalDev = origin && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
   const corsHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Vary': 'Origin'
   };
+
+  if (origin && origin !== requestOrigin && !isLocalDev) {
+    return new Response(
+      JSON.stringify({ error: 'Forbidden origin.' }),
+      { status: 403, headers: corsHeaders }
+    );
+  }
 
   try {
     const data = await request.json();
-    const { name, email, service, budget, message } = data || {};
+    const { name, email, service, budget, message, website } = data || {};
+
+    // Honeypot: real visitors never fill this hidden field. Pretend success so bots get no signal.
+    if (website) {
+      return new Response(
+        JSON.stringify({ success: true }),
+        { status: 200, headers: corsHeaders }
+      );
+    }
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -23,6 +40,18 @@ export async function onRequestPost(context) {
         JSON.stringify({ error: 'Missing required fields (name, email, message).' }),
         { status: 400, headers: corsHeaders }
       );
+    }
+
+    // Length caps keep abusive payloads out of the mail provider
+    const limits = { name: 100, email: 254, service: 100, budget: 100, message: 5000 };
+    for (const [field, max] of Object.entries(limits)) {
+      const value = data[field];
+      if (value !== undefined && value !== null && String(value).length > max) {
+        return new Response(
+          JSON.stringify({ error: `${field.charAt(0).toUpperCase()}${field.slice(1)} is too long.` }),
+          { status: 400, headers: corsHeaders }
+        );
+      }
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -149,14 +178,8 @@ export async function onRequestPost(context) {
 }
 
 export async function onRequestOptions() {
-  return new Response(null, {
-    status: 204,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type'
-    }
-  });
+  // Same-origin requests never preflight; refuse cross-origin preflights.
+  return new Response(null, { status: 204 });
 }
 
 function escapeHtml(text) {

@@ -1,6 +1,6 @@
 # 001 — Replace `transition: all` with explicit properties
 
-- **Status**: TODO
+- **Status**: DONE
 - **Commit**: fc0984d
 - **Severity**: HIGH
 - **Category**: Performance

@@ -1,6 +1,6 @@
 # 003 — Flagship card hover hierarchy: overlay reveal
 
-- **Status**: TODO
+- **Status**: SKIPPED — superseded: the flagship `.f3-img-wrap-01` card no longer exists in the redesigned portfolio
 - **Commit**: fc0984d
 - **Severity**: HIGH
 - **Category**: Physicality & origin

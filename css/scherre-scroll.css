@@ -1478,7 +1478,7 @@ a .f3-mono-shuffle-letter,
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast);
 }
 
 .f3-project-card-link:hover .f3-card-title {

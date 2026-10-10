@@ -927,15 +927,38 @@ function initDesktopApp() {
     }
 
     // Check external vs internal domain
+    const curNavPath = window.location.pathname;
+    const isHomePage = curNavPath === '/' || curNavPath.endsWith('/') || curNavPath.endsWith('/index.html') || curNavPath.endsWith('index.html');
+
+    // Check external vs internal domain and ignore same-page clicks
     try {
       const targetUrl = new URL(href, window.location.href);
       if (targetUrl.origin !== window.location.origin) return;
+
+      const curClean = curNavPath.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+      const targetClean = targetUrl.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+      if (curClean === targetClean && !targetUrl.hash) {
+        e.preventDefault();
+        if (typeof closeNavDropdown === 'function') {
+          closeNavDropdown();
+        }
+        return;
+      }
     } catch (err) {
       // Relative path is internal
     }
 
-    const curNavPath = window.location.pathname;
-    const isHomePage = curNavPath === '/' || curNavPath.endsWith('/') || curNavPath.endsWith('/index.html') || curNavPath.endsWith('index.html');
+    // Direct click on Archive link while already on Archive page
+    const isArchiveClick = link.id === 'nav-archive-link' ||
+      href === 'archive.html' || href === '/archive.html' || href === '/archive';
+    const isArchivePage = curNavPath.includes('archive') || document.body.classList.contains('archive-page-body');
+    if (isArchiveClick && isArchivePage) {
+      e.preventDefault();
+      if (typeof closeNavDropdown === 'function') {
+        closeNavDropdown();
+      }
+      return;
+    }
 
     // Direct click on N/P brand logo / Home link
     const isBrandHomeClick = link.classList.contains('hero-nav-brand') ||
@@ -1316,6 +1339,7 @@ function initDesktopApp() {
       lenis.start();
     }
   }
+  window.closeNavDropdown = closeNavDropdown;
 
   function openNavDropdown() {
     const menu = document.getElementById('nav-dropdown-menu');

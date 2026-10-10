@@ -48,7 +48,7 @@ LIST 1: "SIMILAR" ELEMENTS (1 Single Property Diverging)
 
 [02] HOMEPAGE FEATURED SECTION TAG
      • Selector         : span.f3-featured-tag
-     • Source File      : css/futurethree-scroll.css (Line 478)
+     • Source File      : css/scherre-scroll.css (Line 478)
      • Sample Text      : "Recent works"
      • Current Styles   : AT Aero | 25px | Line: 27.5px | Spacing: -1.2px | Weight: 400
      • Closest Preset   : AT Aero Type C (20px / 27.5px / -1.2px / 400)
@@ -57,7 +57,7 @@ LIST 1: "SIMILAR" ELEMENTS (1 Single Property Diverging)
 
 [03] WORK CARD TITLE HOVER ARROWS
      • Selector         : span.f3-title-arrow
-     • Source File      : css/futurethree-scroll.css (Line 1225)
+     • Source File      : css/scherre-scroll.css (Line 1225)
      • Sample Text      : "↗"
      • Current Styles   : AT Aero Retina | 11.89px | Line: 20px | Spacing: -0.3px | Weight: 350
      • Closest Preset   : AT Aero Type E (14.5px / 20px / -0.3px / 350)
@@ -66,7 +66,7 @@ LIST 1: "SIMILAR" ELEMENTS (1 Single Property Diverging)
 
 [04] 3D WORK TITLE FLIP CONTAINER & FACES
      • Selector         : span.f3-title-flip, span.f3-title-face
-     • Source File      : css/futurethree-scroll.css (Line 1169)
+     • Source File      : css/scherre-scroll.css (Line 1169)
      • Sample Text      : "Memphis Grizzlies", "U.S. Ski & Snowboard", etc.
      • Current Styles   : AT Aero | 20px | Line: 23.6px | Spacing: -1.2px | Weight: 400
      • Closest Preset   : AT Aero Type C (20px / 27.5px / -1.2px / 400)
@@ -75,7 +75,7 @@ LIST 1: "SIMILAR" ELEMENTS (1 Single Property Diverging)
 
 [05] HERO PILL BUTTON & ARROW ("Start a project")
      • Selector         : span.f3-pill-label, span.f3-pill-arrow
-     • Source File      : css/futurethree-scroll.css (Line 2458)
+     • Source File      : css/scherre-scroll.css (Line 2458)
      • Sample Text      : "Start a project", "↗"
      • Current Styles   : AT Aero | 16px | Line: 16px | Spacing: -0.3px | Weight: 400
      • Closest Preset   : AT Aero Type F (16px / 22px / -0.3px / 400)
@@ -84,7 +84,7 @@ LIST 1: "SIMILAR" ELEMENTS (1 Single Property Diverging)
 
 [06] FOOTER SOCIAL INACTIVE BADGES
      • Selector         : span.f3-footer-badge
-     • Source File      : css/futurethree-scroll.css (Line 3107)
+     • Source File      : css/scherre-scroll.css (Line 3107)
      • Sample Text      : "(coming soon)"
      • Current Styles   : AT Aero Retina | 14.5px | Line: 35px | Spacing: -0.3px | Weight: 350
      • Closest Preset   : AT Aero Type E (14.5px / 20px / -0.3px / 350)
@@ -120,7 +120,7 @@ LIST 1: "SIMILAR" ELEMENTS (1 Single Property Diverging)
 
 [10] MONOSPACE LIGHT BUTTON ARROWS & ONGOING BADGES
      • Selector         : span.btn-arrow, span.nav-ongoing-badge
-     • Source File      : css/futurethree-scroll.css (Line 780), css/hero-3d.css (Line 915)
+     • Source File      : css/scherre-scroll.css (Line 780), css/hero-3d.css (Line 915)
      • Sample Text      : "01", "↗"
      • Current Styles   : PP Supply Mono | 11px | Line: 13px | Spacing: 0.5px | Weight: 300 (Light)
      • Closest Preset   : PP Supply Mono Type A (11px / 13px / 0.5px / 400 Regular)
@@ -129,7 +129,7 @@ LIST 1: "SIMILAR" ELEMENTS (1 Single Property Diverging)
 
 [11] FOOTER STUDIO CLOCK DIGITS
      • Selector         : span#f3-clock-studio.f3-clock-val
-     • Source File      : css/futurethree-scroll.css (Line 2620)
+     • Source File      : css/scherre-scroll.css (Line 2620)
      • Sample Text      : "18:20:34"
      • Current Styles   : PP Supply Mono | 11px | Line: 13px | Spacing: 0.5px | Weight: 500 (Medium)
      • Closest Preset   : PP Supply Mono Type A (11px / 13px / 0.5px / 400 Regular)
@@ -151,7 +151,7 @@ LIST 2: "DIFFERENT" ELEMENTS (Completely Standalone / Multiple Diffs)
 
 [02] CONTACT FORM SUBMIT BUTTON LABEL
      • Selector         : span.f3-btn-label
-     • Source File      : css/futurethree-scroll.css (Line 2851)
+     • Source File      : css/scherre-scroll.css (Line 2851)
      • Sample Text      : "Send message ↗"
      • Current Styles   : AT Aero | 13.5px | Line: 13.5px | Spacing: -0.835px | Weight: 400
      • Why Different    : Custom scaled button font (13.5px size, 13.5px line-height,
@@ -175,7 +175,7 @@ LIST 2: "DIFFERENT" ELEMENTS (Completely Standalone / Multiple Diffs)
 
 [05] LIST VIEW PROJECT TAG BULLET SEPARATOR
      • Selector         : span.f3-list-tag-dot
-     • Source File      : css/futurethree-scroll.css (Line 755)
+     • Source File      : css/scherre-scroll.css (Line 755)
      • Sample Text      : "•"
      • Current Styles   : PP Supply Mono | 8px | Line: 13px | Weight: 500 (Medium)
      • Why Different    : Micro-scaled 8px bullet delimiter with 500 weight between category tags.

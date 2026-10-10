@@ -1,6 +1,6 @@
 # 007 — Add `prefers-reduced-motion` guard to JS animations
 
-- **Status**: TODO
+- **Status**: DONE
 - **Commit**: fc0984d
 - **Severity**: MEDIUM
 - **Category**: Accessibility
