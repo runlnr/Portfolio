@@ -8,6 +8,10 @@
   let currentAnimId = null;
   let currentVideo = null;
   let currentResizeHandler = null;
+  let currentPointerCanvas = null;
+  let currentPointerMoveHandler = null;
+  let currentPointerEnterHandler = null;
+  let currentPointerLeaveHandler = null;
 
   function createShader(gl, type, source) {
     const shader = gl.createShader(type);
@@ -191,6 +195,8 @@
       uniform float u_time;
       uniform float u_edge_softness;
       uniform float u_theme_mode;
+      uniform sampler2D u_trail;
+      uniform vec2 u_grid_size;
 
       vec2 coverUV(vec2 uv, vec2 src, vec2 dst, float vScale, vec2 vOffset) {
         float srcAspect = src.x / src.y;
@@ -254,6 +260,17 @@
 
         // ASCII glyph selection
         float glyphIndex = floor((1.0 - luma) * (u_glyph_count - 1.0) + 0.5);
+
+        // Interactive hover trail letter shuffle (compact brush + 2-second persistence at 35ms cadence)
+        vec2 trailUV = (cellCoord + 0.5) / u_grid_size;
+        float trailActive = texture2D(u_trail, trailUV).a;
+        if (trailActive > 0.05) {
+          float tick = floor(u_time * 28.57);
+          float rand = fract(sin(dot(cellCoord, vec2(12.9898, 78.233)) + tick * 17.13) * 43758.5453);
+          float visibleGlyphs = max(u_glyph_count - 2.0, 1.0);
+          glyphIndex = clamp(floor(rand * visibleGlyphs), 0.0, visibleGlyphs - 1.0);
+        }
+
         vec2 local = (mod(frag, u_cell) - (u_cell * 0.5)) / (u_cell * 0.5 * max(u_dot_scale, 0.1));
         vec2 glyphLocal = clamp(local * 0.5 + 0.5, 0.0, 1.0);
         vec2 glyphUV = vec2((glyphIndex + glyphLocal.x) / u_glyph_count, glyphLocal.y);
@@ -316,6 +333,8 @@
     const uTime = gl.getUniformLocation(program, 'u_time');
     const uEdgeSoftness = gl.getUniformLocation(program, 'u_edge_softness');
     const uThemeMode = gl.getUniformLocation(program, 'u_theme_mode');
+    const uTrail = gl.getUniformLocation(program, 'u_trail');
+    const uGridSize = gl.getUniformLocation(program, 'u_grid_size');
 
     const videoTexture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, videoTexture);
@@ -333,6 +352,27 @@
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, glyphAtlas);
 
+    // Interactive hover trail state
+    let gridCols = 1;
+    let gridRows = 1;
+    let totalCells = 1;
+    let lastTouchedTime = new Float64Array(1);
+    let trailBytes = new Uint8Array(1);
+    let hasActiveTrail = false;
+    let hadActiveTrailLastFrame = false;
+    let isPointerInside = false;
+    let currentPointerPos = null;
+
+    const trailTexture = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, trailTexture);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+    gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.ALPHA, 1, 1, 0, gl.ALPHA, gl.UNSIGNED_BYTE, trailBytes);
+
     // Track last canvas size — only resize when it actually changes
     let lastW = 0, lastH = 0;
 
@@ -347,6 +387,19 @@
       canvas.height = h;
       gl.viewport(0, 0, w, h);
       gl.uniform2f(uResolution, w, h);
+
+      const cellUniform = params.cellSize * dpr;
+      gridCols = Math.max(1, Math.ceil(w / cellUniform));
+      gridRows = Math.max(1, Math.ceil(h / cellUniform));
+      totalCells = gridCols * gridRows;
+      lastTouchedTime = new Float64Array(totalCells);
+      trailBytes = new Uint8Array(totalCells);
+
+      gl.bindTexture(gl.TEXTURE_2D, trailTexture);
+      gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.ALPHA, gridCols, gridRows, 0, gl.ALPHA, gl.UNSIGNED_BYTE, trailBytes);
+      gl.uniform2f(uGridSize, gridCols, gridRows);
     }
 
     // Cache stable uniforms outside the render loop.
@@ -368,6 +421,7 @@
       gl.uniform1f(uGlyphCount,     glyphChars.length);
       gl.uniform1f(uEdgeSoftness,   params.edgeSoftness !== undefined ? params.edgeSoftness : 0.05);
       gl.uniform1f(uThemeMode, 0.0);
+      gl.uniform2f(uGridSize, gridCols, gridRows);
     }
     uploadStableUniforms();
 
@@ -388,6 +442,78 @@
     const cellUniform = params.cellSize * dpr;
     gl.uniform1f(uCell, cellUniform);
 
+    function touchCellsAt(cssX, cssY, now) {
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) return;
+
+      const curDpr = Math.min(window.devicePixelRatio || 1, 2);
+      const curCell = params.cellSize * curDpr;
+
+      const mouseFragX = cssX * (canvas.width / rect.width);
+      const mouseFragY = (rect.height - cssY) * (canvas.height / rect.height);
+
+      // Pinpoint 10px radius in CSS coordinates (single character cell under cursor)
+      const radiusFrag = 10.0 * (canvas.width / rect.width);
+      const radiusSq = radiusFrag * radiusFrag;
+
+      const centerCellX = Math.floor(mouseFragX / curCell);
+      const centerCellY = Math.floor(mouseFragY / curCell);
+      const rCells = Math.ceil(radiusFrag / curCell) + 1;
+
+      const minX = Math.max(0, centerCellX - rCells);
+      const maxX = Math.min(gridCols - 1, centerCellX + rCells);
+      const minY = Math.max(0, centerCellY - rCells);
+      const maxY = Math.min(gridRows - 1, centerCellY + rCells);
+
+      for (let y = minY; y <= maxY; y++) {
+        const cy = (y + 0.5) * curCell;
+        const dy = cy - mouseFragY;
+        const dy2 = dy * dy;
+        const rowOffset = y * gridCols;
+        for (let x = minX; x <= maxX; x++) {
+          const cx = (x + 0.5) * curCell;
+          const dx = cx - mouseFragX;
+          if (dx * dx + dy2 <= radiusSq) {
+            lastTouchedTime[rowOffset + x] = now;
+          }
+        }
+      }
+    }
+
+    const onPointerMove = (e) => {
+      isPointerInside = true;
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) return;
+      const cssX = e.clientX - rect.left;
+      const cssY = e.clientY - rect.top;
+      currentPointerPos = { cssX, cssY };
+      touchCellsAt(cssX, cssY, performance.now());
+    };
+
+    const onPointerEnter = (e) => {
+      isPointerInside = true;
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) return;
+      const cssX = e.clientX - rect.left;
+      const cssY = e.clientY - rect.top;
+      currentPointerPos = { cssX, cssY };
+      touchCellsAt(cssX, cssY, performance.now());
+    };
+
+    const onPointerLeave = () => {
+      isPointerInside = false;
+      currentPointerPos = null;
+    };
+
+    canvas.addEventListener('pointermove', onPointerMove, { passive: true });
+    canvas.addEventListener('pointerenter', onPointerEnter, { passive: true });
+    canvas.addEventListener('pointerleave', onPointerLeave, { passive: true });
+
+    currentPointerCanvas = canvas;
+    currentPointerMoveHandler = onPointerMove;
+    currentPointerEnterHandler = onPointerEnter;
+    currentPointerLeaveHandler = onPointerLeave;
+
     function render() {
       // Pause heavy WebGL rendering when occluded by dropdown menu or tab is hidden
       if (document.hidden || document.body.classList.contains('nav-dropdown-active')) {
@@ -398,6 +524,38 @@
       resize(); // no-op unless canvas dimensions changed
 
       gl.uniform1f(uThemeMode, 0.0);
+
+      const now = performance.now();
+      if (isPointerInside && currentPointerPos) {
+        touchCellsAt(currentPointerPos.cssX, currentPointerPos.cssY, now);
+      }
+
+      const DURATION = 2000; // 2 seconds
+      hasActiveTrail = false;
+      for (let i = 0; i < totalCells; i++) {
+        const t = lastTouchedTime[i];
+        if (t > 0) {
+          const elapsed = now - t;
+          if (elapsed < DURATION) {
+            trailBytes[i] = 255;
+            hasActiveTrail = true;
+          } else {
+            lastTouchedTime[i] = 0;
+            trailBytes[i] = 0;
+          }
+        } else if (trailBytes[i] !== 0) {
+          trailBytes[i] = 0;
+        }
+      }
+
+      if (hasActiveTrail || hadActiveTrailLastFrame) {
+        gl.activeTexture(gl.TEXTURE2);
+        gl.bindTexture(gl.TEXTURE_2D, trailTexture);
+        gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
+        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+        gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gridCols, gridRows, gl.ALPHA, gl.UNSIGNED_BYTE, trailBytes);
+      }
+      hadActiveTrailLastFrame = hasActiveTrail;
 
       if (video.readyState >= 2) {
         // Upload video texture
@@ -410,6 +568,10 @@
         gl.activeTexture(gl.TEXTURE1);
         gl.bindTexture(gl.TEXTURE_2D, glyphTexture);
         gl.uniform1i(uGlyph, 1);
+
+        gl.activeTexture(gl.TEXTURE2);
+        gl.bindTexture(gl.TEXTURE_2D, trailTexture);
+        gl.uniform1i(uTrail, 2);
 
         gl.uniform2f(uVideoResolution, video.videoWidth || canvas.width, video.videoHeight || canvas.height);
 
@@ -479,6 +641,15 @@
     if (currentResizeHandler) {
       window.removeEventListener('resize', currentResizeHandler);
       currentResizeHandler = null;
+    }
+    if (currentPointerCanvas) {
+      if (currentPointerMoveHandler) currentPointerCanvas.removeEventListener('pointermove', currentPointerMoveHandler);
+      if (currentPointerEnterHandler) currentPointerCanvas.removeEventListener('pointerenter', currentPointerEnterHandler);
+      if (currentPointerLeaveHandler) currentPointerCanvas.removeEventListener('pointerleave', currentPointerLeaveHandler);
+      currentPointerCanvas = null;
+      currentPointerMoveHandler = null;
+      currentPointerEnterHandler = null;
+      currentPointerLeaveHandler = null;
     }
   }
 
