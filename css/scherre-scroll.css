@@ -636,6 +636,12 @@ a .f3-mono-shuffle-letter,
   width: 100%;
   gap: 100px; /* 100px separation between project rows */
   box-sizing: border-box;
+  --gallery-subbar-margin: 34px; /* Reduced by 30px (64px - 30px) */
+  --gallery-subbar-height: 22px;
+  --gallery-extra-height: calc(var(--gallery-subbar-margin) + var(--gallery-subbar-height)); /* 34px + 22px = 56px */
+  --row-std-base-height: clamp(230px, calc((100vw - 50px - 132.53px) / 3.1985), 450px);
+  --row-std-base-height: clamp(230px, calc((100cqi - 132.53px) / 3.1985), 540px);
+  --row-std-full-height: calc(var(--row-std-base-height) + var(--gallery-extra-height));
 }
 
 .f3-gallery-project-block {
@@ -682,12 +688,8 @@ a .f3-mono-shuffle-letter,
   gap: 25px; /* 25px margin separation between images */
   box-sizing: border-box;
   position: relative;
-  --gallery-subbar-margin: 34px; /* Reduced by 30px (64px - 30px) */
-  --gallery-subbar-height: 22px;
-  --gallery-extra-height: calc(var(--gallery-subbar-margin) + var(--gallery-subbar-height)); /* 34px + 22px = 56px */
-  --row-base-height: clamp(230px, calc((100vw - 50px - 132.53px) / 3.1985), 450px);
-  --row-base-height: clamp(230px, calc((100cqi - 132.53px) / 3.1985), 540px);
-  --row-full-height: calc(var(--row-base-height) + var(--gallery-extra-height));
+  --row-base-height: var(--row-std-base-height);
+  --row-full-height: var(--row-std-full-height);
 }
 
 /* Row 1: U.S. Ski & Snowboard (USSS) - Aligned towards right */
@@ -699,20 +701,34 @@ a .f3-mono-shuffle-letter,
   display: none;
 }
 
-/* Items with subbar: USSS 1, Memphis 1, NK Hoops 1 — identical size, ratio, height, width */
+/* Items with subbar: USSS 1, Memphis 1, NK Hoops 1, Uniros 3 — identical size, ratio, height, width */
 .f3-gallery-card-usss-1 .f3-gallery-item,
 .f3-gallery-card-memphis-1 .f3-gallery-item,
-.f3-gallery-card-nk-1 .f3-gallery-item {
+.f3-gallery-card-nk-1 .f3-gallery-item,
+.f3-gallery-card-uniros-3 .f3-gallery-item {
   height: var(--row-base-height);
   aspect-ratio: 1800 / 1408;
 }
 
-/* Portrait items without subbar: USSS 2, Memphis 2, NK Hoops 2 — identical size, ratio, height, width */
+/* Portrait items without subbar: USSS 2, Memphis 2, NK Hoops 2, Uniros 2 — identical size, ratio, height, width */
 .f3-gallery-card-usss-2 .f3-gallery-item,
 .f3-gallery-card-memphis-2 .f3-gallery-item,
-.f3-gallery-card-nk-2 .f3-gallery-item {
+.f3-gallery-card-nk-2 .f3-gallery-item,
+.f3-gallery-card-uniros-2 .f3-gallery-item {
   height: var(--row-full-height);
   aspect-ratio: 748 / 890;
+}
+
+/* Flexible item filling remaining space to left edge: Uniros 1 */
+.f3-gallery-card-wrap.f3-gallery-card-uniros-1 {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+}
+
+.f3-gallery-card-wrap.f3-gallery-card-uniros-1 .f3-gallery-item {
+  width: 100%;
+  height: var(--row-full-height);
 }
 
 /* Wide item without subbar: Memphis 3 */
@@ -729,6 +745,11 @@ a .f3-mono-shuffle-letter,
 /* Row 3: NK Hoops - Aligned towards left with 25px margin to site's left side */
 .f3-gallery-row-3 {
   justify-content: flex-start;
+}
+
+/* Row 4: Uniros - Aligned towards right */
+.f3-gallery-row-4 {
+  justify-content: flex-end;
 }
 
 .f3-gallery-offset-spacer-right {

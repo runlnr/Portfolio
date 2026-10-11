@@ -56,7 +56,10 @@ const endpoints = [
   '/assets/new%20thumbnails/Memphis%202.webp',
   '/assets/new%20thumbnails/Memphis%203.webp',
   '/assets/new%20thumbnails/NK%20Hoops%201.webp',
-  '/assets/new%20thumbnails/NK%20Hoops%202.webp'
+  '/assets/new%20thumbnails/NK%20Hoops%202.webp',
+  '/assets/new%20thumbnails/Uniros%201.webp',
+  '/assets/new%20thumbnails/Uniros%202.webp',
+  '/assets/new%20thumbnails/Uniros%203.webp'
 ];
 
 async function checkEndpoint(port, path) {
