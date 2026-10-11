@@ -408,7 +408,7 @@ function initDesktopApp() {
       }
       return;
     }
-    const offset = 0;
+    const offset = -100;
     const lenis = (window.motionStack && window.motionStack.lenis) || window.lenis;
     if (lenis) {
       if (typeof lenis.start === 'function') {
@@ -420,7 +420,7 @@ function initDesktopApp() {
       lenis.scrollTo(portfolio, { offset: offset, immediate: !smooth, duration: smooth ? 1.0 : 0 });
     } else {
       const top = portfolio.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0) + offset;
-      window.scrollTo({ top: top, behavior: smooth ? 'smooth' : 'auto' });
+      window.scrollTo({ top: Math.max(0, top), behavior: smooth ? 'smooth' : 'auto' });
     }
   }
   window.scrollToPortfolioSection = scrollToPortfolioSection;
@@ -930,34 +930,38 @@ function initDesktopApp() {
     const curNavPath = window.location.pathname;
     const isHomePage = curNavPath === '/' || curNavPath.endsWith('/') || curNavPath.endsWith('/index.html') || curNavPath.endsWith('index.html');
 
-    // Check external vs internal domain and ignore same-page clicks
-    try {
-      const targetUrl = new URL(href, window.location.href);
-      if (targetUrl.origin !== window.location.origin) return;
+    // Direct click on Projects / Works link (e.g. #nav-works-link in dropdown)
+    const isProjectsClick = link.id === 'nav-works-link' ||
+      link.dataset.scrollTarget === 'works' ||
+      link.dataset.scrollTarget === 'portfolio' ||
+      href === '#f3-portfolio' ||
+      href === '/#f3-portfolio' ||
+      href === '#works' ||
+      href === '/#works' ||
+      href === '#projects' ||
+      href === '/#projects';
 
-      const curClean = curNavPath.replace(/\.html$/, '').replace(/\/$/, '') || '/';
-      const targetClean = targetUrl.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
-      if (curClean === targetClean && !targetUrl.hash) {
-        e.preventDefault();
-        if (typeof closeNavDropdown === 'function') {
-          closeNavDropdown();
-        }
-        return;
-      }
-    } catch (err) {
-      // Relative path is internal
-    }
-
-    // Direct click on Archive link while already on Archive page
-    const isArchiveClick = link.id === 'nav-archive-link' ||
-      href === 'archive.html' || href === '/archive.html' || href === '/archive';
-    const isArchivePage = curNavPath.includes('archive') || document.body.classList.contains('archive-page-body');
-    if (isArchiveClick && isArchivePage) {
-      e.preventDefault();
+    if (isProjectsClick) {
       if (typeof closeNavDropdown === 'function') {
         closeNavDropdown();
       }
-      return;
+
+      if (isHomePage) {
+        e.preventDefault();
+        // Clean URL if any hash exists - keep URL clean without #f3-portfolio
+        if (window.location.hash && window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname);
+        }
+        scrollToPortfolioSection(true);
+        return;
+      } else {
+        // When on a subpage (e.g. project.html, about.html, privacy.html),
+        // smoothly transition to home root and trigger scroll on arrival
+        e.preventDefault();
+        sessionStorage.setItem('np_scroll_to_works', 'true');
+        navigateTo('/');
+        return;
+      }
     }
 
     // Direct click on N/P brand logo / Home link
@@ -995,38 +999,34 @@ function initDesktopApp() {
       }
     }
 
-    // Direct click on Projects / Works link (e.g. #nav-works-link in dropdown)
-    const isProjectsClick = link.id === 'nav-works-link' ||
-      link.dataset.scrollTarget === 'works' ||
-      link.dataset.scrollTarget === 'portfolio' ||
-      href === '#f3-portfolio' ||
-      href === '/#f3-portfolio' ||
-      href === '#works' ||
-      href === '/#works' ||
-      href === '#projects' ||
-      href === '/#projects';
-
-    if (isProjectsClick) {
+    // Direct click on Archive link while already on Archive page
+    const isArchiveClick = link.id === 'nav-archive-link' ||
+      href === 'archive.html' || href === '/archive.html' || href === '/archive';
+    const isArchivePage = curNavPath.includes('archive') || document.body.classList.contains('archive-page-body');
+    if (isArchiveClick && isArchivePage) {
+      e.preventDefault();
       if (typeof closeNavDropdown === 'function') {
         closeNavDropdown();
       }
+      return;
+    }
 
-      if (isHomePage) {
+    // Check external vs internal domain and ignore same-page clicks
+    try {
+      const targetUrl = new URL(href, window.location.href);
+      if (targetUrl.origin !== window.location.origin) return;
+
+      const curClean = curNavPath.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+      const targetClean = targetUrl.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+      if (curClean === targetClean && !targetUrl.hash) {
         e.preventDefault();
-        // Clean URL if any hash exists - keep URL clean without #f3-portfolio
-        if (window.location.hash && window.history.replaceState) {
-          window.history.replaceState(null, '', window.location.pathname);
+        if (typeof closeNavDropdown === 'function') {
+          closeNavDropdown();
         }
-        scrollToPortfolioSection(true);
-        return;
-      } else {
-        // When on a subpage (e.g. project.html, about.html, privacy.html),
-        // smoothly transition to home root and trigger scroll on arrival
-        e.preventDefault();
-        sessionStorage.setItem('np_scroll_to_works', 'true');
-        navigateTo('/');
         return;
       }
+    } catch (err) {
+      // Relative path is internal
     }
 
     // In-page hash anchor clicks on the home page (e.g. #f3-portfolio, #f3-intro, #f3-footer)
@@ -1041,7 +1041,7 @@ function initDesktopApp() {
         if (typeof closeNavDropdown === 'function') {
           closeNavDropdown();
         }
-        const offset = (hash === '#f3-portfolio' || hash === '#works' || hash === '#projects') ? 0 : -20;
+        const offset = (hash === '#f3-portfolio' || hash === '#works' || hash === '#projects') ? -100 : -20;
         if (window.motionStack && window.motionStack.lenis) {
           window.motionStack.lenis.scrollTo(targetElem, { offset: offset, duration: 1.0 });
         } else if (window.lenis) {
