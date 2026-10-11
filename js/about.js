@@ -36,10 +36,24 @@
         return;
       }
 
+      // Collect words with their styling state from child nodes
+      const wordObjects = [];
+      function collectWords(node, isMuted) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const words = node.textContent.split(/\s+/).filter(Boolean);
+          words.forEach((w) => wordObjects.push({ text: w, muted: isMuted }));
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          const muted = isMuted || node.classList.contains('text-muted') || node.classList.contains('is-muted');
+          Array.from(node.childNodes).forEach((child) => collectWords(child, muted));
+        }
+      }
+      Array.from(p.childNodes).forEach((child) => collectWords(child, false));
+
+      if (!wordObjects.length) return;
+
       // Temporarily wrap words in inline spans to measure natural offsetTop line wrapping
-      const words = originalText.split(' ');
-      p.innerHTML = words
-        .map((w) => `<span class="f3-temp-word" style="display:inline-block; margin-right:0.25em;">${w}</span>`)
+      p.innerHTML = wordObjects
+        .map((w, idx) => `<span class="f3-temp-word" data-idx="${idx}" style="display:inline-block; margin-right:0.25em;">${w.text}</span>`)
         .join('');
 
       const wordSpans = Array.from(p.querySelectorAll('.f3-temp-word'));
@@ -49,18 +63,20 @@
 
       wordSpans.forEach((span) => {
         const top = span.offsetTop;
+        const idx = parseInt(span.getAttribute('data-idx'), 10);
+        const wordObj = wordObjects[idx];
         if (currentTop === null || Math.abs(top - currentTop) > 6) {
-          if (currentLine.length) lines.push(currentLine.join(' '));
-          currentLine = [span.textContent];
+          if (currentLine.length) lines.push(currentLine);
+          currentLine = [wordObj];
           currentTop = top;
         } else {
-          currentLine.push(span.textContent);
+          currentLine.push(wordObj);
         }
       });
-      if (currentLine.length) lines.push(currentLine.join(' '));
+      if (currentLine.length) lines.push(currentLine);
 
       p.innerHTML = '';
-      lines.forEach((lineText) => {
+      lines.forEach((lineWords) => {
         const mask = document.createElement('span');
         mask.className = 'f3-line-mask';
         mask.setAttribute('aria-hidden', 'true');
@@ -68,7 +84,31 @@
         const inner = document.createElement('span');
         inner.className = 'f3-line-inner';
         inner.style.setProperty('--line-idx', globalLineIndex);
-        inner.textContent = lineText;
+
+        let lineHtml = '';
+        let currentChunk = [];
+        let currentChunkMuted = null;
+
+        lineWords.forEach((w) => {
+          if (currentChunkMuted === null) {
+            currentChunk = [w.text];
+            currentChunkMuted = w.muted;
+          } else if (currentChunkMuted === w.muted) {
+            currentChunk.push(w.text);
+          } else {
+            const chunkStr = currentChunk.join(' ');
+            lineHtml += (lineHtml ? ' ' : '') + (currentChunkMuted ? `<span class="text-muted">${chunkStr}</span>` : chunkStr);
+            currentChunk = [w.text];
+            currentChunkMuted = w.muted;
+          }
+        });
+
+        if (currentChunk.length) {
+          const chunkStr = currentChunk.join(' ');
+          lineHtml += (lineHtml ? ' ' : '') + (currentChunkMuted ? `<span class="text-muted">${chunkStr}</span>` : chunkStr);
+        }
+
+        inner.innerHTML = lineHtml;
 
         mask.appendChild(inner);
         p.appendChild(mask);

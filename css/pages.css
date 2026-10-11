@@ -1700,6 +1700,11 @@ html.is-navigating-in .project-action-row {
   margin: 0;
 }
 
+.about-paragraphs .text-muted,
+.about-paragraphs .is-muted {
+  color: rgba(255, 255, 255, 0.35);
+}
+
 /* 3. Pillars Stack */
 .about-pillars-stack {
   display: flex;
