@@ -3,8 +3,8 @@
  * Renders 5 pictures across 4 invisible columns and 3 rows.
  * Default State:
  *   Row 1: Col 2 (Messi), Col 3 (Museum 1 (RT))
- *   Row 2: Col 1 (Milk), Col 4 (POST)
- *   Row 3: Col 2 (PTNK)
+ *   Row 2: Col 1 (Milk), Col 4 (PTNK)
+ *   Row 3: Col 2 (EU Palette)
  * If reloaded or navigated to while archive was already active in the session,
  * dynamically shuffles pictures with grid constraints (2-2-1, max 2 per column).
  */
@@ -33,7 +33,7 @@
     return matrix.map(row => row.map(cell => cell ? (cell.id || cell.image) : '_').join(',')).join(';');
   }
 
-  const DEFAULT_SIGNATURE = '_,messi,museum,_;milk,_,_,post;_,ptnk,_,_';
+  const DEFAULT_SIGNATURE = '_,messi,museum,_;milk,_,_,ptnk;_,eu-palette,_,_';
   let currentSignature = DEFAULT_SIGNATURE;
 
   function buildDefaultGrid(items) {
@@ -44,19 +44,19 @@
     const messi = findItem(items, 'messi');
     const museum = findItem(items, 'museum');
     const milk = findItem(items, 'milk');
-    const post = findItem(items, 'post');
+    const palette = findItem(items, 'eu-palette') || findItem(items, 'palette') || findItem(items, 'post');
     const ptnk = findItem(items, 'ptnk');
 
     // Row 1: col2: Messi, col3: Museum 1 (RT)
     matrix[0][1] = messi;
     matrix[0][2] = museum;
 
-    // Row 2: col1: milk, col4: POST
+    // Row 2: col1: milk, col4: PTNK
     matrix[1][0] = milk;
-    matrix[1][3] = post;
+    matrix[1][3] = ptnk;
 
-    // Row 3: col2: PTNK
-    matrix[2][1] = ptnk;
+    // Row 3: col2: EU Palette
+    matrix[2][1] = palette;
 
     return matrix;
   }

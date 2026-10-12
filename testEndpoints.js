@@ -47,6 +47,7 @@ const endpoints = [
   '/assets/logo/favicon.svg',
   '/assets/archives/Messi.webp',
   '/assets/archives/Museum%201%20(RT).webp',
+  '/assets/archives/EU%20palette.webp',
   '/assets/archives/POST.webp',
   '/assets/archives/milk.webp',
   '/assets/archives/PTNK.webp',

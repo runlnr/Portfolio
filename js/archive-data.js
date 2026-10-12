@@ -17,9 +17,9 @@ const SWAG_ARCHIVE = [
     height: 2025
   },
   {
-    id: 'post',
-    image: 'assets/archives/POST.webp',
-    alt: 'POST Graphic Specimen',
+    id: 'ptnk',
+    image: 'assets/archives/PTNK.webp',
+    alt: 'PTNK Heritage Specimen',
     width: 1620,
     height: 2025
   },
@@ -31,9 +31,9 @@ const SWAG_ARCHIVE = [
     height: 2531
   },
   {
-    id: 'ptnk',
-    image: 'assets/archives/PTNK.webp',
-    alt: 'PTNK Heritage Specimen',
+    id: 'eu-palette',
+    image: 'assets/archives/EU palette.webp',
+    alt: 'EU Palette Specimen',
     width: 1620,
     height: 2025
   }
