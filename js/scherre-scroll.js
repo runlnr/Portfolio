@@ -266,7 +266,7 @@ window.F3_SCROLL_CONFIG = Object.assign({
     const listViewContainer = document.getElementById('f3-works-list');
     const expandWrap = document.querySelector('.f3-works-expand-wrap');
 
-    if (viewGridBtn && viewListBtn && gridViewContainer && listViewContainer) {
+    if (viewGridBtn && viewListBtn && listViewContainer) {
       function setView(mode) {
         if (mode === 'list') {
           viewListBtn.classList.add('is-active');
@@ -274,7 +274,7 @@ window.F3_SCROLL_CONFIG = Object.assign({
           viewGridBtn.classList.remove('is-active');
           viewGridBtn.setAttribute('aria-checked', 'false');
 
-          gridViewContainer.style.display = 'none';
+          if (gridViewContainer) gridViewContainer.style.display = 'none';
           if (expandWrap) expandWrap.style.display = 'none';
           if (viewCursorTag) viewCursorTag.classList.remove('is-visible');
           listViewContainer.style.display = 'flex';
